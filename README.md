@@ -9,6 +9,10 @@ Unified platform for helping Indian students explore careers, track admissions, 
 - Modular front-end experiences (landing page, aptitude quiz, resources, timeline, profile) delivered as standalone HTML prototypes and templated views.
 - SQLite-backed persistence (`ai_chat.db`) for users, conversations, preferences, and career recommendations.
 
+## Demo Video
+[![Carrier Compass walkthrough](https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg)]([https://youtu.be/VIDEO_ID](https://youtu.be/LDESbfSoMPw))
+
+> Replace `VIDEO_ID` with the identifier of your published video (YouTube, Loom, etc.), or swap the thumbnail URL for a custom screenshot stored in the repository.
 ## Repository Layout
 ```
 .
