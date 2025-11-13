@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6f0b98f99fdc03de0bb5567e040ddabf {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div style="position: fixed; 
+                        bottom: 50px; left: 50px; width: 150px; height: 90px; 
+                        background-color: white; border:2px solid grey; z-index:9999; 
+                        font-size:14px; padding: 10px">
+            <p><b>Legend</b></p>
+            <p><i class="fa fa-user" style="color:blue"></i> Your Location</p>
+            <p><i class="fa fa-university" style="color:green"></i> University</p>
+            <p><i class="fa fa-graduation-cap" style="color:red"></i> College</p>
+            </div>
+            
+    
+            <div class="folium-map" id="map_6f0b98f99fdc03de0bb5567e040ddabf" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6f0b98f99fdc03de0bb5567e040ddabf = L.map(
+                "map_6f0b98f99fdc03de0bb5567e040ddabf",
+                {
+                    center: [23.1815, 79.9864],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_70fd7f579efa91b5e859eeb4c6c65bd2 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_70fd7f579efa91b5e859eeb4c6c65bd2.addTo(map_6f0b98f99fdc03de0bb5567e040ddabf);
+        
+    
+            var marker_6c03c0afe923c740979b432c38fc5e55 = L.marker(
+                [23.1815, 79.9864],
+                {
+}
+            ).addTo(map_6f0b98f99fdc03de0bb5567e040ddabf);
+        
+    
+            var icon_bf36d54b3551520437b54702afdcf73e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "user",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a7a322ef85a3cee205d255e7f8c254a2 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_d15d4367bbcd109cb1954eb2fad9105a = $(`<div id="html_d15d4367bbcd109cb1954eb2fad9105a" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px;">                 <h4>📍 Your Location</h4>                 <p><strong>Location:</strong> Vijay Nagar, Jabalpur, Madhya Pradesh, India</p>                 <p><strong>Coordinates:</strong> 23.181500, 79.986400</p>                 <p><strong>Nearby Colleges:</strong> 8 found</p>             </div>             </div>`)[0];
+                popup_a7a322ef85a3cee205d255e7f8c254a2.setContent(html_d15d4367bbcd109cb1954eb2fad9105a);
+            
+        
+
+        marker_6c03c0afe923c740979b432c38fc5e55.bindPopup(popup_a7a322ef85a3cee205d255e7f8c254a2)
+        ;
+
+        
+    
+    
+            marker_6c03c0afe923c740979b432c38fc5e55.bindTooltip(
+                `<div>
+                     📍 Your Location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6c03c0afe923c740979b432c38fc5e55.setIcon(icon_bf36d54b3551520437b54702afdcf73e);
+            
+    
+            var circle_d8d5a163fa0fc8da8a7c8ae38185afea = L.circle(
+                [23.1815, 79.9864],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10000, "stroke": true, "weight": 2}
+            ).addTo(map_6f0b98f99fdc03de0bb5567e040ddabf);
+        
+    
+        var popup_a1207b13d7caab3565611e32310fa7ea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_28d9b92676b832daa475a5589c008bb2 = $(`<div id="html_28d9b92676b832daa475a5589c008bb2" style="width: 100.0%; height: 100.0%;">10.0km Search Radius</div>`)[0];
+                popup_a1207b13d7caab3565611e32310fa7ea.setContent(html_28d9b92676b832daa475a5589c008bb2);
+            
+        
+
+        circle_d8d5a163fa0fc8da8a7c8ae38185afea.bindPopup(popup_a1207b13d7caab3565611e32310fa7ea)
+        ;
+
+        
+    
+    
+            var marker_5952f17b783c6caab781761375fc780a = L.marker(
+                [23.1629055, 79.9668853],
+                {
+}
+            ).addTo(map_6f0b98f99fdc03de0bb5567e040ddabf);
+        
+    
+            var icon_086205a6f65977da3e965725b4e9c330 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_54ec638047fc16ca8005e323145ebcea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5093d18a9281e9b021d4e89888aad233 = $(`<div id="html_5093d18a9281e9b021d4e89888aad233" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Mahakoushal Government College, Jabalpur</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_54ec638047fc16ca8005e323145ebcea.setContent(html_5093d18a9281e9b021d4e89888aad233);
+            
+        
+
+        marker_5952f17b783c6caab781761375fc780a.bindPopup(popup_54ec638047fc16ca8005e323145ebcea)
+        ;
+
+        
+    
+    
+            marker_5952f17b783c6caab781761375fc780a.bindTooltip(
+                `<div>
+                     1. Mahakoushal Government College, Jabalpur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5952f17b783c6caab781761375fc780a.setIcon(icon_086205a6f65977da3e965725b4e9c330);
+            
+    
+            var marker_32b0eee3f304fb4c8862928c34c1e9e9 = L.marker(
+                [23.1639416, 79.9693849],
+                {
+}
+            ).addTo(map_6f0b98f99fdc03de0bb5567e040ddabf);
+        
+    
+            var icon_35acbd7174d995f9f3979cc26c456b84 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_963ebff7d505f07e7618662a7062897d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7d6b0d13eb12b947aa60b0641feb4453 = $(`<div id="html_7d6b0d13eb12b947aa60b0641feb4453" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Model Sciecne College, Jabalpur</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_963ebff7d505f07e7618662a7062897d.setContent(html_7d6b0d13eb12b947aa60b0641feb4453);
+            
+        
+
+        marker_32b0eee3f304fb4c8862928c34c1e9e9.bindPopup(popup_963ebff7d505f07e7618662a7062897d)
+        ;
+
+        
+    
+    
+            marker_32b0eee3f304fb4c8862928c34c1e9e9.bindTooltip(
+                `<div>
+                     2. Government Model Sciecne College, Jabalpur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_32b0eee3f304fb4c8862928c34c1e9e9.setIcon(icon_35acbd7174d995f9f3979cc26c456b84);
+            
+    
+            var marker_2c5d404325487e810eafb76de1f065f4 = L.marker(
+                [23.1674261, 79.9254969],
+                {
+}
+            ).addTo(map_6f0b98f99fdc03de0bb5567e040ddabf);
+        
+    
+            var icon_35d99a63c4aae467649bf677bd211252 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_998908344953fcffe02ade4940773911 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_924a7600cef1996f69d72894e0799f82 = $(`<div id="html_924a7600cef1996f69d72894e0799f82" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Chanchala Bai College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_998908344953fcffe02ade4940773911.setContent(html_924a7600cef1996f69d72894e0799f82);
+            
+        
+
+        marker_2c5d404325487e810eafb76de1f065f4.bindPopup(popup_998908344953fcffe02ade4940773911)
+        ;
+
+        
+    
+    
+            marker_2c5d404325487e810eafb76de1f065f4.bindTooltip(
+                `<div>
+                     3. Chanchala Bai College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2c5d404325487e810eafb76de1f065f4.setIcon(icon_35d99a63c4aae467649bf677bd211252);
+            
+    
+            var marker_3e53685f1f3dc9f3477af84fae64cd73 = L.marker(
+                [23.1686332, 79.9446036],
+                {
+}
+            ).addTo(map_6f0b98f99fdc03de0bb5567e040ddabf);
+        
+    
+            var icon_9276809166ca29b81892817527779c04 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fe07c5bcb9e7356805da4a55485ea402 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c9099d8bebf6ebf3aa87f530c22e14e2 = $(`<div id="html_c9099d8bebf6ebf3aa87f530c22e14e2" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government College of Educational Psychology and Guidance</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_fe07c5bcb9e7356805da4a55485ea402.setContent(html_c9099d8bebf6ebf3aa87f530c22e14e2);
+            
+        
+
+        marker_3e53685f1f3dc9f3477af84fae64cd73.bindPopup(popup_fe07c5bcb9e7356805da4a55485ea402)
+        ;
+
+        
+    
+    
+            marker_3e53685f1f3dc9f3477af84fae64cd73.bindTooltip(
+                `<div>
+                     4. Government College of Educational Psychology and Guidance
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3e53685f1f3dc9f3477af84fae64cd73.setIcon(icon_9276809166ca29b81892817527779c04);
+            
+    
+            var marker_c4000a33f8a81c1027374123b547a5ca = L.marker(
+                [23.175427, 80.0258463],
+                {
+}
+            ).addTo(map_6f0b98f99fdc03de0bb5567e040ddabf);
+        
+    
+            var icon_86d10ae5ed6db05a472c0cce678a48f9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2182a8149146e8ce05f5953b0c0af48f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f82c6da2de60d316972cdfb66444008d = $(`<div id="html_f82c6da2de60d316972cdfb66444008d" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Indian Institute of Information Technology Design and Manufacturing Jabalpur</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 <p><strong>Website:</strong> <a href='https://iiitdmj.ac.in/' target='_blank'>Visit Website</a></p></div></div>`)[0];
+                popup_2182a8149146e8ce05f5953b0c0af48f.setContent(html_f82c6da2de60d316972cdfb66444008d);
+            
+        
+
+        marker_c4000a33f8a81c1027374123b547a5ca.bindPopup(popup_2182a8149146e8ce05f5953b0c0af48f)
+        ;
+
+        
+    
+    
+            marker_c4000a33f8a81c1027374123b547a5ca.bindTooltip(
+                `<div>
+                     5. Indian Institute of Information Technology Design and Manufacturing Jabalpur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c4000a33f8a81c1027374123b547a5ca.setIcon(icon_86d10ae5ed6db05a472c0cce678a48f9);
+            
+    
+            var marker_e1050770808c3564532a1b0774bced59 = L.marker(
+                [23.1815, 79.9864],
+                {
+}
+            ).addTo(map_6f0b98f99fdc03de0bb5567e040ddabf);
+        
+    
+            var icon_9b8acbc773e1a710b01128712a7edaed = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5d6a7267748d73a197a134182701c70b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8500af5f6af81388657d7d0a4cc289b2 = $(`<div id="html_8500af5f6af81388657d7d0a4cc289b2" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Jabalpur Engineering College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Gokalpur, Jabalpur, Madhya Pradesh 482011, India</p><p><strong>Website:</strong> <a href='https://www.jecjabalpur.ac.in/' target='_blank'>Visit Website</a></p></div></div>`)[0];
+                popup_5d6a7267748d73a197a134182701c70b.setContent(html_8500af5f6af81388657d7d0a4cc289b2);
+            
+        
+
+        marker_e1050770808c3564532a1b0774bced59.bindPopup(popup_5d6a7267748d73a197a134182701c70b)
+        ;
+
+        
+    
+    
+            marker_e1050770808c3564532a1b0774bced59.bindTooltip(
+                `<div>
+                     6. Jabalpur Engineering College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e1050770808c3564532a1b0774bced59.setIcon(icon_9b8acbc773e1a710b01128712a7edaed);
+            
+    
+            var marker_c16b4468c885b8083cc408f31dd36ac7 = L.marker(
+                [23.151, 79.8815],
+                {
+}
+            ).addTo(map_6f0b98f99fdc03de0bb5567e040ddabf);
+        
+    
+            var icon_d4f2d1854dc9aeee5f61835da9bfbd7e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_941b762dc218cce85c695bab8bb67fb5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8de09426447c79abe9f0488dfb58c067 = $(`<div id="html_8de09426447c79abe9f0488dfb58c067" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>NSCB Medical College (Netaji Subhash Chandra Bose Medical College)</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Jabalpur, Madhya Pradesh, India</p><p><strong>Website:</strong> <a href='https://nscbmc.ac.in/' target='_blank'>Visit Website</a></p></div></div>`)[0];
+                popup_941b762dc218cce85c695bab8bb67fb5.setContent(html_8de09426447c79abe9f0488dfb58c067);
+            
+        
+
+        marker_c16b4468c885b8083cc408f31dd36ac7.bindPopup(popup_941b762dc218cce85c695bab8bb67fb5)
+        ;
+
+        
+    
+    
+            marker_c16b4468c885b8083cc408f31dd36ac7.bindTooltip(
+                `<div>
+                     7. NSCB Medical College (Netaji Subhash Chandra Bose Medical College)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c16b4468c885b8083cc408f31dd36ac7.setIcon(icon_d4f2d1854dc9aeee5f61835da9bfbd7e);
+            
+    
+            var marker_81d412764dd06e152f3551a438c430ff = L.marker(
+                [23.1685, 79.9338],
+                {
+}
+            ).addTo(map_6f0b98f99fdc03de0bb5567e040ddabf);
+        
+    
+            var icon_a5abdaf463f15cbcc59410e60dbd8c10 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_08d8f8acffa632ce0a17778b151b29d4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_380de1f81623fa0092331a05fc87795c = $(`<div id="html_380de1f81623fa0092331a05fc87795c" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Mahakaushal Government Autonomous College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Jabalpur, Madhya Pradesh, India</p></div></div>`)[0];
+                popup_08d8f8acffa632ce0a17778b151b29d4.setContent(html_380de1f81623fa0092331a05fc87795c);
+            
+        
+
+        marker_81d412764dd06e152f3551a438c430ff.bindPopup(popup_08d8f8acffa632ce0a17778b151b29d4)
+        ;
+
+        
+    
+    
+            marker_81d412764dd06e152f3551a438c430ff.bindTooltip(
+                `<div>
+                     8. Mahakaushal Government Autonomous College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_81d412764dd06e152f3551a438c430ff.setIcon(icon_a5abdaf463f15cbcc59410e60dbd8c10);
+            
+</script>
+</html>

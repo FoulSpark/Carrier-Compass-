@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    /> -->
+     <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+      function toggleTheme() {
+        const isDark = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      }
+    </script>
+    <style type="text/tailwindcss">
+      :root {
+        --card: #1f2937;
+        --border: #374151;
+        --primary-color: #4299f0;
+        --primary-50: #eff6ff;
+        --primary-100: #dbeafe;
+        --primary-200: #bfdbfe;
+        --primary-300: #93c5fd;
+        --primary-400: #60a5fa;
+        --primary-500: #3b82f6;
+        --primary-600: #2563eb;
+        --primary-700: #1d4ed8;
+        --primary-800: #1e40af;
+        --primary-900: #1e3a8a;
+      }
+
+      /* Animation for the main content box to fade in */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      /* Transition for option labels on hover */
+      .option-label-transition {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      }
+      .option-label-transition:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .scale-option.selected {
+        border-color: var(--primary-500);
+        background-color: var(--primary-500);
+        color: white;
+      }
+      
+      .domain-score-bar {
+        transition: width 0.5s ease;
+      }
+      
+      .career-path-node {
+        fill: var(--primary-500);
+        stroke: var(--primary-700);
+        stroke-width: 2;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      .career-path-node:hover {
+        fill: var(--primary-600);
+        transform: scale(1.1);
+      }
+      
+      .career-path-link {
+        stroke: #6b7280;
+        stroke-width: 2;
+        fill: none;
+        marker-end: url(#arrowhead);
+      }
+    </style>
+  </head>
+  <body class="bg-primary-50 dark:bg-gray-900">
+    <div
+      class="relative flex size-full min-h-screen flex-col group/design-root"
+      style="font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--border)] px-4 sm:px-10 py-3 bg-[var(--card)]"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="p-2 bg-[var(--primary-color)] rounded-full text-white transform hover:rotate-90 transition-transform duration-300"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 12L12 20M12 12L12 4M12 12L20 12M12 12L4 12M12 12L18.364 18.364M12 12L5.63604 5.63604M12 12L18.364 5.63604M12 12L5.63604 18.364"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold text-white tracking-tight">EduPath</h2>
+          </div>
+          <div class="flex flex-1 justify-between gap-4">
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-400 px-6">
+              <a class="hover:text-[var(--primary-color)] transition-colors" href="../landing_page_(homepage)_2/home.html">Home</a>
+              <a class="text-[#4299f0] transition-colors" href="test.html">Career Quiz</a>
+              <a class="hover:text-[var(--primary-color)] transition-colors" href="http://localhost:5002">Colleges</a>
+              <a class="hover:text-[var(--primary-color)] transition-colors" href="../course-to-career_path_mapping_2/carrier.html">Career Paths</a>
+              <a class="hover:text-[var(--primary-color)] transition-colors" href="../study_material_&_resources_2/study_material.html">Resources</a>
+              <a class="hover:text-[var(--primary-color)] transition-colors" href="http://localhost:5000/analytics">Analytics</a>
+              <a class="hover:text-[var(--primary-color)] transition-colors" href="../user_profile_&_personalization_2/profile.html">Profile</a>
+            </nav>
+          </div>
+          <div class="flex items-center gap-4">
+            <button
+              class="relative flex items-center justify-center size-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors"
+            >
+              <span class="material-symbols-outlined text-2xl">
+                notifications
+              </span>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style="
+                background-image: url('https://ui-avatars.com/api/?name=User&background=667eea&color=fff&size=80');
+              "
+            ></div>
+          </div>
+        </header>
+        <main class="flex flex-1 justify-center py-16 px-6 sm:px-10">
+          <div class="flex w-full max-w-2xl flex-col items-center">
+            <div
+              id="quiz-container"
+              class="flex w-full flex-col gap-4 rounded-xl border border-primary-100 dark:border-slate-800 bg-white dark:bg-slate-800/50 p-6 shadow-sm"
+            >
+              <div class="flex w-full flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <p class="text-sm text-white font-medium">
+                    Progress
+                  </p>
+                  <p
+                    id="progressText"
+                    class="text-sm font-semibold text-white"
+                  >
+                    0%
+                  </p>
+                </div>
+                <div
+                  class="h-2 w-full rounded-full bg-blue-200"
+                >
+                  <div
+                    id="progressBar"
+                    class="h-2 rounded-full bg-blue-600 transition-all duration-300"
+                    style="width: 0%"
+                  ></div>
+                </div>
+              </div>
+              <div class="flex flex-col items-center gap-8 pt-6">
+                <h2
+                  id="question"
+                  class="text-center text-2xl font-bold tracking-tight text-slate-800 dark:text-white"
+                >
+                  Loading question...
+                </h2>
+                <!-- Likert Scale Rating System -->
+                <div id="options"></div>
+                <div id="likert-container" class="w-full">
+                  <div class="mb-4">
+                    <span class="inline-block px-3 py-1 text-xs bg-primary-100 text-primary-800 rounded-full mb-3" id="domain-tag">Domain</span>
+                  </div>
+                  <div class="grid grid-cols-5 gap-2 w-full" id="likert-scale">
+                    <div class="scale-option text-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer transition-all hover:border-primary-500 hover:bg-primary-50" data-value="1">
+                      <div class="font-semibold text-white">1</div>
+                      <div class="text-xs mt-1 text-white">Strongly Disagree</div>
+                    </div>
+                    <div class="scale-option text-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer transition-all hover:border-primary-500 hover:bg-primary-50" data-value="2">
+                      <div class="font-semibold text-white">2</div>
+                      <div class="text-xs mt-1 text-white">Disagree</div>
+                    </div>
+                    <div class="scale-option text-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer transition-all hover:border-primary-500 hover:bg-primary-50" data-value="3">
+                      <div class="font-semibold text-white">3</div>
+                      <div class="text-xs mt-1 text-white">Neutral</div>
+                    </div>
+                    <div class="scale-option text-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer transition-all hover:border-primary-500 hover:bg-primary-50" data-value="4">
+                      <div class="font-semibold text-white">4</div>
+                      <div class="text-xs mt-1 text-white">Agree</div>
+                    </div>
+                    <div class="scale-option text-center p-3 border-2 border-gray-200 rounded-lg cursor-pointer transition-all hover:border-primary-500 hover:bg-primary-50" data-value="5">
+                      <div class="font-semibold text-white">5</div>
+                      <div class="text-xs mt-1 text-white">Strongly Agree</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Results Section (Hidden Initially) -->
+                <div id="results-section" class="hidden w-full">
+                  <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-slate-800 dark:text-white mb-4">Your Career Assessment Results</h2>
+                  </div>
+                  
+                  <!-- Domain Scores -->
+                  <div id="domain-scores" class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 text-slate-700 dark:text-slate-300">Your Interest Scores</h3>
+                    <div id="scores-chart" class="space-y-4"></div>
+                  </div>
+
+                  <!-- Career Recommendations -->
+                  <div id="career-recommendations" class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 text-slate-700 dark:text-slate-300">Recommended Career Paths</h3>
+                    <div id="recommendations-list"></div>
+                  </div>
+
+                  <!-- Interactive Flow Diagram -->
+                  <div id="flow-diagram-container" class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 text-slate-700 dark:text-slate-300">Your Career Journey Map</h3>
+                    <div id="flow-diagram" class="bg-slate-50 dark:bg-slate-700 rounded-lg p-4 min-h-96"></div>
+                  </div>
+
+                  <div class="text-center">
+                    <button id="restart-btn" class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                      Take Assessment Again
+                    </button>
+                  </div>
+                </div>
+                <div class="flex w-full items-center justify-center pt-2">
+                  <button
+                    id="nextBtn"
+                    class="flex min-w-[120px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-6 bg-primary-500 text-white text-base font-bold leading-normal tracking-[-0.015em] transition-colors hover:bg-primary-600"
+                  >
+                    <span class="truncate">Next</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script>
+      const TOTAL_QUESTIONS = 20;
+      
+      let currentQuestion = 0;
+      let responses = [];
+      let currentQuestionData = null;
+      let selectedRating = null;
+      let shuffledQuestions = [];
+
+      // Expanded Question Bank with 40 Questions (5 per domain)
+      const QUESTION_BANK = [
+        // Engineering & Technology (5 questions)
+        { question: "I enjoy solving complex technical problems and building innovative solutions", domain: "Engineering" },
+        { question: "Working with computers, software, and digital technologies excites me", domain: "Engineering" },
+        { question: "I like to understand how machines and systems work", domain: "Engineering" },
+        { question: "I am interested in designing and creating new products or structures", domain: "Engineering" },
+        { question: "Programming and coding feel like natural problem-solving activities to me", domain: "Engineering" },
+        
+        // Medical & Healthcare (5 questions)
+        { question: "I feel motivated to help people improve their health and well-being", domain: "Medical" },
+        { question: "I am comfortable working in high-pressure, life-critical situations", domain: "Medical" },
+        { question: "Studying human biology and anatomy fascinates me", domain: "Medical" },
+        { question: "I want to make a direct impact on people's lives through healthcare", domain: "Medical" },
+        { question: "I am interested in medical research and discovering new treatments", domain: "Medical" },
+        
+        // Business & Management (5 questions)
+        { question: "I enjoy leading teams and coordinating group projects", domain: "Business" },
+        { question: "I am interested in understanding market trends and consumer behavior", domain: "Business" },
+        { question: "I like analyzing data to make strategic business decisions", domain: "Business" },
+        { question: "Entrepreneurship and starting my own business appeals to me", domain: "Business" },
+        { question: "I excel at negotiating and finding win-win solutions in conflicts", domain: "Business" },
+        
+        // Arts & Creative (5 questions)
+        { question: "I express myself best through creative and artistic mediums", domain: "Arts" },
+        { question: "I enjoy designing visually appealing content and experiences", domain: "Arts" },
+        { question: "I am passionate about storytelling through various media", domain: "Arts" },
+        { question: "I find inspiration in music, literature, or visual arts", domain: "Arts" },
+        { question: "I prefer working on projects that allow creative freedom and self-expression", domain: "Arts" },
+        
+        // Science & Research (5 questions)
+        { question: "I am curious about understanding natural phenomena and scientific principles", domain: "Science" },
+        { question: "I enjoy conducting experiments and analyzing research data", domain: "Science" },
+        { question: "I want to contribute to advancing human knowledge through research", domain: "Science" },
+        { question: "I am interested in environmental conservation and sustainability", domain: "Science" },
+        { question: "I find satisfaction in testing hypotheses and discovering new facts", domain: "Science" },
+        
+        // Education & Social Service (5 questions)
+        { question: "I enjoy teaching and helping others learn new concepts", domain: "Education" },
+        { question: "I want to work towards solving social problems and helping communities", domain: "Education" },
+        { question: "I am passionate about child development and education", domain: "Education" },
+        { question: "I feel fulfilled when I can make a positive impact on society", domain: "Education" },
+        { question: "I am drawn to counseling and mentoring people through challenges", domain: "Education" },
+        
+        // Law & Government (5 questions)
+        { question: "I am interested in legal systems, justice, and policy-making", domain: "Law" },
+        { question: "I enjoy debating and presenting logical arguments", domain: "Law" },
+        { question: "I want to work in government or public administration", domain: "Law" },
+        { question: "I am passionate about protecting rights and ensuring fairness", domain: "Law" },
+        { question: "I am skilled at analyzing complex legal documents and contracts", domain: "Law" },
+        
+        // Finance & Economics (5 questions)
+        { question: "I enjoy working with numbers, statistics, and financial data", domain: "Finance" },
+        { question: "I am interested in investment strategies and market analysis", domain: "Finance" },
+        { question: "I want to help individuals or organizations manage their finances", domain: "Finance" },
+        { question: "Economic trends and global financial systems fascinate me", domain: "Finance" },
+        { question: "I am good at budgeting and making sound financial decisions", domain: "Finance" }
+      ];
+
+      // Career Path Database
+      const CAREER_PATHS = {
+        "Engineering": {
+          careers: ["Software Engineer", "Mechanical Engineer", "Civil Engineer", "Data Scientist", "AI/ML Engineer", "Robotics Engineer"],
+          competitive_exams: ["JEE Main/Advanced", "GATE", "BITSAT", "VITEEE", "SRMJEEE", "COMEDK UGET"],
+          higher_studies: ["B.Tech/B.E.", "M.Tech", "PhD in Engineering", "MBA (Tech)", "MS abroad"],
+          pathways: [
+            { step: "Class 12 (PCM)", next: "Engineering Entrance Exams" },
+            { step: "JEE/BITSAT Prep", next: "B.Tech Admission" },
+            { step: "B.Tech Degree", next: "Specialization/Job" },
+            { step: "Industry Experience", next: "Senior Roles/Entrepreneurship" },
+            { step: "Leadership/Innovation", next: "CTO/Founder" }
+          ]
+        },
+        "Medical": {
+          careers: ["Doctor (MBBS)", "Surgeon", "Dentist", "Pharmacist", "Physiotherapist", "Medical Researcher"],
+          competitive_exams: ["NEET UG", "NEET PG", "AIIMS", "JIPMER", "NEET MDS", "GPAT"],
+          higher_studies: ["MBBS", "BDS", "BAMS", "BHMS", "B.Pharm", "MD/MS", "DM/MCh"],
+          pathways: [
+            { step: "Class 12 (PCB)", next: "NEET Preparation" },
+            { step: "NEET Qualification", next: "Medical College" },
+            { step: "MBBS/BDS", next: "Internship" },
+            { step: "PG Entrance", next: "Specialization" },
+            { step: "Practice/Research", next: "Senior Consultant" }
+          ]
+        },
+        "Business": {
+          careers: ["Business Analyst", "Marketing Manager", "HR Manager", "Operations Manager", "Entrepreneur", "Consultant"],
+          competitive_exams: ["CAT", "XAT", "GMAT", "SNAP", "NMAT", "CMAT"],
+          higher_studies: ["BBA", "B.Com", "MBA", "PGDM", "Executive MBA", "PhD Management"],
+          pathways: [
+            { step: "Class 12 (Any Stream)", next: "Business Entrance Exams" },
+            { step: "BBA/B.Com", next: "Work Experience" },
+            { step: "MBA Preparation", next: "Top B-Schools" },
+            { step: "MBA Degree", next: "Corporate Roles" },
+            { step: "Senior Management", next: "C-Suite/Entrepreneurship" }
+          ]
+        },
+        "Arts": {
+          careers: ["Graphic Designer", "Animator", "Writer", "Filmmaker", "Photographer", "Art Director"],
+          competitive_exams: ["NID Entrance", "NIFT Entrance", "JMI Mass Comm", "FTII Entrance", "CEED", "UCEED"],
+          higher_studies: ["BFA", "B.Des", "BA Fine Arts", "MFA", "M.Des", "Film Studies"],
+          pathways: [
+            { step: "Class 12 (Any Stream)", next: "Portfolio Development" },
+            { step: "Design Entrance", next: "Art/Design College" },
+            { step: "Bachelor's Degree", next: "Internships" },
+            { step: "Industry Experience", next: "Freelance/Agency" },
+            { step: "Senior Creative", next: "Creative Director" }
+          ]
+        },
+        "Science": {
+          careers: ["Research Scientist", "Environmental Scientist", "Biotechnologist", "Chemist", "Physicist", "Data Analyst"],
+          competitive_exams: ["JEE Advanced", "KVPY", "NEST", "JAM", "CSIR NET", "GATE"],
+          higher_studies: ["B.Sc", "B.Tech Biotech", "M.Sc", "PhD", "Integrated PhD", "Research Fellowship"],
+          pathways: [
+            { step: "Class 12 (PCM/PCB)", next: "Science Entrance Exams" },
+            { step: "B.Sc/B.Tech", next: "Research Projects" },
+            { step: "M.Sc/M.Tech", next: "PhD Programs" },
+            { step: "Research Work", next: "Publications" },
+            { step: "Senior Scientist", next: "Research Leadership" }
+          ]
+        },
+        "Education": {
+          careers: ["Teacher", "Professor", "Education Counselor", "Curriculum Designer", "School Administrator", "Social Worker"],
+          competitive_exams: ["CTET", "TET", "NET/SET", "B.Ed Entrance", "M.Ed Entrance", "UGC NET"],
+          higher_studies: ["BA/B.Sc", "B.Ed", "M.Ed", "PhD Education", "D.Ed", "Diploma in Education"],
+          pathways: [
+            { step: "Class 12 (Any Stream)", next: "Bachelor's Degree" },
+            { step: "Graduation", next: "B.Ed Course" },
+            { step: "Teaching Certification", next: "School Teaching" },
+            { step: "Experience/M.Ed", next: "Senior Positions" },
+            { step: "Leadership Roles", next: "Principal/Administrator" }
+          ]
+        },
+        "Law": {
+          careers: ["Lawyer", "Judge", "Legal Advisor", "Corporate Lawyer", "Public Prosecutor", "Legal Researcher"],
+          competitive_exams: ["CLAT", "AILET", "LSAT India", "DU LLB", "BHU UET", "Judicial Services"],
+          higher_studies: ["BA LLB", "BBA LLB", "LLB", "LLM", "PhD Law", "Diploma in Law"],
+          pathways: [
+            { step: "Class 12 (Any Stream)", next: "Law Entrance Exams" },
+            { step: "Law College", next: "LLB Degree" },
+            { step: "Bar Council Registration", next: "Legal Practice" },
+            { step: "Specialization", next: "Senior Advocate" },
+            { step: "Judicial Services", next: "Judge/Legal Expert" }
+          ]
+        },
+        "Finance": {
+          careers: ["Financial Analyst", "Investment Banker", "Chartered Accountant", "Financial Planner", "Risk Manager", "Actuary"],
+          competitive_exams: ["CA Foundation", "CMA", "CS", "FRM", "CFA", "ACCA"],
+          higher_studies: ["B.Com", "BBA Finance", "M.Com", "MBA Finance", "CFA", "Actuarial Science"],
+          pathways: [
+            { step: "Class 12 (Commerce/Any)", next: "Commerce/Finance Degree" },
+            { step: "Professional Courses", next: "CA/CMA/CS" },
+            { step: "Articleship/Training", next: "Qualification" },
+            { step: "Industry Experience", next: "Senior Finance Roles" },
+            { step: "Expertise", next: "CFO/Finance Head" }
+          ]
+        }
+      };
+
+      function loadNextQuestion() {
+        const qEl = document.getElementById("question");
+        const optionsEl = document.getElementById("options");
+        const quizContainer = document.getElementById("quiz-container");
+
+        // Hide content and reset animation state
+        quizContainer.classList.remove("fade-in");
+        qEl.textContent = "Loading question...";
+        optionsEl.innerHTML = "";
+
+        if (currentQuestion < shuffledQuestions.length) {
+          currentQuestionData = shuffledQuestions[currentQuestion];
+          
+          document.getElementById('question').innerHTML = `
+            <span class="text-sm text-slate-500 dark:text-slate-400 block mb-2">Question ${currentQuestion + 1} of ${TOTAL_QUESTIONS}</span>
+            ${currentQuestionData.question}
+          `;
+          document.getElementById('domain-tag').textContent = currentQuestionData.domain;
+          clearSelection();
+          
+          setTimeout(() => {
+            document.getElementById("quiz-container").classList.add("fade-in");
+          }, 50);
+        }
+      }
+
+      // Initialize quiz with enhanced randomization
+      function initQuiz() {
+        currentQuestion = 0;
+        responses = [];
+        selectedRating = null;
+        shuffledQuestions = getBalancedRandomQuestions();
+        updateProgress();
+        showQuestionSection();
+        loadNextQuestion();
+      }
+      
+      // Get balanced random questions (2-3 from each domain)
+      function getBalancedRandomQuestions() {
+        const domains = [...new Set(QUESTION_BANK.map(q => q.domain))];
+        const questionsPerDomain = Math.floor(TOTAL_QUESTIONS / domains.length);
+        const extraQuestions = TOTAL_QUESTIONS % domains.length;
+        
+        let selectedQuestions = [];
+        
+        domains.forEach((domain, index) => {
+          const domainQuestions = QUESTION_BANK.filter(q => q.domain === domain);
+          const shuffledDomainQuestions = shuffleArray([...domainQuestions]);
+          
+          const questionsToTake = questionsPerDomain + (index < extraQuestions ? 1 : 0);
+          selectedQuestions.push(...shuffledDomainQuestions.slice(0, questionsToTake));
+        });
+        
+        return shuffleArray(selectedQuestions);
+      }
+
+      // Shuffle array function
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      function updateProgress() {
+        const pct = Math.round((currentQuestion / TOTAL_QUESTIONS) * 100);
+        document.getElementById("progressText").textContent = `${pct}%`;
+        document.getElementById("progressBar").style.width = `${pct}%`;
+      }
+
+      // Handle scale selection
+      function setupLikertScale() {
+        const scaleOptions = document.querySelectorAll('.scale-option');
+        scaleOptions.forEach(option => {
+          option.addEventListener('click', () => {
+            clearSelection();
+            option.classList.add('selected');
+            selectedRating = parseInt(option.dataset.value);
+            document.getElementById('nextBtn').disabled = false;
+          });
+        });
+      }
+
+      // Clear selection
+      function clearSelection() {
+        document.querySelectorAll('.scale-option').forEach(option => {
+          option.classList.remove('selected');
+        });
+        selectedRating = null;
+        document.getElementById('nextBtn').disabled = true;
+      }
+
+      function handleNext() {
+        if (selectedRating === null) {
+          alert("Please select a rating from 1-5.");
+          return;
+        }
+        
+        responses.push({
+          question: currentQuestionData.question,
+          domain: currentQuestionData.domain,
+          rating: selectedRating
+        });
+        
+        currentQuestion++;
+        updateProgress();
+        
+        if (currentQuestion >= TOTAL_QUESTIONS) {
+          submitAssessment();
+        } else {
+          loadNextQuestion();
+        }
+      }
+
+      // Submit assessment and calculate results locally
+      function submitAssessment() {
+        const results = calculateCareerResults(responses);
+        displayResults(results);
+      }
+
+      // Calculate career results based on responses
+      function calculateCareerResults(responses) {
+        const domainScores = {};
+        
+        Object.keys(CAREER_PATHS).forEach(domain => {
+          domainScores[domain] = 0;
+        });
+        
+        responses.forEach(response => {
+          if (domainScores.hasOwnProperty(response.domain)) {
+            domainScores[response.domain] += response.rating;
+          }
+        });
+        
+        const sortedDomains = Object.entries(domainScores)
+          .sort(([,a], [,b]) => b - a)
+          .slice(0, 3);
+        
+        const recommendedPaths = sortedDomains.map(([domain, score]) => ({
+          domain: domain,
+          score: score,
+          careers: CAREER_PATHS[domain].careers,
+          competitive_exams: CAREER_PATHS[domain].competitive_exams,
+          higher_studies: CAREER_PATHS[domain].higher_studies,
+          pathways: CAREER_PATHS[domain].pathways
+        }));
+        
+        return {
+          domain_scores: domainScores,
+          career_recommendations: {
+            recommended_paths: recommendedPaths
+          }
+        };
+      }
+
+      // Display results
+      function displayResults(results) {
+        hideQuestionSection();
+        showResultsSection();
+        
+        if (results.domain_scores) {
+          displayDomainScores(results.domain_scores);
+        }
+        
+        if (results.career_recommendations && results.career_recommendations.recommended_paths) {
+          displayCareerRecommendations(results.career_recommendations);
+          createFlowDiagram(results.career_recommendations);
+        }
+      }
+
+      // Display domain scores
+      function displayDomainScores(scores) {
+        const maxScore = Math.max(...Object.values(scores));
+        const scoresChart = document.getElementById('scores-chart');
+        scoresChart.innerHTML = '';
+        
+        Object.entries(scores).forEach(([domain, score]) => {
+          const percentage = maxScore > 0 ? (score / maxScore) * 100 : 0;
+          
+          const scoreItem = document.createElement('div');
+          scoreItem.className = 'flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-700 rounded-lg';
+          scoreItem.innerHTML = `
+            <span class="font-medium text-slate-700 dark:text-slate-300">${domain}</span>
+            <div class="flex items-center space-x-3">
+              <div class="w-32 bg-slate-200 dark:bg-slate-600 rounded-full h-3">
+                <div class="domain-score-bar h-3 rounded-full" style="width: ${percentage}%; background-color: rgb(37 99 235 / 1);"></div>
+              </div>
+              <span class="text-sm font-semibold text-slate-600 dark:text-slate-400">${score}</span>
+            </div>
+          `;
+          scoresChart.appendChild(scoreItem);
+        });
+      }
+
+      // Display career recommendations
+      function displayCareerRecommendations(recommendations) {
+        const recommendationsList = document.getElementById('recommendations-list');
+        recommendationsList.innerHTML = '';
+        
+        recommendations.recommended_paths.forEach((path, index) => {
+          const pathCard = document.createElement('div');
+          pathCard.className = 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-6 mb-4 shadow-sm';
+          pathCard.innerHTML = `
+            <h4 class="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-3">${path.domain} (Score: ${path.score})</h4>
+            
+            <div class="grid md:grid-cols-3 gap-4">
+              <div>
+                <h5 class="font-medium text-slate-700 dark:text-slate-300 mb-2">Career Options</h5>
+                <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-1">
+                  ${path.careers.map(career => `<li>• ${career}</li>`).join('')}
+                </ul>
+              </div>
+              
+              <div>
+                <h5 class="font-medium text-slate-700 dark:text-slate-300 mb-2">Competitive Exams</h5>
+                <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-1">
+                  ${path.competitive_exams.map(exam => `<li>• ${exam}</li>`).join('')}
+                </ul>
+              </div>
+              
+              <div>
+                <h5 class="font-medium text-slate-700 dark:text-slate-300 mb-2">Higher Studies</h5>
+                <ul class="text-sm text-slate-600 dark:text-slate-400 space-y-1">
+                  ${path.higher_studies.map(study => `<li>• ${study}</li>`).join('')}
+                </ul>
+              </div>
+            </div>
+          `;
+          recommendationsList.appendChild(pathCard);
+        });
+      }
+
+      // Create interactive flow diagram
+      function createFlowDiagram(recommendations) {
+        const container = document.getElementById('flow-diagram');
+        container.innerHTML = '';
+        
+        if (!recommendations.recommended_paths || !recommendations.recommended_paths.length) {
+          container.innerHTML = '<p class="text-slate-500 text-center py-8">No career path data available</p>';
+          return;
+        }
+        
+        const tabContainer = document.createElement('div');
+        tabContainer.className = 'flex flex-wrap gap-2 mb-6';
+        
+        recommendations.recommended_paths.forEach((path, index) => {
+          const tab = document.createElement('button');
+          tab.className = `px-4 py-2 rounded-lg font-medium transition-colors ${
+            index === 0 ? 'bg-primary-500 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600'
+          }`;
+          tab.textContent = `${path.domain} (Score: ${path.score})`;
+          tab.onclick = () => switchCareerPath(index, recommendations.recommended_paths);
+          tab.id = `tab-${index}`;
+          tabContainer.appendChild(tab);
+        });
+        
+        container.appendChild(tabContainer);
+        
+        const diagramDiv = document.createElement('div');
+        diagramDiv.id = 'career-diagram';
+        diagramDiv.className = 'bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 p-4';
+        container.appendChild(diagramDiv);
+        
+        displayCareerPath(recommendations.recommended_paths[0], 0);
+      }
+      
+      function switchCareerPath(index, paths) {
+        document.querySelectorAll('[id^="tab-"]').forEach((tab, i) => {
+          if (i === index) {
+            tab.className = 'px-4 py-2 rounded-lg font-medium transition-colors bg-primary-500 text-white';
+          } else {
+            tab.className = 'px-4 py-2 rounded-lg font-medium transition-colors bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600';
+          }
+        });
+        
+        displayCareerPath(paths[index], index);
+      }
+      
+      function displayCareerPath(careerPath, pathIndex) {
+        const container = document.getElementById('career-diagram');
+        container.innerHTML = '';
+        
+        if (!careerPath.pathways || !careerPath.pathways.length) {
+          container.innerHTML = '<p class="text-slate-500 text-center py-8">No pathway data available for this career</p>';
+          return;
+        }
+        
+        const pathways = careerPath.pathways;
+        
+        const header = document.createElement('div');
+        header.className = 'mb-6 text-center';
+        header.innerHTML = `
+          <h4 class="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">${careerPath.domain} Career Journey</h4>
+          <p class="text-slate-600 dark:text-slate-400">Your personalized roadmap to success in ${careerPath.domain}</p>
+        `;
+        container.appendChild(header);
+        
+        const containerWidth = container.clientWidth || 800;
+        const width = Math.max(containerWidth - 40, 600);
+        const height = 300;
+        
+        const svg = d3.select('#career-diagram')
+          .append('svg')
+          .attr('width', width)
+          .attr('height', height)
+          .attr('viewBox', `0 0 ${width} ${height}`)
+          .style('max-width', '100%')
+          .style('height', 'auto');
+        
+        const defs = svg.append('defs');
+        
+        const gradient = defs.append('linearGradient')
+          .attr('id', `gradient-${pathIndex}`)
+          .attr('x1', '0%').attr('y1', '0%')
+          .attr('x2', '100%').attr('y2', '100%');
+        
+        gradient.append('stop')
+          .attr('offset', '0%')
+          .attr('stop-color', '#3b82f6');
+        
+        gradient.append('stop')
+          .attr('offset', '100%')
+          .attr('stop-color', '#1d4ed8');
+        
+        defs.append('marker')
+          .attr('id', `arrowhead-${pathIndex}`)
+          .attr('viewBox', '0 -5 10 10')
+          .attr('refX', 8)
+          .attr('refY', 0)
+          .attr('markerWidth', 6)
+          .attr('markerHeight', 6)
+          .attr('orient', 'auto')
+          .append('path')
+          .attr('d', 'M0,-5L10,0L0,5')
+          .attr('fill', '#3b82f6');
+        
+        const nodeSpacing = (width - 120) / (pathways.length - 1);
+        const startX = 60;
+        const centerY = height / 2;
+        
+        const nodes = pathways.map((pathway, i) => ({
+          id: i,
+          x: startX + (nodeSpacing * i),
+          y: centerY,
+          step: pathway.step,
+          next: pathway.next
+        }));
+        
+        const links = [];
+        for (let i = 0; i < nodes.length - 1; i++) {
+          links.push({
+            source: nodes[i],
+            target: nodes[i + 1]
+          });
+        }
+        
+        svg.selectAll('.career-path-link')
+          .data(links)
+          .enter()
+          .append('path')
+          .attr('class', 'career-path-link')
+          .attr('d', d => {
+            const dx = d.target.x - d.source.x;
+            const dy = d.target.y - d.source.y;
+            const dr = Math.sqrt(dx * dx + dy * dy) * 0.3;
+            return `M${d.source.x + 25},${d.source.y} A${dr},${dr} 0 0,1 ${d.target.x - 25},${d.target.y}`;
+          })
+          .attr('stroke', '#3b82f6')
+          .attr('stroke-width', 3)
+          .attr('fill', 'none')
+          .attr('marker-end', `url(#arrowhead-${pathIndex})`);
+        
+        const nodeGroup = svg.selectAll('.node-group')
+          .data(nodes)
+          .enter()
+          .append('g')
+          .attr('class', 'node-group')
+          .attr('transform', d => `translate(${d.x}, ${d.y})`);
+        
+        nodeGroup.append('circle')
+          .attr('class', 'career-path-node')
+          .attr('r', 25)
+          .attr('fill', `url(#gradient-${pathIndex})`)
+          .attr('stroke', '#1e40af')
+          .attr('stroke-width', 2)
+          .style('cursor', 'pointer')
+          .on('mouseover', function(event, d) {
+            d3.select(this)
+              .transition()
+              .duration(200)
+              .attr('r', 30)
+              .attr('stroke-width', 3);
+            
+            showTooltip(event, d);
+          })
+          .on('mouseout', function(event, d) {
+            d3.select(this)
+              .transition()
+              .duration(200)
+              .attr('r', 25)
+              .attr('stroke-width', 2);
+            
+            hideTooltip();
+          })
+          .on('click', function(event, d) {
+            showDetailModal(d, careerPath);
+          });
+        
+        nodeGroup.append('text')
+          .attr('text-anchor', 'middle')
+          .attr('dy', '0.35em')
+          .attr('fill', 'white')
+          .attr('font-size', '14px')
+          .attr('font-weight', 'bold')
+          .text((d, i) => i + 1);
+        
+        nodeGroup.append('text')
+          .attr('text-anchor', 'middle')
+          .attr('dy', '45px')
+          .attr('fill', 'white')
+          .attr('font-size', '10px')
+          .attr('font-weight', '500')
+          .text(d => d.step.length > 12 ? d.step.substring(0, 12) + '...' : d.step);
+      }
+
+      // Show/hide sections
+      function showQuestionSection() {
+        document.getElementById('likert-container').classList.remove('hidden');
+        document.getElementById('results-section').classList.add('hidden');
+      }
+
+      function hideQuestionSection() {
+        document.getElementById('likert-container').classList.add('hidden');
+      }
+
+      function showResultsSection() {
+        document.getElementById('results-section').classList.remove('hidden');
+      }
+
+      // Enhanced tooltip functionality
+      function showTooltip(event, d) {
+        const tooltip = d3.select('body').append('div')
+          .attr('class', 'career-tooltip')
+          .style('position', 'absolute')
+          .style('background', 'linear-gradient(135deg, #1e40af, #3b82f6)')
+          .style('color', 'white')
+          .style('padding', '12px 16px')
+          .style('border-radius', '8px')
+          .style('font-size', '14px')
+          .style('box-shadow', '0 10px 25px rgba(0,0,0,0.2)')
+          .style('pointer-events', 'none')
+          .style('z-index', '1000')
+          .style('opacity', 0);
+        
+        tooltip.transition().duration(200).style('opacity', 1);
+        tooltip.html(`
+          <div class="font-bold mb-1">${d.step}</div>
+          <div class="text-sm opacity-90">Next: ${d.next}</div>
+          <div class="text-xs mt-2 opacity-75">Click for details</div>
+        `)
+          .style('left', (event.pageX + 15) + 'px')
+          .style('top', (event.pageY - 10) + 'px');
+      }
+      
+      function hideTooltip() {
+        d3.selectAll('.career-tooltip').remove();
+      }
+      
+      // Modal for detailed step information
+      function showDetailModal(step, careerPath) {
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+        modal.innerHTML = `
+          <div class="bg-white rounded-lg p-6 max-w-md mx-4 max-h-96 overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-lg font-bold text-gray-800">${step.step}</h3>
+              <button class="text-gray-500 hover:text-gray-700" onclick="this.closest('.fixed').remove()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="space-y-3">
+              <div>
+                <h4 class="font-medium text-gray-700">What to expect:</h4>
+                <p class="text-sm text-gray-600">${step.next}</p>
+              </div>
+              <div>
+                <h4 class="font-medium text-gray-700">Key Exams for ${careerPath.domain}:</h4>
+                <ul class="text-sm text-gray-600 list-disc list-inside">
+                  ${careerPath.competitive_exams.slice(0, 3).map(exam => `<li>${exam}</li>`).join('')}
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-medium text-gray-700">Career Options:</h4>
+                <ul class="text-sm text-gray-600 list-disc list-inside">
+                  ${careerPath.careers.slice(0, 3).map(career => `<li>${career}</li>`).join('')}
+                </ul>
+              </div>
+            </div>
+            <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors" 
+                    onclick="this.closest('.fixed').remove()">
+              Got it!
+            </button>
+          </div>
+        `;
+        document.body.appendChild(modal);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        setupLikertScale();
+        document.getElementById('nextBtn').addEventListener('click', handleNext);
+        document.getElementById('restart-btn').addEventListener('click', initQuiz);
+        initQuiz();
+      });
+    </script>
+  </body>
+</html>

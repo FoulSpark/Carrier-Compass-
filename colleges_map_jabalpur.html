@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_137d7df95d9cdbad0dded93f2d2d9716 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div style="position: fixed; 
+                        bottom: 50px; left: 50px; width: 150px; height: 90px; 
+                        background-color: white; border:2px solid grey; z-index:9999; 
+                        font-size:14px; padding: 10px">
+            <p><b>Legend</b></p>
+            <p><i class="fa fa-user" style="color:blue"></i> Your Location</p>
+            <p><i class="fa fa-university" style="color:green"></i> University</p>
+            <p><i class="fa fa-graduation-cap" style="color:red"></i> College</p>
+            </div>
+            
+    
+            <div class="folium-map" id="map_137d7df95d9cdbad0dded93f2d2d9716" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_137d7df95d9cdbad0dded93f2d2d9716 = L.map(
+                "map_137d7df95d9cdbad0dded93f2d2d9716",
+                {
+                    center: [23.1701522, 79.9324505],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9523163d31e6fc3bd07e973a63ead201 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_9523163d31e6fc3bd07e973a63ead201.addTo(map_137d7df95d9cdbad0dded93f2d2d9716);
+        
+    
+            var marker_c945bf9c7abf740f01969df90d376dc3 = L.marker(
+                [23.1701522, 79.9324505],
+                {
+}
+            ).addTo(map_137d7df95d9cdbad0dded93f2d2d9716);
+        
+    
+            var icon_b7d1cff40fe1245413ebe2af11ff6f43 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "user",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_283a3f3113533669ffc2937129ac024d = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_cf34a72b8bff1e6614f31c504166c1e0 = $(`<div id="html_cf34a72b8bff1e6614f31c504166c1e0" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px;">                 <h4>📍 Your Location</h4>                 <p><strong>Location:</strong> jabalpur</p>                 <p><strong>Coordinates:</strong> 23.170152, 79.932451</p>                 <p><strong>Nearby Colleges:</strong> 2 found</p>             </div>             </div>`)[0];
+                popup_283a3f3113533669ffc2937129ac024d.setContent(html_cf34a72b8bff1e6614f31c504166c1e0);
+            
+        
+
+        marker_c945bf9c7abf740f01969df90d376dc3.bindPopup(popup_283a3f3113533669ffc2937129ac024d)
+        ;
+
+        
+    
+    
+            marker_c945bf9c7abf740f01969df90d376dc3.bindTooltip(
+                `<div>
+                     📍 Your Location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c945bf9c7abf740f01969df90d376dc3.setIcon(icon_b7d1cff40fe1245413ebe2af11ff6f43);
+            
+    
+            var circle_ff9049adcefb33175122482920e11db3 = L.circle(
+                [23.1701522, 79.9324505],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9000, "stroke": true, "weight": 2}
+            ).addTo(map_137d7df95d9cdbad0dded93f2d2d9716);
+        
+    
+        var popup_40c7c386742a25e6d4c45f899fd673b8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_038ee2a04bb1dd94c63953e0c4d11288 = $(`<div id="html_038ee2a04bb1dd94c63953e0c4d11288" style="width: 100.0%; height: 100.0%;">9.0km Search Radius</div>`)[0];
+                popup_40c7c386742a25e6d4c45f899fd673b8.setContent(html_038ee2a04bb1dd94c63953e0c4d11288);
+            
+        
+
+        circle_ff9049adcefb33175122482920e11db3.bindPopup(popup_40c7c386742a25e6d4c45f899fd673b8)
+        ;
+
+        
+    
+    
+            var marker_c1f44f00458cd75109338dcf7d852c38 = L.marker(
+                [23.175427, 80.0258463],
+                {
+}
+            ).addTo(map_137d7df95d9cdbad0dded93f2d2d9716);
+        
+    
+            var icon_daaa75b5995d2e4c34f2db1d67efa3a0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fb2eb52f58f891002432e1c627b52fd2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_22b67d573807fad5cad051541c7b720c = $(`<div id="html_22b67d573807fad5cad051541c7b720c" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Indian Institute of Information Technology Design and Manufacturing Jabalpur</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 <p><strong>Website:</strong> <a href='https://iiitdmj.ac.in/' target='_blank'>Visit Website</a></p></div></div>`)[0];
+                popup_fb2eb52f58f891002432e1c627b52fd2.setContent(html_22b67d573807fad5cad051541c7b720c);
+            
+        
+
+        marker_c1f44f00458cd75109338dcf7d852c38.bindPopup(popup_fb2eb52f58f891002432e1c627b52fd2)
+        ;
+
+        
+    
+    
+            marker_c1f44f00458cd75109338dcf7d852c38.bindTooltip(
+                `<div>
+                     1. Indian Institute of Information Technology Design and Manufacturing Jabalpur
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c1f44f00458cd75109338dcf7d852c38.setIcon(icon_daaa75b5995d2e4c34f2db1d67efa3a0);
+            
+    
+            var marker_57cb2f5fc1a18f144ca8b32ee598c28c = L.marker(
+                [23.1631755, 79.996521],
+                {
+}
+            ).addTo(map_137d7df95d9cdbad0dded93f2d2d9716);
+        
+    
+            var icon_4a4e78dfef89101f92515d1ca01d5fcc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_16f5de680b292cd3f78fa102783672cb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6684b9931f88fdd66a7af3f28d0b36fe = $(`<div id="html_6684b9931f88fdd66a7af3f28d0b36fe" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Jabalpur Engineering College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Gokalpur, Jabalpur, Madhya Pradesh 482011, India</p><p><strong>Website:</strong> <a href='https://www.jecjabalpur.ac.in/' target='_blank'>Visit Website</a></p></div></div>`)[0];
+                popup_16f5de680b292cd3f78fa102783672cb.setContent(html_6684b9931f88fdd66a7af3f28d0b36fe);
+            
+        
+
+        marker_57cb2f5fc1a18f144ca8b32ee598c28c.bindPopup(popup_16f5de680b292cd3f78fa102783672cb)
+        ;
+
+        
+    
+    
+            marker_57cb2f5fc1a18f144ca8b32ee598c28c.bindTooltip(
+                `<div>
+                     2. Jabalpur Engineering College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_57cb2f5fc1a18f144ca8b32ee598c28c.setIcon(icon_4a4e78dfef89101f92515d1ca01d5fcc);
+            
+</script>
+</html>

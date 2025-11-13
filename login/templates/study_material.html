@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resources - Career Compass</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <!-- <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Inter%3Awght@400%3B500%3B700%3B900&family=Noto+Sans%3Awght@400%3B500%3B700%3B900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    /> -->
+     <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+    <style type="text/tailwindcss">
+      :root {
+        --border: #374151;
+         --card: #1f2937;
+        --primary-color: #1173d4;
+        --secondary-color: #f0f7ff;
+        --muted-foreground: #9ca3af;
+      }
+      .dark .dark\:bg-gray-900 {
+        background-color: #111827;
+      }
+      .dark .dark\:bg-gray-800 {
+        background-color: #1f2937;
+      }
+      .dark .dark\:text-gray-200 {
+        color: #e5e7eb;
+      }
+      .dark .dark\:text-gray-300 {
+        color: #d1d5db;
+      }
+      .dark .dark\:text-gray-400 {
+        color: #9ca3af;
+      }
+      .dark .dark\:border-gray-700 {
+        border-color: #374151;
+      }
+      .dark .dark\:hover\:bg-gray-700:hover {
+        background-color: #374151;
+      }
+      .dark .dark\:hover\:text-white:hover {
+        color: #ffffff;
+      }
+
+      /* Custom keyframe animations for added visual interest */
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slide-in-left {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes scale-up {
+        from {
+          transform: scale(0.95);
+          opacity: 0.5;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* Apply animations to elements */
+      .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+      }
+      .animate-slide-in-left {
+        animation: slide-in-left 0.7s ease-out forwards;
+      }
+      .animate-scale-up {
+        animation: scale-up 0.5s ease-out forwards;
+      }
+
+      /* Additional styling for card hover effects */
+      .card-hover-effect {
+        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out,
+          border-color 0.3s ease-out;
+      }
+      .card-hover-effect:hover {
+        transform: translateY(-8px);
+        @apply shadow-xl;
+        @apply shadow-gray-400/20 dark:shadow-blue-500/20;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900">
+    <div
+      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+      style="font-family: Inter, 'Noto Sans', sans-serif"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+            <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--border)] px-4 sm:px-10 py-3 bg-[var(--card)]">
+                <div class="flex items-center gap-3">
+                    <div class="p-2 bg-[var(--primary-color)] rounded-full text-white transform hover:rotate-90 transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12L12 20M12 12L12 4M12 12L20 12M12 12L4 12M12 12L18.364 18.364M12 12L5.63604 5.63604M12 12L18.364 5.63604M12 12L5.63604 18.364" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-white tracking-tight">Career Compass</h2>
+                </div>
+                <div class="flex flex-1 justify-between gap-4">
+                    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-400 px-6">
+                            <a class="{% if request.endpoint == 'dashboard' or request.endpoint == 'home_page' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('dashboard') }}">Dashboard</a>
+                        <a class="{% if request.endpoint == 'test' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('test') }}">Career Quiz</a>
+                        <a class="{% if request.endpoint == 'college' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('college') }}">Colleges</a>
+                        <a class="{% if request.endpoint == 'carrier' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('carrier') }}">Career Paths</a>
+                        <a class="{% if request.endpoint == 'study_material' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('study_material') }}">Resources</a>
+                        <a class="{% if request.endpoint == 'analytics' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('analytics') }}">Analytics</a>
+                        <!-- <a class="{% if request.endpoint == 'timeline' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('timeline') }}">Timeline</a> -->
+                    </nav>
+                </div>
+                <div class="flex items-center gap-4">
+                    <!-- Notification Component -->
+                    <button id="notificationBtn" class="relative flex items-center justify-center size-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">
+                        <span class="material-symbols-outlined text-2xl">notifications</span>
+                        <!-- Notification Badge -->
+                        <span id="notificationBadge" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                    </button>
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style="background-image: url('https://www.gravatar.com/avatar/{{ user_email_md5 }}?d=identicon&s=80');"></div>
+                </div>
+            </header>
+        <main class="flex-1 px-4 sm:px-6 lg:px-8 py-12">
+          <div class="mx-auto max-w-7xl">
+            <div class="text-center mb-12 animate-fade-in-up">
+              <h1
+                class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight"
+                style="animation-delay: 0.2s"
+              >
+                Open Source Library
+              </h1>
+              <p
+                class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+                style="animation-delay: 0.4s"
+              >
+                Explore a curated collection of e-books, guides, and
+                skill-building materials to support your academic and career
+                journey.
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-10 relative z-[10000]" style="z-index: 10000 !important;">
+              <!-- Subject Filter -->
+              <div class="relative animate-slide-in-left" style="animation-delay: 0.6s">
+                <button id="subject-filter" class="flex h-12 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 px-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  <p class="text-gray-800 dark:text-gray-200 text-base font-medium">Subject</p>
+                  <span class="material-symbols-outlined text-gray-600 dark:text-gray-400">expand_more</span>
+                </button>
+                <div id="subject-dropdown" class="hidden absolute top-14 left-0 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-xl z-[9999] min-w-48" style="z-index: 9999 !important;">
+                  <div class="p-2">
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="subject" data-value="all">All Subjects</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="subject" data-value="computer-science">Computer Science</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="subject" data-value="mathematics">Mathematics</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="subject" data-value="science">Science</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="subject" data-value="business">Business</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="subject" data-value="arts">Arts & Literature</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="subject" data-value="finance">Finance</button>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Career Goals Filter -->
+              <div class="relative animate-slide-in-left" style="animation-delay: 0.7s">
+                <button id="career-filter" class="flex h-12 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 px-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  <p class="text-gray-800 dark:text-gray-200 text-base font-medium">Career Goals</p>
+                  <span class="material-symbols-outlined text-gray-600 dark:text-gray-400">expand_more</span>
+                </button>
+                <div id="career-dropdown" class="hidden absolute top-14 left-0 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-xl z-[9999] min-w-48" style="z-index: 9999 !important;">
+                  <div class="p-2">
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="career" data-value="all">All Careers</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="career" data-value="engineering">Engineering</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="career" data-value="data-science">Data Science</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="career" data-value="business">Business & Management</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="career" data-value="research">Research & Academia</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="career" data-value="creative">Creative Arts</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="career" data-value="finance">Finance & Economics</button>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Format Filter -->
+              <div class="relative animate-slide-in-left" style="animation-delay: 0.8s">
+                <button id="format-filter" class="flex h-12 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 px-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  <p class="text-gray-800 dark:text-gray-200 text-base font-medium">Format</p>
+                  <span class="material-symbols-outlined text-gray-600 dark:text-gray-400">expand_more</span>
+                </button>
+                <div id="format-dropdown" class="hidden absolute top-14 left-0 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-xl z-[9999] min-w-48" style="z-index: 9999 !important;">
+                  <div class="p-2">
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="format" data-value="all">All Formats</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="format" data-value="ebook">E-Book</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="format" data-value="guide">Guide</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="format" data-value="tutorial">Tutorial</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="format" data-value="course">Course</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded text-white" data-filter="format" data-value="workbook">Workbook</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="materials-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 relative z-0">
+              <!-- Materials will be dynamically populated here -->
+            </div>
+            <nav class="flex items-center justify-center gap-2 p-4 mt-8">
+              <a
+                class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+              >
+                <span class="material-symbols-outlined">chevron_left</span>
+              </a>
+              <a
+                class="text-base font-bold flex size-10 items-center justify-center text-white rounded-full bg-[var(--primary-color)]"
+                href="#"
+                >1</a
+              >
+              <a
+                class="text-base font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+                >2</a
+              >
+              <a
+                class="text-base font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+                >3</a
+              >
+              <a
+                class="text-base font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+                >4</a
+              >
+              <a
+                class="text-base font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+                >5</a
+              >
+              <a
+                class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+              >
+                <span class="material-symbols-outlined">chevron_right</span>
+              </a>
+            </nav>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script>
+      // Study Materials Database with Working Links
+      const studyMaterials = [
+        {
+          id: 1,
+          title: "Introduction to Computer Science",
+          description: "Learn the basics of programming and algorithms with hands-on examples.",
+          subject: "computer-science",
+          career: "engineering",
+          format: "ebook",
+          image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop",
+          link: "https://cs50.harvard.edu/x/2024/"
+        },
+        {
+          id: 2,
+          title: "Advanced Python Programming",
+          description: "Master advanced Python concepts for data science and web development.",
+          subject: "computer-science",
+          career: "data-science",
+          format: "course",
+          image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=400&h=300&fit=crop",
+          link: "https://docs.python.org/3/tutorial/"
+        },
+        {
+          id: 3,
+          title: "Data Analysis with Python",
+          description: "Comprehensive guide to data manipulation and visualization.",
+          subject: "mathematics",
+          career: "data-science",
+          format: "tutorial",
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+          link: "https://pandas.pydata.org/docs/"
+        },
+        {
+          id: 4,
+          title: "Business Strategy Fundamentals",
+          description: "Essential concepts for modern business management and strategy.",
+          subject: "business",
+          career: "business",
+          format: "guide",
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+          link: "https://ocw.mit.edu/courses/sloan-school-of-management/15-9001-competitive-strategy-fall-2021/"
+        },
+        {
+          id: 5,
+          title: "Creative Writing Workshop",
+          description: "Develop your storytelling skills with practical exercises and feedback.",
+          subject: "arts",
+          career: "creative",
+          format: "workbook",
+          image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop",
+          link: "https://ocw.mit.edu/courses/comparative-media-studies-writing/21w-755-writing-and-experience-spring-2013/"
+        },
+        {
+          id: 6,
+          title: "Financial Planning Guide",
+          description: "Master personal finance, investments, and wealth building strategies.",
+          subject: "finance",
+          career: "finance",
+          format: "ebook",
+          image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
+          link: "https://gflec.org/wp-content/uploads/2022/02/Financial-Literacy-Ebook.pdf"
+        },
+        {
+          id: 7,
+          title: "Environmental Science Research",
+          description: "Explore climate change, sustainability, and environmental solutions.",
+          subject: "science",
+          career: "research",
+          format: "course",
+          image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop",
+          link: "https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/12-340-global-warming-science-spring-2012/"
+        },
+        {
+          id: 8,
+          title: "Machine Learning Basics",
+          description: "Introduction to AI and machine learning algorithms with Python.",
+          subject: "computer-science",
+          career: "data-science",
+          format: "tutorial",
+          image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop",
+          link: "https://www.deeplearningbook.org/"
+        },
+        {
+          id: 9,
+          title: "Digital Marketing Mastery",
+          description: "Complete guide to social media, SEO, and online advertising.",
+          subject: "business",
+          career: "business",
+          format: "course",
+          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+          link: "https://www.coursera.org/specializations/digital-marketing"
+        },
+        {
+          id: 10,
+          title: "Calculus and Linear Algebra",
+          description: "Essential mathematics for engineering and data science careers.",
+          subject: "mathematics",
+          career: "engineering",
+          format: "ebook",
+          image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop",
+          link: "https://openstax.org/books/calculus-volume-1/pages/1-introduction"
+        },
+        {
+          id: 11,
+          title: "Research Methodology Guide",
+          description: "Learn scientific research methods and academic writing techniques.",
+          subject: "science",
+          career: "research",
+          format: "guide",
+          image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop",
+          link: "https://www.sagepub.com/sites/default/files/upm-binaries/36869_metzler.pdf"
+        },
+        {
+          id: 12,
+          title: "Investment Banking Fundamentals",
+          description: "Comprehensive overview of financial markets and investment strategies.",
+          subject: "finance",
+          career: "finance",
+          format: "course",
+          image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop",
+          link: "https://ocw.mit.edu/courses/sloan-school-of-management/15-401-finance-theory-i-fall-2008/"
+        }
+      ];
+
+      // Filter state
+      let currentFilters = {
+        subject: 'all',
+        career: 'all',
+        format: 'all'
+      };
+
+      // Pagination state
+      let currentPage = 1;
+      const materialsPerPage = 12;
+      let filteredMaterials = [];
+
+      // Initialize page
+      document.addEventListener('DOMContentLoaded', function() {
+        renderMaterials();
+        setupFilterListeners();
+        setupDropdownToggle();
+        checkSavedMaterials();
+      });
+
+      // Render materials based on current filters
+      function renderMaterials() {
+        filteredMaterials = studyMaterials.filter(material => {
+          return (currentFilters.subject === 'all' || material.subject === currentFilters.subject) &&
+                 (currentFilters.career === 'all' || material.career === currentFilters.career) &&
+                 (currentFilters.format === 'all' || material.format === currentFilters.format);
+        });
+
+        // Reset to first page when filters change
+        currentPage = 1;
+        renderMaterialsPage();
+        updatePagination();
+      }
+
+      // Render current page of materials
+      function renderMaterialsPage() {
+        const grid = document.getElementById('materials-grid');
+        const startIndex = (currentPage - 1) * materialsPerPage;
+        const endIndex = startIndex + materialsPerPage;
+        const currentMaterials = filteredMaterials.slice(startIndex, endIndex);
+
+        grid.innerHTML = currentMaterials.map((material, index) => `
+          <div class="flex flex-col bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm card-hover-effect group animate-fade-in-up h-full" style="animation-delay: ${0.9 + index * 0.1}s">
+            <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl mb-4" style="background-image: url('${material.image}')"></div>
+            <div class="flex flex-col flex-1">
+              <h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight mb-1 group-hover:text-[var(--primary-color)] transition-colors">
+                ${material.title}
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm font-normal mb-2 flex-1">
+                ${material.description}
+              </p>
+              <div class="flex gap-2 flex-wrap mb-3">
+                <span class="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">${getSubjectLabel(material.subject)}</span>
+                <span class="px-2 py-1 text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">${getCareerLabel(material.career)}</span>
+                <span class="px-2 py-1 text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full">${getFormatLabel(material.format)}</span>
+              </div>
+              <div class="flex gap-2 mt-auto">
+                <a href="${material.link}" target="_blank" class="flex-1 text-center px-4 py-2 text-sm font-medium rounded-lg bg-[var(--primary-color)] text-white hover:bg-blue-700 transition">
+                  View / Download
+                </a>
+                <button onclick="addToProfile(${material.id})" class="px-3 py-2 text-sm font-medium rounded-lg bg-green-600 text-white hover:bg-green-700 transition" title="Add to Profile">
+                  <span class="material-symbols-outlined text-sm">add</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Update pagination controls
+      function updatePagination() {
+        const paginationNav = document.querySelector('nav.flex.items-center.justify-center');
+        if (!paginationNav) return;
+
+        const totalPages = Math.ceil(filteredMaterials.length / materialsPerPage);
+        
+        // Hide pagination if only 1 page or no materials
+        if (totalPages <= 1) {
+          paginationNav.style.display = 'none';
+          return;
+        }
+        paginationNav.style.display = 'flex';
+
+        let paginationHtml = '';
+
+        // Previous button
+        paginationHtml += `
+          <a class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors hover:scale-110 ${
+            currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
+          }" onclick="${currentPage > 1 ? 'goToPage(' + (currentPage - 1) + ')' : 'return false'}">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </a>
+        `;
+
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+          if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+            const isActive = i === currentPage;
+            paginationHtml += `
+              <a class="text-base font-${isActive ? 'bold' : 'medium'} flex size-10 items-center justify-center ${
+                isActive 
+                  ? 'text-white rounded-full bg-[var(--primary-color)]' 
+                  : 'text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors hover:scale-110 cursor-pointer'
+              }" onclick="goToPage(${i})">
+                ${i}
+              </a>
+            `;
+          } else if (i === currentPage - 3 || i === currentPage + 3) {
+            paginationHtml += `<span class="text-gray-500 dark:text-gray-400 px-2">...</span>`;
+          }
+        }
+
+        // Next button
+        paginationHtml += `
+          <a class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors hover:scale-110 ${
+            currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
+          }" onclick="${currentPage < totalPages ? 'goToPage(' + (currentPage + 1) + ')' : 'return false'}">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </a>
+        `;
+
+        paginationNav.innerHTML = paginationHtml;
+      }
+
+      // Go to specific page
+      function goToPage(page) {
+        const totalPages = Math.ceil(filteredMaterials.length / materialsPerPage);
+        if (page < 1 || page > totalPages || page === currentPage) {
+          return;
+        }
+        
+        currentPage = page;
+        renderMaterialsPage();
+        updatePagination();
+        
+        // Scroll to top of materials grid
+        document.getElementById('materials-grid').scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }
+
+      // Helper functions for labels
+      function getSubjectLabel(subject) {
+        const labels = {
+          'computer-science': 'Computer Science',
+          'mathematics': 'Mathematics',
+          'science': 'Science',
+          'business': 'Business',
+          'arts': 'Arts & Literature',
+          'finance': 'Finance'
+        };
+        return labels[subject] || subject;
+      }
+
+      function getCareerLabel(career) {
+        const labels = {
+          'engineering': 'Engineering',
+          'data-science': 'Data Science',
+          'business': 'Business & Management',
+          'research': 'Research & Academia',
+          'creative': 'Creative Arts',
+          'finance': 'Finance & Economics'
+        };
+        return labels[career] || career;
+      }
+
+      function getFormatLabel(format) {
+        const labels = {
+          'ebook': 'E-Book',
+          'guide': 'Guide',
+          'tutorial': 'Tutorial',
+          'course': 'Course',
+          'workbook': 'Workbook'
+        };
+        return labels[format] || format;
+      }
+
+      // Setup filter listeners
+      function setupFilterListeners() {
+        document.querySelectorAll('.filter-option').forEach(button => {
+          button.addEventListener('click', function() {
+            const filterType = this.dataset.filter;
+            const filterValue = this.dataset.value;
+            
+            currentFilters[filterType] = filterValue;
+            
+            // Update button text
+            const buttonElement = document.getElementById(`${filterType}-filter`);
+            const buttonText = buttonElement.querySelector('p');
+            if (filterValue === 'all') {
+              buttonText.textContent = filterType === 'subject' ? 'Subject' : 
+                                     filterType === 'career' ? 'Career Goals' : 'Format';
+            } else {
+              buttonText.textContent = this.textContent;
+            }
+            
+            // Hide dropdown
+            document.getElementById(`${filterType}-dropdown`).classList.add('hidden');
+            
+            // Re-render materials
+            renderMaterials();
+          });
+        });
+      }
+
+      // Setup dropdown toggle functionality
+      function setupDropdownToggle() {
+        ['subject', 'career', 'format'].forEach(filterType => {
+          const button = document.getElementById(`${filterType}-filter`);
+          const dropdown = document.getElementById(`${filterType}-dropdown`);
+          
+          button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Hide other dropdowns
+            ['subject', 'career', 'format'].forEach(type => {
+              if (type !== filterType) {
+                document.getElementById(`${type}-dropdown`).classList.add('hidden');
+              }
+            });
+            
+            // Toggle current dropdown
+            dropdown.classList.toggle('hidden');
+          });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function() {
+          ['subject', 'career', 'format'].forEach(filterType => {
+            document.getElementById(`${filterType}-dropdown`).classList.add('hidden');
+          });
+        });
+      }
+
+      // Add to Profile functionality
+      function addToProfile(materialId) {
+        const material = studyMaterials.find(m => m.id === materialId);
+        if (!material) return;
+
+        // Get existing saved materials from localStorage
+        let savedMaterials = JSON.parse(localStorage.getItem('edupath_saved_materials') || '[]');
+        
+        // Check if material is already saved
+        if (savedMaterials.some(m => m.id === materialId)) {
+          showNotification('Material already added to profile!', 'warning');
+          return;
+        }
+
+        // Add material with timestamp
+        const materialWithTimestamp = {
+          ...material,
+          addedDate: new Date().toISOString(),
+          status: 'saved'
+        };
+        
+        savedMaterials.push(materialWithTimestamp);
+        localStorage.setItem('edupath_saved_materials', JSON.stringify(savedMaterials));
+        
+        // Show success notification
+        showNotification('Material added to profile successfully!', 'success');
+        
+        // Update button state
+        updateButtonState(materialId, true);
+      }
+
+      // Update button state to show it's added
+      function updateButtonState(materialId, isAdded) {
+        const button = document.querySelector(`button[onclick="addToProfile(${materialId})"]`);
+        if (button && isAdded) {
+          button.innerHTML = '<span class="material-symbols-outlined text-sm">check</span>';
+          button.className = 'px-3 py-2 text-sm font-medium rounded-lg bg-gray-500 text-white cursor-not-allowed';
+          button.disabled = true;
+          button.title = 'Already added to profile';
+        }
+      }
+
+      // Show notification function
+      function showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg transition-all duration-300 transform ${
+          type === 'success' ? 'bg-green-500 text-white' : 
+          type === 'warning' ? 'bg-yellow-500 text-white' : 
+          type === 'error' ? 'bg-red-500 text-white' : 
+          'bg-blue-500 text-white'
+        }`;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+          notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+          notification.style.transform = 'translateX(100%)';
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 300);
+        }, 3000);
+      }
+
+      // Check saved materials on page load and update button states
+      function checkSavedMaterials() {
+        const savedMaterials = JSON.parse(localStorage.getItem('edupath_saved_materials') || '[]');
+        savedMaterials.forEach(material => {
+          updateButtonState(material.id, true);
+        });
+      }
+
+      // Theme toggle functionality (existing code)
+      const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+      const themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
+
+      // Immediately apply dark mode on page load
+      document.documentElement.classList.add("dark");
+      if (themeToggleDarkIcon) themeToggleDarkIcon.classList.remove("hidden");
+      if (themeToggleLightIcon) themeToggleLightIcon.classList.add("hidden");
+
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", function () {
+          if (themeToggleDarkIcon) themeToggleDarkIcon.classList.toggle("hidden");
+          if (themeToggleLightIcon) themeToggleLightIcon.classList.toggle("hidden");
+          
+          if (localStorage.getItem("color-theme")) {
+            if (localStorage.getItem("color-theme") === "dark") {
+              document.documentElement.classList.remove("dark");
+              localStorage.setItem("color-theme", "light");
+            } else {
+              document.documentElement.classList.add("dark");
+              localStorage.setItem("color-theme", "dark");
+            }
+          } else {
+            if (document.documentElement.classList.contains("dark")) {
+              document.documentElement.classList.remove("dark");
+              localStorage.setItem("color-theme", "light");
+            } else {
+              document.documentElement.classList.add("dark");
+              localStorage.setItem("color-theme", "dark");
+            }
+          }
+        });
+      }
+    </script>
+
+    <!-- Include Career Counselor Chatbot -->
+    {% include 'chatbot_component.html' %}
+
+    <!-- Notification Panel -->
+    <div id="notificationPanel" class="fixed inset-y-0 right-0 w-full md:w-1/2 lg:w-1/3 bg-[var(--card)] shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto hidden">
+        <div class="flex h-full">
+            <!-- Filters Sidebar -->
+            <div class="w-1/4 bg-gray-800 p-4 border-r border-[var(--border)]">
+                <h3 class="text-lg font-bold mb-4 text-white">Filters</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-white bg-[var(--primary-color)] hover:bg-blue-600 transition-colors duration-200" data-filter="all">All</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200" data-filter="exams">Exams</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200" data-filter="courses">Courses</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200" data-filter="deadlines">Deadlines</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200" data-filter="urgent">Urgent</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Notifications Content -->
+            <div class="w-3/4 p-4 md:p-6 lg:p-8 bg-[var(--card)]">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-white">Notifications</h2>
+                    <button id="closeNotificationBtn" class="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div id="notificationsContainer" class="space-y-4">
+                    <!-- Notifications will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Component JavaScript -->
+    <script>
+    (function() {
+        // Notification system variables
+        let notifications = [];
+        let currentFilter = 'all';
+        const API_BASE_URL = '/api';
+
+        // DOM elements
+        const notificationBtn = document.getElementById('notificationBtn');
+        const notificationPanel = document.getElementById('notificationPanel');
+        const closeNotificationBtn = document.getElementById('closeNotificationBtn');
+        const notificationsContainer = document.getElementById('notificationsContainer');
+        const notificationBadge = document.getElementById('notificationBadge');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        // Fetch notifications from API
+        const fetchNotifications = async (filter = 'all') => {
+            try {
+                const url = `${API_BASE_URL}/notifications?category=${filter}`;
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                notifications = data.notifications;
+                
+                updateNotificationBadge();
+                renderNotifications(currentFilter);
+                
+            } catch (error) {
+                console.error('Error fetching notifications:', error);
+                showErrorMessage('Failed to fetch notifications.');
+            }
+        };
+
+        // Update notification badge count
+        const updateNotificationBadge = () => {
+            const unreadCount = notifications.filter(n => !n.read).length;
+            const urgentCount = notifications.filter(n => n.priority === 'urgent').length;
+            
+            if (unreadCount > 0 || urgentCount > 0) {
+                notificationBadge.textContent = unreadCount;
+                notificationBadge.classList.remove('hidden');
+                if (urgentCount > 0) {
+                    notificationBadge.classList.add('animate-pulse');
+                }
+            } else {
+                notificationBadge.classList.add('hidden');
+                notificationBadge.classList.remove('animate-pulse');
+            }
+        };
+
+        // Show error message
+        const showErrorMessage = (message) => {
+            notificationsContainer.innerHTML = `
+                <div class="bg-red-900 border border-red-700 rounded-md p-4">
+                    <div class="flex">
+                        <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <div class="ml-3">
+                            <p class="text-sm text-red-200">${message}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        };
+
+        // Render notifications
+        const renderNotifications = (filter) => {
+            if (notifications.length === 0) {
+                notificationsContainer.innerHTML = '<p class="text-center text-gray-400">Loading notifications...</p>';
+                return;
+            }
+            
+            notificationsContainer.innerHTML = '';
+            let filteredNotifications = notifications;
+
+            // Apply filters
+            if (filter === 'exams') {
+                filteredNotifications = notifications.filter(n => n.category === 'exams');
+            } else if (filter === 'courses') {
+                filteredNotifications = notifications.filter(n => n.category === 'courses');
+            } else if (filter === 'deadlines') {
+                filteredNotifications = notifications.filter(n => n.category === 'deadlines');
+            } else if (filter === 'urgent') {
+                filteredNotifications = notifications.filter(n => n.priority === 'urgent');
+            }
+
+            if (filteredNotifications.length === 0) {
+                notificationsContainer.innerHTML = '<p class="text-center text-gray-400">No notifications found for this filter.</p>';
+                return;
+            }
+
+            filteredNotifications.forEach(notification => {
+                const readStatus = notification.read ? 'bg-gray-800 text-gray-400' : 'bg-gray-700 text-white';
+                const readDot = notification.read ? '' : '<span class="w-2 h-2 bg-[var(--primary-color)] rounded-full mr-2"></span>';
+                
+                // Priority indicators
+                let priorityBorder = '';
+                let priorityBadge = '';
+                if (notification.priority === 'urgent') {
+                    priorityBorder = 'border-l-4 border-red-500';
+                    priorityBadge = '<span class="bg-red-900 text-red-200 text-xs font-medium px-2 py-1 rounded-full">URGENT</span>';
+                } else if (notification.priority === 'high') {
+                    priorityBorder = 'border-l-4 border-orange-500';
+                    priorityBadge = '<span class="bg-orange-900 text-orange-200 text-xs font-medium px-2 py-1 rounded-full">HIGH</span>';
+                } else if (notification.priority === 'medium') {
+                    priorityBorder = 'border-l-4 border-yellow-500';
+                    priorityBadge = '<span class="bg-yellow-900 text-yellow-200 text-xs font-medium px-2 py-1 rounded-full">MEDIUM</span>';
+                } else {
+                    priorityBorder = 'border-l-4 border-green-500';
+                    priorityBadge = '<span class="bg-green-900 text-green-200 text-xs font-medium px-2 py-1 rounded-full">LOW</span>';
+                }
+                
+                // Category icons
+                let categoryIcon = '';
+                if (notification.category === 'exams') {
+                    categoryIcon = '<svg class="w-4 h-4 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
+                } else if (notification.category === 'courses') {
+                    categoryIcon = '<svg class="w-4 h-4 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.80a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/></svg>';
+                } else if (notification.category === 'deadlines') {
+                    categoryIcon = '<svg class="w-4 h-4 mr-2 text-red-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>';
+                }
+
+                const notificationCard = `
+                    <div class="notification-card p-4 rounded-md shadow-sm transition-transform duration-200 ease-in-out hover:shadow-lg hover:bg-gray-600 ${readStatus} ${priorityBorder}" data-read="${notification.read}">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                ${readDot}
+                                ${categoryIcon}
+                                <h4 class="font-semibold text-lg">${notification.title}</h4>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                ${priorityBadge}
+                                <span class="text-xs text-gray-400">${notification.date}</span>
+                            </div>
+                        </div>
+                        <p class="text-sm line-clamp-2 ml-6">${notification.message}</p>
+                    </div>
+                `;
+                notificationsContainer.innerHTML += notificationCard;
+            });
+        };
+
+        // Event listeners
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const filter = e.target.dataset.filter;
+                
+                // Update active class for dark theme
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-[var(--primary-color)]', 'text-white', 'bg-blue-600');
+                    b.classList.add('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
+                });
+                e.target.classList.add('bg-[var(--primary-color)]', 'text-white');
+                e.target.classList.remove('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
+
+                currentFilter = filter;
+                renderNotifications(currentFilter);
+            });
+        });
+
+        // Toggle notification panel
+        notificationBtn.addEventListener('click', () => {
+            notificationPanel.classList.remove('hidden');
+            setTimeout(() => {
+                notificationPanel.classList.remove('translate-x-full');
+            }, 10);
+            
+            // Fetch fresh data when opening
+            fetchNotifications(currentFilter);
+        });
+
+        // Close notification panel
+        closeNotificationBtn.addEventListener('click', () => {
+            notificationPanel.classList.add('translate-x-full');
+            setTimeout(() => {
+                notificationPanel.classList.add('hidden');
+            }, 300);
+        });
+
+        // Initial load
+        fetchNotifications(currentFilter);
+    })();
+    </script>
+  </body>
+</html>

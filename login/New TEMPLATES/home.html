@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fade-in-up 0.6s ease-out forwards;
+      }
+      .animate-delay-1 {
+        animation-delay: 0.1s;
+      }
+      .animate-delay-2 {
+        animation-delay: 0.2s;
+      }
+      .animate-delay-3 {
+        animation-delay: 0.3s;
+      }
+      
+      @keyframes pop-in {
+        0% {
+          transform: scale(0.9) translateY(10px);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1) translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .animate-pop-in {
+        animation: pop-in 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      }
+
+      :root {
+        --primary-color: #4299f0;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-500"
+    style="font-family: 'Be Vietnam Pro', 'Noto Sans', sans-serif"
+  >
+    <div
+      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap px-10 py-4 bg-white dark:bg-gray-800 shadow-sm transition-colors duration-500"
+        >
+          <div class="flex items-center gap-3 text-gray-900 dark:text-gray-100">
+            <div
+              class="p-2 bg-[var(--primary-color)] rounded-full text-white transform hover:rotate-90 transition-transform duration-300"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 12L12 20M12 12L12 4M12 12L20 12M12 12L4 12M12 12L18.364 18.364M12 12L5.63604 5.63604M12 12L18.364 5.63604M12 12L5.63604 18.364"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold tracking-tight">EduPath</h2>
+          </div>
+          <nav
+            class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-400 "
+          >
+            <a
+              class="text-[#4299f0] transition-colors "
+              href="home.html"
+              >Home</a
+            >
+            <a
+              class="hover:text-[var(--primary-color)] transition-colors"
+              href="../aptitude_&_interest_quiz_page_2/test.html"
+              >Career Quiz</a
+            >
+            <a
+              class="hover:text-[var(--primary-color)] transition-colors"
+              href="http://localhost:5002"
+              >Colleges</a
+            >
+            <a
+              class="hover:text-[var(--primary-color)] transition-colors"
+              href="../course-to-career_path_mapping_2/carrier.html"
+              >Career Paths</a
+            >
+            <a
+              class="hover:text-[var(--primary-color)] transition-colors"
+              href="../study_material_&_resources_2/study_material.html"
+              >Resources</a
+            >
+            <a
+              class="hover:text-[var(--primary-color)] transition-colors"
+              href="http://localhost:5000/analytics"
+              >Analytics</a
+            >
+            <a
+              class="hover:text-[var(--primary-color)] transition-colors"
+              href="../user_profile_&_personalization_2/profile.html"
+              >Profile</a
+            >
+          </nav>
+          <div class="flex items-center gap-2">
+           
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[var(--primary-color)] text-white text-sm font-bold leading-normal tracking-wide shadow-sm hover:bg-opacity-90 transition-all transform hover:scale-105"
+              onclick="location.href='http://localhost:5000/register'"
+            >
+              <span class="truncate">Sign Up</span>
+            </button>
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 text-sm font-bold leading-normal tracking-wide hover:bg-gray-200 dark:hover:bg-gray-600 transition-all transform hover:scale-105"
+              onclick="location.href='http://localhost:5000/login'"
+            >
+              <span class="truncate">Login</span>
+            </button>
+          </div>
+        </header>
+        <main class="flex-1 dark:bg-gray-900 transition-colors duration-500">
+          <section class="py-20 md:py-32">
+            <div class="container mx-auto px-4">
+              <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="flex flex-col gap-6 text-center md:text-left">
+                  <h1
+                    class="text-4xl md:text-6xl font-black leading-tight tracking-tighter text-gray-900 dark:text-white opacity-0 animate-fade-in-up"
+                  >
+                    Your Personalized Career & Education Guide
+                  </h1>
+                  <p
+                    class="text-base md:text-lg text-gray-600 dark:text-gray-400 opacity-0 animate-fade-in-up animate-delay-1"
+                  >
+                    Unlock your potential with tailored career and education
+                    advice. Discover your ideal path, explore top colleges, and
+                    gain insights into various career options.
+                  </p>
+                  <div
+                    class="flex flex-wrap gap-4 justify-center md:justify-start mt-4 opacity-0 animate-fade-in-up animate-delay-2"
+                  >
+                    <button
+                      class="flex items-center gap-2 min-w-[84px] max-w-[480px] cursor-pointer justify-center overflow-hidden rounded-lg h-12 px-6 bg-[var(--primary-color)] text-white text-base font-bold shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105"
+                      onclick="location.href='../aptitude_&_interest_quiz_page_2/test.html'"
+                    >
+                      <span class="material-symbols-outlined">quiz</span>
+                      <span class="truncate">Start Career Quiz</span>
+                    </button>
+                    <button
+                      class="flex items-center gap-2 min-w-[84px] max-w-[480px] cursor-pointer justify-center overflow-hidden rounded-lg h-12 px-6 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-base font-bold shadow-md border border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all transform hover:scale-105"
+                      onclick="location.href='../nearby_government_colleges_directory_2/templates/index.html'"
+                    >
+                      <span class="material-symbols-outlined">school</span>
+                      <span class="truncate">Explore Colleges</span>
+                    </button>
+                  </div>
+                  <div
+                    class="flex flex-wrap gap-4 justify-center md:justify-start mt-4 opacity-0 animate-fade-in-up animate-delay-3"
+                  >
+                    <button
+                      class="flex items-center gap-2 min-w-[84px] max-w-[480px] cursor-pointer justify-center overflow-hidden rounded-lg h-12 px-6 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-base font-bold shadow-md border border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all transform hover:scale-105"
+                      onclick="location.href='../course-to-career_path_mapping_2/carrier.html'"
+                    >
+                      <span class="material-symbols-outlined">work</span>
+                      <span class="truncate">Check Career Paths</span>
+                    </button>
+                    <button
+                      class="flex items-center gap-2 min-w-[84px] max-w-[480px] cursor-pointer justify-center overflow-hidden rounded-lg h-12 px-6 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-base font-bold shadow-md border border-gray-200 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all transform hover:scale-105"
+                      onclick="location.href='../study_material_&_resources_2/study_material.html'"
+                    >
+                      <span class="material-symbols-outlined">menu_book</span>
+                      <span class="truncate">Study Resources</span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="w-full h-auto opacity-0 animate-pop-in animate-delay-3"
+                >
+                  <img
+                    alt="Students exploring career and education paths"
+                    class="w-full h-full object-cover rounded-2xl shadow-2xl"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6yvCEKlkO0RqN1_HAb60KwOIDZVoMSL-l8-6ri9_iZmTerMQ_IbTprGGgOfjpVCXo5qJ_VRzSB-8MvxPd1mZDCl6hkxiDZCXb2Hs9kh-7gHPCmDVbOGMOUimZ5PBZOKqs7sPgWA0n0zcoBO1rlGSWu5uL2-Lb6Qojn3DkVFNtF4UIOK03slrEfPO3vnJ0wPGTzivPkMR04HZUwiYr4meKxWip0FzGqteG1cOH1mKKM7vk1x-mvRz2glXMGbJDzhHSh6MZ_zXtropD"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+        <footer
+          class="bg-white dark:bg-gray-800 py-10 transition-colors duration-500"
+        >
+          <div
+            class="container mx-auto px-4 text-center text-gray-500 dark:text-gray-400"
+          >
+            <div
+              class="flex flex-wrap items-center justify-center gap-6 mb-6 opacity-0 animate-fade-in-up animate-delay-3"
+            >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="../user_profile_&_personalization_2/code.html"
+                >Profile</a
+              >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="../timeline_tracker_(notifications)_2/code.html"
+                >Timeline</a
+              >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="#"
+                >Privacy Policy</a
+              >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="#"
+                >Terms of Service</a
+              >
+            </div>
+            <p>© 2024 EduPath. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+
+        const userPrefersDark = localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        if (userPrefersDark) {
+          document.documentElement.classList.add('dark');
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+          document.documentElement.classList.toggle('dark');
+          const isDarkMode = document.documentElement.classList.contains('dark');
+
+          if (isDarkMode) {
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

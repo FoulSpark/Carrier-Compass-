@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Register - Career Compass</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-50: #eff6ff;
+            --primary-100: #dbeafe;
+            --primary-200: #bfdbfe;
+            --primary-300: #93c5fd;
+            --primary-400: #60a5fa;
+            --primary-500: #3b82f6;
+            --primary-600: #2563eb;
+            --primary-700: #1d4ed8;
+            --primary-800: #1e40af;
+            --primary-900: #1e3a8a;
+            --primary-950: #172554;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-[#111418]">
+<div class="relative flex size-full min-h-screen flex-col" style='font-family: "Be Vietnam Pro", "Noto Sans", sans-serif;'>
+<div class="flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-b-[#283039] px-6 lg:px-10 py-4">
+<div class="flex items-center gap-3 text-gray-900 dark:text-white">
+<a href="{{ url_for('index') }}" class="flex items-center gap-3">
+<svg class="h-6 w-6 text-primary-500" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+</svg>
+<h2 class="text-xl font-bold tracking-tight">Career Compass</h2>
+</a>
+</div>
+<div class="flex items-center gap-4">
+<a href="{{ url_for('login') }}" class="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Log in</a>
+<a href="{{ url_for('register') }}" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary-500 text-white text-sm font-bold leading-normal tracking-[-0.015em] hover:bg-primary-600">
+<span class="truncate">Sign up</span>
+</a>
+</div>
+</header>
+<main class="flex-1">
+<div class="flex">
+<div class="hidden lg:flex w-1/2 flex-col items-center justify-center bg-primary-50 dark:bg-primary-950/20 p-12">
+<div class="max-w-md text-center">
+<h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Chart Your Future</h1>
+<p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                                Get personalized guidance for your academic and professional journey. Let's build your path to success, together.
+                            </p>
+<img alt="Students collaborating" class="w-full h-auto rounded-2xl shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjGwcmIG3_OCN0_9OWVRr0vM3jCs_GzQ6PLYDUhuxT3PiGL41cS66FqfJEsRBw2vpC3FHP6CwKGsjobUSwV11Vvx1NuJ04nhrwaBxBnudl27rm3dnl_rfKOOviXqbKzixZ1Cs_ykIqawLmICe5rZVJkre3AML5S38OMlG5ItGW62xTpuJ7TgtDC2cJntauRX7jlUOfjhUHKOTtLe1e9R1VmAUhmeR7LS_o3xg936YSkGUjIfvVDkoQqSa-wZvuwmsTmtkru5lh5U_j"/>
+</div>
+</div>
+<div class="flex w-full lg:w-1/2 items-center justify-center p-6 sm:p-12">
+<div class="w-full max-w-md rounded-2xl bg-white dark:bg-[#1c2127] p-8 shadow-lg">
+<h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white text-center mb-2">Create your account</h2>
+<p class="text-center text-gray-500 dark:text-gray-400 mb-8">Let's get you started on your journey.</p>
+{% if error %}
+<div class="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+{{ error }}
+</div>
+{% endif %}
+<form method="POST" class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" for="name">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"> person </span>
+<input autocomplete="name" class="form-input block w-full rounded-lg border-gray-300 bg-gray-50 dark:border-[#3b4754] dark:bg-[#111418] dark:text-white dark:placeholder:text-gray-500 py-3 pl-10 pr-3 shadow-sm focus:border-primary-500 focus:ring-primary-500" id="name" name="name" placeholder="Your full name" required="" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" for="email">Email address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"> mail </span>
+<input autocomplete="email" class="form-input block w-full rounded-lg border-gray-300 bg-gray-50 dark:border-[#3b4754] dark:bg-[#111418] dark:text-white dark:placeholder:text-gray-500 py-3 pl-10 pr-3 shadow-sm focus:border-primary-500 focus:ring-primary-500" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="password">Password</label>
+<div class="relative mt-2">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"> lock </span>
+<input autocomplete="new-password" class="form-input block w-full rounded-lg border-gray-300 bg-gray-50 dark:border-[#3b4754] dark:bg-[#111418] dark:text-white dark:placeholder:text-gray-500 py-3 pl-10 pr-3 shadow-sm focus:border-primary-500 focus:ring-primary-500" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" for="student_class">Class/Grade</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"> school </span>
+<input class="form-input block w-full rounded-lg border-gray-300 bg-gray-50 dark:border-[#3b4754] dark:bg-[#111418] dark:text-white dark:placeholder:text-gray-500 py-3 pl-10 pr-3 shadow-sm focus:border-primary-500 focus:ring-primary-500" id="student_class" name="student_class" placeholder="e.g., Grade 10, Class 12" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" for="interests">Interests</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"> category </span>
+<input class="form-input block w-full rounded-lg border-gray-300 bg-gray-50 dark:border-[#3b4754] dark:bg-[#111418] dark:text-white dark:placeholder:text-gray-500 py-3 pl-10 pr-3 shadow-sm focus:border-primary-500 focus:ring-primary-500" id="interests" name="interests" placeholder="Science, Arts, Technology, etc." type="text"/>
+</div>
+</div>
+<div>
+<button class="flex w-full justify-center rounded-lg bg-primary-500 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600" type="submit">
+                                        Sign up
+                                    </button>
+</div>
+</form>
+<p class="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+                                Already have an account?
+                                <a class="font-semibold leading-6 text-primary-500 hover:text-primary-600" href="{{ url_for('login') }}">Log in</a>
+</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>

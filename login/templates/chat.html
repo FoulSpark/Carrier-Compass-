@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+{% block title %}Chat - Spark Career Guide{% endblock %}
+
+{% block body_class %}bg-dark-theme{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card border-0 shadow-lg">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <i class="bi bi-robot text-primary me-3" style="font-size: 2rem;"></i>
+                        <div>
+                            <h4 class="mb-1">Hello {{ user_name }}!</h4>
+                            <p class="text-muted mb-0">Chat with Spark for personalized career guidance</p>
+                        </div>
+                    </div>
+                    
+                    <div id="chat-container" class="mb-4" style="height: 60vh; overflow-y: auto; border: 1px solid #30363d; border-radius: 8px; padding: 20px; background-color: #0d1117;">
+                        {% if messages %}
+                            {% for u,a in messages %}
+                                <div class="message mb-3">
+                                    <div class="d-flex justify-content-end mb-2">
+                                        <div class="bg-primary text-white p-3 rounded-3" style="max-width: 70%;">
+                                            <strong>You:</strong> {{ u }}
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-start mb-3">
+                                        <div class="bg-dark-card border p-3 rounded-3" style="max-width: 70%;">
+                                            <strong class="text-success">Spark:</strong> {{ a }}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="text-center text-muted">
+                                <i class="bi bi-chat-dots" style="font-size: 3rem;"></i>
+                                <p class="mt-3">Start a conversation with Spark to get personalized career guidance!</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <form id="chat-form">
+                        <div class="input-group">
+                            <input id="chat-input" name="text" class="form-control form-control-lg" 
+                                   placeholder="Type your message here..." autocomplete="off" />
+                            <button class="btn btn-primary btn-lg" type="submit">
+                                <i class="bi bi-send"></i>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="mt-3 d-flex gap-2">
+                        <a href="{{ url_for('profile') }}" class="btn btn-outline-secondary btn-sm">
+                            <i class="bi bi-person-gear me-1"></i>Edit Profile
+                        </a>
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-house me-1"></i>Dashboard
+                        </a>
+                        <button class="btn btn-outline-warning btn-sm" onclick="clearChat()">
+                            <i class="bi bi-trash me-1"></i>Clear Chat
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Auto-scroll to bottom of chat
+function scrollToBottom() {
+    const chatContainer = document.getElementById('chat-container');
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+// Add message to chat
+function addMessage(message, isUser = true) {
+    const chatContainer = document.getElementById('chat-container');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message mb-3';
+    
+    if (isUser) {
+        messageDiv.innerHTML = `
+            <div class="d-flex justify-content-end mb-2">
+                <div class="bg-primary text-white p-3 rounded-3" style="max-width: 70%;">
+                    <strong>You:</strong> ${message}
+                </div>
+            </div>
+        `;
+    } else {
+        messageDiv.innerHTML = `
+            <div class="d-flex justify-content-start mb-3">
+                <div class="bg-dark-card border p-3 rounded-3" style="max-width: 70%;">
+                    <strong class="text-success">Spark:</strong> ${message}
+                </div>
+            </div>
+        `;
+    }
+    
+    chatContainer.appendChild(messageDiv);
+    scrollToBottom();
+}
+
+// Clear chat
+async function clearChat() {
+    if (confirm('Are you sure you want to clear the chat history? This will permanently delete all your conversations with Spark.')) {
+        try {
+            const response = await fetch('/api/clear_chat', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok && result.status === 'success') {
+                // Clear the UI
+                const chatContainer = document.getElementById('chat-container');
+                chatContainer.innerHTML = `
+                    <div class="text-center text-muted">
+                        <i class="bi bi-chat-dots" style="font-size: 3rem;"></i>
+                        <p class="mt-3">Start a conversation with Spark to get personalized career guidance!</p>
+                    </div>
+                `;
+                
+                // Show success message
+                showNotification('Chat history cleared successfully!', 'success');
+            } else {
+                showNotification('Failed to clear chat history. Please try again.', 'error');
+            }
+        } catch (error) {
+            console.error('Error clearing chat:', error);
+            showNotification('Error clearing chat history. Please try again.', 'error');
+        }
+    }
+}
+
+// Show notification
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `alert alert-${type === 'success' ? 'success' : type === 'error' ? 'danger' : 'info'} position-fixed`;
+    notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+    notification.innerHTML = `
+        <div class="d-flex align-items-center">
+            <i class="bi bi-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-triangle' : 'info-circle'} me-2"></i>
+            <span>${message}</span>
+            <button type="button" class="btn-close ms-auto" onclick="this.parentElement.parentElement.remove()"></button>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 3000);
+}
+
+// Chat form submission
+document.getElementById('chat-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const input = document.getElementById('chat-input');
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    // Add user message
+    addMessage(message, true);
+    input.value = '';
+    
+    // Add loading message
+    const chatContainer = document.getElementById('chat-container');
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'message mb-3';
+    loadingDiv.innerHTML = `
+        <div class="d-flex justify-content-start mb-3">
+            <div class="bg-dark-card border p-3 rounded-3" style="max-width: 70%;">
+                <strong class="text-success">Spark:</strong> 
+                <span class="text-muted">
+                    <i class="bi bi-hourglass-split me-1"></i>Thinking...
+                </span>
+            </div>
+        </div>
+    `;
+    chatContainer.appendChild(loadingDiv);
+    scrollToBottom();
+    
+    try {
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: message })
+        });
+        
+        const data = await response.json();
+        
+        // Remove loading message and add actual response
+        chatContainer.removeChild(loadingDiv);
+        addMessage(data.response, false);
+        
+    } catch (error) {
+        // Remove loading message and add error
+        chatContainer.removeChild(loadingDiv);
+        addMessage('Sorry, I\'m having trouble right now. Please try again.', false);
+    }
+});
+
+// Auto-focus on input
+document.getElementById('chat-input').focus();
+
+// Scroll to bottom on page load
+window.addEventListener('load', scrollToBottom);
+</script>
+{% endblock %}

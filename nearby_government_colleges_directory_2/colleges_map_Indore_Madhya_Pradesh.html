@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2f65152989aec52780f53a930befa910 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div style="position: fixed; 
+                        bottom: 50px; left: 50px; width: 150px; height: 90px; 
+                        background-color: white; border:2px solid grey; z-index:9999; 
+                        font-size:14px; padding: 10px">
+            <p><b>Legend</b></p>
+            <p><i class="fa fa-user" style="color:blue"></i> Your Location</p>
+            <p><i class="fa fa-university" style="color:green"></i> University</p>
+            <p><i class="fa fa-graduation-cap" style="color:red"></i> College</p>
+            </div>
+            
+    
+            <div class="folium-map" id="map_2f65152989aec52780f53a930befa910" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2f65152989aec52780f53a930befa910 = L.map(
+                "map_2f65152989aec52780f53a930befa910",
+                {
+                    center: [22.7203616, 75.8681996],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e8ec597df14d9f4b008b885963d91858 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e8ec597df14d9f4b008b885963d91858.addTo(map_2f65152989aec52780f53a930befa910);
+        
+    
+            var marker_6b00fdaf4b3b2b674ef76cc0a340ed93 = L.marker(
+                [22.7203616, 75.8681996],
+                {
+}
+            ).addTo(map_2f65152989aec52780f53a930befa910);
+        
+    
+            var icon_f8de8c84d660b8ff3144049f356d01e1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "user",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_302c0343d408d54de7fab4fa238b3c4c = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_00826182c3a4f9cc6e967d842df18f74 = $(`<div id="html_00826182c3a4f9cc6e967d842df18f74" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px;">                 <h4>📍 Your Location</h4>                 <p><strong>Location:</strong> Indore Madhya Pradesh</p>                 <p><strong>Coordinates:</strong> 22.720362, 75.868200</p>                 <p><strong>Nearby Colleges:</strong> 2 found</p>             </div>             </div>`)[0];
+                popup_302c0343d408d54de7fab4fa238b3c4c.setContent(html_00826182c3a4f9cc6e967d842df18f74);
+            
+        
+
+        marker_6b00fdaf4b3b2b674ef76cc0a340ed93.bindPopup(popup_302c0343d408d54de7fab4fa238b3c4c)
+        ;
+
+        
+    
+    
+            marker_6b00fdaf4b3b2b674ef76cc0a340ed93.bindTooltip(
+                `<div>
+                     📍 Your Location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6b00fdaf4b3b2b674ef76cc0a340ed93.setIcon(icon_f8de8c84d660b8ff3144049f356d01e1);
+            
+    
+            var circle_46a5ca20680c456db11ede6e799dd942 = L.circle(
+                [22.7203616, 75.8681996],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10000, "stroke": true, "weight": 2}
+            ).addTo(map_2f65152989aec52780f53a930befa910);
+        
+    
+        var popup_e20d295ec85655a742f7346fb51a9db0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_31901f324ebcdfb3daeaa638af614156 = $(`<div id="html_31901f324ebcdfb3daeaa638af614156" style="width: 100.0%; height: 100.0%;">10.0km Search Radius</div>`)[0];
+                popup_e20d295ec85655a742f7346fb51a9db0.setContent(html_31901f324ebcdfb3daeaa638af614156);
+            
+        
+
+        circle_46a5ca20680c456db11ede6e799dd942.bindPopup(popup_e20d295ec85655a742f7346fb51a9db0)
+        ;
+
+        
+    
+    
+            var marker_6d8f8aa30b32f91b42522eea3236208b = L.marker(
+                [22.6708, 75.9061],
+                {
+}
+            ).addTo(map_2f65152989aec52780f53a930befa910);
+        
+    
+            var icon_49b2550b568b2039c628db2bf26755f8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ca07c3ba3fa434a4b337ff59702de191 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f4bcd43c3e202f2cc106cd47427e71bf = $(`<div id="html_f4bcd43c3e202f2cc106cd47427e71bf" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>IIT Indore</h4>                     <p><strong>Type:</strong> University</p>                     <p><strong>Operator:</strong> Government of India</p>                 <p><strong>Address:</strong> Indore, Madhya Pradesh 453552</p><p><strong>Website:</strong> <a href='https://www.iiti.ac.in/' target='_blank'>Visit Website</a></p></div></div>`)[0];
+                popup_ca07c3ba3fa434a4b337ff59702de191.setContent(html_f4bcd43c3e202f2cc106cd47427e71bf);
+            
+        
+
+        marker_6d8f8aa30b32f91b42522eea3236208b.bindPopup(popup_ca07c3ba3fa434a4b337ff59702de191)
+        ;
+
+        
+    
+    
+            marker_6d8f8aa30b32f91b42522eea3236208b.bindTooltip(
+                `<div>
+                     1. IIT Indore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6d8f8aa30b32f91b42522eea3236208b.setIcon(icon_49b2550b568b2039c628db2bf26755f8);
+            
+    
+            var marker_7e20fc5b5cb3a04f8abeb721b2aac573 = L.marker(
+                [22.7085, 75.8735],
+                {
+}
+            ).addTo(map_2f65152989aec52780f53a930befa910);
+        
+    
+            var icon_954ae65633564515f774fdba58b319c8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2339251107d67d6e93d72d71c9aba3b9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e9b68d5d89662062c06364c978e87df6 = $(`<div id="html_e9b68d5d89662062c06364c978e87df6" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Holkar Science College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Indore, Madhya Pradesh</p></div></div>`)[0];
+                popup_2339251107d67d6e93d72d71c9aba3b9.setContent(html_e9b68d5d89662062c06364c978e87df6);
+            
+        
+
+        marker_7e20fc5b5cb3a04f8abeb721b2aac573.bindPopup(popup_2339251107d67d6e93d72d71c9aba3b9)
+        ;
+
+        
+    
+    
+            marker_7e20fc5b5cb3a04f8abeb721b2aac573.bindTooltip(
+                `<div>
+                     2. Government Holkar Science College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7e20fc5b5cb3a04f8abeb721b2aac573.setIcon(icon_954ae65633564515f774fdba58b319c8);
+            
+</script>
+</html>

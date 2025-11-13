@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2847663e69cfccf6b20ff4b199057a56 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div style="position: fixed; 
+                        bottom: 50px; left: 50px; width: 150px; height: 90px; 
+                        background-color: white; border:2px solid grey; z-index:9999; 
+                        font-size:14px; padding: 10px">
+            <p><b>Legend</b></p>
+            <p><i class="fa fa-user" style="color:blue"></i> Your Location</p>
+            <p><i class="fa fa-university" style="color:green"></i> University</p>
+            <p><i class="fa fa-graduation-cap" style="color:red"></i> College</p>
+            </div>
+            
+    
+            <div class="folium-map" id="map_2847663e69cfccf6b20ff4b199057a56" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2847663e69cfccf6b20ff4b199057a56 = L.map(
+                "map_2847663e69cfccf6b20ff4b199057a56",
+                {
+                    center: [23.2505, 77.4065],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_66e012a9eedaa5150631548ec9572608 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_66e012a9eedaa5150631548ec9572608.addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var marker_e0ecdd48d4a3a8b3caee442231b6a444 = L.marker(
+                [23.2505, 77.4065],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_baccfc6a3a29f924e277ce85ec2eaa62 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "user",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_af20f5ed4c62a2c89e2fa4f8cbd9b609 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_1381675d215971d41d5eff1b3f1df918 = $(`<div id="html_1381675d215971d41d5eff1b3f1df918" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px;">                 <h4>📍 Your Location</h4>                 <p><strong>Location:</strong> Bhopal, Madhya Pradesh, India</p>                 <p><strong>Coordinates:</strong> 23.250500, 77.406500</p>                 <p><strong>Nearby Colleges:</strong> 18 found</p>             </div>             </div>`)[0];
+                popup_af20f5ed4c62a2c89e2fa4f8cbd9b609.setContent(html_1381675d215971d41d5eff1b3f1df918);
+            
+        
+
+        marker_e0ecdd48d4a3a8b3caee442231b6a444.bindPopup(popup_af20f5ed4c62a2c89e2fa4f8cbd9b609)
+        ;
+
+        
+    
+    
+            marker_e0ecdd48d4a3a8b3caee442231b6a444.bindTooltip(
+                `<div>
+                     📍 Your Location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e0ecdd48d4a3a8b3caee442231b6a444.setIcon(icon_baccfc6a3a29f924e277ce85ec2eaa62);
+            
+    
+            var circle_af703a2382fe8973886b0528417b0971 = L.circle(
+                [23.2505, 77.4065],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10000, "stroke": true, "weight": 2}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+        var popup_67579dd98377e35597504413eeb4b1f5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b3dad72b969e4411cfab7f0276a34f73 = $(`<div id="html_b3dad72b969e4411cfab7f0276a34f73" style="width: 100.0%; height: 100.0%;">10.0km Search Radius</div>`)[0];
+                popup_67579dd98377e35597504413eeb4b1f5.setContent(html_b3dad72b969e4411cfab7f0276a34f73);
+            
+        
+
+        circle_af703a2382fe8973886b0528417b0971.bindPopup(popup_67579dd98377e35597504413eeb4b1f5)
+        ;
+
+        
+    
+    
+            var marker_1d84e9f4d5934d51a1d58a033b1dcd2e = L.marker(
+                [23.1775944, 77.4278901],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_51ab985da03d1eb4039697b9c523ca3e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_907dd138b71c786266682e079e8890f4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d57908be36a0bc4090c5b7084d6e34dc = $(`<div id="html_d57908be36a0bc4090c5b7084d6e34dc" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>L N Medical College </h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_907dd138b71c786266682e079e8890f4.setContent(html_d57908be36a0bc4090c5b7084d6e34dc);
+            
+        
+
+        marker_1d84e9f4d5934d51a1d58a033b1dcd2e.bindPopup(popup_907dd138b71c786266682e079e8890f4)
+        ;
+
+        
+    
+    
+            marker_1d84e9f4d5934d51a1d58a033b1dcd2e.bindTooltip(
+                `<div>
+                     1. L N Medical College 
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1d84e9f4d5934d51a1d58a033b1dcd2e.setIcon(icon_51ab985da03d1eb4039697b9c523ca3e);
+            
+    
+            var marker_5a379cd414ef9a70d510f3011d90faea = L.marker(
+                [23.1782242, 77.4342423],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_ee3dbdedfbbab5b7a7b7fa2fe98d4036 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9beb3bf984ad9ee871c264e58440968a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6059d8331886a4903e7a15c066410431 = $(`<div id="html_6059d8331886a4903e7a15c066410431" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Extol College </h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 <p><strong>Address:</strong> E 8 Extension Shahpura </p><p><strong>Phone:</strong> 8085125561</p><p><strong>Website:</strong> <a href='www.extolcollege.in' target='_blank'>Visit Website</a></p></div></div>`)[0];
+                popup_9beb3bf984ad9ee871c264e58440968a.setContent(html_6059d8331886a4903e7a15c066410431);
+            
+        
+
+        marker_5a379cd414ef9a70d510f3011d90faea.bindPopup(popup_9beb3bf984ad9ee871c264e58440968a)
+        ;
+
+        
+    
+    
+            marker_5a379cd414ef9a70d510f3011d90faea.bindTooltip(
+                `<div>
+                     2. Extol College 
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5a379cd414ef9a70d510f3011d90faea.setIcon(icon_ee3dbdedfbbab5b7a7b7fa2fe98d4036);
+            
+    
+            var marker_32231bf73a8dd20945dfb9b71b8ea9fa = L.marker(
+                [23.2528901, 77.4148872],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_42c697a9113a9f2fe2d21086e3429899 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ff33a735e5a904123f4962a4d6e147f3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_353eb347449f2af7d3664010428666f9 = $(`<div id="html_353eb347449f2af7d3664010428666f9" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Extol Institute of Management</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_ff33a735e5a904123f4962a4d6e147f3.setContent(html_353eb347449f2af7d3664010428666f9);
+            
+        
+
+        marker_32231bf73a8dd20945dfb9b71b8ea9fa.bindPopup(popup_ff33a735e5a904123f4962a4d6e147f3)
+        ;
+
+        
+    
+    
+            marker_32231bf73a8dd20945dfb9b71b8ea9fa.bindTooltip(
+                `<div>
+                     3. Extol Institute of Management
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_32231bf73a8dd20945dfb9b71b8ea9fa.setIcon(icon_42c697a9113a9f2fe2d21086e3429899);
+            
+    
+            var marker_c587feba88294d7408e9d07edfdf90ea = L.marker(
+                [23.1754563, 77.3875459],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_4fd6bfaf71c2fb7b5d3922860c032ecc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_823ccc7586c3a61730b7246e93cecc3c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_17016ad263c5a571e136c1639218dd80 = $(`<div id="html_17016ad263c5a571e136c1639218dd80" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Jagran Lakecity University </h4>                     <p><strong>Type:</strong> University</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_823ccc7586c3a61730b7246e93cecc3c.setContent(html_17016ad263c5a571e136c1639218dd80);
+            
+        
+
+        marker_c587feba88294d7408e9d07edfdf90ea.bindPopup(popup_823ccc7586c3a61730b7246e93cecc3c)
+        ;
+
+        
+    
+    
+            marker_c587feba88294d7408e9d07edfdf90ea.bindTooltip(
+                `<div>
+                     4. Jagran Lakecity University 
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c587feba88294d7408e9d07edfdf90ea.setIcon(icon_4fd6bfaf71c2fb7b5d3922860c032ecc);
+            
+    
+            var marker_8ac86485b13863c9cc016211796b5ba4 = L.marker(
+                [23.2342111, 77.3882482],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_41219b37b545902df8ad4ea7f0dbe3dc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9f8e04a16dc6968f230ea71d6f441660 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0eb3957f46a9701af84bc7ca18d3c328 = $(`<div id="html_0eb3957f46a9701af84bc7ca18d3c328" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Madhya Pradesh School of Drama</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 <p><strong>Address:</strong> Shantivardhan Marg</p></div></div>`)[0];
+                popup_9f8e04a16dc6968f230ea71d6f441660.setContent(html_0eb3957f46a9701af84bc7ca18d3c328);
+            
+        
+
+        marker_8ac86485b13863c9cc016211796b5ba4.bindPopup(popup_9f8e04a16dc6968f230ea71d6f441660)
+        ;
+
+        
+    
+    
+            marker_8ac86485b13863c9cc016211796b5ba4.bindTooltip(
+                `<div>
+                     5. Madhya Pradesh School of Drama
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8ac86485b13863c9cc016211796b5ba4.setIcon(icon_41219b37b545902df8ad4ea7f0dbe3dc);
+            
+    
+            var marker_0e6cafc18514220738a711ff29f6ebb5 = L.marker(
+                [23.1621315, 77.4080923],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_4fce3c03efc2fc08d28aaa42ec2abf8a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_792d03c53c867694c15e16cb51ebc9c9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1cf3bce2f9a427812561082891d034db = $(`<div id="html_1cf3bce2f9a427812561082891d034db" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Shivang Homeopathy College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_792d03c53c867694c15e16cb51ebc9c9.setContent(html_1cf3bce2f9a427812561082891d034db);
+            
+        
+
+        marker_0e6cafc18514220738a711ff29f6ebb5.bindPopup(popup_792d03c53c867694c15e16cb51ebc9c9)
+        ;
+
+        
+    
+    
+            marker_0e6cafc18514220738a711ff29f6ebb5.bindTooltip(
+                `<div>
+                     6. Shivang Homeopathy College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0e6cafc18514220738a711ff29f6ebb5.setIcon(icon_4fce3c03efc2fc08d28aaa42ec2abf8a);
+            
+    
+            var marker_a4f04282508cb78b4e15f957d1b5ae9e = L.marker(
+                [23.2134357, 77.4078974],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_9f6dcecaa1469daa828ac9f4beaf2604 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9e9b59f18f0dbb6b3c49192d8842f26e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e62b3168ae044a22a921c0eada482bae = $(`<div id="html_e62b3168ae044a22a921c0eada482bae" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Maulana Azad National Insititute of Technology</h4>                     <p><strong>Type:</strong> University</p>                     <p><strong>Operator:</strong> Unknown</p>                 <p><strong>Phone:</strong> +91 755 4051000</p><p><strong>Website:</strong> <a href='http://www.manit.ac.in/' target='_blank'>Visit Website</a></p></div></div>`)[0];
+                popup_9e9b59f18f0dbb6b3c49192d8842f26e.setContent(html_e62b3168ae044a22a921c0eada482bae);
+            
+        
+
+        marker_a4f04282508cb78b4e15f957d1b5ae9e.bindPopup(popup_9e9b59f18f0dbb6b3c49192d8842f26e)
+        ;
+
+        
+    
+    
+            marker_a4f04282508cb78b4e15f957d1b5ae9e.bindTooltip(
+                `<div>
+                     7. Maulana Azad National Insititute of Technology
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a4f04282508cb78b4e15f957d1b5ae9e.setIcon(icon_9f6dcecaa1469daa828ac9f4beaf2604);
+            
+    
+            var marker_3e66ea58a461497f14974632a7d90d7c = L.marker(
+                [23.2140028, 77.4438823],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_e4ac9036111b4e95ecb7ac14a2071288 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5cabbc722c450407394c4a4cc664d536 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_736cbb94348871ed48702d8049bc21a0 = $(`<div id="html_736cbb94348871ed48702d8049bc21a0" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Bhopal School of Social Science</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_5cabbc722c450407394c4a4cc664d536.setContent(html_736cbb94348871ed48702d8049bc21a0);
+            
+        
+
+        marker_3e66ea58a461497f14974632a7d90d7c.bindPopup(popup_5cabbc722c450407394c4a4cc664d536)
+        ;
+
+        
+    
+    
+            marker_3e66ea58a461497f14974632a7d90d7c.bindTooltip(
+                `<div>
+                     8. Bhopal School of Social Science
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3e66ea58a461497f14974632a7d90d7c.setIcon(icon_e4ac9036111b4e95ecb7ac14a2071288);
+            
+    
+            var marker_278ea3074d8dc70b22056ffef4ac288f = L.marker(
+                [23.2310709, 77.4507785],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_b6770e768536f5790c52d76b5ada5e18 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e5e96a2e91747cefa5cd5422221e9dd0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bf6265f368160789233ea63e42d6ed75 = $(`<div id="html_bf6265f368160789233ea63e42d6ed75" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Career College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_e5e96a2e91747cefa5cd5422221e9dd0.setContent(html_bf6265f368160789233ea63e42d6ed75);
+            
+        
+
+        marker_278ea3074d8dc70b22056ffef4ac288f.bindPopup(popup_e5e96a2e91747cefa5cd5422221e9dd0)
+        ;
+
+        
+    
+    
+            marker_278ea3074d8dc70b22056ffef4ac288f.bindTooltip(
+                `<div>
+                     9. Career College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_278ea3074d8dc70b22056ffef4ac288f.setIcon(icon_b6770e768536f5790c52d76b5ada5e18);
+            
+    
+            var marker_8f8eee5c1dcc304bce21f9a8a830367f = L.marker(
+                [23.2369434, 77.3826775],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_31aa0eff2b16db41e96a90aabf5e90c3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a8d69df682d213b2c262201303baf76c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6a97281acdf280c9df307c9fd251697d = $(`<div id="html_6a97281acdf280c9df307c9fd251697d" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Regional Institute of Education (RIE)</h4>                     <p><strong>Type:</strong> University</p>                     <p><strong>Operator:</strong> Unknown</p>                 <p><strong>Website:</strong> <a href='https://riebhopal.nic.in/' target='_blank'>Visit Website</a></p></div></div>`)[0];
+                popup_a8d69df682d213b2c262201303baf76c.setContent(html_6a97281acdf280c9df307c9fd251697d);
+            
+        
+
+        marker_8f8eee5c1dcc304bce21f9a8a830367f.bindPopup(popup_a8d69df682d213b2c262201303baf76c)
+        ;
+
+        
+    
+    
+            marker_8f8eee5c1dcc304bce21f9a8a830367f.bindTooltip(
+                `<div>
+                     10. Regional Institute of Education (RIE)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8f8eee5c1dcc304bce21f9a8a830367f.setIcon(icon_31aa0eff2b16db41e96a90aabf5e90c3);
+            
+    
+            var marker_627d6ef737d1d123110b3649f1d90505 = L.marker(
+                [23.2075735, 77.3852993],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_59da392a7b4935253811dabbfcad5bc8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a86a452bdf9103cafe44c1c4bdedeb87 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_322bc1f1d86055b2d8c5070e4f6e2abd = $(`<div id="html_322bc1f1d86055b2d8c5070e4f6e2abd" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Indian Institute of Forest Management</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_a86a452bdf9103cafe44c1c4bdedeb87.setContent(html_322bc1f1d86055b2d8c5070e4f6e2abd);
+            
+        
+
+        marker_627d6ef737d1d123110b3649f1d90505.bindPopup(popup_a86a452bdf9103cafe44c1c4bdedeb87)
+        ;
+
+        
+    
+    
+            marker_627d6ef737d1d123110b3649f1d90505.bindTooltip(
+                `<div>
+                     11. Indian Institute of Forest Management
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_627d6ef737d1d123110b3649f1d90505.setIcon(icon_59da392a7b4935253811dabbfcad5bc8);
+            
+    
+            var marker_4b420f39b9a0d41f7bad5585233ca04b = L.marker(
+                [23.2105981, 77.3732095],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_ebcaeb9b77283a68646a460402826b16 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_53358982e927711cdf3d4e6bf51a1c8f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_81299a992be93bc0cd9fefaf9efb089a = $(`<div id="html_81299a992be93bc0cd9fefaf9efb089a" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>National Judicial Academy</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 <p><strong>Website:</strong> <a href='http://www.nja.nic.in/' target='_blank'>Visit Website</a></p></div></div>`)[0];
+                popup_53358982e927711cdf3d4e6bf51a1c8f.setContent(html_81299a992be93bc0cd9fefaf9efb089a);
+            
+        
+
+        marker_4b420f39b9a0d41f7bad5585233ca04b.bindPopup(popup_53358982e927711cdf3d4e6bf51a1c8f)
+        ;
+
+        
+    
+    
+            marker_4b420f39b9a0d41f7bad5585233ca04b.bindTooltip(
+                `<div>
+                     12. National Judicial Academy
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4b420f39b9a0d41f7bad5585233ca04b.setIcon(icon_ebcaeb9b77283a68646a460402826b16);
+            
+    
+            var marker_dde55fb194c3c82993624276eda65034 = L.marker(
+                [23.1868422, 77.3639801],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_7250653390e9337396787da8dbcedec0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6d5f04ca40c4535b65063c54639bccad = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0a6c7eca569d990dee3ff2b50cf809ec = $(`<div id="html_0a6c7eca569d990dee3ff2b50cf809ec" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>National Law Institute University</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 <p><strong>Website:</strong> <a href='https://www.nliu.ac.in/' target='_blank'>Visit Website</a></p></div></div>`)[0];
+                popup_6d5f04ca40c4535b65063c54639bccad.setContent(html_0a6c7eca569d990dee3ff2b50cf809ec);
+            
+        
+
+        marker_dde55fb194c3c82993624276eda65034.bindPopup(popup_6d5f04ca40c4535b65063c54639bccad)
+        ;
+
+        
+    
+    
+            marker_dde55fb194c3c82993624276eda65034.bindTooltip(
+                `<div>
+                     13. National Law Institute University
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dde55fb194c3c82993624276eda65034.setIcon(icon_7250653390e9337396787da8dbcedec0);
+            
+    
+            var marker_07b773f3363cb99d6f79eba6f75eb8b7 = L.marker(
+                [23.2462823, 77.5028535],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_0a3bb14917857e683b1c75a28fcdc16d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d7b1be83cab2b18ae6d22ee0d13650d6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_baa79aae22982b8d18ad571bd8df9449 = $(`<div id="html_baa79aae22982b8d18ad571bd8df9449" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Oriental Institute of science and technology</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_d7b1be83cab2b18ae6d22ee0d13650d6.setContent(html_baa79aae22982b8d18ad571bd8df9449);
+            
+        
+
+        marker_07b773f3363cb99d6f79eba6f75eb8b7.bindPopup(popup_d7b1be83cab2b18ae6d22ee0d13650d6)
+        ;
+
+        
+    
+    
+            marker_07b773f3363cb99d6f79eba6f75eb8b7.bindTooltip(
+                `<div>
+                     14. Oriental Institute of science and technology
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_07b773f3363cb99d6f79eba6f75eb8b7.setIcon(icon_0a3bb14917857e683b1c75a28fcdc16d);
+            
+    
+            var marker_3fb2d95d885ad9431a803d37369895f8 = L.marker(
+                [23.2604421, 77.4986161],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_e0d5469d7bc0981615fa7c810748da76 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f54e3bb24497cbff809752f8a071e7c1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9b39d6f51e35956cf7f9874ad7e64f51 = $(`<div id="html_9b39d6f51e35956cf7f9874ad7e64f51" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Technocrat Institute of Technology</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_f54e3bb24497cbff809752f8a071e7c1.setContent(html_9b39d6f51e35956cf7f9874ad7e64f51);
+            
+        
+
+        marker_3fb2d95d885ad9431a803d37369895f8.bindPopup(popup_f54e3bb24497cbff809752f8a071e7c1)
+        ;
+
+        
+    
+    
+            marker_3fb2d95d885ad9431a803d37369895f8.bindTooltip(
+                `<div>
+                     15. Technocrat Institute of Technology
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3fb2d95d885ad9431a803d37369895f8.setIcon(icon_e0d5469d7bc0981615fa7c810748da76);
+            
+    
+            var marker_852004654fc42c833102d5a00b12214e = L.marker(
+                [23.2997358, 77.4227677],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_6c87b70a31d5428ccc5efce0c7cfa1fc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_801cb647c324c26987ff799e70a55335 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_12834596bd99edbff3174b8541e010dc = $(`<div id="html_12834596bd99edbff3174b8541e010dc" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>People's Dental College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_801cb647c324c26987ff799e70a55335.setContent(html_12834596bd99edbff3174b8541e010dc);
+            
+        
+
+        marker_852004654fc42c833102d5a00b12214e.bindPopup(popup_801cb647c324c26987ff799e70a55335)
+        ;
+
+        
+    
+    
+            marker_852004654fc42c833102d5a00b12214e.bindTooltip(
+                `<div>
+                     16. People's Dental College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_852004654fc42c833102d5a00b12214e.setIcon(icon_6c87b70a31d5428ccc5efce0c7cfa1fc);
+            
+    
+            var marker_2249b9c4352d735f386823ce915b6e5c = L.marker(
+                [23.3084442, 77.3868547],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_841e2c0332bcd61f888488242b039950 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4fb89518f5e28ea86408fb8f909a8001 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b127d9c5994041eb20f24a6743938885 = $(`<div id="html_b127d9c5994041eb20f24a6743938885" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Truba College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_4fb89518f5e28ea86408fb8f909a8001.setContent(html_b127d9c5994041eb20f24a6743938885);
+            
+        
+
+        marker_2249b9c4352d735f386823ce915b6e5c.bindPopup(popup_4fb89518f5e28ea86408fb8f909a8001)
+        ;
+
+        
+    
+    
+            marker_2249b9c4352d735f386823ce915b6e5c.bindTooltip(
+                `<div>
+                     17. Truba College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2249b9c4352d735f386823ce915b6e5c.setIcon(icon_841e2c0332bcd61f888488242b039950);
+            
+    
+            var marker_4cd3d351a9ac161b187d12bed89d9063 = L.marker(
+                [23.2276982, 77.4439364],
+                {
+}
+            ).addTo(map_2847663e69cfccf6b20ff4b199057a56);
+        
+    
+            var icon_4ec3cbf40104b8fefd58e72ed3de6d82 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bceaef60d593766a98f29d73bb483a37 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be89d1c0e54bf851bb3e4d4d6608037a = $(`<div id="html_be89d1c0e54bf851bb3e4d4d6608037a" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Satya Sai College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_bceaef60d593766a98f29d73bb483a37.setContent(html_be89d1c0e54bf851bb3e4d4d6608037a);
+            
+        
+
+        marker_4cd3d351a9ac161b187d12bed89d9063.bindPopup(popup_bceaef60d593766a98f29d73bb483a37)
+        ;
+
+        
+    
+    
+            marker_4cd3d351a9ac161b187d12bed89d9063.bindTooltip(
+                `<div>
+                     18. Satya Sai College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4cd3d351a9ac161b187d12bed89d9063.setIcon(icon_4ec3cbf40104b8fefd58e72ed3de6d82);
+            
+</script>
+</html>

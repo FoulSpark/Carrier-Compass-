@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b302cf7ae30fd519f46d56393a581b80 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div style="position: fixed; 
+                        bottom: 50px; left: 50px; width: 150px; height: 90px; 
+                        background-color: white; border:2px solid grey; z-index:9999; 
+                        font-size:14px; padding: 10px">
+            <p><b>Legend</b></p>
+            <p><i class="fa fa-user" style="color:blue"></i> Your Location</p>
+            <p><i class="fa fa-university" style="color:green"></i> University</p>
+            <p><i class="fa fa-graduation-cap" style="color:red"></i> College</p>
+            </div>
+            
+    
+            <div class="folium-map" id="map_b302cf7ae30fd519f46d56393a581b80" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b302cf7ae30fd519f46d56393a581b80 = L.map(
+                "map_b302cf7ae30fd519f46d56393a581b80",
+                {
+                    center: [23.2584857, 77.401989],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_dda9faa209d5e35b537154eef1d1bb95 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_dda9faa209d5e35b537154eef1d1bb95.addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var marker_2c1c1964cb72968ca8c9a16f4b1bce2c = L.marker(
+                [23.2584857, 77.401989],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_9e9245dd980f45d04f101fb75e40a1f3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "user",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4c030131c40b2b3359a9e4873b405163 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_6a67d3bbb204829d1fbddc8262a12e8b = $(`<div id="html_6a67d3bbb204829d1fbddc8262a12e8b" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px;">                 <h4>📍 Your Location</h4>                 <p><strong>Location:</strong> Bhopal Madhya Pradesh</p>                 <p><strong>Coordinates:</strong> 23.258486, 77.401989</p>                 <p><strong>Nearby Colleges:</strong> 16 found</p>             </div>             </div>`)[0];
+                popup_4c030131c40b2b3359a9e4873b405163.setContent(html_6a67d3bbb204829d1fbddc8262a12e8b);
+            
+        
+
+        marker_2c1c1964cb72968ca8c9a16f4b1bce2c.bindPopup(popup_4c030131c40b2b3359a9e4873b405163)
+        ;
+
+        
+    
+    
+            marker_2c1c1964cb72968ca8c9a16f4b1bce2c.bindTooltip(
+                `<div>
+                     📍 Your Location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2c1c1964cb72968ca8c9a16f4b1bce2c.setIcon(icon_9e9245dd980f45d04f101fb75e40a1f3);
+            
+    
+            var circle_e0a0375c4ee6a6075e2d05c872cfcc10 = L.circle(
+                [23.2584857, 77.401989],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20000, "stroke": true, "weight": 2}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+        var popup_e1904317f2b34a95be92c0e7954c6a53 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_816298dea76af728b359e34887d679a0 = $(`<div id="html_816298dea76af728b359e34887d679a0" style="width: 100.0%; height: 100.0%;">20.0km Search Radius</div>`)[0];
+                popup_e1904317f2b34a95be92c0e7954c6a53.setContent(html_816298dea76af728b359e34887d679a0);
+            
+        
+
+        circle_e0a0375c4ee6a6075e2d05c872cfcc10.bindPopup(popup_e1904317f2b34a95be92c0e7954c6a53)
+        ;
+
+        
+    
+    
+            var marker_7f112e1271cdae529ca1c1072aece2ad = L.marker(
+                [23.2599, 77.4126],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_52546a77a637047d8d64cacab7270db6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_245333b1ab853dc002700eac00a9d66d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e40f93696cc6821728c21f3b0798c3ef = $(`<div id="html_e40f93696cc6821728c21f3b0798c3ef" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Govt Motilal Vigyan Mahavidyalaya (MVM)</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Jahangirabad, Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_245333b1ab853dc002700eac00a9d66d.setContent(html_e40f93696cc6821728c21f3b0798c3ef);
+            
+        
+
+        marker_7f112e1271cdae529ca1c1072aece2ad.bindPopup(popup_245333b1ab853dc002700eac00a9d66d)
+        ;
+
+        
+    
+    
+            marker_7f112e1271cdae529ca1c1072aece2ad.bindTooltip(
+                `<div>
+                     1. Govt Motilal Vigyan Mahavidyalaya (MVM)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7f112e1271cdae529ca1c1072aece2ad.setIcon(icon_52546a77a637047d8d64cacab7270db6);
+            
+    
+            var marker_098568c621b9425206b9873e30701d1d = L.marker(
+                [23.255, 77.41],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_35a6d4094da6a91fdad193b729f30061 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5bcbd6704d6d647c28dd9da808db29bf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_12a540e78de66ac84b0eb89f095d4fe6 = $(`<div id="html_12a540e78de66ac84b0eb89f095d4fe6" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Science and Commerce College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Benazir, Jehangirabad, Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_5bcbd6704d6d647c28dd9da808db29bf.setContent(html_12a540e78de66ac84b0eb89f095d4fe6);
+            
+        
+
+        marker_098568c621b9425206b9873e30701d1d.bindPopup(popup_5bcbd6704d6d647c28dd9da808db29bf)
+        ;
+
+        
+    
+    
+            marker_098568c621b9425206b9873e30701d1d.bindTooltip(
+                `<div>
+                     2. Government Science and Commerce College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_098568c621b9425206b9873e30701d1d.setIcon(icon_35a6d4094da6a91fdad193b729f30061);
+            
+    
+            var marker_b66587c9e21cd9ec64b62fd75a970ca8 = L.marker(
+                [23.262, 77.415],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_635b970a2fd2d277f908f87bb259188e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b1cd012b6006d1fb818666d9d6621c78 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_01dff9c09a4ef1b75a9a64283cdc0b39 = $(`<div id="html_01dff9c09a4ef1b75a9a64283cdc0b39" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Geetanjali Girls' College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_b1cd012b6006d1fb818666d9d6621c78.setContent(html_01dff9c09a4ef1b75a9a64283cdc0b39);
+            
+        
+
+        marker_b66587c9e21cd9ec64b62fd75a970ca8.bindPopup(popup_b1cd012b6006d1fb818666d9d6621c78)
+        ;
+
+        
+    
+    
+            marker_b66587c9e21cd9ec64b62fd75a970ca8.bindTooltip(
+                `<div>
+                     3. Government Geetanjali Girls' College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b66587c9e21cd9ec64b62fd75a970ca8.setIcon(icon_635b970a2fd2d277f908f87bb259188e);
+            
+    
+            var marker_cff6f63ef573501ebe916694b9cdabb8 = L.marker(
+                [23.24, 77.48],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_0a7fc9dce8b7836104eb0586ccad9b06 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ffb15f04851bf7a2b844fa14ee7675a5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2f1488ded549484b50dca69c6b499046 = $(`<div id="html_2f1488ded549484b50dca69c6b499046" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Post Graduate College, BHEL</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Piplani, Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_ffb15f04851bf7a2b844fa14ee7675a5.setContent(html_2f1488ded549484b50dca69c6b499046);
+            
+        
+
+        marker_cff6f63ef573501ebe916694b9cdabb8.bindPopup(popup_ffb15f04851bf7a2b844fa14ee7675a5)
+        ;
+
+        
+    
+    
+            marker_cff6f63ef573501ebe916694b9cdabb8.bindTooltip(
+                `<div>
+                     4. Government Post Graduate College, BHEL
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cff6f63ef573501ebe916694b9cdabb8.setIcon(icon_0a7fc9dce8b7836104eb0586ccad9b06);
+            
+    
+            var marker_7ccbf5dd0e7014671ece81085b53db83 = L.marker(
+                [23.258, 77.408],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_7f50588d73150593e388d241c9802747 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_060e1bc7960040a5f0628403d67b086f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a32f27dbeaaafef6972811128b952396 = $(`<div id="html_a32f27dbeaaafef6972811128b952396" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government College, Bhopal</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_060e1bc7960040a5f0628403d67b086f.setContent(html_a32f27dbeaaafef6972811128b952396);
+            
+        
+
+        marker_7ccbf5dd0e7014671ece81085b53db83.bindPopup(popup_060e1bc7960040a5f0628403d67b086f)
+        ;
+
+        
+    
+    
+            marker_7ccbf5dd0e7014671ece81085b53db83.bindTooltip(
+                `<div>
+                     5. Government College, Bhopal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7ccbf5dd0e7014671ece81085b53db83.setIcon(icon_7f50588d73150593e388d241c9802747);
+            
+    
+            var marker_a3fa804605ee44009bd3153aea9877a3 = L.marker(
+                [23.257, 77.412],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_a3180101fe05ead06c969e9a4ece1ad3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e5aa99d9bd7042a11f42629346d6d429 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5b2e2bdd3105de56864cecf961ca15b2 = $(`<div id="html_5b2e2bdd3105de56864cecf961ca15b2" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Science & Commerce College (GSCC)</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_e5aa99d9bd7042a11f42629346d6d429.setContent(html_5b2e2bdd3105de56864cecf961ca15b2);
+            
+        
+
+        marker_a3fa804605ee44009bd3153aea9877a3.bindPopup(popup_e5aa99d9bd7042a11f42629346d6d429)
+        ;
+
+        
+    
+    
+            marker_a3fa804605ee44009bd3153aea9877a3.bindTooltip(
+                `<div>
+                     6. Government Science & Commerce College (GSCC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a3fa804605ee44009bd3153aea9877a3.setIcon(icon_a3180101fe05ead06c969e9a4ece1ad3);
+            
+    
+            var marker_b784b4e11c404707f85d3c5d8bd0b45e = L.marker(
+                [23.256, 77.411],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_85e0343cef3aec8c6d89fa61e8a0ebd3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b02519e8d4a660f91f37ee4c91690672 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f9a3fd5b55ffb5c15cc123f63b464ef5 = $(`<div id="html_f9a3fd5b55ffb5c15cc123f63b464ef5" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Dr. Shyama Prasad Mukherjee Science & Commerce College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Jahangirabad, Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_b02519e8d4a660f91f37ee4c91690672.setContent(html_f9a3fd5b55ffb5c15cc123f63b464ef5);
+            
+        
+
+        marker_b784b4e11c404707f85d3c5d8bd0b45e.bindPopup(popup_b02519e8d4a660f91f37ee4c91690672)
+        ;
+
+        
+    
+    
+            marker_b784b4e11c404707f85d3c5d8bd0b45e.bindTooltip(
+                `<div>
+                     7. Government Dr. Shyama Prasad Mukherjee Science & Commerce College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b784b4e11c404707f85d3c5d8bd0b45e.setIcon(icon_85e0343cef3aec8c6d89fa61e8a0ebd3);
+            
+    
+            var marker_b21a1b5a91ef7fdae8942b44b9af7ed0 = L.marker(
+                [23.245, 77.395],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_2dedd1846482f1aad12d7f0b21b4a1da = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7b32c86a027170e2e926529c0ef5db98 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eaf0eacd15ac6e9fbfffb123ed7f1463 = $(`<div id="html_eaf0eacd15ac6e9fbfffb123ed7f1463" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government PG College - Pipriya</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Pipriya, Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_7b32c86a027170e2e926529c0ef5db98.setContent(html_eaf0eacd15ac6e9fbfffb123ed7f1463);
+            
+        
+
+        marker_b21a1b5a91ef7fdae8942b44b9af7ed0.bindPopup(popup_7b32c86a027170e2e926529c0ef5db98)
+        ;
+
+        
+    
+    
+            marker_b21a1b5a91ef7fdae8942b44b9af7ed0.bindTooltip(
+                `<div>
+                     8. Government PG College - Pipriya
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b21a1b5a91ef7fdae8942b44b9af7ed0.setIcon(icon_2dedd1846482f1aad12d7f0b21b4a1da);
+            
+    
+            var marker_07f380d5ba597a27cbefb1cada44ac35 = L.marker(
+                [23.259, 77.413],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_d45e848b52f9b0cb28a20542d615b86d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6f5cbd6ba073bdf31dd2aa06978a1f33 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1874b0326d19d99a55200555e30a3d77 = $(`<div id="html_1874b0326d19d99a55200555e30a3d77" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Hamidia Arts & Commerce College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_6f5cbd6ba073bdf31dd2aa06978a1f33.setContent(html_1874b0326d19d99a55200555e30a3d77);
+            
+        
+
+        marker_07f380d5ba597a27cbefb1cada44ac35.bindPopup(popup_6f5cbd6ba073bdf31dd2aa06978a1f33)
+        ;
+
+        
+    
+    
+            marker_07f380d5ba597a27cbefb1cada44ac35.bindTooltip(
+                `<div>
+                     9. Government Hamidia Arts & Commerce College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_07f380d5ba597a27cbefb1cada44ac35.setIcon(icon_d45e848b52f9b0cb28a20542d615b86d);
+            
+    
+            var marker_df1db956376e9d27fa9a0aa61f2a067b = L.marker(
+                [23.262, 77.415],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_0855f3674e423fcb68ddb4a53115137b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_808d1edc1c8dc275eb6a9672a7d9419a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4067a59909b4d3e417523ff1557e67c2 = $(`<div id="html_4067a59909b4d3e417523ff1557e67c2" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Geetanjali Girls' P.G. (Autonomous) College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_808d1edc1c8dc275eb6a9672a7d9419a.setContent(html_4067a59909b4d3e417523ff1557e67c2);
+            
+        
+
+        marker_df1db956376e9d27fa9a0aa61f2a067b.bindPopup(popup_808d1edc1c8dc275eb6a9672a7d9419a)
+        ;
+
+        
+    
+    
+            marker_df1db956376e9d27fa9a0aa61f2a067b.bindTooltip(
+                `<div>
+                     10. Government Geetanjali Girls' P.G. (Autonomous) College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_df1db956376e9d27fa9a0aa61f2a067b.setIcon(icon_0855f3674e423fcb68ddb4a53115137b);
+            
+    
+            var marker_b31c926a73221331ee0f2b89b3746851 = L.marker(
+                [23.261, 77.414],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_c6f3808b66a64934931b5716e6606409 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0b338f548abb45e2052285d2eb453218 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_91c74c7fe47e11a536e9934362914047 = $(`<div id="html_91c74c7fe47e11a536e9934362914047" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Home Science P.G. College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_0b338f548abb45e2052285d2eb453218.setContent(html_91c74c7fe47e11a536e9934362914047);
+            
+        
+
+        marker_b31c926a73221331ee0f2b89b3746851.bindPopup(popup_0b338f548abb45e2052285d2eb453218)
+        ;
+
+        
+    
+    
+            marker_b31c926a73221331ee0f2b89b3746851.bindTooltip(
+                `<div>
+                     11. Government Home Science P.G. College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b31c926a73221331ee0f2b89b3746851.setIcon(icon_c6f3808b66a64934931b5716e6606409);
+            
+    
+            var marker_8394a0af6bae48fbede56ee75218d7e4 = L.marker(
+                [23.26, 77.416],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_1cc3ce05b09736b8f29d42b7d5eafd3d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b2b3d80e35414e59c76c25865eb47458 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d9c237fcb7c66f850d1c68af70f18f2a = $(`<div id="html_d9c237fcb7c66f850d1c68af70f18f2a" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Kamla Nehru Mahila Mahavidyalaya</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_b2b3d80e35414e59c76c25865eb47458.setContent(html_d9c237fcb7c66f850d1c68af70f18f2a);
+            
+        
+
+        marker_8394a0af6bae48fbede56ee75218d7e4.bindPopup(popup_b2b3d80e35414e59c76c25865eb47458)
+        ;
+
+        
+    
+    
+            marker_8394a0af6bae48fbede56ee75218d7e4.bindTooltip(
+                `<div>
+                     12. Government Kamla Nehru Mahila Mahavidyalaya
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8394a0af6bae48fbede56ee75218d7e4.setIcon(icon_1cc3ce05b09736b8f29d42b7d5eafd3d);
+            
+    
+            var marker_3885668884387d194e43289d1e4f5352 = L.marker(
+                [23.255, 77.41],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_9d52c6d870a19ae01973a543f32c14cb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4cfe8a6ee7d8ebec7ac70750a47ca1a2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fc5de8ff06699b53dc49b4cb9d561f9e = $(`<div id="html_fc5de8ff06699b53dc49b4cb9d561f9e" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Science and Commerce College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_4cfe8a6ee7d8ebec7ac70750a47ca1a2.setContent(html_fc5de8ff06699b53dc49b4cb9d561f9e);
+            
+        
+
+        marker_3885668884387d194e43289d1e4f5352.bindPopup(popup_4cfe8a6ee7d8ebec7ac70750a47ca1a2)
+        ;
+
+        
+    
+    
+            marker_3885668884387d194e43289d1e4f5352.bindTooltip(
+                `<div>
+                     13. Government Science and Commerce College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3885668884387d194e43289d1e4f5352.setIcon(icon_9d52c6d870a19ae01973a543f32c14cb);
+            
+    
+            var marker_03a24c007d4f1d57b06ced4bbbd176a7 = L.marker(
+                [23.258, 77.409],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_dd60d48e4acb1940448e511490542d46 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0f9975c0a57656864c4ea55e26568bb8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5a8262443393944f2d4189f2eb81a308 = $(`<div id="html_5a8262443393944f2d4189f2eb81a308" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Arts & Commerce (Naveen) College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_0f9975c0a57656864c4ea55e26568bb8.setContent(html_5a8262443393944f2d4189f2eb81a308);
+            
+        
+
+        marker_03a24c007d4f1d57b06ced4bbbd176a7.bindPopup(popup_0f9975c0a57656864c4ea55e26568bb8)
+        ;
+
+        
+    
+    
+            marker_03a24c007d4f1d57b06ced4bbbd176a7.bindTooltip(
+                `<div>
+                     14. Government Arts & Commerce (Naveen) College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_03a24c007d4f1d57b06ced4bbbd176a7.setIcon(icon_dd60d48e4acb1940448e511490542d46);
+            
+    
+            var marker_2591922bacaa9537555d0a7aed740596 = L.marker(
+                [23.256, 77.411],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_7a14c6b55d74469848328818f65259e6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7156fd7d8ac187a8a885da6de6222ee0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a74c5a444658972bbc449d9fc37d696b = $(`<div id="html_a74c5a444658972bbc449d9fc37d696b" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government Dr. Shyama Prasad Mukherjee Science & Commerce College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_7156fd7d8ac187a8a885da6de6222ee0.setContent(html_a74c5a444658972bbc449d9fc37d696b);
+            
+        
+
+        marker_2591922bacaa9537555d0a7aed740596.bindPopup(popup_7156fd7d8ac187a8a885da6de6222ee0)
+        ;
+
+        
+    
+    
+            marker_2591922bacaa9537555d0a7aed740596.bindTooltip(
+                `<div>
+                     15. Government Dr. Shyama Prasad Mukherjee Science & Commerce College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2591922bacaa9537555d0a7aed740596.setIcon(icon_7a14c6b55d74469848328818f65259e6);
+            
+    
+            var marker_140ca270fd46f16536c8b21cd3f8b90d = L.marker(
+                [23.245, 77.395],
+                {
+}
+            ).addTo(map_b302cf7ae30fd519f46d56393a581b80);
+        
+    
+            var icon_3321a47c0ca18fe61305ca472f52cbb2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8ad59c087df03aa416bdbe7e10c8f7ed = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e78c88b0350fc089b8d30697bc0b7920 = $(`<div id="html_e78c88b0350fc089b8d30697bc0b7920" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Government PG College, Pipriya</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Government of Madhya Pradesh</p>                 <p><strong>Address:</strong> Pipriya, Bhopal, Madhya Pradesh</p></div></div>`)[0];
+                popup_8ad59c087df03aa416bdbe7e10c8f7ed.setContent(html_e78c88b0350fc089b8d30697bc0b7920);
+            
+        
+
+        marker_140ca270fd46f16536c8b21cd3f8b90d.bindPopup(popup_8ad59c087df03aa416bdbe7e10c8f7ed)
+        ;
+
+        
+    
+    
+            marker_140ca270fd46f16536c8b21cd3f8b90d.bindTooltip(
+                `<div>
+                     16. Government PG College, Pipriya
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_140ca270fd46f16536c8b21cd3f8b90d.setIcon(icon_3321a47c0ca18fe61305ca472f52cbb2);
+            
+</script>
+</html>

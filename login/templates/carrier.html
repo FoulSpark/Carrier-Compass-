@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    /> -->
+     <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>Career - Career Compass</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --primary-color: #4299f0;
+        --primary-50: #eff6ff;
+        --primary-100: #dbeafe;
+        --primary-200: #bfdbfe;
+        --primary-300: #93c5fd;
+        --primary-400: #60a5fa;
+        --primary-500: #3b82f6;
+        --primary-600: #2563eb;
+        --primary-700: #1d4ed8;
+        --primary-800: #1e40af;
+        --primary-900: #1e3a8a;
+        --card: #1f2937;
+        --border: #374151;
+      }
+      /* Dark theme styling */
+      .dark body {
+        background-color: #1a202c;
+      }
+      .dark .bg-white {
+        background-color: #1f2937;
+      }
+      .dark .text-slate-800 {
+        color: #e2e8f0;
+      }
+      .dark .text-slate-600 {
+        color: #a0aec0;
+      }
+      .dark .border-b-white {
+        border-color: #4a5568;
+      }
+      .dark .bg-slate-50 {
+        background-color: #1a202c;
+      }
+      .dark .text-slate-500 {
+        color: #cbd5e0;
+      }
+      .dark .hover:text-blue-600:hover {
+        color: #63b3ed;
+      }
+      /* General transitions for smooth effects */
+      .transition-all-200 {
+        transition: all 0.2s ease-in-out;
+      }
+      /* Loading spinner animation */
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .spinner {
+        animation: spin 1s linear infinite;
+      }
+    </style>
+    <script>
+      // Theme switching logic
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+      function toggleTheme() {
+        const isDark = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      }
+    </script>
+  </head>
+  <body class="bg-slate-50 dark:bg-gray-900 transition-colors duration-300">
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-white dark:bg-gray-800 group/design-root overflow-x-hidden transition-colors duration-300"
+      style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'
+    >
+      <div class="layout-container flex h-full grow flex-col">
+            <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--border)] px-4 sm:px-10 py-3 bg-[var(--card)]">
+                <div class="flex items-center gap-3">
+                    <div class="p-2 bg-[var(--primary-color)] rounded-full text-white transform hover:rotate-90 transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12L12 20M12 12L12 4M12 12L20 12M12 12L4 12M12 12L18.364 18.364M12 12L5.63604 5.63604M12 12L18.364 5.63604M12 12L5.63604 18.364" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-white tracking-tight">Career Compass</h2>
+                </div>
+                <div class="flex flex-1 justify-between gap-4">
+                    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-400 px-6">
+                 <a class="{% if request.endpoint == 'dashboard' or request.endpoint == 'home_page' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('dashboard') }}">Dashboard</a>
+                        <a class="{% if request.endpoint == 'test' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('test') }}">Career Quiz</a>
+                        <a class="{% if request.endpoint == 'college' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('college') }}">Colleges</a>
+                        <a class="{% if request.endpoint == 'carrier' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('carrier') }}">Career Paths</a>
+                        <a class="{% if request.endpoint == 'study_material' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('study_material') }}">Resources</a>
+                        <a class="{% if request.endpoint == 'analytics' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('analytics') }}">Analytics</a>
+                        <!-- <a class="{% if request.endpoint == 'timeline' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('timeline') }}">Timeline</a> -->
+                    </nav>
+                </div>
+                <div class="flex items-center gap-4">
+                    <!-- Notification Component -->
+                    <button id="notificationBtn" class="relative flex items-center justify-center size-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">
+                        <span class="material-symbols-outlined text-2xl">notifications</span>
+                        <!-- Notification Badge -->
+                        <span id="notificationBadge" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                    </button>
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style="background-image: url('https://www.gravatar.com/avatar/{{ user_email_md5 }}?d=identicon&s=80');"></div>
+                </div>
+            </header>
+        <main
+          class="px-6 sm:px-10 md:px-28 flex flex-1 justify-center py-8 bg-slate-50 dark:bg-gray-900 transition-colors duration-300"
+        >
+          <div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+            <div class="flex flex-col gap-4 p-4">
+              <div class="text-center">
+                <h1 class="text-slate-800 dark:text-white text-4xl font-bold leading-tight">
+                  Your Personalized Career Paths
+                </h1>
+                <p
+                  class="text-slate-500 dark:text-gray-400 text-base font-normal leading-normal mt-2 max-w-3xl mx-auto"
+                >
+                  Based on your aptitude assessment, here are your top 3 recommended career paths with detailed roadmaps.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Career Assessment Results Section -->
+            <section class="p-4" id="assessment-results">
+              <div id="loading-message" class="text-center py-8">
+                <div class="spinner w-8 h-8 border-4 border-blue-200 border-t-blue-600 rounded-full mx-auto mb-4"></div>
+                <p class="text-slate-600 dark:text-gray-400">Loading your career recommendations...</p>
+              </div>
+              
+              <div id="no-results-message" class="hidden text-center py-8">
+                <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6 max-w-md mx-auto">
+                  <div class="text-yellow-600 dark:text-yellow-400 mb-2">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-semibold text-yellow-800 dark:text-yellow-200 mb-2">No Assessment Results Found</h3>
+                  <p class="text-yellow-700 dark:text-yellow-300 mb-4">Please complete the career assessment quiz first to see your personalized recommendations.</p>
+                  <a href="../aptitude_&_interest_quiz_page_2/test.html" 
+                     class="inline-flex items-center px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition-colors">
+                    Take Assessment Quiz
+                  </a>
+                </div>
+              </div>
+              
+              <div id="career-results-container" class="hidden">
+                <h2 class="text-slate-800 dark:text-white text-2xl font-bold leading-tight tracking-tight px-4 pb-4 pt-4">
+                  Your Top 3 Career Recommendations
+                </h2>
+                <div id="career-cards-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <!-- Career cards will be dynamically inserted here -->
+                </div>
+              </div>
+            </section>
+            <!-- <section class="p-4">
+              <h2
+                class="text-slate-800 dark:text-white text-2xl font-bold leading-tight tracking-tight px-4 pb-4 pt-4"
+              >
+                Course: Bachelor of Science (B.Sc.)
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div
+                  class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-lg transition-all-200 duration-300 overflow-hidden group hover:scale-[1.02]"
+                >
+                  <img
+                    alt="Research career path"
+                    class="w-full h-48 object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8S-WX0sgUBfOf-kJyuodVz8xtxCw7raBphtKZcZ4ht2rstWRnTyEUX54o0hijTOJAfAIUVGiv0r8nWPwBBjlNCmQ96-uxRsbQwkNnGomeDdwokXO2IJvpNMJo_ZB_1ARnLbNb81AtFwlL2DwOgfW32KKacs05hZsY7oahE8EcgJVpXhieZZ87HodLpJHkVbYiNChJZQHR2AOCtKxOpXCaAfID8fqdGjmAxZvLmT-mCQlTALpzrr3ZbLwJRdl8XlMalbWdv5hdZpXz"
+                  />
+                  <div class="p-5">
+                    <h3
+                      class="text-slate-800 dark:text-white text-lg font-bold leading-tight"
+                    >
+                      B.Sc. to Research
+                    </h3>
+                    <p
+                      class="text-slate-500 dark:text-gray-400 text-sm font-normal leading-normal mt-2 mb-4"
+                    >
+                      A B.Sc. degree can lead to research positions in government labs or the private sector.
+                    </p>
+                    <button
+                      class="w-full flex items-center justify-center rounded-lg h-10 px-4 bg-[var(--primary-color)] text-white text-sm font-bold leading-normal hover:bg-blue-600 transition-all-200"
+                    >
+                      <span class="truncate">Explore Path</span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-lg transition-all-200 duration-300 overflow-hidden group hover:scale-[1.02]"
+                >
+                  <img
+                    alt="Government jobs"
+                    class="w-full h-48 object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa2gjC6v-NhHVSss0dOINkHkzkjsnfGzYHvf7VU20fw3vjD_GOXzznrvaZFRFqCFI0puDEwiXirGHVDHPvzH1LjzqADuW-ryZkxX9vULkZNPP0sE0EPxkOhhjpRzZGTfICbZB2bLOdBKvAOSLaYbChU-aDVlgdK02qZlgEJmF-c7bC_mE5P7bj6uTeS5P6qSoLrF2xsKN31h9oYLJgPTAYg9cDsxVzej8R-pEIDxCORNGPOEb1iE9paJls-jo7eJty6lWQXqkPS6y8"names are too big add ... so that some of the words are showing and then... 
+                  />
+                  <div class="p-5">
+                    <h3
+                      class="text-slate-800 dark:text-white text-lg font-bold leading-tight"
+                    >
+                      B.Sc. to Government Jobs
+                    </h3>
+                    <p
+                      class="text-slate-500 dark:text-gray-400 text-sm font-normal leading-normal mt-2 mb-4"
+                    >
+                      Many government organizations recruit B.Sc. graduates for various roles.
+                    </p>
+                    <button
+                      class="w-full flex items-center justify-center rounded-lg h-10 px-4 bg-[var(--primary-color)] text-white text-sm font-bold leading-normal hover:bg-blue-600 transition-all-200"
+                    >
+                      <span class="truncate">Explore Path</span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-lg transition-all-200 duration-300 overflow-hidden group hover:scale-[1.02]"
+                >
+                  <img
+                    alt="Private sector jobs"
+                    class="w-full h-48 object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_g_BRWDFeiOY-2fdu88xTVPR9VBHKsMr75u36vq4IaR6DSIM0uxQYXvpdQv7Tvy0vedFOWNdAEJJpBE1VWbKcP-gauDQdBy8W4RBRA_YopErBQ7UUuBgAycydRVSNhHzQS593SK1XznJ7mc2h9dlYs6H0HgLxmI9wJ-hzv3gh1DsRxyEzkxofnKyWgG02d1bzG0nwx0YPJ5vkADeiHPVsNDQaXBOcaw64KvbkVUyR0KzOvwuNJL61R_c42kPGeMScn3rlTiLo1Myh"
+                  />
+                  <div class="p-5">
+                    <h3
+                      class="text-slate-800 dark:text-white text-lg font-bold leading-tight"
+                    >
+                      B.Sc. to Private Sector
+                    </h3>
+                    <p
+                      class="text-slate-500 dark:text-gray-400 text-sm font-normal leading-normal mt-2 mb-4"
+                    >
+                      The private sector offers diverse opportunities in fields like pharmaceuticals and biotech.
+                    </p>
+                    <button
+                      class="w-full flex items-center justify-center rounded-lg h-10 px-4 bg-[var(--primary-color)] text-white text-sm font-bold leading-normal hover:bg-blue-600 transition-all-200"
+                    >
+                      <span class="truncate">Explore Path</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section> -->
+            <section class="p-4" id="course-comparison-section">
+              <h2
+                class="text-slate-800 dark:text-white text-2xl font-bold leading-tight tracking-tight px-4 pb-4 pt-4"
+              >
+                Your Recommended Career Domains Comparison
+              </h2>
+              <div id="comparison-loading" class="text-center py-8">
+                <div class="spinner w-6 h-6 border-4 border-blue-200 border-t-blue-600 rounded-full mx-auto mb-2"></div>
+                <p class="text-slate-600 dark:text-gray-400 text-sm">Loading comparison data...</p>
+              </div>
+              
+              <div id="comparison-table-container" class="hidden overflow-x-auto rounded-lg border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
+                <table class="w-full text-sm text-left text-slate-500 dark:text-gray-400">
+                  <thead class="text-xs text-slate-700 dark:text-gray-200 uppercase bg-slate-50 dark:bg-gray-700">
+                    <tr>
+                      <th class="px-6 py-3 min-w-[200px]" scope="col">Career Domain</th>
+                      <th class="px-6 py-3 min-w-[200px]" scope="col">Top Career Options</th>
+                      <th class="px-6 py-3 min-w-[200px]" scope="col">Higher Studies</th>
+                      <th class="px-6 py-3 min-w-[200px]" scope="col">Key Exams</th>
+                      <th class="px-6 py-3 min-w-[150px]" scope="col">Your Score</th>
+                    </tr>
+                  </thead>
+                  <tbody id="comparison-table-body">
+                    <!-- Dynamic content will be inserted here -->
+                  </tbody>
+                </table>
+              </div>
+              
+              <div id="comparison-no-data" class="hidden text-center py-8">
+                <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 max-w-md mx-auto">
+                  <p class="text-gray-600 dark:text-gray-400 mb-4">No assessment data available for comparison.</p>
+                  <a href="../aptitude_&_interest_quiz_page_2/test.html" 
+                     class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
+                    Take Assessment First
+                  </a>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script>
+      // Load and display career assessment results
+      async function loadCareerResults() {
+        const loadingEl = document.getElementById('loading-message');
+        const noResultsEl = document.getElementById('no-results-message');
+        const resultsContainer = document.getElementById('career-results-container');
+        
+        try {
+          // Fetch data directly from the JSON file
+          let careerData = null;
+          
+          // First try localStorage (most reliable for file:// protocol)
+          const localData = localStorage.getItem('edupath_career_results');
+          if (localData) {
+            careerData = JSON.parse(localData);
+            console.log('Career data loaded from localStorage');
+          } else {
+            // Try to fetch from JSON file (works with http:// server)
+            try {
+              const response = await fetch('../aptitude_&_interest_quiz_page_2/career_results.json');
+              if (response.ok) {
+                careerData = await response.json();
+                console.log('Career data loaded from JSON file');
+              }
+            } catch (error) {
+              console.log('Could not load from JSON file:', error.message);
+            }
+          }
+          
+          loadingEl.classList.add('hidden');
+          
+          if (careerData && careerData.top_careers && careerData.top_careers.length > 0) {
+            displayCareerResults(careerData);
+            displayComparisonTable(careerData);
+            resultsContainer.classList.remove('hidden');
+          } else {
+            noResultsEl.classList.remove('hidden');
+            showComparisonNoData();
+          }
+          
+        } catch (error) {
+          console.error('Error loading career results:', error);
+          loadingEl.classList.add('hidden');
+          noResultsEl.classList.remove('hidden');
+        }
+      }
+      
+      function displayCareerResults(data) {
+        const container = document.getElementById('career-cards-grid');
+        container.innerHTML = '';
+        
+        data.top_careers.forEach((career, index) => {
+          const card = createCareerCard(career, index + 1);
+          container.appendChild(card);
+        });
+        
+        // Add timestamp info
+        if (data.timestamp) {
+          const timestampEl = document.createElement('p');
+          timestampEl.className = 'text-sm text-slate-500 dark:text-gray-400 text-center mt-4';
+          timestampEl.textContent = `Assessment completed on: ${new Date(data.timestamp).toLocaleString()}`;
+          container.parentNode.appendChild(timestampEl);
+        }
+      }
+      
+      function createCareerCard(career, rank) {
+        const card = document.createElement('div');
+        card.className = 'bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-lg transition-all-200 duration-300 overflow-hidden group hover:scale-[1.02] border border-slate-200 dark:border-gray-700';
+        
+        const rankColors = ['bg-yellow-500', 'bg-gray-400', 'bg-amber-600'];
+        const rankColor = rankColors[rank - 1] || 'bg-blue-500';
+        
+        card.innerHTML = `
+          <div class="relative">
+            <div class="absolute top-4 right-4 ${rankColor} text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm">
+              ${rank}
+            </div>
+            <div class="p-6">
+              <h3 class="text-slate-800 dark:text-white text-xl font-bold leading-tight mb-2">
+                ${career.domain}
+              </h3>
+              <div class="mb-4">
+                <span class="inline-block px-3 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
+                  Score: ${career.score}
+                </span>
+              </div>
+              
+              <div class="space-y-4">
+                <div>
+                  <h4 class="font-semibold text-slate-700 dark:text-slate-300 mb-2 text-sm">Career Options</h4>
+                  <div class="flex flex-wrap gap-1">
+                    ${career.careers.slice(0, 3).map(c => 
+                      `<span class="text-xs bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2 py-1 rounded">${c}</span>`
+                    ).join('')}
+                    ${career.careers.length > 3 ? `<span class="text-xs text-slate-500 dark:text-slate-400">+${career.careers.length - 3} more</span>` : ''}
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 class="font-semibold text-slate-700 dark:text-slate-300 mb-2 text-sm">Key Exams</h4>
+                  <div class="flex flex-wrap gap-1">
+                    ${career.competitive_exams.slice(0, 2).map(exam => 
+                      `<span class="text-xs bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 px-2 py-1 rounded">${exam}</span>`
+                    ).join('')}
+                    ${career.competitive_exams.length > 2 ? `<span class="text-xs text-slate-500 dark:text-slate-400">+${career.competitive_exams.length - 2} more</span>` : ''}
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 class="font-semibold text-slate-700 dark:text-slate-300 mb-2 text-sm">Higher Studies</h4>
+                  <div class="flex flex-wrap gap-1">
+                    ${career.higher_studies.slice(0, 2).map(study => 
+                      `<span class="text-xs bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 px-2 py-1 rounded">${study}</span>`
+                    ).join('')}
+                    ${career.higher_studies.length > 2 ? `<span class="text-xs text-slate-500 dark:text-slate-400">+${career.higher_studies.length - 2} more</span>` : ''}
+                  </div>
+                </div>
+              </div>
+              
+              <div class="flex gap-2 mt-4">
+                <button onclick="showCareerRoadmapModal('${career.domain}', ${JSON.stringify(career).replace(/"/g, '&quot;')})" 
+                        class="flex-1 flex items-center justify-center rounded-lg h-10 px-4 bg-[var(--primary-color)] text-white text-sm font-bold leading-normal hover:bg-blue-600 transition-all-200">
+                  <span class="truncate">Career Roadmap</span>
+                </button>
+                <button onclick="showCareerPathway('${career.domain}', ${JSON.stringify(career).replace(/"/g, '&quot;')})" 
+                        class="flex-1 flex items-center justify-center rounded-lg h-10 px-4 bg-green-600 text-white text-sm font-bold leading-normal hover:bg-green-700 transition-all-200">
+                  <span class="truncate">Visual Pathway</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        return card;
+      }
+      
+      function showCareerRoadmapModal(domain, careerData) {
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+        modal.innerHTML = `
+          <div class="bg-white dark:bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6 flex justify-between items-center">
+              <h3 class="text-2xl font-bold text-gray-800 dark:text-white">${domain} Career Roadmap</h3>
+              <button onclick="this.closest('.fixed').remove()" 
+                      class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="p-6 space-y-6">
+              <div class="grid md:grid-cols-3 gap-6">
+                <div>
+                  <h4 class="font-bold text-gray-700 dark:text-gray-300 mb-3">All Career Options</h4>
+                  <ul class="space-y-2">
+                    ${careerData.careers.map(career => `<li class="text-sm text-gray-600 dark:text-gray-400">• ${career}</li>`).join('')}
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-700 dark:text-gray-300 mb-3">Competitive Exams</h4>
+                  <ul class="space-y-2">
+                    ${careerData.competitive_exams.map(exam => `<li class="text-sm text-gray-600 dark:text-gray-400">• ${exam}</li>`).join('')}
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-700 dark:text-gray-300 mb-3">Higher Studies</h4>
+                  <ul class="space-y-2">
+                    ${careerData.higher_studies.map(study => `<li class="text-sm text-gray-600 dark:text-gray-400">• ${study}</li>`).join('')}
+                  </ul>
+                </div>
+              </div>
+              
+              <div>
+                <h4 class="font-bold text-gray-700 dark:text-gray-300 mb-4">Career Journey Steps</h4>
+                <div class="space-y-3">
+                  ${careerData.pathways.map((pathway, index) => `
+                    <div class="flex items-center space-x-4 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                      <div class="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                        ${index + 1}
+                      </div>
+                      <div class="flex-1">
+                        <div class="font-medium text-gray-800 dark:text-gray-200">${pathway.step}</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">Next: ${pathway.next}</div>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(modal);
+      }
+      
+      function displayComparisonTable(data) {
+        const comparisonLoading = document.getElementById('comparison-loading');
+        const comparisonContainer = document.getElementById('comparison-table-container');
+        const comparisonBody = document.getElementById('comparison-table-body');
+        
+        comparisonLoading.classList.add('hidden');
+        comparisonContainer.classList.remove('hidden');
+        comparisonBody.innerHTML = '';
+        
+        // Sort careers by score (highest first) and take top 5 for comparison
+        const sortedCareers = [...data.top_careers].sort((a, b) => b.score - a.score);
+        const careersToShow = sortedCareers.slice(0, 5);
+        
+        careersToShow.forEach((career, index) => {
+          const row = document.createElement('tr');
+          row.className = 'bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-700 transition-all-200';
+          
+          // Determine score color based on ranking
+          let scoreColor = 'text-gray-600 dark:text-gray-400';
+          if (index === 0) scoreColor = 'text-green-600 dark:text-green-400 font-bold';
+          else if (index === 1) scoreColor = 'text-blue-600 dark:text-blue-400 font-semibold';
+          else if (index === 2) scoreColor = 'text-orange-600 dark:text-orange-400 font-semibold';
+          
+          row.innerHTML = `
+            <th class="px-6 py-4 font-bold text-slate-900 dark:text-white whitespace-nowrap" scope="row">
+              ${career.domain}
+              ${index < 3 ? `<span class="ml-2 text-xs px-2 py-1 rounded-full ${index === 0 ? 'bg-yellow-100 text-yellow-800' : index === 1 ? 'bg-gray-100 text-gray-800' : 'bg-orange-100 text-orange-800'}">#${index + 1}</span>` : ''}
+            </th>
+            <td class="px-6 py-4">
+              ${career.careers.slice(0, 3).join(', ')}
+              ${career.careers.length > 3 ? ` (+${career.careers.length - 3} more)` : ''}
+            </td>
+            <td class="px-6 py-4">
+              ${career.higher_studies.slice(0, 3).join(', ')}
+              ${career.higher_studies.length > 3 ? ` (+${career.higher_studies.length - 3} more)` : ''}
+            </td>
+            <td class="px-6 py-4">
+              ${career.competitive_exams.slice(0, 3).join(', ')}
+              ${career.competitive_exams.length > 3 ? ` (+${career.competitive_exams.length - 3} more)` : ''}
+            </td>
+            <td class="px-6 py-4 ${scoreColor}">
+              ${career.score}/25
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-1">
+                <div class="h-2 rounded-full ${index === 0 ? 'bg-green-500' : index === 1 ? 'bg-blue-500' : index === 2 ? 'bg-orange-500' : 'bg-gray-400'}" 
+                     style="width: ${(career.score / 25) * 100}%"></div>
+              </div>
+            </td>
+          `;
+          
+          comparisonBody.appendChild(row);
+        });
+      }
+      
+      function showComparisonNoData() {
+        const comparisonLoading = document.getElementById('comparison-loading');
+        const comparisonNoData = document.getElementById('comparison-no-data');
+        
+        comparisonLoading.classList.add('hidden');
+        comparisonNoData.classList.remove('hidden');
+      }
+      
+      function showCareerPathway(domain, careerData) {
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+        modal.innerHTML = `
+          <div class="bg-white dark:bg-gray-800 rounded-lg max-w-7xl w-full max-h-[95vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6 flex justify-between items-center">
+              <h3 class="text-2xl font-bold text-gray-800 dark:text-white">${domain} Career Pathway</h3>
+              <button onclick="this.closest('.fixed').remove()" 
+                      class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="p-6">
+              <div id="pathway-visualization-${domain.replace(/\s+/g, '')}" class="w-full min-h-[700px] bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 rounded-lg"></div>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(modal);
+        
+        // Create the interactive pathway visualization
+        createInteractivePathwayVisualization(domain, careerData, `pathway-visualization-${domain.replace(/\s+/g, '')}`);
+      }
+      
+      function createInteractivePathwayVisualization(domain, careerData, containerId) {
+        const container = document.getElementById(containerId);
+        
+        // Determine which stream-specific flowchart to show based on domain
+        const streamType = getStreamType(domain);
+        
+        // Add controls and header
+        container.innerHTML = `
+          <div class="p-4">
+            <div class="flex justify-between items-center mb-4">
+              <h4 class="text-lg font-semibold text-white">Interactive Career Flowchart - ${streamType} Stream</h4>
+              <div class="flex gap-2">
+                <button class="btn-sm bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm" onclick="resetFlowchartZoom('${containerId}')">Reset View</button>
+                <button class="btn-sm bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-sm" onclick="expandAllNodes('${containerId}')">Expand All</button>
+                <button class="btn-sm bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded text-sm" onclick="collapseAllNodes('${containerId}')">Collapse All</button>
+                <button class="btn-sm bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm" onclick="clearFlowchartPreferences('${containerId}')">Clear Preferences</button>
+              </div>
+            </div>
+            <div class="text-center mb-4 text-sm text-white">
+              <strong>Controls:</strong> Click = View Details | Shift+Click = Mark Interested (Green) | Right-click = Not Interested (Red)
+            </div>
+            <svg id="flowchart-${containerId}" class="w-full" style="height: 700px;"></svg>
+            <div class="flex justify-center gap-6 mt-4 text-sm">
+              <div class="flex items-center gap-2">
+                <div class="w-4 h-4 rounded-full bg-red-400"></div>
+                <span class="text-white">Main Stream</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-4 h-4 rounded-full bg-teal-400"></div>
+                <span class="text-white">Career Categories</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-4 h-4 rounded-full bg-blue-400"></div>
+                <span class="text-white">Specific Careers</span>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        // Create the appropriate flowchart based on stream type
+        createStreamFlowchart(streamType, containerId);
+      }
+      
+      function getStreamType(domain) {
+        // Map career domains to educational streams
+        const streamMapping = {
+          'Engineering': 'PCM',
+          'Medical': 'PCB', 
+          'Science': 'PCM',
+          'Technology': 'PCM',
+          'Healthcare': 'PCB',
+          'Business': 'Commerce',
+          'Finance': 'Commerce',
+          'Management': 'Commerce',
+          'Arts': 'Arts',
+          'Humanities': 'Arts',
+          'Social Sciences': 'Arts',
+          'Creative': 'Arts',
+          'Law': 'Arts',
+          'Education': 'Arts'
+        };
+        
+        // Check if domain contains any of the mapped keywords
+        for (const [key, stream] of Object.entries(streamMapping)) {
+          if (domain.toLowerCase().includes(key.toLowerCase())) {
+            return stream;
+          }
+        }
+        
+        // Default to Arts for unmapped domains
+        return 'Arts';
+      }
+      
+      function createStreamFlowchart(streamType, containerId) {
+        const svgId = `flowchart-${containerId}`;
+        
+        // Get the appropriate career data and hierarchy based on stream type
+        const { careerData, hierarchyData } = getStreamData(streamType);
+        
+        // Create the D3.js flowchart
+        createD3Flowchart(careerData, hierarchyData, containerId);
+      }
+      
+      function getStreamData(streamType) {
+        switch(streamType) {
+          case 'PCM':
+            return {
+              careerData: getPCMCareerData(),
+              hierarchyData: getPCMHierarchyData()
+            };
+          case 'PCB':
+            return {
+              careerData: getPCBCareerData(),
+              hierarchyData: getPCBHierarchyData()
+            };
+          case 'Commerce':
+            return {
+              careerData: getCommerceCareerData(),
+              hierarchyData: getCommerceHierarchyData()
+            };
+          case 'Arts':
+          default:
+            return {
+              careerData: getArtsCareerData(),
+              hierarchyData: getArtsHierarchyData()
+            };
+        }
+      }
+      
+      // Career data for each stream
+      function getArtsCareerData() {
+        return {
+          "Arts Stream": {
+            description: "Arts/Humanities stream - Wide opportunities in law, civil services, media, design, social sciences, and more",
+            details: "The Arts stream is versatile, covering subjects like History, Political Science, Sociology, Psychology, Literature, Fine Arts, and Languages."
+          },
+          "Law & Civil Services": {
+            description: "Legal and government administration careers",
+            details: "High-demand fields for Arts students with interest in governance, law, and public service.",
+            careers: {
+              "Law (BA LLB / CLAT)": {
+                description: "Undergraduate law degree",
+                details: "Duration: 5 years (integrated)",
+                requirements: ["CLAT/AILET/State law entrance", "Strong reasoning"],
+                opportunities: ["Lawyer", "Judge (after exams)", "Corporate Counsel"]
+              },
+              "Civil Services (UPSC/State PSC)": {
+                description: "Government administrative roles",
+                details: "Prestigious exams like UPSC CSE",
+                requirements: ["General knowledge", "Analytical skills", "Optional subjects from Arts"],
+                opportunities: ["IAS", "IPS", "IFS", "State Services"]
+              },
+              "Defense / SSC / Banking": {
+                description: "Other government jobs",
+                details: "SSC-CGL, Railways, IBPS etc.",
+                requirements: ["Competitive exam prep"],
+                opportunities: ["Govt Officer", "Bank PO", "SSC Clerk"]
+              }
+            }
+          },
+          "Media & Communication": {
+            description: "Creative and communication-based careers",
+            details: "Popular among Arts students with writing, communication, or media interest.",
+            careers: {
+              "Journalism & Mass Comm": {
+                description: "News, reporting, media production",
+                details: "BA Journalism/Mass Comm (3 years)",
+                requirements: ["Communication skills", "English proficiency"],
+                opportunities: ["Journalist", "News Anchor", "Media Manager"]
+              },
+              "Film & TV Studies": {
+                description: "Entertainment industry",
+                details: "Diplomas & Bachelors in Film/TV",
+                requirements: ["Creativity", "Storytelling"],
+                opportunities: ["Director", "Cinematographer", "Script Writer"]
+              },
+              "Advertising & PR": {
+                description: "Corporate communication",
+                details: "BA Advertising/PR (3 years)",
+                requirements: ["Marketing & communication"],
+                opportunities: ["PR Manager", "Advertising Executive"]
+              }
+            }
+          },
+          "Social Sciences & Humanities": {
+            description: "Core academic and research paths",
+            details: "Strong foundation for teaching, research, and analysis.",
+            careers: {
+              "BA (History/Political Science/Sociology)": {
+                description: "Core BA in humanities subjects",
+                details: "Duration: 3 years",
+                requirements: ["Class 12 Arts", "Research interest"],
+                opportunities: ["Researcher", "Lecturer", "NGO Worker"]
+              },
+              "Psychology": {
+                description: "Study of human behavior",
+                details: "BA/B.Sc Psychology (3 years)",
+                requirements: ["Interest in counseling", "Empathy"],
+                opportunities: ["Psychologist", "Counselor", "HR Specialist"]
+              },
+              "Languages & Literature": {
+                description: "Study of English/Other languages",
+                details: "BA in Literature/Linguistics",
+                requirements: ["Strong language skills"],
+                opportunities: ["Writer", "Translator", "Editor"]
+              }
+            }
+          },
+          "Fine Arts & Design": {
+            description: "Creative and design-oriented paths",
+            details: "For students with artistic skills and creativity.",
+            careers: {
+              "Fine Arts (BFA)": {
+                description: "Bachelor of Fine Arts",
+                details: "Duration: 3-4 years",
+                requirements: ["Art portfolio", "Entrance exams"],
+                opportunities: ["Artist", "Animator", "Illustrator"]
+              },
+              "Fashion Design": {
+                description: "Clothing & textile industry",
+                details: "NIFT/NID entrance exams",
+                requirements: ["Design creativity"],
+                opportunities: ["Fashion Designer", "Stylist", "Merchandiser"]
+              },
+              "Graphic Design": {
+                description: "Visual communication",
+                details: "B.Des/BFA Graphics",
+                requirements: ["Computer graphics skills"],
+                opportunities: ["Graphic Designer", "UI/UX Designer"]
+              }
+            }
+          },
+          "Education & Other Careers": {
+            description: "Alternative careers for Arts students",
+            details: "Includes teaching, hospitality, management, etc.",
+            careers: {
+              "Teaching": {
+                description: "Academic career",
+                details: "After BA + B.Ed/M.Ed",
+                requirements: ["Subject expertise"],
+                opportunities: ["School Teacher", "Professor"]
+              },
+              "Hotel Management": {
+                description: "Hospitality sector",
+                details: "BHM (3-4 years)",
+                requirements: ["Hospitality skills"],
+                opportunities: ["Hotel Manager", "Chef", "Event Manager"]
+              },
+              "Social Work (BSW/MSW)": {
+                description: "Community development",
+                details: "BSW (3 years) / MSW (2 years)",
+                requirements: ["Empathy", "Fieldwork"],
+                opportunities: ["NGO Worker", "Community Officer"]
+              }
+            }
+          }
+        };
+      }
+      
+      function getArtsHierarchyData() {
+        return {
+          name: "Arts Stream",
+          type: "root",
+          children: [
+            {
+              name: "Law & Civil Services",
+              type: "category",
+              children: [
+                { name: "Law (BA LLB / CLAT)", type: "subcategory" },
+                { name: "Civil Services (UPSC/State PSC)", type: "subcategory" },
+                { name: "Defense / SSC / Banking", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Media & Communication",
+              type: "category",
+              children: [
+                { name: "Journalism & Mass Comm", type: "subcategory" },
+                { name: "Film & TV Studies", type: "subcategory" },
+                { name: "Advertising & PR", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Social Sciences & Humanities",
+              type: "category",
+              children: [
+                { name: "BA (History/Political Science/Sociology)", type: "subcategory" },
+                { name: "Psychology", type: "subcategory" },
+                { name: "Languages & Literature", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Fine Arts & Design",
+              type: "category",
+              children: [
+                { name: "Fine Arts (BFA)", type: "subcategory" },
+                { name: "Fashion Design", type: "subcategory" },
+                { name: "Graphic Design", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Education & Other Careers",
+              type: "category",
+              children: [
+                { name: "Teaching", type: "subcategory" },
+                { name: "Hotel Management", type: "subcategory" },
+                { name: "Social Work (BSW/MSW)", type: "subcategory" }
+              ]
+            }
+          ]
+        };
+      }
+      
+      function getCommerceCareerData() {
+        return {
+          "Commerce Stream": {
+            description: "Commerce stream - Gateway to business, finance, management, and entrepreneurship.",
+            details: "Commerce offers career opportunities in accounting, finance, economics, management, law, and professional certifications."
+          },
+          "Finance & Accounting": {
+            description: "Core commerce and finance domains",
+            details: "Suitable for those with interest in numbers, auditing, and investments.",
+            careers: {
+              "Chartered Accountant (CA)": {
+                description: "Professional accounting qualification",
+                details: "Duration: 4-5 years (with articleship)",
+                requirements: ["CA Foundation exam", "Strong in Accounts & Tax"],
+                opportunities: ["Auditor", "Tax Consultant", "CFO"]
+              },
+              "Company Secretary (CS)": {
+                description: "Corporate governance specialist",
+                details: "Duration: 3-4 years",
+                requirements: ["CS Foundation exam", "Corporate law knowledge"],
+                opportunities: ["Corporate Secretary", "Compliance Officer"]
+              },
+              "Cost & Management Accountant (CMA)": {
+                description: "Expert in costing and management accounting",
+                details: "Duration: 3-4 years",
+                requirements: ["CMA Foundation exam", "Analytical skills"],
+                opportunities: ["Cost Accountant", "Finance Analyst"]
+              }
+            }
+          },
+          "Management & Business": {
+            description: "Careers in business administration and entrepreneurship",
+            details: "Ideal for leadership, business, and organizational roles.",
+            careers: {
+              "BBA / MBA": {
+                description: "Business Administration & Management",
+                details: "BBA (3 years) + MBA (2 years)",
+                requirements: ["Aptitude tests (CAT, MAT, etc.)"],
+                opportunities: ["Business Manager", "Entrepreneur", "Consultant"]
+              },
+              "Hotel Management": {
+                description: "Hospitality & service industry",
+                details: "BHM (3-4 years)",
+                requirements: ["NCHMCT-JEE entrance", "Service skills"],
+                opportunities: ["Hotel Manager", "Chef", "Event Manager"]
+              },
+              "Entrepreneurship": {
+                description: "Start your own business",
+                details: "No fixed duration, skill-based",
+                requirements: ["Business plan", "Risk-taking"],
+                opportunities: ["Startup Founder", "Business Owner"]
+              }
+            }
+          },
+          "Economics & Analytics": {
+            description: "Analytical and research-based commerce paths",
+            details: "For students interested in economics and data analysis.",
+            careers: {
+              "BA / B.Sc Economics": {
+                description: "Study of economics & policies",
+                details: "Duration: 3 years",
+                requirements: ["Math preferred", "Analytical skills"],
+                opportunities: ["Economist", "Policy Analyst", "Researcher"]
+              },
+              "Actuarial Science": {
+                description: "Risk analysis in insurance/finance",
+                details: "Professional exams (SOA/IAI)",
+                requirements: ["Strong Maths & Stats"],
+                opportunities: ["Actuary", "Risk Consultant"]
+              },
+              "Data Analytics": {
+                description: "Data-driven business insights",
+                details: "Courses in analytics & stats",
+                requirements: ["Python/Excel/R", "Math & stats"],
+                opportunities: ["Data Analyst", "Business Analyst"]
+              }
+            }
+          },
+          "Law & Government Exams": {
+            description: "Legal, banking, and public sector jobs",
+            details: "Stable career opportunities for commerce students.",
+            careers: {
+              "Law (via CLAT)": {
+                description: "Integrated law with commerce background",
+                details: "BA/B.Com LLB (5 years)",
+                requirements: ["CLAT/State Law exams"],
+                opportunities: ["Lawyer", "Corporate Legal Advisor"]
+              },
+              "Banking & Insurance": {
+                description: "Public/private sector banks",
+                details: "IBPS/SBI PO exams",
+                requirements: ["Quantitative aptitude", "Reasoning"],
+                opportunities: ["Bank PO", "Loan Officer", "Insurance Manager"]
+              },
+              "Civil Services (UPSC/SSC)": {
+                description: "Government administration",
+                details: "UPSC/SSC exams",
+                requirements: ["GK", "Reasoning", "Essay writing"],
+                opportunities: ["IAS/IPS/IFS", "SSC-CGL jobs"]
+              }
+            }
+          },
+          "Other Careers": {
+            description: "Creative and alternative fields",
+            details: "For students who want to branch out beyond core commerce.",
+            careers: {
+              "Mass Communication & Media": {
+                description: "Journalism, PR, Media",
+                details: "BA Journalism/Mass Comm",
+                requirements: ["Communication skills"],
+                opportunities: ["Journalist", "Media Manager"]
+              },
+              "Fashion & Design": {
+                description: "Creative industries",
+                details: "NIFT/NID or B.Des",
+                requirements: ["Artistic skills"],
+                opportunities: ["Fashion Designer", "Stylist", "Graphic Designer"]
+              },
+              "Teaching": {
+                description: "Academic career",
+                details: "After B.Com + B.Ed/M.Ed",
+                requirements: ["Subject expertise"],
+                opportunities: ["Teacher", "Professor"]
+              }
+            }
+          }
+        };
+      }
+      
+      function getCommerceHierarchyData() {
+        return {
+          name: "Commerce Stream",
+          type: "root",
+          children: [
+            {
+              name: "Finance & Accounting",
+              type: "category",
+              children: [
+                { name: "Chartered Accountant (CA)", type: "subcategory" },
+                { name: "Company Secretary (CS)", type: "subcategory" },
+                { name: "Cost & Management Accountant (CMA)", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Management & Business",
+              type: "category",
+              children: [
+                { name: "BBA / MBA", type: "subcategory" },
+                { name: "Hotel Management", type: "subcategory" },
+                { name: "Entrepreneurship", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Economics & Analytics",
+              type: "category",
+              children: [
+                { name: "BA / B.Sc Economics", type: "subcategory" },
+                { name: "Actuarial Science", type: "subcategory" },
+                { name: "Data Analytics", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Law & Government Exams",
+              type: "category",
+              children: [
+                { name: "Law (via CLAT)", type: "subcategory" },
+                { name: "Banking & Insurance", type: "subcategory" },
+                { name: "Civil Services (UPSC/SSC)", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Other Careers",
+              type: "category",
+              children: [
+                { name: "Mass Communication & Media", type: "subcategory" },
+                { name: "Fashion & Design", type: "subcategory" },
+                { name: "Teaching", type: "subcategory" }
+              ]
+            }
+          ]
+        };
+      }
+      
+      function getPCMCareerData() {
+        return {
+          "PCM Stream": {
+            description: "Physics, Chemistry, Mathematics - Gateway to engineering, technology, and scientific research.",
+            details: "PCM opens doors to engineering, pure sciences, technology, research, and various technical fields."
+          },
+          "Engineering": {
+            description: "Core engineering disciplines",
+            details: "Most popular choice for PCM students with excellent career prospects.",
+            careers: {
+              "Computer Science Engineering": {
+                description: "Software development and IT",
+                details: "B.Tech CSE (4 years)",
+                requirements: ["JEE Main/Advanced", "Strong programming logic"],
+                opportunities: ["Software Engineer", "Data Scientist", "AI/ML Engineer"]
+              },
+              "Mechanical Engineering": {
+                description: "Design and manufacturing",
+                details: "B.Tech Mechanical (4 years)",
+                requirements: ["JEE Main/Advanced", "Physics & Math"],
+                opportunities: ["Design Engineer", "Manufacturing Engineer", "Automotive Engineer"]
+              },
+              "Electrical/Electronics Engineering": {
+                description: "Electronics and electrical systems",
+                details: "B.Tech EEE/ECE (4 years)",
+                requirements: ["JEE Main/Advanced", "Physics concepts"],
+                opportunities: ["Electronics Engineer", "Power Engineer", "Embedded Systems"]
+              }
+            }
+          },
+          "Pure Sciences": {
+            description: "Research and academic careers in sciences",
+            details: "For students interested in scientific research and higher studies.",
+            careers: {
+              "B.Sc Physics": {
+                description: "Study of physical phenomena",
+                details: "Duration: 3 years",
+                requirements: ["Strong Physics & Math"],
+                opportunities: ["Research Scientist", "Physicist", "Professor"]
+              },
+              "B.Sc Chemistry": {
+                description: "Chemical sciences and research",
+                details: "Duration: 3 years",
+                requirements: ["Strong Chemistry concepts"],
+                opportunities: ["Chemist", "Lab Analyst", "R&D Scientist"]
+              },
+              "B.Sc Mathematics": {
+                description: "Mathematical sciences",
+                details: "Duration: 3 years",
+                requirements: ["Advanced Math skills"],
+                opportunities: ["Mathematician", "Statistician", "Data Analyst"]
+              }
+            }
+          },
+          "Technology & IT": {
+            description: "Information technology and computer applications",
+            details: "Growing field with excellent job opportunities.",
+            careers: {
+              "BCA / MCA": {
+                description: "Computer Applications",
+                details: "BCA (3 years) + MCA (2 years)",
+                requirements: ["Basic programming", "Math aptitude"],
+                opportunities: ["Software Developer", "System Analyst", "IT Consultant"]
+              },
+              "B.Tech IT": {
+                description: "Information Technology",
+                details: "Duration: 4 years",
+                requirements: ["JEE Main", "Programming interest"],
+                opportunities: ["IT Engineer", "Network Administrator", "Cybersecurity Expert"]
+              },
+              "Data Science": {
+                description: "Big data and analytics",
+                details: "Specialized courses/degrees",
+                requirements: ["Statistics", "Programming"],
+                opportunities: ["Data Scientist", "ML Engineer", "Business Analyst"]
+              }
+            }
+          },
+          "Architecture & Design": {
+            description: "Creative and technical design fields",
+            details: "Combines technical knowledge with creativity.",
+            careers: {
+              "B.Arch (Architecture)": {
+                description: "Building and space design",
+                details: "Duration: 5 years",
+                requirements: ["NATA/JEE Main Paper 2", "Drawing skills"],
+                opportunities: ["Architect", "Urban Planner", "Interior Designer"]
+              },
+              "Industrial Design": {
+                description: "Product and industrial design",
+                details: "B.Des Industrial Design",
+                requirements: ["NID/UCEED entrance", "Creative thinking"],
+                opportunities: ["Product Designer", "Industrial Designer"]
+              }
+            }
+          },
+          "Defense & Aviation": {
+            description: "Military and aviation careers",
+            details: "Prestigious careers in defense services.",
+            careers: {
+              "Indian Air Force": {
+                description: "Flying and technical branches",
+                details: "AFCAT/NDA exams",
+                requirements: ["Physical fitness", "Technical aptitude"],
+                opportunities: ["Pilot", "Technical Officer", "Air Traffic Controller"]
+              },
+              "Merchant Navy": {
+                description: "Marine engineering and navigation",
+                details: "B.Tech Marine/Nautical Science",
+                requirements: ["IMU-CET", "Physical standards"],
+                opportunities: ["Marine Engineer", "Ship Captain", "Port Officer"]
+              }
+            }
+          }
+        };
+      }
+      
+      function getPCMHierarchyData() {
+        return {
+          name: "PCM Stream",
+          type: "root",
+          children: [
+            {
+              name: "Engineering",
+              type: "category",
+              children: [
+                { name: "Computer Science Engineering", type: "subcategory" },
+                { name: "Mechanical Engineering", type: "subcategory" },
+                { name: "Electrical/Electronics Engineering", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Pure Sciences",
+              type: "category",
+              children: [
+                { name: "B.Sc Physics", type: "subcategory" },
+                { name: "B.Sc Chemistry", type: "subcategory" },
+                { name: "B.Sc Mathematics", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Technology & IT",
+              type: "category",
+              children: [
+                { name: "BCA / MCA", type: "subcategory" },
+                { name: "B.Tech IT", type: "subcategory" },
+                { name: "Data Science", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Architecture & Design",
+              type: "category",
+              children: [
+                { name: "B.Arch (Architecture)", type: "subcategory" },
+                { name: "Industrial Design", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Defense & Aviation",
+              type: "category",
+              children: [
+                { name: "Indian Air Force", type: "subcategory" },
+                { name: "Merchant Navy", type: "subcategory" }
+              ]
+            }
+          ]
+        };
+      }
+      
+      function getPCBCareerData() {
+        return {
+          "PCB Stream": {
+            description: "Physics, Chemistry, Biology - Gateway to medical, life sciences, and healthcare careers.",
+            details: "PCB is the foundation for medical sciences, biotechnology, life sciences, and healthcare professions."
+          },
+          "Medical Sciences": {
+            description: "Core medical and healthcare professions",
+            details: "Most sought-after careers for PCB students.",
+            careers: {
+              "MBBS (Doctor)": {
+                description: "Bachelor of Medicine and Surgery",
+                details: "Duration: 5.5 years + 1 year internship",
+                requirements: ["NEET-UG", "High biology scores"],
+                opportunities: ["General Physician", "Specialist Doctor", "Surgeon"]
+              },
+              "BDS (Dentist)": {
+                description: "Bachelor of Dental Surgery",
+                details: "Duration: 5 years",
+                requirements: ["NEET-UG", "Manual dexterity"],
+                opportunities: ["Dentist", "Orthodontist", "Oral Surgeon"]
+              },
+              "BAMS/BHMS": {
+                description: "Alternative medicine systems",
+                details: "Ayurveda/Homeopathy (5.5 years)",
+                requirements: ["NEET-UG", "Interest in traditional medicine"],
+                opportunities: ["Ayurvedic Doctor", "Homeopathic Physician"]
+              }
+            }
+          },
+          "Paramedical Sciences": {
+            description: "Healthcare support professions",
+            details: "Important healthcare careers with good job prospects.",
+            careers: {
+              "Nursing (B.Sc Nursing)": {
+                description: "Patient care and healthcare management",
+                details: "Duration: 4 years",
+                requirements: ["NEET/State nursing entrance"],
+                opportunities: ["Staff Nurse", "Nursing Supervisor", "Healthcare Administrator"]
+              },
+              "Pharmacy (B.Pharm)": {
+                description: "Pharmaceutical sciences",
+                details: "Duration: 4 years",
+                requirements: ["State pharmacy entrance"],
+                opportunities: ["Pharmacist", "Drug Inspector", "Pharmaceutical Researcher"]
+              },
+              "Physiotherapy (BPT)": {
+                description: "Physical rehabilitation therapy",
+                details: "Duration: 4.5 years",
+                requirements: ["State entrance exams"],
+                opportunities: ["Physiotherapist", "Sports Therapist", "Rehabilitation Specialist"]
+              }
+            }
+          },
+          "Life Sciences & Research": {
+            description: "Biological sciences and research careers",
+            details: "For students interested in biology research and biotechnology.",
+            careers: {
+              "Biotechnology": {
+                description: "Applied biology and technology",
+                details: "B.Tech/B.Sc Biotechnology (3-4 years)",
+                requirements: ["JEE Main/State entrance"],
+                opportunities: ["Biotechnologist", "Research Scientist", "Quality Analyst"]
+              },
+              "Microbiology": {
+                description: "Study of microorganisms",
+                details: "B.Sc Microbiology (3 years)",
+                requirements: ["Strong biology background"],
+                opportunities: ["Microbiologist", "Lab Technician", "Food Safety Officer"]
+              },
+              "Genetics": {
+                description: "Study of genes and heredity",
+                details: "B.Sc/M.Sc Genetics",
+                requirements: ["Advanced biology concepts"],
+                opportunities: ["Geneticist", "Genetic Counselor", "Research Associate"]
+              }
+            }
+          },
+          "Agriculture & Food Sciences": {
+            description: "Agricultural and food technology careers",
+            details: "Growing field with focus on sustainable agriculture.",
+            careers: {
+              "Agriculture (B.Sc Ag)": {
+                description: "Agricultural sciences and farming",
+                details: "Duration: 4 years",
+                requirements: ["State agriculture entrance"],
+                opportunities: ["Agricultural Officer", "Farm Manager", "Agricultural Scientist"]
+              },
+              "Food Technology": {
+                description: "Food processing and safety",
+                details: "B.Tech Food Technology (4 years)",
+                requirements: ["JEE Main/State entrance"],
+                opportunities: ["Food Technologist", "Quality Control Manager", "Food Safety Officer"]
+              },
+              "Veterinary Science": {
+                description: "Animal healthcare",
+                details: "B.V.Sc & AH (5.5 years)",
+                requirements: ["NEET/State veterinary entrance"],
+                opportunities: ["Veterinarian", "Animal Husbandry Officer", "Wildlife Veterinarian"]
+              }
+            }
+          },
+          "Environmental & Marine Sciences": {
+            description: "Environmental and marine biology careers",
+            details: "Emerging fields with environmental focus.",
+            careers: {
+              "Environmental Science": {
+                description: "Environmental protection and management",
+                details: "B.Sc Environmental Science (3 years)",
+                requirements: ["Interest in ecology"],
+                opportunities: ["Environmental Consultant", "Conservation Officer", "Environmental Analyst"]
+              },
+              "Marine Biology": {
+                description: "Study of marine life",
+                details: "B.Sc/M.Sc Marine Biology",
+                requirements: ["Biology + interest in marine life"],
+                opportunities: ["Marine Biologist", "Aquaculture Specialist", "Marine Conservationist"]
+              },
+              "Forensic Science": {
+                description: "Crime investigation using science",
+                details: "B.Sc Forensic Science (3 years)",
+                requirements: ["Analytical skills", "Attention to detail"],
+                opportunities: ["Forensic Scientist", "Crime Scene Investigator", "Lab Analyst"]
+              }
+            }
+          }
+        };
+      }
+      
+      function getPCBHierarchyData() {
+        return {
+          name: "PCB Stream",
+          type: "root",
+          children: [
+            {
+              name: "Medical Sciences",
+              type: "category",
+              children: [
+                { name: "MBBS (Doctor)", type: "subcategory" },
+                { name: "BDS (Dentist)", type: "subcategory" },
+                { name: "BAMS/BHMS", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Paramedical Sciences",
+              type: "category",
+              children: [
+                { name: "Nursing (B.Sc Nursing)", type: "subcategory" },
+                { name: "Pharmacy (B.Pharm)", type: "subcategory" },
+                { name: "Physiotherapy (BPT)", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Life Sciences & Research",
+              type: "category",
+              children: [
+                { name: "Biotechnology", type: "subcategory" },
+                { name: "Microbiology", type: "subcategory" },
+                { name: "Genetics", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Agriculture & Food Sciences",
+              type: "category",
+              children: [
+                { name: "Agriculture (B.Sc Ag)", type: "subcategory" },
+                { name: "Food Technology", type: "subcategory" },
+                { name: "Veterinary Science", type: "subcategory" }
+              ]
+            },
+            {
+              name: "Environmental & Marine Sciences",
+              type: "category",
+              children: [
+                { name: "Environmental Science", type: "subcategory" },
+                { name: "Marine Biology", type: "subcategory" },
+                { name: "Forensic Science", type: "subcategory" }
+              ]
+            }
+          ]
+        };
+      }
+      
+      // Main D3.js flowchart creation function
+      function createD3Flowchart(careerData, hierarchyData, containerId) {
+        const svgId = `flowchart-${containerId}`;
+        const svg = d3.select(`#${svgId}`);
+        svg.selectAll("*").remove(); // Clear existing content
+        
+        // Set dimensions - increased for better label visibility
+        const width = 1200;
+        const height = 700;
+        const margin = { top: 60, right: 60, bottom: 60, left: 60 };
+        
+        // Configure SVG
+        svg.attr("width", width)
+          .attr("height", height)
+          .style("background", "linear-gradient(135deg, #667eea 0%, #764ba2 100%)")
+          .style("border-radius", "10px");
+        
+        // Create tree layout with better spacing
+        const tree = d3.tree()
+          .size([width - margin.left - margin.right, height - margin.top - margin.bottom])
+          .separation((a, b) => {
+            return a.parent == b.parent ? 2 : 3; // Increase separation between nodes
+          });
+        
+        // Create hierarchy
+        const root = d3.hierarchy(hierarchyData);
+        tree(root);
+        
+        // Create group for tree
+        const g = svg.append("g")
+          .attr("transform", `translate(${margin.left},${margin.top})`);
+        
+        // Color scheme
+        const colors = {
+          root: "#ff6b6b",
+          category: "#4ecdc4", 
+          subcategory: "#45b7d1"
+        };
+        
+        // Create links
+        const links = g.selectAll(".link")
+          .data(root.links())
+          .enter().append("path")
+          .attr("class", "link")
+          .attr("d", d3.linkVertical()
+            .x(d => d.x)
+            .y(d => d.y))
+          .style("fill", "none")
+          .style("stroke", "#ffffff")
+          .style("stroke-width", 2)
+          .style("opacity", 0.7);
+        
+        // Create nodes
+        const nodes = g.selectAll(".node")
+          .data(root.descendants())
+          .enter().append("g")
+          .attr("class", "node")
+          .attr("transform", d => `translate(${d.x},${d.y})`)
+          .style("cursor", "pointer");
+        
+        // Add circles for nodes
+        nodes.append("circle")
+          .attr("r", d => d.data.type === "root" ? 15 : d.data.type === "category" ? 12 : 8)
+          .style("fill", d => colors[d.data.type])
+          .style("stroke", "#ffffff")
+          .style("stroke-width", 2)
+          .style("filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.3))")
+          .on("mouseover", function(event, d) {
+            d3.select(this)
+              .transition()
+              .duration(200)
+              .attr("r", d.data.type === "root" ? 18 : d.data.type === "category" ? 15 : 11)
+              .style("fill", d3.color(colors[d.data.type]).brighter(0.3));
+          })
+          .on("mouseout", function(event, d) {
+            d3.select(this)
+              .transition()
+              .duration(200)
+              .attr("r", d.data.type === "root" ? 15 : d.data.type === "category" ? 12 : 8)
+              .style("fill", colors[d.data.type]);
+          })
+          .on("click", function(event, d) {
+            showCareerDetails(d.data.name, careerData);
+          });
+        
+        // Add text labels with better spacing and white color
+        nodes.append("text")
+          .attr("dy", d => {
+            if (d.data.type === "root") return -30;
+            if (d.data.type === "category") return -25;
+            // For leaf nodes (subcategory), alternate positions
+            if (d.data.type === "subcategory") {
+              const leafNodes = root.descendants().filter(node => node.data.type === "subcategory");
+              const nodeIndex = leafNodes.indexOf(d);
+              return nodeIndex % 2 === 0 ? -35 : 25; // Alternate up (-35) and down (25)
+            }
+            return -20;
+          })
+          .attr("text-anchor", "middle")
+          .style("font-size", d => d.data.type === "root" ? "16px" : d.data.type === "category" ? "13px" : "11px")
+          .style("font-weight", d => d.data.type === "root" ? "bold" : "600")
+          .style("fill", "#ffffff")
+          .style("text-shadow", "2px 2px 4px rgba(0,0,0,0.8)")
+          .style("pointer-events", "none")
+          .each(function(d) {
+            const text = d3.select(this);
+            const words = d.data.name.split(/\s+/);
+            const maxLength = d.data.type === "root" ? 25 : d.data.type === "category" ? 20 : 18;
+            
+            if (d.data.name.length > maxLength) {
+              text.text('');
+              let line = [];
+              let lineNumber = 0;
+              const lineHeight = 1.1;
+              const dy = parseFloat(text.attr("dy"));
+              
+              words.forEach(word => {
+                line.push(word);
+                const testLine = line.join(' ');
+                if (testLine.length > maxLength && line.length > 1) {
+                  line.pop();
+                  text.append('tspan')
+                    .attr('x', 0)
+                    .attr('dy', lineNumber === 0 ? dy : lineHeight + 'em')
+                    .style("fill", "#ffffff")
+                    .style("text-shadow", "2px 2px 4px rgba(0,0,0,0.8)")
+                    .text(line.join(' '));
+                  line = [word];
+                  lineNumber++;
+                }
+              });
+              
+              if (line.length > 0) {
+                text.append('tspan')
+                  .attr('x', 0)
+                  .attr('dy', lineNumber === 0 ? dy : lineHeight + 'em')
+                  .style("fill", "#ffffff")
+                  .style("text-shadow", "2px 2px 4px rgba(0,0,0,0.8)")
+                  .text(line.join(' '));
+              }
+            } else {
+              text.text(d.data.name);
+            }
+          });
+        
+        // Add animation
+        nodes.style("opacity", 0)
+          .transition()
+          .duration(1000)
+          .delay((d, i) => i * 100)
+          .style("opacity", 1);
+        
+        links.style("opacity", 0)
+          .transition()
+          .duration(1000)
+          .delay(500)
+          .style("opacity", 0.7);
+      }
+      
+      // Show career details in modal
+      function showCareerDetails(careerName, careerData) {
+        // Find career details
+        let details = null;
+        
+        // Search through career data
+        for (const [categoryName, categoryInfo] of Object.entries(careerData)) {
+          if (categoryName === careerName) {
+            details = categoryInfo;
+            break;
+          }
+          
+          if (categoryInfo.careers) {
+            for (const [subCareerName, subCareerInfo] of Object.entries(categoryInfo.careers)) {
+              if (subCareerName === careerName) {
+                details = subCareerInfo;
+                break;
+              }
+            }
+          }
+          
+          if (details) break;
+        }
+        
+        if (!details) return;
+        
+        // Create modal
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+        modal.innerHTML = `
+          <div class="bg-white rounded-lg p-6 max-w-2xl max-h-96 overflow-y-auto m-4">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-bold text-white">${careerName}</h3>
+              <button class="text-gray-500 hover:text-gray-700 text-2xl" onclick="this.closest('.fixed').remove()">&times;</button>
+            </div>
+            <div class="space-y-3">
+              <p class="text-white">${details.description}</p>
+              ${details.details ? `<p class="text-sm text-white">${details.details}</p>` : ''}
+              ${details.requirements ? `
+                <div>
+                  <h4 class="font-semibold text-gray-700 mb-2">Requirements:</h4>
+                  <ul class="list-disc list-inside text-sm text-gray-600">
+                    ${details.requirements.map(req => `<li>${req}</li>`).join('')}
+                  </ul>
+                </div>
+              ` : ''}
+              ${details.opportunities ? `
+                <div>
+                  <h4 class="font-semibold text-gray-700 mb-2">Career Opportunities:</h4>
+                  <ul class="list-disc list-inside text-sm text-gray-600">
+                    ${details.opportunities.map(opp => `<li>${opp}</li>`).join('')}
+                  </ul>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Close modal on background click
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            modal.remove();
+          }
+        });
+      }
+      
+      // Utility functions for flowchart controls
+      function resetFlowchartZoom(containerId) {
+        const svg = d3.select(`#flowchart-${containerId}`);
+        svg.transition().duration(750).call(
+          d3.zoom().transform,
+          d3.zoomIdentity
+        );
+      }
+      
+      function expandAllNodes(containerId) {
+        const svg = d3.select(`#flowchart-${containerId}`);
+        svg.selectAll('.node')
+          .transition()
+          .duration(500)
+          .style('opacity', 1);
+      }
+      
+      function collapseAllNodes(containerId) {
+        const svg = d3.select(`#flowchart-${containerId}`);
+        svg.selectAll('.node')
+          .filter((d, i) => i > 0) // Keep root visible
+          .transition()
+          .duration(500)
+          .style('opacity', 0.3);
+      }
+      
+      function clearFlowchartPreferences(containerId) {
+        const svg = d3.select(`#flowchart-${containerId}`);
+        svg.selectAll('.node circle')
+          .transition()
+          .duration(300)
+          .style('stroke', '#ffffff')
+          .style('stroke-width', 2);
+      }
+      
+      // Load results when page loads
+      document.addEventListener('DOMContentLoaded', loadCareerResults);
+    </script>
+
+    <!-- Include Career Counselor Chatbot -->
+    {% include 'chatbot_component.html' %}
+
+    <!-- Notification Panel -->
+    <div id="notificationPanel" class="fixed inset-y-0 right-0 w-full md:w-1/2 lg:w-1/3 bg-[var(--card)] shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto hidden">
+        <div class="flex h-full">
+            <!-- Filters Sidebar -->
+            <div class="w-1/4 bg-gray-800 p-4 border-r border-[var(--border)]">
+                <h3 class="text-lg font-bold mb-4 text-white">Filters</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-white bg-[var(--primary-color)] hover:bg-blue-600 transition-colors duration-200" data-filter="all">All</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200" data-filter="exams">Exams</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200" data-filter="courses">Courses</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200" data-filter="deadlines">Deadlines</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200" data-filter="urgent">Urgent</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Notifications Content -->
+            <div class="w-3/4 p-4 md:p-6 lg:p-8 bg-[var(--card)]">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-white">Notifications</h2>
+                    <button id="closeNotificationBtn" class="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div id="notificationsContainer" class="space-y-4">
+                    <!-- Notifications will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Component JavaScript -->
+    <script>
+    (function() {
+        // Notification system variables
+        let notifications = [];
+        let currentFilter = 'all';
+        const API_BASE_URL = '/api';
+
+        // DOM elements
+        const notificationBtn = document.getElementById('notificationBtn');
+        const notificationPanel = document.getElementById('notificationPanel');
+        const closeNotificationBtn = document.getElementById('closeNotificationBtn');
+        const notificationsContainer = document.getElementById('notificationsContainer');
+        const notificationBadge = document.getElementById('notificationBadge');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        // Fetch notifications from API
+        const fetchNotifications = async (filter = 'all') => {
+            try {
+                const url = `${API_BASE_URL}/notifications?category=${filter}`;
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                notifications = data.notifications;
+                
+                updateNotificationBadge();
+                renderNotifications(currentFilter);
+                
+            } catch (error) {
+                console.error('Error fetching notifications:', error);
+                showErrorMessage('Failed to fetch notifications.');
+            }
+        };
+
+        // Update notification badge count
+        const updateNotificationBadge = () => {
+            const unreadCount = notifications.filter(n => !n.read).length;
+            const urgentCount = notifications.filter(n => n.priority === 'urgent').length;
+            
+            if (unreadCount > 0 || urgentCount > 0) {
+                notificationBadge.textContent = unreadCount;
+                notificationBadge.classList.remove('hidden');
+                if (urgentCount > 0) {
+                    notificationBadge.classList.add('animate-pulse');
+                }
+            } else {
+                notificationBadge.classList.add('hidden');
+                notificationBadge.classList.remove('animate-pulse');
+            }
+        };
+
+        // Show error message
+        const showErrorMessage = (message) => {
+            notificationsContainer.innerHTML = `
+                <div class="bg-red-900 border border-red-700 rounded-md p-4">
+                    <div class="flex">
+                        <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <div class="ml-3">
+                            <p class="text-sm text-red-200">${message}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        };
+
+        // Render notifications
+        const renderNotifications = (filter) => {
+            if (notifications.length === 0) {
+                notificationsContainer.innerHTML = '<p class="text-center text-gray-400">Loading notifications...</p>';
+                return;
+            }
+            
+            notificationsContainer.innerHTML = '';
+            let filteredNotifications = notifications;
+
+            // Apply filters
+            if (filter === 'exams') {
+                filteredNotifications = notifications.filter(n => n.category === 'exams');
+            } else if (filter === 'courses') {
+                filteredNotifications = notifications.filter(n => n.category === 'courses');
+            } else if (filter === 'deadlines') {
+                filteredNotifications = notifications.filter(n => n.category === 'deadlines');
+            } else if (filter === 'urgent') {
+                filteredNotifications = notifications.filter(n => n.priority === 'urgent');
+            }
+
+            if (filteredNotifications.length === 0) {
+                notificationsContainer.innerHTML = '<p class="text-center text-gray-400">No notifications found for this filter.</p>';
+                return;
+            }
+
+            filteredNotifications.forEach(notification => {
+                const readStatus = notification.read ? 'bg-gray-800 text-gray-400' : 'bg-gray-700 text-white';
+                const readDot = notification.read ? '' : '<span class="w-2 h-2 bg-[var(--primary-color)] rounded-full mr-2"></span>';
+                
+                // Priority indicators
+                let priorityBorder = '';
+                let priorityBadge = '';
+                if (notification.priority === 'urgent') {
+                    priorityBorder = 'border-l-4 border-red-500';
+                    priorityBadge = '<span class="bg-red-900 text-red-200 text-xs font-medium px-2 py-1 rounded-full">URGENT</span>';
+                } else if (notification.priority === 'high') {
+                    priorityBorder = 'border-l-4 border-orange-500';
+                    priorityBadge = '<span class="bg-orange-900 text-orange-200 text-xs font-medium px-2 py-1 rounded-full">HIGH</span>';
+                } else if (notification.priority === 'medium') {
+                    priorityBorder = 'border-l-4 border-yellow-500';
+                    priorityBadge = '<span class="bg-yellow-900 text-yellow-200 text-xs font-medium px-2 py-1 rounded-full">MEDIUM</span>';
+                } else {
+                    priorityBorder = 'border-l-4 border-green-500';
+                    priorityBadge = '<span class="bg-green-900 text-green-200 text-xs font-medium px-2 py-1 rounded-full">LOW</span>';
+                }
+                
+                // Category icons
+                let categoryIcon = '';
+                if (notification.category === 'exams') {
+                    categoryIcon = '<svg class="w-4 h-4 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
+                } else if (notification.category === 'courses') {
+                    categoryIcon = '<svg class="w-4 h-4 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.80a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/></svg>';
+                } else if (notification.category === 'deadlines') {
+                    categoryIcon = '<svg class="w-4 h-4 mr-2 text-red-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>';
+                }
+
+                const notificationCard = `
+                    <div class="notification-card p-4 rounded-md shadow-sm transition-transform duration-200 ease-in-out hover:shadow-lg hover:bg-gray-600 ${readStatus} ${priorityBorder}" data-read="${notification.read}">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center">
+                                ${readDot}
+                                ${categoryIcon}
+                                <h4 class="font-semibold text-lg">${notification.title}</h4>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                ${priorityBadge}
+                                <span class="text-xs text-gray-400">${notification.date}</span>
+                            </div>
+                        </div>
+                        <p class="text-sm line-clamp-2 ml-6">${notification.message}</p>
+                    </div>
+                `;
+                notificationsContainer.innerHTML += notificationCard;
+            });
+        };
+
+        // Event listeners
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const filter = e.target.dataset.filter;
+                
+                // Update active class for dark theme
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-[var(--primary-color)]', 'text-white', 'bg-blue-600');
+                    b.classList.add('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
+                });
+                e.target.classList.add('bg-[var(--primary-color)]', 'text-white');
+                e.target.classList.remove('text-gray-300', 'hover:bg-gray-700', 'hover:text-white');
+
+                currentFilter = filter;
+                renderNotifications(currentFilter);
+            });
+        });
+
+        // Toggle notification panel
+        notificationBtn.addEventListener('click', () => {
+            notificationPanel.classList.remove('hidden');
+            setTimeout(() => {
+                notificationPanel.classList.remove('translate-x-full');
+            }, 10);
+            
+            // Fetch fresh data when opening
+            fetchNotifications(currentFilter);
+        });
+
+        // Close notification panel
+        closeNotificationBtn.addEventListener('click', () => {
+            notificationPanel.classList.add('translate-x-full');
+            setTimeout(() => {
+                notificationPanel.classList.add('hidden');
+            }, 300);
+        });
+
+        // Initial load
+        fetchNotifications(currentFilter);
+    })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Compass - Career Guidance Hub</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    
+    <style type="text/tailwindcss">
+        :root {
+            --primary-color: #4299f0;
+            --card: #1f2937;
+            --border: #374151;
+        }
+        
+        .section-toggle {
+            transition: all 0.3s ease;
+        }
+        
+        .section-toggle.active {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(66, 153, 240, 0.3);
+        }
+        
+        .section-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .section-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .chat-container {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .message-user {
+            background: linear-gradient(135deg, #4299f0, #3b82f6);
+            color: white;
+            margin-left: auto;
+            max-width: 70%;
+        }
+        
+        .message-ai {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            max-width: 80%;
+        }
+        
+        .dark .message-ai {
+            background: #1f2937;
+            border-color: #374151;
+            color: #f9fafb;
+        }
+    </style>
+    
+    <script>
+        if (localStorage.getItem("theme") === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+            document.documentElement.classList.add("dark");
+        }
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 dark:bg-gray-900 transition-colors duration-300">
+    <div class="relative flex size-full min-h-screen flex-col bg-white dark:bg-gray-800 group/design-root overflow-x-hidden transition-colors duration-300" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+        
+        <!-- Header -->
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--border)] px-4 sm:px-10 py-3 bg-[var(--card)]">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-[var(--primary-color)] rounded-full text-white transform hover:rotate-90 transition-transform duration-300">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12L12 20M12 12L12 4M12 12L20 12M12 12L4 12M12 12L18.364 18.364M12 12L5.63604 5.63604M12 12L18.364 5.63604M12 12L5.63604 18.364" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-bold text-white tracking-tight">Carrier Compass - Career Guidance Hub</h2>
+            </div>
+            <div class="flex items-center gap-4">
+                <button onclick="toggleTheme()" class="relative flex items-center justify-center size-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">
+                    <span class="material-symbols-outlined text-2xl">dark_mode</span>
+                </button>
+                <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style="background-image: url('https://www.gravatar.com/avatar/default?d=identicon&s=80');"></div>
+            </div>
+        </header>
+
+        <main class="px-6 sm:px-10 md:px-28 flex flex-1 justify-center py-8 bg-slate-50 dark:bg-gray-900 transition-colors duration-300">
+            <div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+                
+                <!-- Toggle Buttons -->
+                <div class="flex flex-col gap-4 p-4">
+                    <div class="text-center">
+                        <h1 class="text-slate-800 dark:text-white text-4xl font-bold leading-tight mb-4">
+                            Career Guidance Hub
+                        </h1>
+                        <p class="text-slate-500 dark:text-gray-400 text-base font-normal leading-normal mb-6 max-w-3xl mx-auto">
+                            Get personalized career guidance, explore colleges, access study materials, and take career assessments all in one place.
+                        </p>
+                    </div>
+                    
+                    <!-- Section Toggle Buttons -->
+                    <div class="flex flex-wrap justify-center gap-4 mb-8">
+                        <button onclick="showSection('chat')" id="btn-chat" class="section-toggle active px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 bg-[var(--primary-color)] text-white">
+                            <span class="material-symbols-outlined inline-block mr-2">chat</span>
+                            Career Chat
+                        </button>
+                        <button onclick="showSection('test')" id="btn-test" class="section-toggle px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600">
+                            <span class="material-symbols-outlined inline-block mr-2">quiz</span>
+                            Career Assessment
+                        </button>
+                        <button onclick="showSection('carrier')" id="btn-carrier" class="section-toggle px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600">
+                            <span class="material-symbols-outlined inline-block mr-2">trending_up</span>
+                            Career Paths
+                        </button>
+                        <button onclick="showSection('college')" id="btn-college" class="section-toggle px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600">
+                            <span class="material-symbols-outlined inline-block mr-2">school</span>
+                            Colleges
+                        </button>
+                        <button onclick="showSection('study_material')" id="btn-study_material" class="section-toggle px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600">
+                            <span class="material-symbols-outlined inline-block mr-2">library_books</span>
+                            Study Materials
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Career Chat Section -->
+                <div id="section-chat" class="section-content active">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 mb-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-2 bg-blue-100 dark:bg-blue-900 rounded-full">
+                                <span class="material-symbols-outlined text-blue-600 dark:text-blue-400">psychology</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-slate-800 dark:text-white">Dr. Spark - Career Counselor</h2>
+                        </div>
+                        
+                        <!-- Chat Container -->
+                        <div id="chat-container" class="chat-container bg-gray-50 dark:bg-gray-700 rounded-lg p-4 mb-4 min-h-[300px]">
+                            <div class="message-ai p-3 rounded-lg mb-3">
+                                <strong class="text-blue-600 dark:text-blue-400">Dr. Spark:</strong> 
+                                Hello! I'm Dr. Spark, your personal career guidance specialist. I'm here to help you with career decisions, educational pathways, and professional planning. What would you like to discuss today?
+                            </div>
+                        </div>
+                        
+                        <!-- Chat Input -->
+                        <div class="flex gap-3">
+                            <input type="text" id="chat-input" placeholder="Ask me about careers, courses, or any guidance you need..." 
+                                   class="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                                   onkeypress="if(event.key==='Enter') sendMessage()">
+                            <button onclick="sendMessage()" class="px-6 py-3 bg-[var(--primary-color)] text-white rounded-lg hover:bg-blue-600 transition-colors font-semibold">
+                                <span class="material-symbols-outlined">send</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Quick Actions -->
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <button onclick="quickMessage('I need help choosing a career path')" class="px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                                Career Path Help
+                            </button>
+                            <button onclick="quickMessage('What entrance exams should I prepare for?')" class="px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                                Entrance Exams
+                            </button>
+                            <button onclick="quickMessage('Tell me about higher education options')" class="px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                                Higher Education
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Career Assessment Section -->
+                <div id="section-test" class="section-content">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 mb-6">
+                        <div class="text-center">
+                            <div class="p-4 bg-green-100 dark:bg-green-900 rounded-full w-20 h-20 mx-auto mb-4">
+                                <span class="material-symbols-outlined text-4xl text-green-600 dark:text-green-400">quiz</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-4">Career Assessment Quiz</h2>
+                            <p class="text-slate-600 dark:text-gray-400 mb-6">Discover your ideal career path through our comprehensive aptitude and interest assessment.</p>
+                            <a href="{{ url_for('test') }}" class="inline-flex items-center px-6 py-3 bg-[var(--primary-color)] text-white rounded-lg hover:bg-blue-600 transition-colors font-semibold">
+                                <span class="material-symbols-outlined mr-2">play_arrow</span>
+                                Start Assessment
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Career Paths Section -->
+                <div id="section-carrier" class="section-content">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 mb-6">
+                        <div class="text-center">
+                            <div class="p-4 bg-purple-100 dark:bg-purple-900 rounded-full w-20 h-20 mx-auto mb-4">
+                                <span class="material-symbols-outlined text-4xl text-purple-600 dark:text-purple-400">trending_up</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-4">Explore Career Paths</h2>
+                            <p class="text-slate-600 dark:text-gray-400 mb-6">Discover detailed career roadmaps, requirements, and opportunities across different domains.</p>
+                            <a href="{{ url_for('carrier') }}" class="inline-flex items-center px-6 py-3 bg-[var(--primary-color)] text-white rounded-lg hover:bg-blue-600 transition-colors font-semibold">
+                                <span class="material-symbols-outlined mr-2">explore</span>
+                                Explore Careers
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colleges Section -->
+                <div id="section-college" class="section-content">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 mb-6">
+                        <div class="text-center">
+                            <div class="p-4 bg-orange-100 dark:bg-orange-900 rounded-full w-20 h-20 mx-auto mb-4">
+                                <span class="material-symbols-outlined text-4xl text-orange-600 dark:text-orange-400">school</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-4">Find Colleges</h2>
+                            <p class="text-slate-600 dark:text-gray-400 mb-6">Search for nearby government colleges and institutions that match your career interests.</p>
+                            <a href="{{ url_for('college') }}" class="inline-flex items-center px-6 py-3 bg-[var(--primary-color)] text-white rounded-lg hover:bg-blue-600 transition-colors font-semibold">
+                                <span class="material-symbols-outlined mr-2">location_on</span>
+                                Find Colleges
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Study Materials Section -->
+                <div id="section-study_material" class="section-content">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 mb-6">
+                        <div class="text-center">
+                            <div class="p-4 bg-red-100 dark:bg-red-900 rounded-full w-20 h-20 mx-auto mb-4">
+                                <span class="material-symbols-outlined text-4xl text-red-600 dark:text-red-400">library_books</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-slate-800 dark:text-white mb-4">Study Materials & Resources</h2>
+                            <p class="text-slate-600 dark:text-gray-400 mb-6">Access comprehensive study materials, guides, and resources for your academic journey.</p>
+                            <a href="{{ url_for('study_material') }}" class="inline-flex items-center px-6 py-3 bg-[var(--primary-color)] text-white rounded-lg hover:bg-blue-600 transition-colors font-semibold">
+                                <span class="material-symbols-outlined mr-2">menu_book</span>
+                                Browse Resources
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Section toggle functionality
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.section-toggle');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+                button.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+                button.classList.remove('bg-[var(--primary-color)]', 'text-white');
+            });
+            
+            // Show selected section
+            document.getElementById('section-' + sectionName).classList.add('active');
+            
+            // Activate selected button
+            const activeButton = document.getElementById('btn-' + sectionName);
+            activeButton.classList.add('active');
+            activeButton.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+            activeButton.classList.add('bg-[var(--primary-color)]', 'text-white');
+        }
+
+        // Chat functionality
+        async function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message to chat
+            addMessageToChat(message, true);
+            input.value = '';
+            
+            // Show typing indicator
+            const typingDiv = addTypingIndicator();
+            
+            try {
+                // Send message to backend using new toggle chat endpoint
+                const response = await fetch('/api/toggle_chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        user_id: getCurrentUserId()
+                    })
+                });
+                
+                const data = await response.json();
+                
+                // Remove typing indicator
+                typingDiv.remove();
+                
+                if (data.success) {
+                    addMessageToChat(data.response, false);
+                } else {
+                    addMessageToChat('Sorry, I encountered an error. Please try again.', false);
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                typingDiv.remove();
+                addMessageToChat('Sorry, I\'m having trouble connecting. Please try again.', false);
+            }
+        }
+
+        function quickMessage(message) {
+            document.getElementById('chat-input').value = message;
+            sendMessage();
+        }
+
+        function addMessageToChat(message, isUser) {
+            const chatContainer = document.getElementById('chat-container');
+            const messageDiv = document.createElement('div');
+            
+            if (isUser) {
+                messageDiv.className = 'message-user p-3 rounded-lg mb-3 ml-auto';
+                messageDiv.innerHTML = `<strong>You:</strong> ${message}`;
+            } else {
+                messageDiv.className = 'message-ai p-3 rounded-lg mb-3';
+                messageDiv.innerHTML = `<strong class="text-blue-600 dark:text-blue-400">Dr. Spark:</strong> ${message}`;
+            }
+            
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function addTypingIndicator() {
+            const chatContainer = document.getElementById('chat-container');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message-ai p-3 rounded-lg mb-3';
+            typingDiv.innerHTML = `
+                <strong class="text-blue-600 dark:text-blue-400">Dr. Spark:</strong> 
+                <span class="typing-dots">
+                    <span>.</span><span>.</span><span>.</span>
+                </span>
+            `;
+            
+            // Add CSS for typing animation
+            const style = document.createElement('style');
+            style.textContent = `
+                .typing-dots span {
+                    animation: typing 1.4s infinite;
+                    animation-fill-mode: both;
+                }
+                .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+                .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+                @keyframes typing {
+                    0%, 60%, 100% { opacity: 0.3; }
+                    30% { opacity: 1; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            chatContainer.appendChild(typingDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            
+            return typingDiv;
+        }
+
+        function getCurrentUserId() {
+            // This should be implemented based on your authentication system
+            return 'user_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        // Initialize chat on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set focus on chat input when chat section is active
+            if (document.getElementById('section-chat').classList.contains('active')) {
+                document.getElementById('chat-input').focus();
+            }
+        });
+    </script>
+</body>
+</html>

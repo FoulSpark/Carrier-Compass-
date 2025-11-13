@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    /> -->
+     <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --primary-color: #4299f0;
+        --primary-50: #eff6ff;
+        --primary-100: #dbeafe;
+        --primary-200: #bfdbfe;
+        --primary-300: #93c5fd;
+        --primary-400: #60a5fa;
+        --primary-500: #3b82f6;
+        --primary-600: #2563eb;
+        --primary-700: #1d4ed8;
+        --primary-800: #1e40af;
+        --primary-900: #1e3a8a;
+      }
+      /* Dark theme styling */
+      .dark body {
+        background-color: #1a202c;
+      }
+      .dark .bg-white {
+        background-color: #2d3748;
+      }
+      .dark .text-slate-800 {
+        color: #e2e8f0;
+      }
+      .dark .text-slate-600 {
+        color: #a0aec0;
+      }
+      .dark .border-b-white {
+        border-color: #4a5568;
+      }
+      .dark .bg-slate-50 {
+        background-color: #1a202c;
+      }
+      .dark .text-slate-500 {
+        color: #cbd5e0;
+      }
+      .dark .hover:text-blue-600:hover {
+        color: #63b3ed;
+      }
+      /* General transitions for smooth effects */
+      .transition-all-200 {
+        transition: all 0.2s ease-in-out;
+      }
+      /* Loading spinner animation */
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .spinner {
+        animation: spin 1s linear infinite;
+      }
+    </style>
+    <script>
+      // Theme switching logic
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+      function toggleTheme() {
+        const isDark = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      }
+    </script>
+  </head>
+  <body class="bg-slate-50 dark:bg-gray-900 transition-colors duration-300">
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-white dark:bg-gray-800 group/design-root overflow-x-hidden transition-colors duration-300"
+      style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] dark:border-b-gray-700 bg-white dark:bg-gray-800 px-6 sm:px-10 py-3 transition-colors duration-300"
+        >
+          <div class="flex items-center gap-8">
+            <!-- <div class="flex items-center gap-3 text-slate-800 dark:text-gray-200">
+              <svg
+                class="h-7 w-7 text-[var(--primary-color)]"
+                fill="none"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+              <h2
+                class="text-slate-800 dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]"
+              >
+                EduPath
+              </h2>
+            </div> -->
+
+            <div class="flex items-center gap-3 text-gray-900 dark:text-gray-100">
+            <div
+              class="p-2 bg-[var(--primary-color)] rounded-full text-white transform hover:rotate-90 transition-transform duration-300"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 12L12 20M12 12L12 4M12 12L20 12M12 12L4 12M12 12L18.364 18.364M12 12L5.63604 5.63604M12 12L18.364 5.63604M12 12L5.63604 18.364"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold tracking-tight">EduPath</h2>
+          </div>
+            <nav class="hidden md:flex items-center gap-6">
+              <a
+                class="text-slate-600 dark:text-gray-300 text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors"
+                href="../landing_page_(homepage)_2/home.html"
+                >Home</a
+              >
+              <a
+                class="text-slate-600 dark:text-gray-300 text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors"
+                href="../aptitude_&_interest_quiz_page_2/test.html"
+                >Career Quiz</a
+              >
+               <a
+                class="text-slate-600 dark:text-gray-300 text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors"
+                href="http://localhost:5002"
+                >Colleges</a
+              >
+              <a
+                class="text-[var(--primary-color)] text-sm font-bold leading-normal"
+                href="carrier.html"
+                >Career Paths</a
+              >
+             
+              <a
+                class="text-slate-600 dark:text-gray-300 text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors"
+                href="../study_material_&_resources_2/study_material.html"
+                >Resources</a
+              >
+              <a
+                class="text-slate-600 dark:text-gray-300 text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors"
+                href="http://localhost:5000/analytics"
+                >Analytics</a
+              >
+              <a
+                class="text-slate-600 dark:text-gray-300 text-sm font-medium leading-normal hover:text-[var(--primary-color)] transition-colors"
+                href="../user_profile_&_personalization_2/profile.html"
+                >Profile</a
+              >
+            </nav>
+          </div>
+        <div class="flex flex-1 justify-end gap-4">
+            <div class="flex items-center gap-4">
+              <div class="relative hidden sm:block">
+                <span
+                  class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400"
+                  >search</span
+                >
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-full text-gray-900 bg-white dark:bg-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-700 h-10 placeholder:text-gray-500 dark:placeholder:text-gray-400 pl-10 pr-4 text-base font-normal leading-normal focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-colors"
+                  placeholder="Search"
+                  value=""
+                />
+              </div>
+
+              <button
+                class="relative flex items-center justify-center size-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors"
+              >
+                <span class="material-symbols-outlined">notifications</span>
+                <div
+                  class="absolute top-2 right-2 size-2 bg-red-500 rounded-full animate-pulse"
+                ></div>
+              </button>
+
+              <div
+                class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYRS7EUg6fQVRhb_QjcsZfiIxJZHS3OmWiMXCFDhxzS3xTFfv_fhahW7DOyfCpjS9C9alEewJp8J0UzN1mwrJkn0Cfdcwj3uUSZ_wMdIVNsE7ojNS-uwRlWjwB9vS8oIrzb7nH_otfbO98CfckJSkpfzmZiG9yRA8dEE4tWYE0epNwc6VmDcpeB37tRFEjN97lxxko93nX9Q-tU4PEs_g-vFuHs2j02q7OIVG1Pt2JT6BNoDneOo9J_0pT-zKFXOHcCU17Ru5iDe3U');
+                "
+              ></div>
+            </div>
+          </div>
+          
+        
+        </header>
+        <main
+          class="px-6 sm:px-10 md:px-28 flex flex-1 justify-center py-8 bg-slate-50 dark:bg-gray-900 transition-colors duration-300"
+        >
+          <div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+            <div class="flex flex-col gap-4 p-4">
+              <div class="text-center">
+                <h1 class="text-slate-800 dark:text-white text-4xl font-bold leading-tight">
+                  Career Paths
+                </h1>
+                <p
+                  class="text-slate-500 dark:text-gray-400 text-base font-normal leading-normal mt-2 max-w-3xl mx-auto"
+                >
+                  Explore potential career trajectories linked to various courses. Visualize your future with our interactive flowcharts and infographics.
+                </p>
+              </div>
+            </div>
+            <section class="p-4">
+              <h2
+                class="text-slate-800 dark:text-white text-2xl font-bold leading-tight tracking-tight px-4 pb-4 pt-4"
+              >
+                Course: Bachelor of Science (B.Sc.)
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div
+                  class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-lg transition-all-200 duration-300 overflow-hidden group hover:scale-[1.02]"
+                >
+                  <img
+                    alt="Research career path"
+                    class="w-full h-48 object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8S-WX0sgUBfOf-kJyuodVz8xtxCw7raBphtKZcZ4ht2rstWRnTyEUX54o0hijTOJAfAIUVGiv0r8nWPwBBjlNCmQ96-uxRsbQwkNnGomeDdwokXO2IJvpNMJo_ZB_1ARnLbNb81AtFwlL2DwOgfW32KKacs05hZsY7oahE8EcgJVpXhieZZ87HodLpJHkVbYiNChJZQHR2AOCtKxOpXCaAfID8fqdGjmAxZvLmT-mCQlTALpzrr3ZbLwJRdl8XlMalbWdv5hdZpXz"
+                  />
+                  <div class="p-5">
+                    <h3
+                      class="text-slate-800 dark:text-white text-lg font-bold leading-tight"
+                    >
+                      B.Sc. to Research
+                    </h3>
+                    <p
+                      class="text-slate-500 dark:text-gray-400 text-sm font-normal leading-normal mt-2 mb-4"
+                    >
+                      A B.Sc. degree can lead to research positions in government labs or the private sector.
+                    </p>
+                    <button
+                      class="w-full flex items-center justify-center rounded-lg h-10 px-4 bg-[var(--primary-color)] text-white text-sm font-bold leading-normal hover:bg-blue-600 transition-all-200"
+                    >
+                      <span class="truncate">Explore Path</span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-lg transition-all-200 duration-300 overflow-hidden group hover:scale-[1.02]"
+                >
+                  <img
+                    alt="Government jobs"
+                    class="w-full h-48 object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa2gjC6v-NhHVSss0dOINkHkzkjsnfGzYHvf7VU20fw3vjD_GOXzznrvaZFRFqCFI0puDEwiXirGHVDHPvzH1LjzqADuW-ryZkxX9vULkZNPP0sE0EPxkOhhjpRzZGTfICbZB2bLOdBKvAOSLaYbChU-aDVlgdK02qZlgEJmF-c7bC_mE5P7bj6uTeS5P6qSoLrF2xsKN31h9oYLJgPTAYg9cDsxVzej8R-pEIDxCORNGPOEb1iE9paJls-jo7eJty6lWQXqkPS6y8"
+                  />
+                  <div class="p-5">
+                    <h3
+                      class="text-slate-800 dark:text-white text-lg font-bold leading-tight"
+                    >
+                      B.Sc. to Government Jobs
+                    </h3>
+                    <p
+                      class="text-slate-500 dark:text-gray-400 text-sm font-normal leading-normal mt-2 mb-4"
+                    >
+                      Many government organizations recruit B.Sc. graduates for various roles.
+                    </p>
+                    <button
+                      class="w-full flex items-center justify-center rounded-lg h-10 px-4 bg-[var(--primary-color)] text-white text-sm font-bold leading-normal hover:bg-blue-600 transition-all-200"
+                    >
+                      <span class="truncate">Explore Path</span>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-lg transition-all-200 duration-300 overflow-hidden group hover:scale-[1.02]"
+                >
+                  <img
+                    alt="Private sector jobs"
+                    class="w-full h-48 object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_g_BRWDFeiOY-2fdu88xTVPR9VBHKsMr75u36vq4IaR6DSIM0uxQYXvpdQv7Tvy0vedFOWNdAEJJpBE1VWbKcP-gauDQdBy8W4RBRA_YopErBQ7UUuBgAycydRVSNhHzQS593SK1XznJ7mc2h9dlYs6H0HgLxmI9wJ-hzv3gh1DsRxyEzkxofnKyWgG02d1bzG0nwx0YPJ5vkADeiHPVsNDQaXBOcaw64KvbkVUyR0KzOvwuNJL61R_c42kPGeMScn3rlTiLo1Myh"
+                  />
+                  <div class="p-5">
+                    <h3
+                      class="text-slate-800 dark:text-white text-lg font-bold leading-tight"
+                    >
+                      B.Sc. to Private Sector
+                    </h3>
+                    <p
+                      class="text-slate-500 dark:text-gray-400 text-sm font-normal leading-normal mt-2 mb-4"
+                    >
+                      The private sector offers diverse opportunities in fields like pharmaceuticals and biotech.
+                    </p>
+                    <button
+                      class="w-full flex items-center justify-center rounded-lg h-10 px-4 bg-[var(--primary-color)] text-white text-sm font-bold leading-normal hover:bg-blue-600 transition-all-200"
+                    >
+                      <span class="truncate">Explore Path</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="p-4">
+              <h2
+                class="text-slate-800 dark:text-white text-2xl font-bold leading-tight tracking-tight px-4 pb-4 pt-4"
+              >
+                Course Comparison
+              </h2>
+              <div class="overflow-x-auto rounded-lg border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
+                <table class="w-full text-sm text-left text-slate-500 dark:text-gray-400">
+                  <thead class="text-xs text-slate-700 dark:text-gray-200 uppercase bg-slate-50 dark:bg-gray-700">
+                    <tr>
+                      <th class="px-6 py-3 min-w-[200px]" scope="col">Course</th>
+                      <th class="px-6 py-3 min-w-[200px]" scope="col">Jobs</th>
+                      <th class="px-6 py-3 min-w-[200px]" scope="col">Higher Studies</th>
+                      <th class="px-6 py-3 min-w-[200px]" scope="col">Entrepreneurship</th>
+                      <th class="px-6 py-3 min-w-[150px]" scope="col">Exams</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-700 transition-all-200">
+                      <th
+                        class="px-6 py-4 font-bold text-slate-900 dark:text-white whitespace-nowrap"
+                        scope="row"
+                      >
+                        Bachelor of Science (B.Sc.)
+                      </th>
+                      <td class="px-6 py-4">Research Assistant, Lab Technician</td>
+                      <td class="px-6 py-4">M.Sc., Ph.D.</td>
+                      <td class="px-6 py-4">Science-based startups</td>
+                      <td class="px-6 py-4">CSIR NET, GATE</td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-slate-50 dark:hover:bg-gray-700 transition-all-200">
+                      <th
+                        class="px-6 py-4 font-bold text-slate-900 dark:text-white whitespace-nowrap"
+                        scope="row"
+                      >
+                        Bachelor of Engineering (B.E.)
+                      </th>
+                      <td class="px-6 py-4">Software Engineer, Mechanical Engineer</td>
+                      <td class="px-6 py-4">M.Tech., MBA</td>
+                      <td class="px-6 py-4">Tech startups</td>
+                      <td class="px-6 py-4">GATE, CAT</td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-800 hover:bg-slate-50 dark:hover:bg-gray-700 transition-all-200">
+                      <th
+                        class="px-6 py-4 font-bold text-slate-900 dark:text-white whitespace-nowrap"
+                        scope="row"
+                      >
+                        Bachelor of Arts (B.A.)
+                      </th>
+                      <td class="px-6 py-4">Journalist, Social Worker</td>
+                      <td class="px-6 py-4">M.A., MBA</td>
+                      <td class="px-6 py-4">Social enterprises</td>
+                      <td class="px-6 py-4">UPSC, CAT</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

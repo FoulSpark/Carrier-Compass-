@@ -1,0 +1,5485 @@
+{
+  "locations": {
+    "23.181_79.986_10000_all": {
+      "timestamp": "2025-09-11T19:50:02.990392",
+      "location_name": "Jabalpur, Madhya Pradesh",
+      "lat": 23.1815,
+      "lon": 79.9864,
+      "radius": 10000,
+      "stream": "all",
+      "colleges": [
+        {
+          "name": "Jabalpur Engineering College",
+          "lat": 23.1815,
+          "lon": 79.9864,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://www.jecjabalpur.ac.in/",
+          "addr": "Gokalpur, Jabalpur, Madhya Pradesh 482011",
+          "phone": "",
+          "tags": {
+            "name": "Jabalpur Engineering College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "NSCB Medical College",
+          "lat": 23.151,
+          "lon": 79.8815,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://nscbmc.ac.in/",
+          "addr": "Jabalpur, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "NSCB Medical College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Mahakaushal Government Autonomous College",
+          "lat": 23.1685,
+          "lon": 79.9338,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jabalpur, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Mahakaushal Government Autonomous College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 3,
+      "last_accessed": "2025-09-14T12:37:58.240691"
+    },
+    "23.26_77.413_15000_pcm": {
+      "timestamp": "2025-09-11T19:50:02.991902",
+      "location_name": "Bhopal, Madhya Pradesh",
+      "lat": 23.2599,
+      "lon": 77.4126,
+      "radius": 15000,
+      "stream": "pcm",
+      "colleges": [
+        {
+          "name": "Govt Motilal Vigyan Mahavidyalaya (MVM)",
+          "lat": 23.2599,
+          "lon": 77.4126,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jahangirabad, Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Govt Motilal Vigyan Mahavidyalaya",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Science and Commerce College",
+          "lat": 23.255,
+          "lon": 77.41,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Benazir, Jehangirabad, Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Science and Commerce College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Geetanjali Girls' College",
+          "lat": 23.262,
+          "lon": 77.415,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Geetanjali Girls' College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Post Graduate College, BHEL",
+          "lat": 23.24,
+          "lon": 77.48,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Piplani, Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Post Graduate College, BHEL",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government College, Bhopal",
+          "lat": 23.258,
+          "lon": 77.408,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government College, Bhopal",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 7,
+      "last_accessed": "2025-09-17T20:08:36.323691"
+    },
+    "23.26_77.413_15000_pcb": {
+      "timestamp": "2025-09-11T19:50:02.993132",
+      "location_name": "Bhopal, Madhya Pradesh",
+      "lat": 23.2599,
+      "lon": 77.4126,
+      "radius": 15000,
+      "stream": "pcb",
+      "colleges": [
+        {
+          "name": "Government Science & Commerce College (GSCC)",
+          "lat": 23.257,
+          "lon": 77.412,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Science & Commerce College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Dr. Shyama Prasad Mukherjee Science & Commerce College",
+          "lat": 23.256,
+          "lon": 77.411,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jahangirabad, Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Dr. Shyama Prasad Mukherjee Science & Commerce College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government PG College - Pipriya",
+          "lat": 23.245,
+          "lon": 77.395,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Pipriya, Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government PG College - Pipriya",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 4,
+      "last_accessed": "2025-09-17T20:08:41.737837"
+    },
+    "23.26_77.413_15000_arts": {
+      "timestamp": "2025-09-11T19:50:02.999337",
+      "location_name": "Bhopal, Madhya Pradesh",
+      "lat": 23.2599,
+      "lon": 77.4126,
+      "radius": 15000,
+      "stream": "arts",
+      "colleges": [
+        {
+          "name": "Government Hamidia Arts & Commerce College",
+          "lat": 23.259,
+          "lon": 77.413,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Hamidia Arts & Commerce College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Geetanjali Girls' P.G. (Autonomous) College",
+          "lat": 23.262,
+          "lon": 77.415,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Geetanjali Girls' P.G. College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Home Science P.G. College",
+          "lat": 23.261,
+          "lon": 77.414,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Home Science P.G. College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Kamla Nehru Mahila Mahavidyalaya",
+          "lat": 23.26,
+          "lon": 77.416,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Kamla Nehru Mahila Mahavidyalaya",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Science and Commerce College",
+          "lat": 23.255,
+          "lon": 77.41,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Science and Commerce College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 3,
+      "last_accessed": "2025-09-17T20:08:49.419920"
+    },
+    "23.26_77.413_15000_commerce": {
+      "timestamp": "2025-09-11T19:50:03.001021",
+      "location_name": "Bhopal, Madhya Pradesh",
+      "lat": 23.2599,
+      "lon": 77.4126,
+      "radius": 15000,
+      "stream": "commerce",
+      "colleges": [
+        {
+          "name": "Government Arts & Commerce (Naveen) College",
+          "lat": 23.258,
+          "lon": 77.409,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Arts & Commerce (Naveen) College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Dr. Shyama Prasad Mukherjee Science & Commerce College",
+          "lat": 23.256,
+          "lon": 77.411,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Dr. Shyama Prasad Mukherjee Science & Commerce College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government PG College, Pipriya",
+          "lat": 23.245,
+          "lon": 77.395,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Pipriya, Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government PG College, Pipriya",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government College, Bhopal",
+          "lat": 23.258,
+          "lon": 77.408,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government College, Bhopal",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 4,
+      "last_accessed": "2025-09-17T20:08:55.414091"
+    },
+    "23.26_77.413_15000_all": {
+      "timestamp": "2025-09-11T19:50:03.002518",
+      "location_name": "Bhopal, Madhya Pradesh",
+      "lat": 23.2599,
+      "lon": 77.4126,
+      "radius": 15000,
+      "stream": "all",
+      "colleges": [
+        {
+          "name": "Govt Motilal Vigyan Mahavidyalaya (MVM)",
+          "lat": 23.2599,
+          "lon": 77.4126,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jahangirabad, Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Govt Motilal Vigyan Mahavidyalaya",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Science and Commerce College",
+          "lat": 23.255,
+          "lon": 77.41,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Benazir, Jehangirabad, Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Science and Commerce College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Geetanjali Girls' College",
+          "lat": 23.262,
+          "lon": 77.415,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Geetanjali Girls' College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Post Graduate College, BHEL",
+          "lat": 23.24,
+          "lon": 77.48,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Piplani, Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Post Graduate College, BHEL",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government College, Bhopal",
+          "lat": 23.258,
+          "lon": 77.408,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government College, Bhopal",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Science & Commerce College (GSCC)",
+          "lat": 23.257,
+          "lon": 77.412,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Science & Commerce College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Dr. Shyama Prasad Mukherjee Science & Commerce College",
+          "lat": 23.256,
+          "lon": 77.411,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jahangirabad, Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Dr. Shyama Prasad Mukherjee Science & Commerce College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government PG College - Pipriya",
+          "lat": 23.245,
+          "lon": 77.395,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Pipriya, Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government PG College - Pipriya",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Hamidia Arts & Commerce College",
+          "lat": 23.259,
+          "lon": 77.413,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Hamidia Arts & Commerce College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Geetanjali Girls' P.G. (Autonomous) College",
+          "lat": 23.262,
+          "lon": 77.415,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Geetanjali Girls' P.G. College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Home Science P.G. College",
+          "lat": 23.261,
+          "lon": 77.414,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Home Science P.G. College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Kamla Nehru Mahila Mahavidyalaya",
+          "lat": 23.26,
+          "lon": 77.416,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Kamla Nehru Mahila Mahavidyalaya",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Science and Commerce College",
+          "lat": 23.255,
+          "lon": 77.41,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Science and Commerce College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Arts & Commerce (Naveen) College",
+          "lat": 23.258,
+          "lon": 77.409,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Arts & Commerce (Naveen) College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government Dr. Shyama Prasad Mukherjee Science & Commerce College",
+          "lat": 23.256,
+          "lon": 77.411,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Dr. Shyama Prasad Mukherjee Science & Commerce College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Government PG College, Pipriya",
+          "lat": 23.245,
+          "lon": 77.395,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Pipriya, Bhopal, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government PG College, Pipriya",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 32,
+      "last_accessed": "2025-09-17T21:36:41.164510"
+    },
+    "22.72_75.858_12000_all": {
+      "timestamp": "2025-09-11T19:50:03.004516",
+      "location_name": "Indore, Madhya Pradesh",
+      "lat": 22.7196,
+      "lon": 75.8577,
+      "radius": 12000,
+      "stream": "all",
+      "colleges": [
+        {
+          "name": "IIT Indore",
+          "lat": 22.6708,
+          "lon": 75.9061,
+          "amenity": "university",
+          "operator": "Government of India",
+          "website": "https://www.iiti.ac.in/",
+          "addr": "Indore, Madhya Pradesh 453552",
+          "phone": "",
+          "tags": {
+            "name": "IIT Indore",
+            "amenity": "university"
+          }
+        },
+        {
+          "name": "Government Holkar Science College",
+          "lat": 22.7085,
+          "lon": 75.8735,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Indore, Madhya Pradesh",
+          "phone": "",
+          "tags": {
+            "name": "Government Holkar Science College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 3,
+      "last_accessed": "2025-09-13T11:50:03.460301"
+    },
+    "23.17_79.957_10000_all": {
+      "timestamp": "2025-09-11T19:52:04.674528",
+      "location_name": "Jabalpur, Madhya Pradesh, India",
+      "lat": 23.1701,
+      "lon": 79.957,
+      "radius": 10000,
+      "stream": "all",
+      "colleges": [
+        {
+          "name": "Mahakoushal Government College, Jabalpur",
+          "lat": 23.1629055,
+          "lon": 79.9668853,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Mahakoushal Government College, Jabalpur"
+          }
+        },
+        {
+          "name": "Government Model Sciecne College, Jabalpur",
+          "lat": 23.1639416,
+          "lon": 79.9693849,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government Model Sciecne College, Jabalpur"
+          }
+        },
+        {
+          "name": "Chanchala Bai College",
+          "lat": 23.1674261,
+          "lon": 79.9254969,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Chanchala Bai College"
+          }
+        },
+        {
+          "name": "Government College of Educational Psychology and Guidance",
+          "lat": 23.1686332,
+          "lon": 79.9446036,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government College of Educational Psychology and Guidance"
+          }
+        },
+        {
+          "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+          "lat": 23.175427,
+          "lon": 80.0258463,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://iiitdmj.ac.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "alt_name": "IIIT Jabalpur",
+            "amenity": "college",
+            "common_name": "PDPM IIITDMJ",
+            "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+            "short_name": "IIITDMJ",
+            "website": "https://iiitdmj.ac.in/",
+            "wikidata": "Q6020614",
+            "wikipedia": "en:Indian Institute of Information Technology, Design and Manufacturing, Jabalpur"
+          }
+        },
+        {
+          "name": "Jabalpur Engineering College",
+          "lat": 23.1815,
+          "lon": 79.9864,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://www.jecjabalpur.ac.in/",
+          "addr": "Gokalpur, Jabalpur, Madhya Pradesh 482011, India",
+          "phone": "",
+          "tags": {
+            "name": "Jabalpur Engineering College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "NSCB Medical College (Netaji Subhash Chandra Bose Medical College)",
+          "lat": 23.151,
+          "lon": 79.8815,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://nscbmc.ac.in/",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "NSCB Medical College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Mahakaushal Government Autonomous College",
+          "lat": 23.1685,
+          "lon": 79.9338,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "Mahakaushal Government Autonomous College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 33,
+      "last_accessed": "2025-09-14T02:30:57.996342"
+    },
+    "23.258_77.402_10000_all": {
+      "timestamp": "2025-09-11T19:52:30.302478",
+      "location_name": "Bhopal Madhya Pradesh",
+      "lat": 23.2584857,
+      "lon": 77.401989,
+      "radius": 10000,
+      "stream": "all",
+      "colleges": [
+        {
+          "name": "L N Medical College ",
+          "lat": 23.1775944,
+          "lon": 77.4278901,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "L N Medical College "
+          }
+        },
+        {
+          "name": "Extol College ",
+          "lat": 23.1782242,
+          "lon": 77.4342423,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "www.extolcollege.in",
+          "addr": "E 8 Extension Shahpura ",
+          "phone": "8085125561",
+          "tags": {
+            "addr:street": "E 8 Extension Shahpura ",
+            "amenity": "college",
+            "description": "Barkatullah University affiliated ",
+            "name": "Extol College ",
+            "phone": "8085125561",
+            "website": "www.extolcollege.in"
+          }
+        },
+        {
+          "name": "Extol Institute of Management",
+          "lat": 23.2528901,
+          "lon": 77.4148872,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Extol Institute of Management"
+          }
+        },
+        {
+          "name": "Jagran Lakecity University ",
+          "lat": 23.1754563,
+          "lon": 77.3875459,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Jagran Lakecity University "
+          }
+        },
+        {
+          "name": "Madhya Pradesh School of Drama",
+          "lat": 23.2342111,
+          "lon": 77.3882482,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Shantivardhan Marg",
+          "phone": "",
+          "tags": {
+            "addr:district": "Shyamala Hills",
+            "addr:district:hi": "श्यामला हिल्ज़",
+            "addr:housenumber": "1414",
+            "addr:postcode": "462002",
+            "addr:street": "Shantivardhan Marg",
+            "amenity": "college",
+            "name": "Madhya Pradesh School of Drama",
+            "name:hi": "मध्य प्रदेश नाट्य विद्यालय",
+            "short_name": "MPSD"
+          }
+        },
+        {
+          "name": "Maulana Azad National Insititute of Technology",
+          "lat": 23.2134357,
+          "lon": 77.4078974,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "http://www.manit.ac.in/",
+          "addr": "",
+          "phone": "+91 755 4051000",
+          "tags": {
+            "amenity": "university",
+            "barrier": "wall",
+            "fax": "+91 755 2670562",
+            "name": "Maulana Azad National Insititute of Technology",
+            "name:en": "Maulana Azad National Insititute of Technology",
+            "name:etymology:wikidata": "Q196617",
+            "name:hi": "मौलाना आज़ाद राष्ट्रीय प्रोद्योगिकी संस्थान भोपाल",
+            "phone": "+91 755 4051000",
+            "short_name": "MANIT",
+            "website": "http://www.manit.ac.in/",
+            "wikidata": "Q6792425",
+            "wikipedia": "en:Maulana Azad National Institute of Technology"
+          }
+        },
+        {
+          "name": "Bhopal School of Social Science",
+          "lat": 23.2140028,
+          "lon": 77.4438823,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "int_name": "BSSS",
+            "name": "Bhopal School of Social Science"
+          }
+        },
+        {
+          "name": "Career College",
+          "lat": 23.2310709,
+          "lon": 77.4507785,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "Career College"
+          }
+        },
+        {
+          "name": "Regional Institute of Education (RIE)",
+          "lat": 23.2369434,
+          "lon": 77.3826775,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "https://riebhopal.nic.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Regional Institute of Education (RIE)",
+            "website": "https://riebhopal.nic.in/"
+          }
+        },
+        {
+          "name": "Indian Institute of Forest Management",
+          "lat": 23.2075735,
+          "lon": 77.3852993,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "Indian Institute of Forest Management",
+            "wikidata": "Q3783811"
+          }
+        },
+        {
+          "name": "National Judicial Academy",
+          "lat": 23.2105981,
+          "lon": 77.3732095,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "http://www.nja.nic.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "National Judicial Academy",
+            "website": "http://www.nja.nic.in/",
+            "wikidata": "Q6973888",
+            "wikipedia": "en:National Judicial Academy (India)"
+          }
+        },
+        {
+          "name": "National Law Institute University",
+          "lat": 23.1868422,
+          "lon": 77.3639801,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://www.nliu.ac.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "National Law Institute University",
+            "website": "https://www.nliu.ac.in/",
+            "wikidata": "Q6974025",
+            "wikipedia": "en:National Law Institute University"
+          }
+        },
+        {
+          "name": "Technocrat Institute of Technology",
+          "lat": 23.2604421,
+          "lon": 77.4986161,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Technocrat Institute of Technology"
+          }
+        },
+        {
+          "name": "People's Dental College",
+          "lat": 23.2997358,
+          "lon": 77.4227677,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "People's Dental College"
+          }
+        },
+        {
+          "name": "Truba College",
+          "lat": 23.3084442,
+          "lon": 77.3868547,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Truba College"
+          }
+        },
+        {
+          "name": "Satya Sai College",
+          "lat": 23.2276982,
+          "lon": 77.4439364,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "Satya Sai College"
+          }
+        }
+      ],
+      "access_count": 8,
+      "last_accessed": "2025-09-11T19:58:07.533571"
+    },
+    "23.258_77.402_10000000_pcm": {
+      "timestamp": "2025-09-11T19:55:46.229619",
+      "location_name": "Bhopal",
+      "lat": 23.2584857,
+      "lon": 77.401989,
+      "radius": 10000000,
+      "stream": "pcm",
+      "colleges": [
+        {
+          "name": "National Institute Of Fashion Technology",
+          "lat": 23.2844639,
+          "lon": 77.2814901,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "alt_name": "NIFT;NIFT Bhopal",
+            "amenity": "college",
+            "name": "National Institute Of Fashion Technology"
+          }
+        },
+        {
+          "name": "Maulana Azad National Insititute of Technology",
+          "lat": 23.2134357,
+          "lon": 77.4078974,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "http://www.manit.ac.in/",
+          "addr": "",
+          "phone": "+91 755 4051000",
+          "tags": {
+            "amenity": "university",
+            "barrier": "wall",
+            "fax": "+91 755 2670562",
+            "name": "Maulana Azad National Insititute of Technology",
+            "name:en": "Maulana Azad National Insititute of Technology",
+            "name:etymology:wikidata": "Q196617",
+            "name:hi": "मौलाना आज़ाद राष्ट्रीय प्रोद्योगिकी संस्थान भोपाल",
+            "phone": "+91 755 4051000",
+            "short_name": "MANIT",
+            "website": "http://www.manit.ac.in/",
+            "wikidata": "Q6792425",
+            "wikipedia": "en:Maulana Azad National Institute of Technology"
+          }
+        },
+        {
+          "name": "Oriental Institute of science and technology",
+          "lat": 23.2462823,
+          "lon": 77.5028535,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "Oriental Institute of science and technology"
+          }
+        },
+        {
+          "name": "Technocrat Institute of Technology",
+          "lat": 23.2604421,
+          "lon": 77.4986161,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Technocrat Institute of Technology"
+          }
+        }
+      ],
+      "access_count": 2,
+      "last_accessed": "2025-09-11T19:55:46.248484"
+    },
+    "23.258_77.402_10000_pcm": {
+      "timestamp": "2025-09-11T19:57:34.894294",
+      "location_name": "Bhopal",
+      "lat": 23.2584857,
+      "lon": 77.401989,
+      "radius": 10000,
+      "stream": "pcm",
+      "colleges": [
+        {
+          "name": "Maulana Azad National Insititute of Technology",
+          "lat": 23.2134357,
+          "lon": 77.4078974,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "http://www.manit.ac.in/",
+          "addr": "",
+          "phone": "+91 755 4051000",
+          "tags": {
+            "amenity": "university",
+            "barrier": "wall",
+            "fax": "+91 755 2670562",
+            "name": "Maulana Azad National Insititute of Technology",
+            "name:en": "Maulana Azad National Insititute of Technology",
+            "name:etymology:wikidata": "Q196617",
+            "name:hi": "मौलाना आज़ाद राष्ट्रीय प्रोद्योगिकी संस्थान भोपाल",
+            "phone": "+91 755 4051000",
+            "short_name": "MANIT",
+            "website": "http://www.manit.ac.in/",
+            "wikidata": "Q6792425",
+            "wikipedia": "en:Maulana Azad National Institute of Technology"
+          }
+        },
+        {
+          "name": "Technocrat Institute of Technology",
+          "lat": 23.2604421,
+          "lon": 77.4986161,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Technocrat Institute of Technology"
+          }
+        }
+      ],
+      "access_count": 1,
+      "last_accessed": "2025-09-11T19:57:34.894301"
+    },
+    "23.258_77.402_10000_arts": {
+      "timestamp": "2025-09-11T19:57:56.772779",
+      "location_name": "Bhopal",
+      "lat": 23.2584857,
+      "lon": 77.401989,
+      "radius": 10000,
+      "stream": "arts",
+      "colleges": [
+        {
+          "name": "L N Medical College ",
+          "lat": 23.1775944,
+          "lon": 77.4278901,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "L N Medical College "
+          }
+        },
+        {
+          "name": "Extol College ",
+          "lat": 23.1782242,
+          "lon": 77.4342423,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "www.extolcollege.in",
+          "addr": "E 8 Extension Shahpura ",
+          "phone": "8085125561",
+          "tags": {
+            "addr:street": "E 8 Extension Shahpura ",
+            "amenity": "college",
+            "description": "Barkatullah University affiliated ",
+            "name": "Extol College ",
+            "phone": "8085125561",
+            "website": "www.extolcollege.in"
+          }
+        },
+        {
+          "name": "Extol Institute of Management",
+          "lat": 23.2528901,
+          "lon": 77.4148872,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Extol Institute of Management"
+          }
+        },
+        {
+          "name": "Jagran Lakecity University ",
+          "lat": 23.1754563,
+          "lon": 77.3875459,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Jagran Lakecity University "
+          }
+        },
+        {
+          "name": "Madhya Pradesh School of Drama",
+          "lat": 23.2342111,
+          "lon": 77.3882482,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Shantivardhan Marg",
+          "phone": "",
+          "tags": {
+            "addr:district": "Shyamala Hills",
+            "addr:district:hi": "श्यामला हिल्ज़",
+            "addr:housenumber": "1414",
+            "addr:postcode": "462002",
+            "addr:street": "Shantivardhan Marg",
+            "amenity": "college",
+            "name": "Madhya Pradesh School of Drama",
+            "name:hi": "मध्य प्रदेश नाट्य विद्यालय",
+            "short_name": "MPSD"
+          }
+        },
+        {
+          "name": "Maulana Azad National Insititute of Technology",
+          "lat": 23.2134357,
+          "lon": 77.4078974,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "http://www.manit.ac.in/",
+          "addr": "",
+          "phone": "+91 755 4051000",
+          "tags": {
+            "amenity": "university",
+            "barrier": "wall",
+            "fax": "+91 755 2670562",
+            "name": "Maulana Azad National Insititute of Technology",
+            "name:en": "Maulana Azad National Insititute of Technology",
+            "name:etymology:wikidata": "Q196617",
+            "name:hi": "मौलाना आज़ाद राष्ट्रीय प्रोद्योगिकी संस्थान भोपाल",
+            "phone": "+91 755 4051000",
+            "short_name": "MANIT",
+            "website": "http://www.manit.ac.in/",
+            "wikidata": "Q6792425",
+            "wikipedia": "en:Maulana Azad National Institute of Technology"
+          }
+        },
+        {
+          "name": "Bhopal School of Social Science",
+          "lat": 23.2140028,
+          "lon": 77.4438823,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "int_name": "BSSS",
+            "name": "Bhopal School of Social Science"
+          }
+        },
+        {
+          "name": "Career College",
+          "lat": 23.2310709,
+          "lon": 77.4507785,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "Career College"
+          }
+        },
+        {
+          "name": "Regional Institute of Education (RIE)",
+          "lat": 23.2369434,
+          "lon": 77.3826775,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "https://riebhopal.nic.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Regional Institute of Education (RIE)",
+            "website": "https://riebhopal.nic.in/"
+          }
+        },
+        {
+          "name": "Indian Institute of Forest Management",
+          "lat": 23.2075735,
+          "lon": 77.3852993,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "Indian Institute of Forest Management",
+            "wikidata": "Q3783811"
+          }
+        },
+        {
+          "name": "National Judicial Academy",
+          "lat": 23.2105981,
+          "lon": 77.3732095,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "http://www.nja.nic.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "National Judicial Academy",
+            "website": "http://www.nja.nic.in/",
+            "wikidata": "Q6973888",
+            "wikipedia": "en:National Judicial Academy (India)"
+          }
+        },
+        {
+          "name": "National Law Institute University",
+          "lat": 23.1868422,
+          "lon": 77.3639801,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://www.nliu.ac.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "National Law Institute University",
+            "website": "https://www.nliu.ac.in/",
+            "wikidata": "Q6974025",
+            "wikipedia": "en:National Law Institute University"
+          }
+        },
+        {
+          "name": "Technocrat Institute of Technology",
+          "lat": 23.2604421,
+          "lon": 77.4986161,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Technocrat Institute of Technology"
+          }
+        },
+        {
+          "name": "People's Dental College",
+          "lat": 23.2997358,
+          "lon": 77.4227677,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "People's Dental College"
+          }
+        },
+        {
+          "name": "Truba College",
+          "lat": 23.3084442,
+          "lon": 77.3868547,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Truba College"
+          }
+        },
+        {
+          "name": "Satya Sai College",
+          "lat": 23.2276982,
+          "lon": 77.4439364,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "Satya Sai College"
+          }
+        }
+      ],
+      "access_count": 1,
+      "last_accessed": "2025-09-11T19:57:56.772789"
+    },
+    "23.258_77.402_10000_commerce": {
+      "timestamp": "2025-09-11T19:58:09.169397",
+      "location_name": "Bhopal",
+      "lat": 23.2584857,
+      "lon": 77.401989,
+      "radius": 10000,
+      "stream": "commerce",
+      "colleges": [
+        {
+          "name": "Extol Institute of Management",
+          "lat": 23.2528901,
+          "lon": 77.4148872,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Extol Institute of Management"
+          }
+        },
+        {
+          "name": "Indian Institute of Forest Management",
+          "lat": 23.2075735,
+          "lon": 77.3852993,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "Indian Institute of Forest Management",
+            "wikidata": "Q3783811"
+          }
+        }
+      ],
+      "access_count": 1,
+      "last_accessed": "2025-09-11T19:58:09.169402"
+    },
+    "23.17_79.957_10000_pcm": {
+      "timestamp": "2025-09-11T20:03:37.480246",
+      "location_name": "Jabalpur, Madhya Pradesh, India",
+      "lat": 23.1701,
+      "lon": 79.957,
+      "radius": 10000,
+      "stream": "pcm",
+      "colleges": [
+        {
+          "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+          "lat": 23.175427,
+          "lon": 80.0258463,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://iiitdmj.ac.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "alt_name": "IIIT Jabalpur",
+            "amenity": "college",
+            "common_name": "PDPM IIITDMJ",
+            "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+            "short_name": "IIITDMJ",
+            "website": "https://iiitdmj.ac.in/",
+            "wikidata": "Q6020614",
+            "wikipedia": "en:Indian Institute of Information Technology, Design and Manufacturing, Jabalpur"
+          }
+        },
+        {
+          "name": "Jabalpur Engineering College",
+          "lat": 23.1815,
+          "lon": 79.9864,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://www.jecjabalpur.ac.in/",
+          "addr": "Gokalpur, Jabalpur, Madhya Pradesh 482011, India",
+          "phone": "",
+          "tags": {
+            "name": "Jabalpur Engineering College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 3,
+      "last_accessed": "2025-09-11T23:32:09.349001"
+    },
+    "23.17_79.957_10000_pcb": {
+      "timestamp": "2025-09-11T20:04:17.072103",
+      "location_name": "Jabalpur, Madhya Pradesh, India",
+      "lat": 23.1701,
+      "lon": 79.957,
+      "radius": 10000,
+      "stream": "pcb",
+      "colleges": [
+        {
+          "name": "NSCB Medical College (Netaji Subhash Chandra Bose Medical College)",
+          "lat": 23.151,
+          "lon": 79.8815,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://nscbmc.ac.in/",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "NSCB Medical College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 4,
+      "last_accessed": "2025-09-11T22:20:52.451893"
+    },
+    "23.17_79.957_10000_arts": {
+      "timestamp": "2025-09-11T20:04:40.537400",
+      "location_name": "Jabalpur, Madhya Pradesh, India",
+      "lat": 23.1701,
+      "lon": 79.957,
+      "radius": 10000,
+      "stream": "arts",
+      "colleges": [
+        {
+          "name": "Mahakoushal Government College, Jabalpur",
+          "lat": 23.1629055,
+          "lon": 79.9668853,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Mahakoushal Government College, Jabalpur"
+          }
+        },
+        {
+          "name": "Government College of Educational Psychology and Guidance",
+          "lat": 23.1686332,
+          "lon": 79.9446036,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government College of Educational Psychology and Guidance"
+          }
+        },
+        {
+          "name": "Mahakaushal Government Autonomous College",
+          "lat": 23.1685,
+          "lon": 79.9338,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "Mahakaushal Government Autonomous College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 2,
+      "last_accessed": "2025-09-11T22:36:57.636993"
+    },
+    "23.17_79.957_10000_commerce": {
+      "timestamp": "2025-09-11T20:05:03.163444",
+      "location_name": "Jabalpur, Madhya Pradesh, India",
+      "lat": 23.1701,
+      "lon": 79.957,
+      "radius": 10000,
+      "stream": "commerce",
+      "colleges": [
+        {
+          "name": "Mahakoushal Government College, Jabalpur",
+          "lat": 23.1629055,
+          "lon": 79.9668853,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Mahakoushal Government College, Jabalpur"
+          }
+        },
+        {
+          "name": "Mahakaushal Government Autonomous College",
+          "lat": 23.1685,
+          "lon": 79.9338,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "Mahakaushal Government Autonomous College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 2,
+      "last_accessed": "2025-09-11T22:37:08.752981"
+    },
+    "23.17_79.957_20000_all": {
+      "timestamp": "2025-09-11T22:18:07.306767",
+      "location_name": "Jabalpur, Madhya Pradesh, India",
+      "lat": 23.1701,
+      "lon": 79.957,
+      "radius": 20000,
+      "stream": "all",
+      "colleges": [
+        {
+          "name": "Mahakoushal Government College, Jabalpur",
+          "lat": 23.1629055,
+          "lon": 79.9668853,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Mahakoushal Government College, Jabalpur"
+          }
+        },
+        {
+          "name": "Government Model Sciecne College, Jabalpur",
+          "lat": 23.1639416,
+          "lon": 79.9693849,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government Model Sciecne College, Jabalpur"
+          }
+        },
+        {
+          "name": "Chanchala Bai College",
+          "lat": 23.1674261,
+          "lon": 79.9254969,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Chanchala Bai College"
+          }
+        },
+        {
+          "name": "Government College of Educational Psychology and Guidance",
+          "lat": 23.1686332,
+          "lon": 79.9446036,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government College of Educational Psychology and Guidance"
+          }
+        },
+        {
+          "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+          "lat": 23.175427,
+          "lon": 80.0258463,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://iiitdmj.ac.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "alt_name": "IIIT Jabalpur",
+            "amenity": "college",
+            "common_name": "PDPM IIITDMJ",
+            "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+            "short_name": "IIITDMJ",
+            "website": "https://iiitdmj.ac.in/",
+            "wikidata": "Q6020614",
+            "wikipedia": "en:Indian Institute of Information Technology, Design and Manufacturing, Jabalpur"
+          }
+        },
+        {
+          "name": "Jabalpur Engineering College",
+          "lat": 23.1815,
+          "lon": 79.9864,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://www.jecjabalpur.ac.in/",
+          "addr": "Gokalpur, Jabalpur, Madhya Pradesh 482011, India",
+          "phone": "",
+          "tags": {
+            "name": "Jabalpur Engineering College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "NSCB Medical College (Netaji Subhash Chandra Bose Medical College)",
+          "lat": 23.151,
+          "lon": 79.8815,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://nscbmc.ac.in/",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "NSCB Medical College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Mahakaushal Government Autonomous College",
+          "lat": 23.1685,
+          "lon": 79.9338,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "Mahakaushal Government Autonomous College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 1,
+      "last_accessed": "2025-09-11T22:18:07.306795"
+    },
+    "23.17_79.957_20000_pcb": {
+      "timestamp": "2025-09-11T22:20:57.161698",
+      "location_name": "Jabalpur, Madhya Pradesh, India",
+      "lat": 23.1701,
+      "lon": 79.957,
+      "radius": 20000,
+      "stream": "pcb",
+      "colleges": [
+        {
+          "name": "Government College of Educational Psychology and Guidance",
+          "lat": 23.1686332,
+          "lon": 79.9446036,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government College of Educational Psychology and Guidance"
+          }
+        },
+        {
+          "name": "NSCB Medical College (Netaji Subhash Chandra Bose Medical College)",
+          "lat": 23.151,
+          "lon": 79.8815,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://nscbmc.ac.in/",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "NSCB Medical College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 1,
+      "last_accessed": "2025-09-11T22:20:57.161712"
+    },
+    "22.72_75.868_10000_pcm": {
+      "timestamp": "2025-09-11T23:32:50.869297",
+      "location_name": "Indore Madhya Pradesh",
+      "lat": 22.7203616,
+      "lon": 75.8681996,
+      "radius": 10000,
+      "stream": "pcm",
+      "colleges": [
+        {
+          "name": "Prestige Institute of Engineering and Science",
+          "lat": 22.7606395,
+          "lon": 75.8855809,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "addr:city": "Indore",
+            "amenity": "college",
+            "name": "Prestige Institute of Engineering and Science"
+          }
+        },
+        {
+          "name": "Malwa Institute of Technology",
+          "lat": 22.758378,
+          "lon": 75.9388869,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "Malwa Institute of Technology"
+          }
+        }
+      ],
+      "access_count": 1,
+      "last_accessed": "2025-09-11T23:32:50.869314"
+    },
+    "22.717_75.834_10000_all": {
+      "timestamp": "2025-09-12T15:13:22.722805",
+      "location_name": "Indore, Madhya Pradesh, India",
+      "lat": 22.717,
+      "lon": 75.8337,
+      "radius": 10000,
+      "stream": "all",
+      "colleges": [
+        {
+          "name": "SAIMS Nursing College",
+          "lat": 22.7969389,
+          "lon": 75.8458923,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "SAIMS Campus,Ujjain Road",
+          "phone": "",
+          "tags": {
+            "addr:city": "Indore",
+            "addr:street": "SAIMS Campus,Ujjain Road",
+            "amenity": "college",
+            "name": "SAIMS Nursing College",
+            "name:hi": "सैम्स नर्सिंग कॉलेज",
+            "opening_hours": "Mo-Sa 10:00-17:00",
+            "operator:type": "private",
+            "source": "2C_Indore Field Visit 2019"
+          }
+        },
+        {
+          "name": "Prestige Institute of Management And Research",
+          "lat": 22.7543241,
+          "lon": 75.9023926,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Prestige Institute of Management And Research"
+          }
+        },
+        {
+          "name": "Softvision College",
+          "lat": 22.754446,
+          "lon": 75.8855916,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Softvision College",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "name": "Kanyakubj Nursing College",
+          "lat": 22.7559815,
+          "lon": 75.8837811,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Kanyakubj Nursing College"
+          }
+        },
+        {
+          "name": "Prestige Institute of Engineering and Science",
+          "lat": 22.7606395,
+          "lon": 75.8855809,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "addr:city": "Indore",
+            "amenity": "college",
+            "name": "Prestige Institute of Engineering and Science"
+          }
+        },
+        {
+          "name": "softvision college",
+          "lat": 22.7529045,
+          "lon": 75.8814065,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "softvision college"
+          }
+        },
+        {
+          "name": "MGM Medical College",
+          "lat": 22.7142969,
+          "lon": 75.8829716,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "A B Road",
+          "phone": "",
+          "tags": {
+            "addr:street": "A B Road",
+            "amenity": "college",
+            "name": "MGM Medical College",
+            "opening_hours": "Mo-Sa 08:00-22:00"
+          }
+        },
+        {
+          "name": "Govt. Institute of Fine Arts",
+          "lat": 22.7674875,
+          "lon": 75.8870845,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Govt. Institute of Fine Arts"
+          }
+        },
+        {
+          "name": "Christian Eminent Academy",
+          "lat": 22.7659429,
+          "lon": 75.9153482,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Christian Eminent Academy"
+          }
+        },
+        {
+          "name": "Prestige Institute of Management and research",
+          "lat": 22.75435,
+          "lon": 75.9023989,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Prestige Institute of Management and research",
+            "url": "http://pimrindore.ac.in"
+          }
+        },
+        {
+          "name": "Symboisis University of Applied Sciences",
+          "lat": 22.7536328,
+          "lon": 75.7921739,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Super Corridor",
+          "phone": "",
+          "tags": {
+            "addr:street": "Super Corridor",
+            "amenity": "university",
+            "internet_access": "yes",
+            "name": "Symboisis University of Applied Sciences"
+          }
+        },
+        {
+          "name": "Symboisis University of Applied Sciences",
+          "lat": 22.7531585,
+          "lon": 75.7949312,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Super Corridor",
+          "phone": "",
+          "tags": {
+            "addr:street": "Super Corridor",
+            "amenity": "university",
+            "internet_access": "yes",
+            "name": "Symboisis University of Applied Sciences"
+          }
+        },
+        {
+          "name": "Modern Dental College And Research Center",
+          "lat": 22.736913,
+          "lon": 75.790029,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "www.mdcrc.com",
+          "addr": "Behind Sunshine Public School, Gandhi Nagar, Indore",
+          "phone": "07312882693",
+          "tags": {
+            "addr:city": "Indore",
+            "addr:street": "Behind Sunshine Public School, Gandhi Nagar, Indore",
+            "amenity": "college",
+            "facility:ambulance": "no",
+            "facility:ipd": "no",
+            "facility:opd": "yes",
+            "facility:operating_theater": "no",
+            "facility:pathology_labs": "no",
+            "facility:radiology_labs": "no",
+            "facility:ventilator": "no",
+            "healthcare:speciality": "dentist",
+            "hospital:type": "tertiary",
+            "name": "Modern Dental College And Research Center",
+            "name:hi": "मॉडर्न डेंटल कॉलेज एंड रिसर्च सेंटर",
+            "opening_hours": "Mo-Sa09:00-16:00",
+            "operator:type": "government",
+            "phone": "07312882693",
+            "source": "2C_Indore Field Visit 2019",
+            "website": "www.mdcrc.com"
+          }
+        }
+      ],
+      "access_count": 15,
+      "last_accessed": "2025-09-14T17:56:38.894782"
+    },
+    "23.181_79.986_20000_all": {
+      "timestamp": "2025-09-14T12:37:45.653545",
+      "location_name": "Jabalpur, Madhya Pradesh, India",
+      "lat": 23.1815,
+      "lon": 79.9864,
+      "radius": 20000,
+      "stream": "all",
+      "colleges": [
+        {
+          "name": "Mahakoushal Government College, Jabalpur",
+          "lat": 23.1629055,
+          "lon": 79.9668853,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Mahakoushal Government College, Jabalpur"
+          }
+        },
+        {
+          "name": "Government Model Sciecne College, Jabalpur",
+          "lat": 23.1639416,
+          "lon": 79.9693849,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government Model Sciecne College, Jabalpur"
+          }
+        },
+        {
+          "name": "Chanchala Bai College",
+          "lat": 23.1674261,
+          "lon": 79.9254969,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Chanchala Bai College"
+          }
+        },
+        {
+          "name": "Government College of Educational Psychology and Guidance",
+          "lat": 23.1686332,
+          "lon": 79.9446036,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government College of Educational Psychology and Guidance"
+          }
+        },
+        {
+          "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+          "lat": 23.175427,
+          "lon": 80.0258463,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://iiitdmj.ac.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "alt_name": "IIIT Jabalpur",
+            "amenity": "college",
+            "common_name": "PDPM IIITDMJ",
+            "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+            "short_name": "IIITDMJ",
+            "website": "https://iiitdmj.ac.in/",
+            "wikidata": "Q6020614",
+            "wikipedia": "en:Indian Institute of Information Technology, Design and Manufacturing, Jabalpur"
+          }
+        },
+        {
+          "name": "Jabalpur Engineering College",
+          "lat": 23.1815,
+          "lon": 79.9864,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://www.jecjabalpur.ac.in/",
+          "addr": "Gokalpur, Jabalpur, Madhya Pradesh 482011, India",
+          "phone": "",
+          "tags": {
+            "name": "Jabalpur Engineering College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "NSCB Medical College (Netaji Subhash Chandra Bose Medical College)",
+          "lat": 23.151,
+          "lon": 79.8815,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://nscbmc.ac.in/",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "NSCB Medical College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Mahakaushal Government Autonomous College",
+          "lat": 23.1685,
+          "lon": 79.9338,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "Mahakaushal Government Autonomous College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 1,
+      "last_accessed": "2025-09-14T12:37:45.653556"
+    },
+    "23.17_79.932_10000_pcm": {
+      "timestamp": "2025-09-14T18:00:25.243757",
+      "location_name": "Jabalpur Madhya Pradesh",
+      "lat": 23.1701522,
+      "lon": 79.9324505,
+      "radius": 10000,
+      "stream": "pcm",
+      "colleges": [
+        {
+          "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+          "lat": 23.175427,
+          "lon": 80.0258463,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://iiitdmj.ac.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "alt_name": "IIIT Jabalpur",
+            "amenity": "college",
+            "common_name": "PDPM IIITDMJ",
+            "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+            "short_name": "IIITDMJ",
+            "website": "https://iiitdmj.ac.in/",
+            "wikidata": "Q6020614",
+            "wikipedia": "en:Indian Institute of Information Technology, Design and Manufacturing, Jabalpur"
+          }
+        },
+        {
+          "name": "Jabalpur Engineering College",
+          "lat": 23.1815,
+          "lon": 79.9864,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://www.jecjabalpur.ac.in/",
+          "addr": "Gokalpur, Jabalpur, Madhya Pradesh 482011, India",
+          "phone": "",
+          "tags": {
+            "name": "Jabalpur Engineering College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 2,
+      "last_accessed": "2025-09-17T20:09:54.090995"
+    },
+    "23.17_79.932_5000_all": {
+      "timestamp": "2025-09-17T20:06:38.945936",
+      "location_name": "Jabalpur Madhya Pradesh",
+      "lat": 23.1701522,
+      "lon": 79.9324505,
+      "radius": 5000,
+      "stream": "all",
+      "colleges": [
+        {
+          "name": "Mahakoushal Government College, Jabalpur",
+          "lat": 23.1629055,
+          "lon": 79.9668853,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Mahakoushal Government College, Jabalpur"
+          }
+        },
+        {
+          "name": "Government Model Sciecne College, Jabalpur",
+          "lat": 23.1639416,
+          "lon": 79.9693849,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government Model Sciecne College, Jabalpur"
+          }
+        },
+        {
+          "name": "Chanchala Bai College",
+          "lat": 23.1674261,
+          "lon": 79.9254969,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Chanchala Bai College"
+          }
+        },
+        {
+          "name": "Government College of Educational Psychology and Guidance",
+          "lat": 23.1686332,
+          "lon": 79.9446036,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government College of Educational Psychology and Guidance"
+          }
+        },
+        {
+          "name": "Jabalpur Engineering College",
+          "lat": 23.1815,
+          "lon": 79.9864,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://www.jecjabalpur.ac.in/",
+          "addr": "Gokalpur, Jabalpur, Madhya Pradesh 482011, India",
+          "phone": "",
+          "tags": {
+            "name": "Jabalpur Engineering College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "NSCB Medical College (Netaji Subhash Chandra Bose Medical College)",
+          "lat": 23.151,
+          "lon": 79.8815,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://nscbmc.ac.in/",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "NSCB Medical College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Mahakaushal Government Autonomous College",
+          "lat": 23.1685,
+          "lon": 79.9338,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "Mahakaushal Government Autonomous College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 2,
+      "last_accessed": "2025-09-17T21:36:28.898399"
+    },
+    "23.17_79.932_15000_all": {
+      "timestamp": "2025-09-17T20:07:22.056200",
+      "location_name": "Jabalpur Madhya Pradesh",
+      "lat": 23.1701522,
+      "lon": 79.9324505,
+      "radius": 15000,
+      "stream": "all",
+      "colleges": [
+        {
+          "name": "Mahakoushal Government College, Jabalpur",
+          "lat": 23.1629055,
+          "lon": 79.9668853,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Mahakoushal Government College, Jabalpur"
+          }
+        },
+        {
+          "name": "Government Model Sciecne College, Jabalpur",
+          "lat": 23.1639416,
+          "lon": 79.9693849,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government Model Sciecne College, Jabalpur"
+          }
+        },
+        {
+          "name": "Chanchala Bai College",
+          "lat": 23.1674261,
+          "lon": 79.9254969,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Chanchala Bai College"
+          }
+        },
+        {
+          "name": "Government College of Educational Psychology and Guidance",
+          "lat": 23.1686332,
+          "lon": 79.9446036,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government College of Educational Psychology and Guidance"
+          }
+        },
+        {
+          "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+          "lat": 23.175427,
+          "lon": 80.0258463,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://iiitdmj.ac.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "alt_name": "IIIT Jabalpur",
+            "amenity": "college",
+            "common_name": "PDPM IIITDMJ",
+            "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+            "short_name": "IIITDMJ",
+            "website": "https://iiitdmj.ac.in/",
+            "wikidata": "Q6020614",
+            "wikipedia": "en:Indian Institute of Information Technology, Design and Manufacturing, Jabalpur"
+          }
+        },
+        {
+          "name": "Jabalpur Engineering College",
+          "lat": 23.1815,
+          "lon": 79.9864,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://www.jecjabalpur.ac.in/",
+          "addr": "Gokalpur, Jabalpur, Madhya Pradesh 482011, India",
+          "phone": "",
+          "tags": {
+            "name": "Jabalpur Engineering College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "NSCB Medical College (Netaji Subhash Chandra Bose Medical College)",
+          "lat": 23.151,
+          "lon": 79.8815,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://nscbmc.ac.in/",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "NSCB Medical College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Mahakaushal Government Autonomous College",
+          "lat": 23.1685,
+          "lon": 79.9338,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "Mahakaushal Government Autonomous College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 1,
+      "last_accessed": "2025-09-17T20:07:22.056212"
+    },
+    "23.17_79.932_20000_all": {
+      "timestamp": "2025-09-17T20:07:36.087901",
+      "location_name": "Jabalpur Madhya Pradesh",
+      "lat": 23.1701522,
+      "lon": 79.9324505,
+      "radius": 20000,
+      "stream": "all",
+      "colleges": [
+        {
+          "name": "Mahakoushal Government College, Jabalpur",
+          "lat": 23.1629055,
+          "lon": 79.9668853,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Mahakoushal Government College, Jabalpur"
+          }
+        },
+        {
+          "name": "Government Model Sciecne College, Jabalpur",
+          "lat": 23.1639416,
+          "lon": 79.9693849,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government Model Sciecne College, Jabalpur"
+          }
+        },
+        {
+          "name": "Chanchala Bai College",
+          "lat": 23.1674261,
+          "lon": 79.9254969,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Chanchala Bai College"
+          }
+        },
+        {
+          "name": "Government College of Educational Psychology and Guidance",
+          "lat": 23.1686332,
+          "lon": 79.9446036,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government College of Educational Psychology and Guidance"
+          }
+        },
+        {
+          "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+          "lat": 23.175427,
+          "lon": 80.0258463,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://iiitdmj.ac.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "alt_name": "IIIT Jabalpur",
+            "amenity": "college",
+            "common_name": "PDPM IIITDMJ",
+            "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+            "short_name": "IIITDMJ",
+            "website": "https://iiitdmj.ac.in/",
+            "wikidata": "Q6020614",
+            "wikipedia": "en:Indian Institute of Information Technology, Design and Manufacturing, Jabalpur"
+          }
+        },
+        {
+          "name": "Jabalpur Engineering College",
+          "lat": 23.1815,
+          "lon": 79.9864,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://www.jecjabalpur.ac.in/",
+          "addr": "Gokalpur, Jabalpur, Madhya Pradesh 482011, India",
+          "phone": "",
+          "tags": {
+            "name": "Jabalpur Engineering College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "NSCB Medical College (Netaji Subhash Chandra Bose Medical College)",
+          "lat": 23.151,
+          "lon": 79.8815,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://nscbmc.ac.in/",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "NSCB Medical College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Mahakaushal Government Autonomous College",
+          "lat": 23.1685,
+          "lon": 79.9338,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "Mahakaushal Government Autonomous College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 3,
+      "last_accessed": "2025-09-17T21:36:34.374132"
+    },
+    "23.17_79.932_10000_commerce": {
+      "timestamp": "2025-09-17T20:09:10.472477",
+      "location_name": "Jabalpur Madhya Pradesh",
+      "lat": 23.1701522,
+      "lon": 79.9324505,
+      "radius": 10000,
+      "stream": "commerce",
+      "colleges": [
+        {
+          "name": "Mahakoushal Government College, Jabalpur",
+          "lat": 23.1629055,
+          "lon": 79.9668853,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Mahakoushal Government College, Jabalpur"
+          }
+        },
+        {
+          "name": "Mahakaushal Government Autonomous College",
+          "lat": 23.1685,
+          "lon": 79.9338,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "Mahakaushal Government Autonomous College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 1,
+      "last_accessed": "2025-09-17T20:09:10.472489"
+    },
+    "23.17_79.932_10000_arts": {
+      "timestamp": "2025-09-17T20:09:21.063803",
+      "location_name": "Jabalpur Madhya Pradesh",
+      "lat": 23.1701522,
+      "lon": 79.9324505,
+      "radius": 10000,
+      "stream": "arts",
+      "colleges": [
+        {
+          "name": "Mahakoushal Government College, Jabalpur",
+          "lat": 23.1629055,
+          "lon": 79.9668853,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Mahakoushal Government College, Jabalpur"
+          }
+        },
+        {
+          "name": "Government College of Educational Psychology and Guidance",
+          "lat": 23.1686332,
+          "lon": 79.9446036,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government College of Educational Psychology and Guidance"
+          }
+        },
+        {
+          "name": "Mahakaushal Government Autonomous College",
+          "lat": 23.1685,
+          "lon": 79.9338,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "Mahakaushal Government Autonomous College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 1,
+      "last_accessed": "2025-09-17T20:09:21.063809"
+    },
+    "23.17_79.932_10000_pcb": {
+      "timestamp": "2025-09-17T20:09:44.429038",
+      "location_name": "Jabalpur Madhya Pradesh",
+      "lat": 23.1701522,
+      "lon": 79.9324505,
+      "radius": 10000,
+      "stream": "pcb",
+      "colleges": [
+        {
+          "name": "Government College of Educational Psychology and Guidance",
+          "lat": 23.1686332,
+          "lon": 79.9446036,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government College of Educational Psychology and Guidance"
+          }
+        },
+        {
+          "name": "NSCB Medical College (Netaji Subhash Chandra Bose Medical College)",
+          "lat": 23.151,
+          "lon": 79.8815,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://nscbmc.ac.in/",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "NSCB Medical College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 1,
+      "last_accessed": "2025-09-17T20:09:44.429045"
+    },
+    "19.082_72.887_20000_all": {
+      "timestamp": "2025-09-17T21:37:21.722391",
+      "location_name": "Mumbai",
+      "lat": 19.0815772,
+      "lon": 72.8866275,
+      "radius": 20000,
+      "stream": "all",
+      "colleges": [
+        {
+          "name": "MMK College",
+          "lat": 19.0642652,
+          "lon": 72.8358458,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "created_by": "Potlatch 0.10f",
+            "name": "MMK College",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "name": "Rizvi College",
+          "lat": 19.0684106,
+          "lon": 72.8244647,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "created_by": "Potlatch 0.10f",
+            "name": "Rizvi College"
+          }
+        },
+        {
+          "name": "Shailesh J Mehta Institute of Management",
+          "lat": 19.1317025,
+          "lon": 72.9157388,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "alt_name": "SOM & IRCC",
+            "amenity": "college",
+            "name": "Shailesh J Mehta Institute of Management",
+            "toilets:wheelchair": "no",
+            "wheelchair": "limited"
+          }
+        },
+        {
+          "name": "Gokhale College",
+          "lat": 19.2324515,
+          "lon": 72.8370011,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Gokhale College"
+          }
+        },
+        {
+          "name": "Nagindas Khandwala College",
+          "lat": 19.1925199,
+          "lon": 72.8479831,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Nagindas Khandwala College"
+          }
+        },
+        {
+          "name": "Sir JJ College of Commerce",
+          "lat": 18.9328461,
+          "lon": 72.8322155,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Sir JJ College of Commerce"
+          }
+        },
+        {
+          "name": "B.D. Somani Institute of Art and Fashion Technology",
+          "lat": 18.9161705,
+          "lon": 72.8195845,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "GD Somani Road",
+          "phone": "",
+          "tags": {
+            "addr:city": "Mumbai",
+            "addr:housenumber": "625",
+            "addr:postcode": "400005",
+            "addr:street": "GD Somani Road",
+            "amenity": "college",
+            "name": "B.D. Somani Institute of Art and Fashion Technology"
+          }
+        },
+        {
+          "name": "Institute of Science, Colaba",
+          "lat": 18.9263126,
+          "lon": 72.8300134,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Karmaveer Bhaurao Patil Road",
+          "phone": "",
+          "tags": {
+            "addr:housenumber": "15",
+            "addr:street": "Karmaveer Bhaurao Patil Road",
+            "amenity": "college",
+            "name": "Institute of Science, Colaba"
+          }
+        },
+        {
+          "name": "St.Andrews College Gate",
+          "lat": 19.0572924,
+          "lon": 72.8287811,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "St.Andrews College Gate"
+          }
+        },
+        {
+          "name": "K.E.S Shroff college ground",
+          "lat": 19.201754,
+          "lon": 72.846543,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "internet_access": "yes",
+            "name": "K.E.S Shroff college ground"
+          }
+        },
+        {
+          "name": "Nagrik Shikshan Sanstha's College Of Commerce & Economics",
+          "lat": 18.9734614,
+          "lon": 72.8127402,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Nagrik Shikshan Sanstha's College Of Commerce & Economics"
+          }
+        },
+        {
+          "name": "Maratha Mandir's Babasaheb Gawde Institute of Technology",
+          "lat": 18.9708186,
+          "lon": 72.8220205,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Maratha Mandir's Babasaheb Gawde Institute of Technology"
+          }
+        },
+        {
+          "name": "Sneha lata Rane Girls High School and Junior College",
+          "lat": 18.9861213,
+          "lon": 72.8316628,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Sneha lata Rane Girls High School and Junior College"
+          }
+        },
+        {
+          "name": "ABA College of Law",
+          "lat": 19.016964,
+          "lon": 72.8345634,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "ABA College of Law"
+          }
+        },
+        {
+          "name": "Government Technical High School & Jr. College, Dadar",
+          "lat": 19.019274,
+          "lon": 72.8320298,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government Technical High School & Jr. College, Dadar"
+          }
+        },
+        {
+          "name": "Kohinoor College of Hospitality Management & Tourism Studies",
+          "lat": 19.0229262,
+          "lon": 72.8358686,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://kohinoorcollege.com/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Kohinoor College of Hospitality Management & Tourism Studies",
+            "website": "https://kohinoorcollege.com/"
+          }
+        },
+        {
+          "name": "Dadar Vidya Mandir Junior College",
+          "lat": 19.028379,
+          "lon": 72.8415661,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Dadar Vidya Mandir Junior College"
+          }
+        },
+        {
+          "name": "Saraswati College",
+          "lat": 19.0190223,
+          "lon": 72.841612,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Saraswati College"
+          }
+        },
+        {
+          "name": "The Dadar Parsee Youths Assembly High School",
+          "lat": 19.0179439,
+          "lon": 72.8535649,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "The Dadar Parsee Youths Assembly High School"
+          }
+        },
+        {
+          "name": "Tata Power Skill Development Institute",
+          "lat": 19.0219525,
+          "lon": 72.9257834,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Tata Power Skill Development Institute"
+          }
+        },
+        {
+          "name": "Naval KG School,Mankhurd",
+          "lat": 19.0391251,
+          "lon": 72.938827,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "addr:housenumber": "P-36, VN Purav Rd, Nausena Baugh, Mankhurd, Mumbai, Maharashtra 400088",
+            "amenity": "university",
+            "name": "Naval KG School,Mankhurd"
+          }
+        },
+        {
+          "name": "Atomic Energy Central School -1",
+          "lat": 19.0408105,
+          "lon": 72.9200122,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "addr:housenumber": "Anushakti Nagar, Mumbai, Maharashtra 400094",
+            "amenity": "university",
+            "name": "Atomic Energy Central School -1"
+          }
+        },
+        {
+          "name": "Leelabai Thackersey College of Nursing",
+          "lat": 18.9383143,
+          "lon": 72.8282592,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Leelabai Thackersey College of Nursing"
+          }
+        },
+        {
+          "name": "Bhausaheb Hiray College",
+          "lat": 18.9734103,
+          "lon": 72.812756,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Bhausaheb Hiray College"
+          }
+        },
+        {
+          "name": "Babasaheb Gawde Institute of Management Studies",
+          "lat": 18.97074,
+          "lon": 72.8219929,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Babasaheb Gawde Institute of Management Studies"
+          }
+        },
+        {
+          "name": "Sasmira's Institute of Management Studies and Research",
+          "lat": 19.0101483,
+          "lon": 72.8198867,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Sasmira's Institute of Management Studies and Research"
+          }
+        },
+        {
+          "name": "Sasmira's Institute of Man-made Textiles",
+          "lat": 19.0108465,
+          "lon": 72.8200915,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Sasmira's Institute of Man-made Textiles"
+          }
+        },
+        {
+          "name": "kes law college",
+          "lat": 19.2028619,
+          "lon": 72.8460116,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "kes law college"
+          }
+        },
+        {
+          "name": "JJ Academy",
+          "lat": 19.1776419,
+          "lon": 72.9416778,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "JJ Academy"
+          }
+        },
+        {
+          "name": "Sinhgad College of Commerce",
+          "lat": 19.1132882,
+          "lon": 72.8965304,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Sinhgad College of Commerce"
+          }
+        },
+        {
+          "name": "St Andrew's College of Arts, Science and Commerce",
+          "lat": 19.0564763,
+          "lon": 72.8290034,
+          "amenity": "college",
+          "operator": "unknown",
+          "website": "https://standrewscollege.ac.in/",
+          "addr": "St. Dominic Road",
+          "phone": "",
+          "tags": {
+            "addr:city": "Bandra, Mumbai",
+            "addr:district": "Mumbai",
+            "addr:postcode": "400050",
+            "addr:street": "St. Dominic Road",
+            "amenity": "college",
+            "internet_access": "wlan",
+            "internet_access:fee": "customers",
+            "name": "St Andrew's College of Arts, Science and Commerce",
+            "operator": "unknown",
+            "operator:type": "government",
+            "website": "https://standrewscollege.ac.in/"
+          }
+        },
+        {
+          "name": "college building",
+          "lat": 18.9677617,
+          "lon": 72.8266365,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "college building",
+            "tag": "#college"
+          }
+        },
+        {
+          "name": "Sheila Raheja Institute of Hotel Management",
+          "lat": 19.0592743,
+          "lon": 72.8439117,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Sheila Raheja Institute of Hotel Management",
+            "name:en": "Sheila Raheja Institute of Hotel Management",
+            "name:mr": "शीला रहेजा इंस्टिट्यूट ऑफ़ होटल मैनेजमेंट"
+          }
+        },
+        {
+          "name": "V K Krishna Menon College",
+          "lat": 19.1431219,
+          "lon": 72.9394744,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://www.menoncollege.edu.in/",
+          "addr": "Veer Savarkar Road",
+          "phone": "02225668541",
+          "tags": {
+            "addr:housenumber": "1",
+            "addr:postcode": "400042",
+            "addr:street": "Veer Savarkar Road",
+            "amenity": "college",
+            "email": "info@menoncollege.edu.in",
+            "internet_access": "wlan",
+            "name": "V K Krishna Menon College",
+            "opening_hours": "Mo-Sa 07:15-17:00",
+            "phone": "02225668541",
+            "website": "https://www.menoncollege.edu.in/"
+          }
+        },
+        {
+          "name": "Hinduja College",
+          "lat": 18.9528083,
+          "lon": 72.8184681,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Raja Ram Mohan Roy Road (Charni Road)",
+          "phone": "",
+          "tags": {
+            "addr:housenumber": "315",
+            "addr:postcode": "400004",
+            "addr:street": "Raja Ram Mohan Roy Road (Charni Road)",
+            "amenity": "college",
+            "name": "Hinduja College"
+          }
+        },
+        {
+          "name": "Fr Conceicao Rodrigues College of Engineering",
+          "lat": 19.0443385,
+          "lon": 72.8206694,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://fragnel.edu.in/",
+          "addr": "",
+          "phone": "+91-22-67114100",
+          "tags": {
+            "addr:city": "Mumbai",
+            "addr:postcode": "400050",
+            "alt_name": "Father Agnel College",
+            "alt_name:en": "Father Agnel College",
+            "amenity": "college",
+            "email": "crce@frcrce.ac.in",
+            "fax": "+91-22-67114100",
+            "name": "Fr Conceicao Rodrigues College of Engineering",
+            "name:en": "Fr Conceicao Rodrigues College of Engineering",
+            "phone": "+91-22-67114100",
+            "short_name": "FRCRCE",
+            "short_name:en": "FRCRCE",
+            "website": "https://fragnel.edu.in/"
+          }
+        },
+        {
+          "name": "Mumbai University",
+          "lat": 19.0705862,
+          "lon": 72.8559463,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Mumbai University"
+          }
+        },
+        {
+          "name": "Narsee Monjee College of Commerce",
+          "lat": 19.1037192,
+          "lon": 72.8373571,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "school",
+            "name": "Narsee Monjee College of Commerce"
+          }
+        },
+        {
+          "name": "Ismail Yusuf College",
+          "lat": 19.1334719,
+          "lon": 72.8523967,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://ismailyusufcollege.com/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Ismail Yusuf College",
+            "name:hi": "इस्माइल युसूफ कॉलेज",
+            "website": "https://ismailyusufcollege.com/",
+            "wikidata": "Q12060807",
+            "wikipedia": "en:Ismail Yusuf College"
+          }
+        },
+        {
+          "name": "Patkar College of Science",
+          "lat": 19.1670813,
+          "lon": 72.8458748,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Patkar College of Science"
+          }
+        },
+        {
+          "name": "Veermata Jijabhai Technological Institute (VJTI)",
+          "lat": 19.0218115,
+          "lon": 72.8559429,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "VJTI Marg",
+          "phone": "",
+          "tags": {
+            "addr:city": "Mumbai",
+            "addr:housenumber": "501-509",
+            "addr:postcode": "400031",
+            "addr:street": "VJTI Marg",
+            "amenity": "college",
+            "designation": "VJTI",
+            "name": "Veermata Jijabhai Technological Institute (VJTI)",
+            "name:etymology:wikidata": "Q6192525",
+            "old_name": "Victoria Jubilee Technological Institute",
+            "wikidata": "Q7918222"
+          }
+        },
+        {
+          "name": "Dr.Ambedkar College",
+          "lat": 19.0147066,
+          "lon": 72.8531846,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Dr.Ambedkar College",
+            "name:etymology:wikidata": "Q231690"
+          }
+        },
+        {
+          "name": "Ramnarain Ruia College",
+          "lat": 19.0237226,
+          "lon": 72.8501074,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Ramnarain Ruia College"
+          }
+        },
+        {
+          "name": "Central Cotton Research Institute",
+          "lat": 19.0218585,
+          "lon": 72.8539545,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Central Cotton Research Institute"
+          }
+        },
+        {
+          "name": "Institute of Catering Hotel Management & Applied Nutrition",
+          "lat": 19.0234423,
+          "lon": 72.8352839,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Institute of Catering Hotel Management & Applied Nutrition"
+          }
+        },
+        {
+          "name": "Kirti M. Doongursee College of Arts, Science and Commerce",
+          "lat": 19.0213587,
+          "lon": 72.8310887,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Kirti M. Doongursee College of Arts, Science and Commerce",
+            "name:en": "Kirti M. Doongursee College of Arts, Science and Commerce",
+            "short_name": "Kirti College",
+            "short_name:en": "Kirti College"
+          }
+        },
+        {
+          "name": "Model English Night High School & Jr.College",
+          "lat": 19.0284601,
+          "lon": 72.8556954,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "yes",
+            "name": "Model English Night High School & Jr.College"
+          }
+        },
+        {
+          "name": "K.E.S Shroff college ground",
+          "lat": 19.2018429,
+          "lon": 72.8465995,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "internet_access": "yes",
+            "name": "K.E.S Shroff college ground"
+          }
+        },
+        {
+          "name": "Tata Institute of Social Sciences, New Campus",
+          "lat": 19.040832,
+          "lon": 72.9128939,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Tata Institute of Social Sciences, New Campus"
+          }
+        },
+        {
+          "name": "Vidyalankar Institute of Technology",
+          "lat": 19.0216099,
+          "lon": 72.8709133,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Vidyalankar Road",
+          "phone": "",
+          "tags": {
+            "addr:city": "Mumbai",
+            "addr:postcode": "400037",
+            "addr:street": "Vidyalankar Road",
+            "amenity": "college",
+            "building": "yes",
+            "building:levels": "4",
+            "level": "-1",
+            "name": "Vidyalankar Institute of Technology",
+            "wikidata": "Q7928199",
+            "wikimedia_commons": "Category:Vidyalankar Institute of Technology",
+            "wikipedia": "en:Vidyalankar Institute of Technology"
+          }
+        },
+        {
+          "name": "Mumbai University - Fort Campus",
+          "lat": 18.9293274,
+          "lon": 72.8304996,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Mumbai University - Fort Campus",
+            "name:fa": "برج ساعت"
+          }
+        },
+        {
+          "name": "Ali Yavar Jung National Institute for the Hearing Handicapped",
+          "lat": 19.0518466,
+          "lon": 72.8353627,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Ali Yavar Jung National Institute for the Hearing Handicapped",
+            "name:etymology:wikidata": "Q4725266",
+            "wikidata": "Q30262879"
+          }
+        },
+        {
+          "name": "R D National College Of Arts & Commerce",
+          "lat": 19.0642338,
+          "lon": 72.8353288,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Linking Road, Bandra West",
+          "phone": "",
+          "tags": {
+            "addr:postcode": "400050",
+            "addr:street": "Linking Road, Bandra West",
+            "amenity": "college",
+            "name": "R D National College Of Arts & Commerce"
+          }
+        },
+        {
+          "name": "TSEC College",
+          "lat": 19.0639082,
+          "lon": 72.8357929,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "school",
+            "name": "TSEC College"
+          }
+        },
+        {
+          "name": "Central Institute of Fisheries Education",
+          "lat": 19.1393477,
+          "lon": 72.8163006,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Central Institute of Fisheries Education"
+          }
+        },
+        {
+          "name": "SNDT Women's University,Juhu",
+          "lat": 19.0877185,
+          "lon": 72.8310901,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "SNDT Women's University,Juhu"
+          }
+        },
+        {
+          "name": "Siddharth College",
+          "lat": 18.9362444,
+          "lon": 72.832197,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Purshottamdas Thakurdas Marg",
+          "phone": "",
+          "tags": {
+            "addr:city": "Mumbai",
+            "addr:postcode": "400001",
+            "addr:street": "Purshottamdas Thakurdas Marg",
+            "amenity": "college",
+            "building": "yes",
+            "name": "Siddharth College"
+          }
+        },
+        {
+          "name": "SNDT Women's University",
+          "lat": 18.937677,
+          "lon": 72.8281467,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "SNDT Women's University",
+            "school:gender": "female"
+          }
+        },
+        {
+          "name": "Roshan Taneja School of Acting",
+          "lat": 19.137217,
+          "lon": 72.8232354,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "house",
+            "name": "Roshan Taneja School of Acting"
+          }
+        },
+        {
+          "name": "Xavier Institute of Engineering",
+          "lat": 19.0449383,
+          "lon": 72.8417261,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Xavier Institute of Engineering"
+          }
+        },
+        {
+          "name": "Tilak Public School & College",
+          "lat": 19.0214304,
+          "lon": 73.0227244,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Tilak Public School & College"
+          }
+        },
+        {
+          "name": "National Institute of Industrial Engineering",
+          "lat": 19.1390678,
+          "lon": 72.9015194,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "http://www.nitie.edu",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "National Institute of Industrial Engineering",
+            "website": "http://www.nitie.edu",
+            "wikidata": "Q6973662",
+            "wikimedia_commons": "Category:National Institute of Industrial Engineering (NITIE), Mumbai",
+            "wikipedia": "en:Indian Institute of Management Mumbai"
+          }
+        },
+        {
+          "name": "Vidya Prasarak Mandal Polytechnic",
+          "lat": 19.1896674,
+          "lon": 72.9807981,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "alt_name": "Thana College",
+            "amenity": "college",
+            "name": "Vidya Prasarak Mandal Polytechnic"
+          }
+        },
+        {
+          "name": "K. J. Somaiya Institute of Technology",
+          "lat": 19.0457439,
+          "lon": 72.8708687,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "internet_access": "yes",
+            "internet_access:fee": "customers",
+            "name": "K. J. Somaiya Institute of Technology",
+            "wikidata": "Q6323411",
+            "wikipedia": "en:K. J. Somaiya Institute of Technology"
+          }
+        },
+        {
+          "name": "Siddarth College of Law",
+          "lat": 18.933869,
+          "lon": 72.8319436,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Siddarth College of Law"
+          }
+        },
+        {
+          "name": "IES College Of Architecture",
+          "lat": 19.0502184,
+          "lon": 72.8298033,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "check_date": "2025-01-10",
+            "name": "IES College Of Architecture"
+          }
+        },
+        {
+          "name": "Rajiv Gandhi Institute Of Technology",
+          "lat": 19.1213975,
+          "lon": 72.823709,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://www.mctrgit.ac.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Rajiv Gandhi Institute Of Technology",
+            "name:etymology:wikidata": "Q4593",
+            "website": "https://www.mctrgit.ac.in/",
+            "wikidata": "Q7286206",
+            "wikimedia_commons": "Category:Rajiv Gandhi Institute of Technology, Mumbai",
+            "wikipedia": "en:Rajiv Gandhi Institute of Technology, Mumbai"
+          }
+        },
+        {
+          "name": "Oriental College",
+          "lat": 19.1433541,
+          "lon": 72.83233,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Oriental College"
+          }
+        },
+        {
+          "name": "Podar World College",
+          "lat": 19.1000755,
+          "lon": 72.8277028,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "college",
+            "name": "Podar World College",
+            "name:en": "Podar World College"
+          }
+        },
+        {
+          "name": "Atomic Energy Junior College",
+          "lat": 19.0369624,
+          "lon": 72.919007,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Atomic Energy Junior College"
+          }
+        },
+        {
+          "name": "Tata Institute of Social Sciences (TISS)",
+          "lat": 19.0442748,
+          "lon": 72.9126295,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Tata Institute of Social Sciences (TISS)"
+          }
+        },
+        {
+          "name": "SIES College of Commerce & Economics",
+          "lat": 19.0434205,
+          "lon": 72.8666652,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "addr:city": "Mumbai",
+            "amenity": "college",
+            "building": "yes",
+            "name": "SIES College of Commerce & Economics"
+          }
+        },
+        {
+          "name": "Institute of Chemical Technology",
+          "lat": 19.0240207,
+          "lon": 72.8587854,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Institute of Chemical Technology",
+            "old_name": "University Department of Chemical Technology (UDCT)",
+            "wikidata": "Q6040089",
+            "wikimedia_commons": "Category:Institute of Chemical Technology, Mumbai",
+            "wikipedia": "en:Institute of Chemical Technology"
+          }
+        },
+        {
+          "name": "Department of Physics",
+          "lat": 19.130247,
+          "lon": 72.9166302,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "university",
+            "building:levels": "2",
+            "name": "Department of Physics"
+          }
+        },
+        {
+          "name": "Department of Metalurgical and Material Science Engineering",
+          "lat": 19.1312416,
+          "lon": 72.916678,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "university",
+            "name": "Department of Metalurgical and Material Science Engineering"
+          }
+        },
+        {
+          "name": "Guru Nanak English Academy",
+          "lat": 19.1466666,
+          "lon": 72.9295372,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Guru Nanak English Academy",
+            "name:etymology:wikidata": "Q83322"
+          }
+        },
+        {
+          "name": "VES Institute of Management",
+          "lat": 19.0454657,
+          "lon": 72.889604,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "addr:city": "Mumbai",
+            "amenity": "college",
+            "name": "VES Institute of Management"
+          }
+        },
+        {
+          "name": "Vidyalankar School of Information Technology",
+          "lat": 19.0211933,
+          "lon": 72.8705132,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "yes",
+            "building:levels": "1",
+            "name": "Vidyalankar School of Information Technology"
+          }
+        },
+        {
+          "name": "K C College",
+          "lat": 18.9295773,
+          "lon": 72.8270899,
+          "amenity": "college",
+          "operator": "Axis Bank",
+          "website": "https://kccollege.edu.in",
+          "addr": "Dinshaw Wachha Road",
+          "phone": "",
+          "tags": {
+            "addr:city": "Mumbai",
+            "addr:district": "Mumbai",
+            "addr:housenumber": "123",
+            "addr:postcode": "400020",
+            "addr:street": "Dinshaw Wachha Road",
+            "alt_name": "K C College",
+            "amenity": "college",
+            "building": "yes",
+            "internet_access": "wlan",
+            "internet_access:fee": "no",
+            "name": "K C College",
+            "operator": "Axis Bank",
+            "operator:type": "private",
+            "website": "https://kccollege.edu.in"
+          }
+        },
+        {
+          "name": "H R College",
+          "lat": 18.9297319,
+          "lon": 72.8267769,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "addr:city": "Mumbai",
+            "amenity": "college",
+            "building": "yes",
+            "name": "H R College"
+          }
+        },
+        {
+          "name": "Dahanukar College of Commerce",
+          "lat": 19.0987109,
+          "lon": 72.8515048,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "yes",
+            "name": "Dahanukar College of Commerce"
+          }
+        },
+        {
+          "name": "National Centre for Aerospace Innovation and Research",
+          "lat": 19.1348598,
+          "lon": 72.917867,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "university",
+            "name": "National Centre for Aerospace Innovation and Research"
+          }
+        },
+        {
+          "name": "Vikas College",
+          "lat": 19.118572,
+          "lon": 72.9390478,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Vikas College"
+          }
+        },
+        {
+          "name": "YMT College of Management",
+          "lat": 19.0314876,
+          "lon": 73.0610604,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://www.ymtcollegeofmanagement.org/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "yes",
+            "name": "YMT College of Management",
+            "website": "https://www.ymtcollegeofmanagement.org/"
+          }
+        },
+        {
+          "name": "YMT School of Nursing",
+          "lat": 19.0311408,
+          "lon": 73.0612244,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "yes",
+            "name": "YMT School of Nursing"
+          }
+        },
+        {
+          "name": "YMT Ayurvedic Medical College",
+          "lat": 19.0310809,
+          "lon": 73.0624858,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "yes",
+            "name": "YMT Ayurvedic Medical College"
+          }
+        },
+        {
+          "name": "Lokmanya Vidya Mandir Jr College",
+          "lat": 19.0329465,
+          "lon": 72.8439249,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "addr:city": "Mumbai",
+            "amenity": "college",
+            "building": "yes",
+            "name": "Lokmanya Vidya Mandir Jr College"
+          }
+        },
+        {
+          "name": "Akbar Peerbhoy College Of Commerce And Economics",
+          "lat": 18.9620324,
+          "lon": 72.8258668,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "addr:city": "Mumbai",
+            "amenity": "college",
+            "building": "yes",
+            "name": "Akbar Peerbhoy College Of Commerce And Economics"
+          }
+        },
+        {
+          "name": "School Of Nursing",
+          "lat": 19.0359223,
+          "lon": 72.8586924,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "yes",
+            "name": "School Of Nursing"
+          }
+        },
+        {
+          "name": "V.E.S College of Arts, Science and Commerce",
+          "lat": 19.0477266,
+          "lon": 72.8893927,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Sindhi Society",
+          "phone": "",
+          "tags": {
+            "addr:housename": "V.E.S College of Arts,Science and Commerce",
+            "addr:postcode": "400071",
+            "addr:street": "Sindhi Society",
+            "amenity": "college",
+            "name": "V.E.S College of Arts, Science and Commerce"
+          }
+        },
+        {
+          "name": "Dr Anandrao Nair Hospital and Topiwala Medical College",
+          "lat": 18.9743311,
+          "lon": 72.8219795,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Dr Anandrao Nair Hospital and Topiwala Medical College"
+          }
+        },
+        {
+          "name": "Padhmabhushan Vasantdada Patil Pratishthan's College Of Engineering",
+          "lat": 19.0501424,
+          "lon": 72.8784043,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Eastern Express Highway",
+          "phone": "",
+          "tags": {
+            "addr:postcode": "400022",
+            "addr:street": "Eastern Express Highway",
+            "amenity": "college",
+            "name": "Padhmabhushan Vasantdada Patil Pratishthan's College Of Engineering",
+            "name:etymology:wikidata": "Q7405828"
+          }
+        },
+        {
+          "name": "SIES College of Arts & Science",
+          "lat": 19.0411988,
+          "lon": 72.8612722,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "internet_access": "yes",
+            "name": "SIES College of Arts & Science",
+            "wikidata": "Q7390298",
+            "wikipedia": "en:SIES College of Arts, Science & Commerce"
+          }
+        },
+        {
+          "name": "S.S High School & RV Patel Degree College",
+          "lat": 19.0148389,
+          "lon": 73.0142213,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "addr:city": "Navi Mumbai",
+            "addr:postcode": "400706",
+            "amenity": "college",
+            "barrier": "wall",
+            "name": "S.S High School & RV Patel Degree College"
+          }
+        },
+        {
+          "name": "T.S. Chanakya Maritime University",
+          "lat": 19.0192092,
+          "lon": 73.006714,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "addr:city": "Navi Mumbai",
+            "addr:postcode": "400706",
+            "amenity": "university",
+            "name": "T.S. Chanakya Maritime University",
+            "wikidata": "Q7832954",
+            "wikipedia": "en:Training Ship Chanakya"
+          }
+        },
+        {
+          "name": "Medical University",
+          "lat": 19.0418679,
+          "lon": 73.0236759,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Medical University"
+          }
+        },
+        {
+          "name": "Sterling School & College of Arts, Science & Commerce",
+          "lat": 19.0313733,
+          "lon": 73.0235301,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Sterling School & College of Arts, Science & Commerce"
+          }
+        },
+        {
+          "name": "Sterling Institute of Management Studies",
+          "lat": 19.0247387,
+          "lon": 73.0235312,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Sterling Institute of Management Studies"
+          }
+        },
+        {
+          "name": "swami vivekanand college park",
+          "lat": 19.0456402,
+          "lon": 72.8894382,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "swami vivekanand college park"
+          }
+        },
+        {
+          "name": "Terna Medical College, Nerul",
+          "lat": 19.0389617,
+          "lon": 73.013617,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Terna Medical College, Nerul"
+          }
+        },
+        {
+          "name": "College of Engineering",
+          "lat": 19.0445439,
+          "lon": 73.0255104,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "College of Engineering"
+          }
+        },
+        {
+          "name": "M.G.M College",
+          "lat": 19.042308,
+          "lon": 73.0163424,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "M.G.M College"
+          }
+        },
+        {
+          "name": "Rajiv Gandhi College",
+          "lat": 19.0785398,
+          "lon": 72.9944636,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Rajiv Gandhi College",
+            "name:etymology:wikidata": "Q4593"
+          }
+        },
+        {
+          "name": "Karmveer Bhaurao Patil College",
+          "lat": 19.0773947,
+          "lon": 73.0020412,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Karmveer Bhaurao Patil College",
+            "name:etymology:wikidata": "Q4901481"
+          }
+        },
+        {
+          "name": "Fr. Agnel's Multipurpose School & Jr. College",
+          "lat": 19.0767595,
+          "lon": 72.9936299,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Fr. Agnel's Multipurpose School & Jr. College",
+            "wikidata": "Q5477421",
+            "wikipedia": "en:Fr. Agnel Multipurpose School and Junior College"
+          }
+        },
+        {
+          "name": "Shiravne School & Jr. College",
+          "lat": 19.0449323,
+          "lon": 73.0154318,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Shiravne School & Jr. College"
+          }
+        },
+        {
+          "name": "Navi Mumbai Jr. College",
+          "lat": 19.0879392,
+          "lon": 73.0136991,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Navi Mumbai Jr. College"
+          }
+        },
+        {
+          "name": "Sanpada College",
+          "lat": 19.0640287,
+          "lon": 73.0074508,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Sanpada College"
+          }
+        },
+        {
+          "name": "Oriental College of Management Studies",
+          "lat": 19.0921148,
+          "lon": 73.0045864,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Oriental College of Management Studies"
+          }
+        },
+        {
+          "name": "Saraswati College of Management",
+          "lat": 19.0393751,
+          "lon": 73.0211535,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Saraswati College of Management"
+          }
+        },
+        {
+          "name": "Western College of Commerce & Business Management",
+          "lat": 19.0596884,
+          "lon": 73.0135483,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Western College of Commerce & Business Management"
+          }
+        },
+        {
+          "name": "Yashwantrao Chavan College of Arts, Science & Commerce",
+          "lat": 19.0992141,
+          "lon": 73.0028947,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Yashwantrao Chavan College of Arts, Science & Commerce",
+            "name:etymology:wikidata": "Q1764541"
+          }
+        },
+        {
+          "name": "Lokmanya Tilak College of Engineering",
+          "lat": 19.1059679,
+          "lon": 73.007197,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Lokmanya Tilak College of Engineering",
+            "name:etymology:wikidata": "Q312555"
+          }
+        },
+        {
+          "name": "Lokmanya Tilak Medical College",
+          "lat": 19.0369282,
+          "lon": 72.8577461,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Lokmanya Tilak Medical College",
+            "name:etymology:wikidata": "Q312555"
+          }
+        },
+        {
+          "name": "Guru Nanak High School & College",
+          "lat": 19.0356222,
+          "lon": 72.8652234,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Guru Nanak High School & College",
+            "name:etymology:wikidata": "Q83322"
+          }
+        },
+        {
+          "name": "SRE Substation Unit",
+          "lat": 19.1346137,
+          "lon": 72.9159734,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "university",
+            "name": "SRE Substation Unit"
+          }
+        },
+        {
+          "name": "Ismail Yusuf College",
+          "lat": 19.1334971,
+          "lon": 72.8540601,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Road Number 1",
+          "phone": "",
+          "tags": {
+            "addr:city": "jogeshwari east",
+            "addr:postcode": "400060",
+            "addr:street": "Road Number 1",
+            "amenity": "college",
+            "building": "college",
+            "building:levels": "3",
+            "name": "Ismail Yusuf College"
+          }
+        },
+        {
+          "name": "Pace Junior Science College",
+          "lat": 19.1203553,
+          "lon": 72.8453028,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Pace Junior Science College"
+          }
+        },
+        {
+          "name": "Police Training Academy",
+          "lat": 19.0766509,
+          "lon": 72.8554567,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Police Training Academy"
+          }
+        },
+        {
+          "name": "Sree Narayan Guru College",
+          "lat": 19.0614118,
+          "lon": 72.9089078,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Sree Narayan Guru College"
+          }
+        },
+        {
+          "name": "Indian Institute of Packaging - IIP Mumbai",
+          "lat": 19.1211442,
+          "lon": 72.8671299,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Indian Institute of Packaging - IIP Mumbai"
+          }
+        },
+        {
+          "name": "Indira Gandhi Institute of Development Research",
+          "lat": 19.1666684,
+          "lon": 72.8785693,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "http://www.igidr.ac.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Indira Gandhi Institute of Development Research",
+            "name:etymology:wikidata": "Q1149",
+            "short_name": "IGIDR",
+            "website": "http://www.igidr.ac.in/",
+            "wikidata": "Q6024957",
+            "wikimedia_commons": "Category:Indira Gandhi Institute of Development Research",
+            "wikipedia": "en:Indira Gandhi Institute of Development Research"
+          }
+        },
+        {
+          "name": "Dairy Science Institute",
+          "lat": 19.1501307,
+          "lon": 72.8710377,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Dairy Science Institute"
+          }
+        },
+        {
+          "name": "Mulund College of Commerce - MCC",
+          "lat": 19.1753373,
+          "lon": 72.958172,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Mulund Court Road",
+          "phone": "",
+          "tags": {
+            "addr:city": "Mulund (West)",
+            "addr:postcode": "400080",
+            "addr:street": "Mulund Court Road",
+            "amenity": "college",
+            "name": "Mulund College of Commerce - MCC"
+          }
+        },
+        {
+          "name": "Industrial Training Institute (ITI)",
+          "lat": 19.1799003,
+          "lon": 72.9719491,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "area": "yes",
+            "name": "Industrial Training Institute (ITI)"
+          }
+        },
+        {
+          "name": "Raheja College, Juhu",
+          "lat": 19.0857094,
+          "lon": 72.8331127,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Raheja College, Juhu"
+          }
+        },
+        {
+          "name": "School of Architecture",
+          "lat": 19.0441084,
+          "lon": 73.0235933,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "School of Architecture"
+          }
+        },
+        {
+          "name": "Vamanraow Muranjan Junior College",
+          "lat": 19.1741859,
+          "lon": 72.9671799,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Vamanraow Muranjan Junior College"
+          }
+        },
+        {
+          "name": "Welingkar Institute of Management Development & Research",
+          "lat": 19.0250467,
+          "lon": 72.8504384,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://www.welingkar.org/",
+          "addr": "Lakhamsi Nappu Road",
+          "phone": "+91 2224198300",
+          "tags": {
+            "addr:city": "Mumbai",
+            "addr:postcode": "400019",
+            "addr:street": "Lakhamsi Nappu Road",
+            "amenity": "college",
+            "building": "yes",
+            "name": "Welingkar Institute of Management Development & Research",
+            "phone": "+91 2224198300",
+            "website": "https://www.welingkar.org/"
+          }
+        },
+        {
+          "name": "Atomic Energy Junior College Grounds",
+          "lat": 19.0375234,
+          "lon": 72.9195632,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "check_date": "2024-04-21",
+            "name": "Atomic Energy Junior College Grounds"
+          }
+        },
+        {
+          "name": "D.Y Patil School of Biotech",
+          "lat": 19.0083046,
+          "lon": 73.0331576,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "D.Y Patil School of Biotech",
+            "name:etymology:wikidata": "Q301947"
+          }
+        },
+        {
+          "name": "IIM Indore, Mumbai Campus",
+          "lat": 19.0102634,
+          "lon": 73.0373728,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "IIM Indore, Mumbai Campus"
+          }
+        },
+        {
+          "name": "K. J. Somaiya College of Physiotherapy",
+          "lat": 19.0486697,
+          "lon": 72.8732381,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "K. J. Somaiya College of Physiotherapy"
+          }
+        },
+        {
+          "name": "Kishinchand Chellaram College",
+          "lat": 19.1798303,
+          "lon": 72.9803881,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Kishinchand Chellaram College"
+          }
+        },
+        {
+          "name": "Anjuman-I-Islam's M.H. Saboo Siddik College of Engineering",
+          "lat": 18.968232,
+          "lon": 72.8310564,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://www.mhssce.ac.in/",
+          "addr": "M Shibli Marg (Shepherd Road)",
+          "phone": "",
+          "tags": {
+            "addr:city": "Mumbai",
+            "addr:housenumber": "8",
+            "addr:postcode": "400008",
+            "addr:street": "M Shibli Marg (Shepherd Road)",
+            "amenity": "college",
+            "contact:phone": "022 23012922",
+            "name": "Anjuman-I-Islam's M.H. Saboo Siddik College of Engineering",
+            "website": "https://www.mhssce.ac.in/"
+          }
+        },
+        {
+          "name": "D G Ruparel College of Arts, Science and Commerce",
+          "lat": 19.0270706,
+          "lon": 72.8449849,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "landuse": "education",
+            "name": "D G Ruparel College of Arts, Science and Commerce"
+          }
+        },
+        {
+          "name": "Marine Engineering and Research Institute - Mumbai Port Campus",
+          "lat": 18.9811878,
+          "lon": 72.8598979,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Marine Engineering and Research Institute - Mumbai Port Campus"
+          }
+        },
+        {
+          "name": "A.I.’s Allana Boys High School & Jr. College",
+          "lat": 19.0332913,
+          "lon": 72.8485721,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "A.I.’s Allana Boys High School & Jr. College"
+          }
+        },
+        {
+          "name": "Lala Lajpatrai College",
+          "lat": 18.9812531,
+          "lon": 72.8144162,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Lala Lajpatrai College",
+            "name:etymology:wikidata": "Q1395763"
+          }
+        },
+        {
+          "name": "Rachana Sansad's Academy Of Architecture",
+          "lat": 19.0148221,
+          "lon": 72.8311905,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Rachana Sansad's Academy Of Architecture"
+          }
+        },
+        {
+          "name": "Shah & Anchor Kutchhi Engineering College",
+          "lat": 19.0479745,
+          "lon": 72.911731,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://www.shahandanchor.com/home/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Shah & Anchor Kutchhi Engineering College",
+            "website": "https://www.shahandanchor.com/home/"
+          }
+        },
+        {
+          "name": "Bharati Vidyapeeth Deemed University Department of Engineering and Technology",
+          "lat": 19.0306419,
+          "lon": 73.0590002,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "landuse": "education",
+            "name": "Bharati Vidyapeeth Deemed University Department of Engineering and Technology"
+          }
+        },
+        {
+          "name": "Saraswati College of Engineering, Kharghar",
+          "lat": 19.0401916,
+          "lon": 73.0598065,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "https://engineering.saraswatikharghar.edu.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Saraswati College of Engineering, Kharghar",
+            "website": "https://engineering.saraswatikharghar.edu.in/"
+          }
+        },
+        {
+          "name": "Saraswati Institute of Technology",
+          "lat": 19.0402757,
+          "lon": 73.0588748,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "https://www.siot.org.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Saraswati Institute of Technology",
+            "website": "https://www.siot.org.in/"
+          }
+        },
+        {
+          "name": "Vidya Prasarsk High School & College",
+          "lat": 19.0129778,
+          "lon": 73.0349039,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Vidya Prasarsk High School & College"
+          }
+        },
+        {
+          "name": "School of Management",
+          "lat": 19.0444704,
+          "lon": 73.0241942,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "School of Management"
+          }
+        },
+        {
+          "name": "SNDT College",
+          "lat": 19.0839907,
+          "lon": 72.9044231,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "Cama Lane",
+          "phone": "",
+          "tags": {
+            "addr:city": "ghatkopar",
+            "addr:street": "Cama Lane",
+            "amenity": "college",
+            "name": "SNDT College"
+          }
+        },
+        {
+          "name": "Navjeevan Junior College",
+          "lat": 19.152197,
+          "lon": 72.9307075,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Navjeevan Junior College"
+          }
+        },
+        {
+          "name": "Asmita College",
+          "lat": 19.1199836,
+          "lon": 72.9391269,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Asmita College"
+          }
+        },
+        {
+          "name": "Homi Bhabha National Institute",
+          "lat": 19.033916,
+          "lon": 72.9256032,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "addr:housenumber": "2nd floor, BARC Training School Complex, Anushaktinagar, Mumbai, Maharashtra 400094",
+            "amenity": "university",
+            "name": "Homi Bhabha National Institute",
+            "name:etymology:wikidata": "Q325611"
+          }
+        },
+        {
+          "name": "Sir Sorabji Pochkhanawala Bankers Training College",
+          "lat": 19.1096587,
+          "lon": 72.8352584,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Sir Sorabji Pochkhanawala Bankers Training College",
+            "name:etymology:wikidata": "Q14547330"
+          }
+        },
+        {
+          "name": "Narsee Monjee Institute Of Management Studies",
+          "lat": 19.1032717,
+          "lon": 72.8364587,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "alt_name": "SVKM's NMIMS",
+            "amenity": "university",
+            "name": "Narsee Monjee Institute Of Management Studies",
+            "wikidata": "Q16935354",
+            "wikipedia": "en:SVKM's NMIMS"
+          }
+        },
+        {
+          "name": "Mithibai College of Arts and Jitendra Chauhan College of Science",
+          "lat": 19.1029145,
+          "lon": 72.837431,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Mithibai College of Arts and Jitendra Chauhan College of Science",
+            "wikidata": "Q6881613",
+            "wikipedia": "en:Mithibai College"
+          }
+        },
+        {
+          "name": "Mukesh Patel School of Technology Management and Engineering",
+          "lat": 19.11006,
+          "lon": 72.8377516,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Mukesh Patel School of Technology Management and Engineering"
+          }
+        },
+        {
+          "name": "S. P. Jain Institute of Management and Research",
+          "lat": 19.1237296,
+          "lon": 72.8370018,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "S. P. Jain Institute of Management and Research",
+            "wikidata": "Q7387731",
+            "wikimedia_commons": "Category:S. P. Jain Institute of Management and Research",
+            "wikipedia": "en:S. P. Jain Institute of Management and Research"
+          }
+        },
+        {
+          "name": "Bhavan's College",
+          "lat": 19.1252192,
+          "lon": 72.8359021,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Bhavan's College",
+            "wikidata": "Q4901499",
+            "wikipedia": "en:Bhavan's College"
+          }
+        },
+        {
+          "name": "Sardar Patel Institute of Technology",
+          "lat": 19.1231044,
+          "lon": 72.8360636,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Sardar Patel Institute of Technology",
+            "name:etymology:wikidata": "Q9455",
+            "wikidata": "Q7423715",
+            "wikipedia": "en:Sardar Patel Institute of Technology"
+          }
+        },
+        {
+          "name": "Sardar Patel College of Engineering",
+          "lat": 19.1234245,
+          "lon": 72.8353872,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Sardar Patel College of Engineering",
+            "name:etymology:wikidata": "Q9455",
+            "wikidata": "Q7423714",
+            "wikipedia": "en:Sardar Patel College of Engineering"
+          }
+        },
+        {
+          "name": "VES College of Architecture",
+          "lat": 19.0458738,
+          "lon": 72.889236,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "VES College of Architecture",
+          "phone": "",
+          "tags": {
+            "addr:city": "Mumbai",
+            "addr:street": "VES College of Architecture",
+            "amenity": "college",
+            "building:levels": "6",
+            "name": "VES College of Architecture"
+          }
+        },
+        {
+          "name": "National Medical College",
+          "lat": 18.9796715,
+          "lon": 72.8142124,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "National Medical College"
+          }
+        },
+        {
+          "name": "NAVAL KG School, TS MAHUL",
+          "lat": 19.0105874,
+          "lon": 72.8905635,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "addr:housenumber": "Ambapada, Mahul, Trombay, Mumbai, Maharashtra 400074",
+            "amenity": "college",
+            "name": "NAVAL KG School, TS MAHUL"
+          }
+        },
+        {
+          "name": "Bombay College of Pharmacy",
+          "lat": 19.0768237,
+          "lon": 72.8597097,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Bombay College of Pharmacy"
+          }
+        },
+        {
+          "name": "DY Patil University",
+          "lat": 19.0435469,
+          "lon": 73.0247164,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "DY Patil University",
+            "name:etymology:wikidata": "Q301947"
+          }
+        },
+        {
+          "name": "Jai Hind College",
+          "lat": 18.9347249,
+          "lon": 72.8251612,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "university",
+            "name": "Jai Hind College",
+            "wikidata": "Q6123383"
+          }
+        },
+        {
+          "name": "YMT Medical and Dental College",
+          "lat": 19.031945,
+          "lon": 73.0619616,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "building": "yes",
+            "name": "YMT Medical and Dental College",
+            "type": "multipolygon"
+          }
+        },
+        {
+          "name": "Indian Institute of Technology Bombay",
+          "lat": 19.1326204,
+          "lon": 72.9109825,
+          "amenity": "university",
+          "operator": "Unknown",
+          "website": "https://www.iitb.ac.in/",
+          "addr": "Adi Shankaracharya Marg",
+          "phone": "+91 22 2572 2545",
+          "tags": {
+            "addr:city": "Mumbai",
+            "addr:housename": "IIT Bombay",
+            "addr:place": "Powai",
+            "addr:postcode": "400076",
+            "addr:street": "Adi Shankaracharya Marg",
+            "alt_name": "IIT Bombay;IITB",
+            "amenity": "university",
+            "internet_access": "yes",
+            "isced:2011:level": "bachelor;doctorate;master",
+            "name": "Indian Institute of Technology Bombay",
+            "name:ar": "المعهد الهندي للتكنولوجيا بومباي",
+            "name:hi": "भारतीय प्रौद्योगिकी संस्थान मुम्बई",
+            "name:ml": "ഇന്ത്യൻ ഇൻസ്റ്റിറ്റ്യൂട്ട് ഓഫ് ടെക്നോളജി ബോംബെ",
+            "name:ta": "இந்திய தொழில்நுட்பக் கழகம் மும்பை",
+            "phone": "+91 22 2572 2545",
+            "school:gender": "mixed",
+            "type": "multipolygon",
+            "website": "https://www.iitb.ac.in/",
+            "wikidata": "Q1661242",
+            "wikipedia": "en:Indian Institute of Technology Bombay"
+          }
+        },
+        {
+          "name": "Jio Institute",
+          "lat": 18.9801157,
+          "lon": 73.0214323,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Jio Institute",
+            "type": "multipolygon"
+          }
+        }
+      ],
+      "access_count": 1,
+      "last_accessed": "2025-09-17T21:37:21.722408"
+    },
+    "23.17_79.932_10000_all": {
+      "timestamp": "2025-11-11T14:09:36.573017",
+      "location_name": "Jabalpur Madhya Pradesh",
+      "lat": 23.1701522,
+      "lon": 79.9324505,
+      "radius": 10000,
+      "stream": "all",
+      "colleges": [
+        {
+          "name": "Mahakoushal Government College, Jabalpur",
+          "lat": 23.1629055,
+          "lon": 79.9668853,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Mahakoushal Government College, Jabalpur"
+          }
+        },
+        {
+          "name": "Government Model Sciecne College, Jabalpur",
+          "lat": 23.1639416,
+          "lon": 79.9693849,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government Model Sciecne College, Jabalpur"
+          }
+        },
+        {
+          "name": "Chanchala Bai College",
+          "lat": 23.1674261,
+          "lon": 79.9254969,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Chanchala Bai College"
+          }
+        },
+        {
+          "name": "Government College of Educational Psychology and Guidance",
+          "lat": 23.1686332,
+          "lon": 79.9446036,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "amenity": "college",
+            "name": "Government College of Educational Psychology and Guidance"
+          }
+        },
+        {
+          "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+          "lat": 23.175427,
+          "lon": 80.0258463,
+          "amenity": "college",
+          "operator": "Unknown",
+          "website": "https://iiitdmj.ac.in/",
+          "addr": "",
+          "phone": "",
+          "tags": {
+            "alt_name": "IIIT Jabalpur",
+            "amenity": "college",
+            "common_name": "PDPM IIITDMJ",
+            "name": "Indian Institute of Information Technology Design and Manufacturing Jabalpur",
+            "short_name": "IIITDMJ",
+            "website": "https://iiitdmj.ac.in/",
+            "wikidata": "Q6020614",
+            "wikipedia": "en:Indian Institute of Information Technology, Design and Manufacturing, Jabalpur"
+          }
+        },
+        {
+          "name": "Jabalpur Engineering College",
+          "lat": 23.1815,
+          "lon": 79.9864,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://www.jecjabalpur.ac.in/",
+          "addr": "Gokalpur, Jabalpur, Madhya Pradesh 482011, India",
+          "phone": "",
+          "tags": {
+            "name": "Jabalpur Engineering College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "NSCB Medical College (Netaji Subhash Chandra Bose Medical College)",
+          "lat": 23.151,
+          "lon": 79.8815,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "https://nscbmc.ac.in/",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "NSCB Medical College",
+            "amenity": "college"
+          }
+        },
+        {
+          "name": "Mahakaushal Government Autonomous College",
+          "lat": 23.1685,
+          "lon": 79.9338,
+          "amenity": "college",
+          "operator": "Government of Madhya Pradesh",
+          "website": "",
+          "addr": "Jabalpur, Madhya Pradesh, India",
+          "phone": "",
+          "tags": {
+            "name": "Mahakaushal Government Autonomous College",
+            "amenity": "college"
+          }
+        }
+      ],
+      "access_count": 2,
+      "last_accessed": "2025-11-11T14:16:11.767777"
+    }
+  },
+  "metadata": {
+    "created": "2025-09-11T19:49:56.236462",
+    "last_updated": "2025-11-11T14:16:11.767799"
+  }
+}

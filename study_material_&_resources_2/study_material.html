@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrier Compass</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <!-- <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Inter%3Awght@400%3B500%3B700%3B900&family=Noto+Sans%3Awght@400%3B500%3B700%3B900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    /> -->
+     <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+    <style type="text/tailwindcss">
+      :root {
+        --border: #374151;
+         --card: #1f2937;
+        --primary-color: #1173d4;
+        --secondary-color: #f0f7ff;
+        --muted-foreground: #9ca3af;
+      }
+      .dark .dark\:bg-gray-900 {
+        background-color: #111827;
+      }
+      .dark .dark\:bg-gray-800 {
+        background-color: #1f2937;
+      }
+      .dark .dark\:text-gray-200 {
+        color: #e5e7eb;
+      }
+      .dark .dark\:text-gray-300 {
+        color: #d1d5db;
+      }
+      .dark .dark\:text-gray-400 {
+        color: #9ca3af;
+      }
+      .dark .dark\:border-gray-700 {
+        border-color: #374151;
+      }
+      .dark .dark\:hover\:bg-gray-700:hover {
+        background-color: #374151;
+      }
+      .dark .dark\:hover\:text-white:hover {
+        color: #ffffff;
+      }
+
+      /* Custom keyframe animations for added visual interest */
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slide-in-left {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes scale-up {
+        from {
+          transform: scale(0.95);
+          opacity: 0.5;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* Apply animations to elements */
+      .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+      }
+      .animate-slide-in-left {
+        animation: slide-in-left 0.7s ease-out forwards;
+      }
+      .animate-scale-up {
+        animation: scale-up 0.5s ease-out forwards;
+      }
+
+      /* Additional styling for card hover effects */
+      .card-hover-effect {
+        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out,
+          border-color 0.3s ease-out;
+      }
+      .card-hover-effect:hover {
+        transform: translateY(-8px);
+        @apply shadow-xl;
+        @apply shadow-gray-400/20 dark:shadow-blue-500/20;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900">
+    <div
+      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+      style="font-family: Inter, 'Noto Sans', sans-serif"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--border)] px-4 sm:px-10 py-3 bg-[var(--card)]"      >
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-3 text-2xl font-bold text-white">
+              <div
+                class="p-2 bg-[var(--primary-color)] rounded-full text-white transform hover:rotate-90 transition-transform duration-300"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 12L12 20M12 12L12 4M12 12L20 12M12 12L4 12M12 12L18.364 18.364M12 12L5.63604 5.63604M12 12L18.364 5.63604M12 12L5.63604 18.364"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  ></path>
+                </svg>
+              </div>
+              <h2
+                class="text-[var(--card-foreground)] text-xl font-bold leading-tight tracking-[-0.015em]"
+              >
+                Career Compass
+              </h2>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-400">
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="../landing_page_(homepage)_2/home.html"
+                >Home</a
+              >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="../aptitude_&_interest_quiz_page_2/test.html"
+                >Career Quiz</a
+              >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="http://localhost:5002"
+                >Colleges</a
+              >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="../course-to-career_path_mapping_2/carrier.html"
+                >Career Paths</a
+              >
+              <a
+                class="text-[var(--primary-color)] font-bold"
+                href="study_material.html"
+                >Resources</a
+              >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="http://localhost:5000/analytics"
+                >Analytics</a
+              >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="../user_profile_&_personalization_2/profile.html"
+                >Profile</a
+              >
+            </nav>
+
+
+            <!-- <div class="flex items-center gap-3 sm:gap-6">
+              <a
+                class="text-[var(--muted-foreground)] hover:text-[#4299f0] text-sm font-medium leading-normal"
+                href="/dashboard"
+                >Home</a
+              >
+              <a
+                class="text-[var(--muted-foreground)] hover:text-[#4299f0] text-sm font-medium leading-normal"
+                href="/quiz"
+                >Career Quiz</a
+              >
+              <a
+                class="text-[var(--muted-foreground)] hover:text-[#4299f0] text-sm font-medium leading-normal"
+                href="/colleges"
+                >Colleges</a
+              >
+              <a
+                class="text-[var(--muted-foreground)] hover:text-[#4299f0] text-sm font-medium leading-normal"
+                href="/career_paths"
+                >Career Paths</a
+              >
+              <a
+                class="text-[#4299f0] text-sm font-medium leading-normal"
+                href="/resources"
+                >Resources</a
+              >
+              <a
+                class="text-[var(--muted-foreground)] hover:text-[#4299f0] text-sm font-medium leading-normal"
+                href="/analytics"
+                >Analytics</a
+              >
+              <a
+                class="text-[var(--muted-foreground)] hover:text-[#4299f0] text-sm font-medium leading-normal"
+                href="/profile"
+                >Profile</a
+              > -->
+            </div>
+          <!-- </div> -->
+          <div class="flex flex-1 justify-end gap-4">
+            <div class="flex items-center gap-4">
+              <div class="relative hidden sm:block">
+                <span
+                  class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400"
+                  >search</span
+                >
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-full text-gray-900 bg-white dark:bg-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-700 h-10 placeholder:text-gray-500 dark:placeholder:text-gray-400 pl-10 pr-4 text-base font-normal leading-normal focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-colors"
+                  placeholder="Search"
+                  value=""
+                />
+              </div>
+
+              <button
+                class="relative flex items-center justify-center size-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors"
+              >
+                <span class="material-symbols-outlined">notifications</span>
+                <div
+                  class="absolute top-2 right-2 size-2 bg-red-500 rounded-full animate-pulse"
+                ></div>
+              </button>
+
+              <div
+                class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYRS7EUg6fQVRhb_QjcsZfiIxJZHS3OmWiMXCFDhxzS3xTFfv_fhahW7DOyfCpjS9C9alEewJp8J0UzN1mwrJkn0Cfdcwj3uUSZ_wMdIVNsE7ojNS-uwRlWjwB9vS8oIrzb7nH_otfbO98CfckJSkpfzmZiG9yRA8dEE4tWYE0epNwc6VmDcpeB37tRFEjN97lxxko93nX9Q-tU4PEs_g-vFuHs2j02q7OIVG1Pt2JT6BNoDneOo9J_0pT-zKFXOHcCU17Ru5iDe3U');
+                "
+              ></div>
+            </div>
+          </div>
+        </header>
+        <main class="flex-1 px-4 sm:px-6 lg:px-8 py-12">
+          <div class="mx-auto max-w-7xl">
+            <div class="text-center mb-12 animate-fade-in-up">
+              <h1
+                class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight"
+                style="animation-delay: 0.2s"
+              >
+                Open Source Library
+              </h1>
+              <p
+                class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+                style="animation-delay: 0.4s"
+              >
+                Explore a curated collection of e-books, guides, and
+                skill-building materials to support your academic and career
+                journey.
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-10 relative z-[10000]" style="z-index: 10000 !important;">
+              <!-- Subject Filter -->
+              <div class="relative animate-slide-in-left" style="animation-delay: 0.6s">
+                <button id="subject-filter" class="flex h-12 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 px-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  <p class="text-gray-800 dark:text-gray-200 text-base font-medium">Subject</p>
+                  <span class="material-symbols-outlined text-gray-600 dark:text-gray-400">expand_more</span>
+                </button>
+                <div id="subject-dropdown" class="hidden absolute top-14 left-0 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-xl z-[9999] min-w-48" style="z-index: 9999 !important;">
+                  <div class="p-2">
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="subject" data-value="all">All Subjects</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="subject" data-value="computer-science">Computer Science</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="subject" data-value="mathematics">Mathematics</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="subject" data-value="science">Science</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="subject" data-value="business">Business</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="subject" data-value="arts">Arts & Literature</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="subject" data-value="finance">Finance</button>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Career Goals Filter -->
+              <div class="relative animate-slide-in-left" style="animation-delay: 0.7s">
+                <button id="career-filter" class="flex h-12 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 px-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  <p class="text-gray-800 dark:text-gray-200 text-base font-medium">Career Goals</p>
+                  <span class="material-symbols-outlined text-gray-600 dark:text-gray-400">expand_more</span>
+                </button>
+                <div id="career-dropdown" class="hidden absolute top-14 left-0 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-xl z-[9999] min-w-48" style="z-index: 9999 !important;">
+                  <div class="p-2">
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="career" data-value="all">All Careers</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="career" data-value="engineering">Engineering</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="career" data-value="data-science">Data Science</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="career" data-value="business">Business & Management</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="career" data-value="research">Research & Academia</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="career" data-value="creative">Creative Arts</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="career" data-value="finance">Finance & Economics</button>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Format Filter -->
+              <div class="relative animate-slide-in-left" style="animation-delay: 0.8s">
+                <button id="format-filter" class="flex h-12 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 px-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  <p class="text-gray-800 dark:text-gray-200 text-base font-medium">Format</p>
+                  <span class="material-symbols-outlined text-gray-600 dark:text-gray-400">expand_more</span>
+                </button>
+                <div id="format-dropdown" class="hidden absolute top-14 left-0 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-xl z-[9999] min-w-48" style="z-index: 9999 !important;">
+                  <div class="p-2">
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="format" data-value="all">All Formats</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="format" data-value="ebook">E-Book</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="format" data-value="guide">Guide</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="format" data-value="tutorial">Tutorial</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="format" data-value="course">Course</button>
+                    <button class="filter-option w-full text-left px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded" data-filter="format" data-value="workbook">Workbook</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="materials-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 relative z-0">
+              <!-- Materials will be dynamically populated here -->
+            </div>
+            <nav class="flex items-center justify-center gap-2 p-4 mt-8">
+              <a
+                class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+              >
+                <span class="material-symbols-outlined">chevron_left</span>
+              </a>
+              <a
+                class="text-base font-bold flex size-10 items-center justify-center text-white rounded-full bg-[var(--primary-color)]"
+                href="#"
+                >1</a
+              >
+              <a
+                class="text-base font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+                >2</a
+              >
+              <a
+                class="text-base font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+                >3</a
+              >
+              <a
+                class="text-base font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+                >4</a
+              >
+              <a
+                class="text-base font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+                >5</a
+              >
+              <a
+                class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+              >
+                <span class="material-symbols-outlined">chevron_right</span>
+              </a>
+            </nav>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script>
+      // Study Materials Database with Working Links
+      const studyMaterials = [
+        {
+          id: 1,
+          title: "Introduction to Computer Science",
+          description: "Learn the basics of programming and algorithms with hands-on examples.",
+          subject: "computer-science",
+          career: "engineering",
+          format: "ebook",
+          image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop",
+          link: "https://cs50.harvard.edu/x/2024/"
+        },
+        {
+          id: 2,
+          title: "Advanced Python Programming",
+          description: "Master advanced Python concepts for data science and web development.",
+          subject: "computer-science",
+          career: "data-science",
+          format: "course",
+          image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=400&h=300&fit=crop",
+          link: "https://docs.python.org/3/tutorial/"
+        },
+        {
+          id: 3,
+          title: "Data Analysis with Python",
+          description: "Comprehensive guide to data manipulation and visualization.",
+          subject: "mathematics",
+          career: "data-science",
+          format: "tutorial",
+          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+          link: "https://pandas.pydata.org/docs/"
+        },
+        {
+          id: 4,
+          title: "Business Strategy Fundamentals",
+          description: "Essential concepts for modern business management and strategy.",
+          subject: "business",
+          career: "business",
+          format: "guide",
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+          link: "https://ocw.mit.edu/courses/sloan-school-of-management/15-9001-competitive-strategy-fall-2021/"
+        },
+        {
+          id: 5,
+          title: "Creative Writing Workshop",
+          description: "Develop your storytelling skills with practical exercises and feedback.",
+          subject: "arts",
+          career: "creative",
+          format: "workbook",
+          image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop",
+          link: "https://ocw.mit.edu/courses/comparative-media-studies-writing/21w-755-writing-and-experience-spring-2013/"
+        },
+        {
+          id: 6,
+          title: "Financial Planning Guide",
+          description: "Master personal finance, investments, and wealth building strategies.",
+          subject: "finance",
+          career: "finance",
+          format: "ebook",
+          image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
+          link: "https://gflec.org/wp-content/uploads/2022/02/Financial-Literacy-Ebook.pdf"
+        },
+        {
+          id: 7,
+          title: "Environmental Science Research",
+          description: "Explore climate change, sustainability, and environmental solutions.",
+          subject: "science",
+          career: "research",
+          format: "course",
+          image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop",
+          link: "https://ocw.mit.edu/courses/earth-atmospheric-and-planetary-sciences/12-340-global-warming-science-spring-2012/"
+        },
+        {
+          id: 8,
+          title: "Machine Learning Basics",
+          description: "Introduction to AI and machine learning algorithms with Python.",
+          subject: "computer-science",
+          career: "data-science",
+          format: "tutorial",
+          image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop",
+          link: "https://www.deeplearningbook.org/"
+        },
+        {
+          id: 9,
+          title: "Digital Marketing Mastery",
+          description: "Complete guide to social media, SEO, and online advertising.",
+          subject: "business",
+          career: "business",
+          format: "course",
+          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+          link: "https://www.coursera.org/specializations/digital-marketing"
+        },
+        {
+          id: 10,
+          title: "Calculus and Linear Algebra",
+          description: "Essential mathematics for engineering and data science careers.",
+          subject: "mathematics",
+          career: "engineering",
+          format: "ebook",
+          image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop",
+          link: "https://openstax.org/books/calculus-volume-1/pages/1-introduction"
+        },
+        {
+          id: 11,
+          title: "Research Methodology Guide",
+          description: "Learn scientific research methods and academic writing techniques.",
+          subject: "science",
+          career: "research",
+          format: "guide",
+          image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop",
+          link: "https://www.sagepub.com/sites/default/files/upm-binaries/36869_metzler.pdf"
+        },
+        {
+          id: 12,
+          title: "Investment Banking Fundamentals",
+          description: "Comprehensive overview of financial markets and investment strategies.",
+          subject: "finance",
+          career: "finance",
+          format: "course",
+          image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop",
+          link: "https://ocw.mit.edu/courses/sloan-school-of-management/15-401-finance-theory-i-fall-2008/"
+        }
+      ];
+
+      // Filter state
+      let currentFilters = {
+        subject: 'all',
+        career: 'all',
+        format: 'all'
+      };
+
+      // Initialize page
+      document.addEventListener('DOMContentLoaded', function() {
+        renderMaterials();
+        setupFilterListeners();
+        setupDropdownToggle();
+      });
+
+      // Render materials based on current filters
+      function renderMaterials() {
+        const grid = document.getElementById('materials-grid');
+        const filteredMaterials = studyMaterials.filter(material => {
+          return (currentFilters.subject === 'all' || material.subject === currentFilters.subject) &&
+                 (currentFilters.career === 'all' || material.career === currentFilters.career) &&
+                 (currentFilters.format === 'all' || material.format === currentFilters.format);
+        });
+
+        grid.innerHTML = filteredMaterials.map((material, index) => `
+          <div class="flex flex-col bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm card-hover-effect group animate-fade-in-up h-full" style="animation-delay: ${0.9 + index * 0.1}s">
+            <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl mb-4" style="background-image: url('${material.image}')"></div>
+            <div class="flex flex-col flex-1">
+              <h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight mb-1 group-hover:text-[var(--primary-color)] transition-colors">
+                ${material.title}
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm font-normal mb-2 flex-1">
+                ${material.description}
+              </p>
+              <div class="flex gap-2 flex-wrap mb-3">
+                <span class="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">${getSubjectLabel(material.subject)}</span>
+                <span class="px-2 py-1 text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">${getCareerLabel(material.career)}</span>
+                <span class="px-2 py-1 text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full">${getFormatLabel(material.format)}</span>
+              </div>
+              <a href="${material.link}" target="_blank" class="block text-center px-4 py-2 text-sm font-medium rounded-lg bg-[var(--primary-color)] text-white hover:bg-blue-700 transition mt-auto">
+                View / Download
+              </a>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Helper functions for labels
+      function getSubjectLabel(subject) {
+        const labels = {
+          'computer-science': 'Computer Science',
+          'mathematics': 'Mathematics',
+          'science': 'Science',
+          'business': 'Business',
+          'arts': 'Arts & Literature',
+          'finance': 'Finance'
+        };
+        return labels[subject] || subject;
+      }
+
+      function getCareerLabel(career) {
+        const labels = {
+          'engineering': 'Engineering',
+          'data-science': 'Data Science',
+          'business': 'Business & Management',
+          'research': 'Research & Academia',
+          'creative': 'Creative Arts',
+          'finance': 'Finance & Economics'
+        };
+        return labels[career] || career;
+      }
+
+      function getFormatLabel(format) {
+        const labels = {
+          'ebook': 'E-Book',
+          'guide': 'Guide',
+          'tutorial': 'Tutorial',
+          'course': 'Course',
+          'workbook': 'Workbook'
+        };
+        return labels[format] || format;
+      }
+
+      // Setup filter listeners
+      function setupFilterListeners() {
+        document.querySelectorAll('.filter-option').forEach(button => {
+          button.addEventListener('click', function() {
+            const filterType = this.dataset.filter;
+            const filterValue = this.dataset.value;
+            
+            currentFilters[filterType] = filterValue;
+            
+            // Update button text
+            const buttonElement = document.getElementById(`${filterType}-filter`);
+            const buttonText = buttonElement.querySelector('p');
+            if (filterValue === 'all') {
+              buttonText.textContent = filterType === 'subject' ? 'Subject' : 
+                                     filterType === 'career' ? 'Career Goals' : 'Format';
+            } else {
+              buttonText.textContent = this.textContent;
+            }
+            
+            // Hide dropdown
+            document.getElementById(`${filterType}-dropdown`).classList.add('hidden');
+            
+            // Re-render materials
+            renderMaterials();
+          });
+        });
+      }
+
+      // Setup dropdown toggle functionality
+      function setupDropdownToggle() {
+        ['subject', 'career', 'format'].forEach(filterType => {
+          const button = document.getElementById(`${filterType}-filter`);
+          const dropdown = document.getElementById(`${filterType}-dropdown`);
+          
+          button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Hide other dropdowns
+            ['subject', 'career', 'format'].forEach(type => {
+              if (type !== filterType) {
+                document.getElementById(`${type}-dropdown`).classList.add('hidden');
+              }
+            });
+            
+            // Toggle current dropdown
+            dropdown.classList.toggle('hidden');
+          });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function() {
+          ['subject', 'career', 'format'].forEach(filterType => {
+            document.getElementById(`${filterType}-dropdown`).classList.add('hidden');
+          });
+        });
+      }
+
+      // Theme toggle functionality (existing code)
+      const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+      const themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
+
+      // Immediately apply dark mode on page load
+      document.documentElement.classList.add("dark");
+      if (themeToggleDarkIcon) themeToggleDarkIcon.classList.remove("hidden");
+      if (themeToggleLightIcon) themeToggleLightIcon.classList.add("hidden");
+
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener("click", function () {
+          if (themeToggleDarkIcon) themeToggleDarkIcon.classList.toggle("hidden");
+          if (themeToggleLightIcon) themeToggleLightIcon.classList.toggle("hidden");
+          
+          if (localStorage.getItem("color-theme")) {
+            if (localStorage.getItem("color-theme") === "dark") {
+              document.documentElement.classList.remove("dark");
+              localStorage.setItem("color-theme", "light");
+            } else {
+              document.documentElement.classList.add("dark");
+              localStorage.setItem("color-theme", "dark");
+            }
+          } else {
+            if (document.documentElement.classList.contains("dark")) {
+              document.documentElement.classList.remove("dark");
+              localStorage.setItem("color-theme", "light");
+            } else {
+              document.documentElement.classList.add("dark");
+              localStorage.setItem("color-theme", "dark");
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commerce Career Paths - Interactive Flowchart</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .flowchart-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flowchart-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+        }
+
+        #flowchart {
+            width: 100%;
+            height: 800px;
+        }
+
+        .node {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .node circle {
+            fill: #fff;
+            stroke-width: 3px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            transition: all 0.3s ease;
+        }
+
+        .node.root circle {
+            fill: #667eea;
+            stroke: #5a67d8;
+        }
+
+        .node.category circle {
+            fill: #764ba2;
+            stroke: #6b46c1;
+        }
+
+        .node.subcategory circle {
+            fill: #f093fb;
+            stroke: #ec4899;
+        }
+
+        .node:hover circle {
+            transform: scale(1.1);
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+        }
+
+        .node.root:hover circle {
+            fill: #5a67d8;
+        }
+
+        .node.category:hover circle {
+            fill: #6b46c1;
+        }
+
+        .node.subcategory:hover circle {
+            fill: #ec4899;
+        }
+
+        .node.interested circle {
+            fill: #48bb78 !important;
+            stroke: #38a169 !important;
+            animation: pulse 2s infinite;
+        }
+
+        .node.not-interested circle {
+            fill: #e53e3e !important;
+            stroke: #c53030 !important;
+            opacity: 0.7;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(72, 187, 120, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(72, 187, 120, 0); }
+        }
+
+        .node text {
+            font-size: 12px;
+            font-weight: 600;
+            text-anchor: middle;
+            dominant-baseline: central;
+            fill: white;
+            pointer-events: none;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .node.root text {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .link {
+            fill: none;
+            stroke: #cbd5e0;
+            stroke-width: 2;
+            stroke-linecap: round;
+            shape-rendering: crispEdges;
+            transition: all 0.3s ease;
+        }
+
+        .link:hover {
+            stroke: #667eea;
+            stroke-width: 3;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            max-width: 300px;
+            z-index: 1000;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .tooltip.show {
+            opacity: 1;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #667eea;
+        }
+
+        .modal h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .modal h3 {
+            color: #764ba2;
+            margin: 20px 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        .modal ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .modal li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #e2e8f0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            #flowchart {
+                height: 600px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Commerce Career Pathways</h1>
+      <p>Explore your future in Business, Finance, Management, and Economics</p>
+    </div>
+
+    <div class="flowchart-container">
+      <div class="controls">
+        <button class="btn" onclick="resetZoom()">Reset View</button>
+        <button class="btn" onclick="expandAll()">Expand All</button>
+        <button class="btn" onclick="collapseAll()">Collapse All</button>
+        <button class="btn" onclick="clearPreferences()">Clear Preferences</button>
+      </div>
+      
+      <div style="text-align: center; margin-bottom: 15px; color: #4a5568; font-size: 14px;">
+        <strong>Controls:</strong> Click = View Details | Shift+Click = Mark Interested (Green) | Right-click = Not Interested (Red)
+      </div>
+      
+      <svg id="flowchart"></svg>
+      
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-color" style="background: #667eea;"></div>
+          <span>Main Stream</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #764ba2;"></div>
+          <span>Career Categories</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #f093fb;"></div>
+          <span>Specific Careers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tooltip" id="tooltip"></div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    // Commerce career data
+    const careerData = {
+      "Commerce Stream": {
+        description: "Commerce stream - Gateway to business, finance, management, and entrepreneurship.",
+        details: "Commerce offers career opportunities in accounting, finance, economics, management, law, and professional certifications."
+      },
+      "Finance & Accounting": {
+        description: "Core commerce and finance domains",
+        details: "Suitable for those with interest in numbers, auditing, and investments.",
+        careers: {
+          "Chartered Accountant (CA)": {
+            description: "Professional accounting qualification",
+            details: "Duration: 4-5 years (with articleship)",
+            requirements: ["CA Foundation exam", "Strong in Accounts & Tax"],
+            opportunities: ["Auditor", "Tax Consultant", "CFO"]
+          },
+          "Company Secretary (CS)": {
+            description: "Corporate governance specialist",
+            details: "Duration: 3-4 years",
+            requirements: ["CS Foundation exam", "Corporate law knowledge"],
+            opportunities: ["Corporate Secretary", "Compliance Officer"]
+          },
+          "Cost & Management Accountant (CMA)": {
+            description: "Expert in costing and management accounting",
+            details: "Duration: 3-4 years",
+            requirements: ["CMA Foundation exam", "Analytical skills"],
+            opportunities: ["Cost Accountant", "Finance Analyst"]
+          }
+        }
+      },
+      "Management & Business": {
+        description: "Careers in business administration and entrepreneurship",
+        details: "Ideal for leadership, business, and organizational roles.",
+        careers: {
+          "BBA / MBA": {
+            description: "Business Administration & Management",
+            details: "BBA (3 years) + MBA (2 years)",
+            requirements: ["Aptitude tests (CAT, MAT, etc.)"],
+            opportunities: ["Business Manager", "Entrepreneur", "Consultant"]
+          },
+          "Hotel Management": {
+            description: "Hospitality & service industry",
+            details: "BHM (3-4 years)",
+            requirements: ["NCHMCT-JEE entrance", "Service skills"],
+            opportunities: ["Hotel Manager", "Chef", "Event Manager"]
+          },
+          "Entrepreneurship": {
+            description: "Start your own business",
+            details: "No fixed duration, skill-based",
+            requirements: ["Business plan", "Risk-taking"],
+            opportunities: ["Startup Founder", "Business Owner"]
+          }
+        }
+      },
+      "Economics & Analytics": {
+        description: "Analytical and research-based commerce paths",
+        details: "For students interested in economics and data analysis.",
+        careers: {
+          "BA / B.Sc Economics": {
+            description: "Study of economics & policies",
+            details: "Duration: 3 years",
+            requirements: ["Math preferred", "Analytical skills"],
+            opportunities: ["Economist", "Policy Analyst", "Researcher"]
+          },
+          "Actuarial Science": {
+            description: "Risk analysis in insurance/finance",
+            details: "Professional exams (SOA/IAI)",
+            requirements: ["Strong Maths & Stats"],
+            opportunities: ["Actuary", "Risk Consultant"]
+          },
+          "Data Analytics": {
+            description: "Data-driven business insights",
+            details: "Courses in analytics & stats",
+            requirements: ["Python/Excel/R", "Math & stats"],
+            opportunities: ["Data Analyst", "Business Analyst"]
+          }
+        }
+      },
+      "Law & Government Exams": {
+        description: "Legal, banking, and public sector jobs",
+        details: "Stable career opportunities for commerce students.",
+        careers: {
+          "Law (via CLAT)": {
+            description: "Integrated law with commerce background",
+            details: "BA/B.Com LLB (5 years)",
+            requirements: ["CLAT/State Law exams"],
+            opportunities: ["Lawyer", "Corporate Legal Advisor"]
+          },
+          "Banking & Insurance": {
+            description: "Public/private sector banks",
+            details: "IBPS/SBI PO exams",
+            requirements: ["Quantitative aptitude", "Reasoning"],
+            opportunities: ["Bank PO", "Loan Officer", "Insurance Manager"]
+          },
+          "Civil Services (UPSC/SSC)": {
+            description: "Government administration",
+            details: "UPSC/SSC exams",
+            requirements: ["GK", "Reasoning", "Essay writing"],
+            opportunities: ["IAS/IPS/IFS", "SSC-CGL jobs"]
+          }
+        }
+      },
+      "Other Careers": {
+        description: "Creative and alternative fields",
+        details: "For students who want to branch out beyond core commerce.",
+        careers: {
+          "Mass Communication & Media": {
+            description: "Journalism, PR, Media",
+            details: "BA Journalism/Mass Comm",
+            requirements: ["Communication skills"],
+            opportunities: ["Journalist", "Media Manager"]
+          },
+          "Fashion & Design": {
+            description: "Creative industries",
+            details: "NIFT/NID or B.Des",
+            requirements: ["Artistic skills"],
+            opportunities: ["Fashion Designer", "Stylist", "Graphic Designer"]
+          },
+          "Teaching": {
+            description: "Academic career",
+            details: "After B.Com + B.Ed/M.Ed",
+            requirements: ["Subject expertise"],
+            opportunities: ["Teacher", "Professor"]
+          }
+        }
+      }
+    };
+
+    // Hierarchy for D3
+    const hierarchyData = {
+      name: "Commerce Stream",
+      type: "root",
+      children: [
+        {
+          name: "Finance & Accounting",
+          type: "category",
+          children: [
+            { name: "Chartered Accountant (CA)", type: "subcategory" },
+            { name: "Company Secretary (CS)", type: "subcategory" },
+            { name: "Cost & Management Accountant (CMA)", type: "subcategory" }
+          ]
+        },
+        {
+          name: "Management & Business",
+          type: "category",
+          children: [
+            { name: "BBA / MBA", type: "subcategory" },
+            { name: "Hotel Management", type: "subcategory" },
+            { name: "Entrepreneurship", type: "subcategory" }
+          ]
+        },
+        {
+          name: "Economics & Analytics",
+          type: "category",
+          children: [
+            { name: "BA / B.Sc Economics", type: "subcategory" },
+            { name: "Actuarial Science", type: "subcategory" },
+            { name: "Data Analytics", type: "subcategory" }
+          ]
+        },
+        {
+          name: "Law & Government Exams",
+          type: "category",
+          children: [
+            { name: "Law (via CLAT)", type: "subcategory" },
+            { name: "Banking & Insurance", type: "subcategory" },
+            { name: "Civil Services (UPSC/SSC)", type: "subcategory" }
+          ]
+        },
+        {
+          name: "Other Careers",
+          type: "category",
+          children: [
+            { name: "Mass Communication & Media", type: "subcategory" },
+            { name: "Fashion & Design", type: "subcategory" },
+            { name: "Teaching", type: "subcategory" }
+          ]
+        }
+      ]
+    };
+
+        // D3.js setup
+        const width = 1200;
+        const height = 800;
+        const svg = d3.select("#flowchart")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Create zoom behavior
+        const zoom = d3.zoom()
+            .scaleExtent([0.5, 3])
+            .on("zoom", (event) => {
+                g.attr("transform", event.transform);
+            });
+
+        svg.call(zoom);
+
+        const g = svg.append("g");
+
+        // Create custom layout for straight vertical alignment
+        const root = d3.hierarchy(hierarchyData);
+        
+        // Set fixed positions for each level
+        const rootY = 80;
+        const categoryY = 250;
+        const subcategoryY = 420;
+        
+        // Position root node at center
+        root.x = 0;
+        root.y = rootY;
+        
+        // Get all leaf nodes (career options) and spread them out
+        const leafNodes = root.descendants().filter(d => d.depth === 2);
+        const minDistance = 120;
+        const totalWidth = leafNodes.length * minDistance;
+        const startX = -(totalWidth / 2) + (minDistance / 2);
+        
+        // Position all leaf nodes evenly
+        leafNodes.forEach((d, index) => {
+            d.x = startX + (index * minDistance);
+            d.y = subcategoryY;
+        });
+        
+        // Position category nodes evenly between root and leaves
+        const categoryNodes = root.descendants().filter(d => d.depth === 1);
+        const categorySpacing = totalWidth / categoryNodes.length;
+        const categoryStartX = -(totalWidth / 2) + (categorySpacing / 2);
+        
+        categoryNodes.forEach((categoryNode, index) => {
+            categoryNode.x = categoryStartX + (index * categorySpacing);
+            categoryNode.y = categoryY;
+        });
+
+        // Create straight links instead of curved
+        const links = g.selectAll(".link")
+            .data(root.links())
+            .enter().append("line")
+            .attr("class", "link")
+            .attr("x1", d => d.source.x + 100)
+            .attr("y1", d => d.source.y + 100)
+            .attr("x2", d => d.target.x + 100)
+            .attr("y2", d => d.target.y + 100);
+
+        // Create nodes
+        const nodes = g.selectAll(".node")
+            .data(root.descendants())
+            .enter().append("g")
+            .attr("class", d => `node ${d.data.type}`)
+            .attr("transform", d => `translate(${d.x + 100},${d.y + 100})`)
+            .on("mouseover", showTooltip)
+            .on("mouseout", hideTooltip)
+            .on("click", handleNodeClick)
+            .on("contextmenu", handleRightClick);
+
+        // Function to calculate text width
+        function getTextWidth(text, fontSize) {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            context.font = `${fontSize}px Segoe UI`;
+            return context.measureText(text).width;
+        }
+
+        // Function to wrap text in circles
+        function wrapText(text, maxWidth) {
+            const words = text.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                const word = words[i];
+                const width = getTextWidth(currentLine + " " + word, 12);
+                if (width < maxWidth * 0.7) { // Use 70% of available width for safety
+                    currentLine += " " + word;
+                } else {
+                    lines.push(currentLine);
+                    currentLine = word;
+                }
+            }
+            lines.push(currentLine);
+            
+            // Limit to maximum 3 lines to prevent overflow
+            if (lines.length > 3) {
+                lines.splice(2, lines.length - 2);
+                lines[2] = lines[2] + "...";
+            }
+            
+            return lines;
+        }
+
+        // Add circles to nodes with fixed sizing
+        nodes.append("circle")
+            .attr("r", d => {
+                if (d.data.type === "root") return 45;
+                if (d.data.type === "category") return 40;
+                return 35;
+            });
+
+        // Add text to nodes with proper wrapping
+        nodes.each(function(d) {
+            const node = d3.select(this);
+            const circle = node.select("circle");
+            const radius = parseFloat(circle.attr("r"));
+            const maxWidth = (radius - 18) * 1.3; // Much more conservative padding and width
+            const fontSize = d.data.type === "root" ? 11 : 9; // Much smaller font
+            
+            const lines = wrapText(d.data.name, maxWidth);
+            const lineHeight = fontSize + 2;
+            const totalHeight = lines.length * lineHeight;
+            const startY = -(totalHeight / 2) + (lineHeight / 2);
+
+            lines.forEach((line, i) => {
+                node.append("text")
+                    .attr("x", 0)
+                    .attr("y", startY + (i * lineHeight))
+                    .attr("text-anchor", "middle")
+                    .attr("dominant-baseline", "middle")
+                    .style("font-size", fontSize + "px")
+                    .style("font-weight", "600")
+                    .style("fill", "white")
+                    .style("text-shadow", "1px 1px 2px rgba(0,0,0,0.3)")
+                    .text(line);
+            });
+        });
+
+        // Job preference tracking
+        let jobPreferences = {};
+
+        // Node interaction functions
+        function handleNodeClick(event, d) {
+            event.preventDefault();
+            if (d.data.type === "subcategory") {
+                // Check if shift key is pressed for preference marking
+                if (event.shiftKey) {
+                    toggleInterest(d, true);
+                } else {
+                    // Single click shows modal
+                    showModal(event, d);
+                }
+            } else {
+                // For root and category nodes, always show modal
+                showModal(event, d);
+            }
+        }
+
+        function handleRightClick(event, d) {
+            event.preventDefault();
+            if (d.data.type === "subcategory") {
+                toggleInterest(d, false);
+            }
+        }
+
+        function toggleInterest(d, isInterested) {
+            const nodeName = d.data.name;
+            
+            // Find the correct node element by matching the data
+            const nodeElement = nodes.filter(nodeData => nodeData.data.name === nodeName);
+            
+            if (jobPreferences[nodeName] === (isInterested ? 'interested' : 'not-interested')) {
+                // Remove preference if clicking the same preference
+                delete jobPreferences[nodeName];
+                nodeElement.classed('interested', false).classed('not-interested', false);
+            } else {
+                // Set new preference
+                jobPreferences[nodeName] = isInterested ? 'interested' : 'not-interested';
+                nodeElement.classed('interested', isInterested).classed('not-interested', !isInterested);
+            }
+            
+            updatePreferenceSummary();
+        }
+
+        function updatePreferenceSummary() {
+            const interested = Object.keys(jobPreferences).filter(key => jobPreferences[key] === 'interested');
+            const notInterested = Object.keys(jobPreferences).filter(key => jobPreferences[key] === 'not-interested');
+            
+            console.log('Interested in:', interested);
+            console.log('Not interested in:', notInterested);
+        }
+
+        function clearPreferences() {
+            jobPreferences = {};
+            nodes.classed('interested', false).classed('not-interested', false);
+            updatePreferenceSummary();
+        }
+
+        // Tooltip functions
+        function showTooltip(event, d) {
+            const tooltip = d3.select("#tooltip");
+            const data = careerData[d.data.name];
+            let tooltipContent = `<strong>${d.data.name}</strong><br>`;
+            
+            if (data) {
+                tooltipContent += data.description;
+            }
+            
+            if (d.data.type === "subcategory") {
+                tooltipContent += `<br><br><em>Click: View details<br>Shift+Click: Mark as interested<br>Right-click: Mark as not interested</em>`;
+            } else {
+                tooltipContent += `<br><br><em>Click for more details</em>`;
+            }
+            
+            tooltip.html(tooltipContent)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 10) + "px")
+                .classed("show", true);
+        }
+
+        function hideTooltip() {
+            d3.select("#tooltip").classed("show", false);
+        }
+
+        // Modal functions
+        function showModal(event, d) {
+            const modal = document.getElementById("modal");
+            const modalBody = document.getElementById("modal-body");
+            const data = careerData[d.data.name];
+            
+            if (!data) return;
+
+            let content = `<h2>${d.data.name}</h2>`;
+            content += `<p><strong>Overview:</strong> ${data.description}</p>`;
+            content += `<p>${data.details}</p>`;
+
+            if (data.careers) {
+                content += `<h3>Career Options:</h3>`;
+                for (const [career, info] of Object.entries(data.careers)) {
+                    content += `
+                        <div style="margin-bottom: 20px; padding: 15px; background: #f7fafc; border-radius: 8px;">
+                            <h4 style="color: #667eea; margin-bottom: 8px;">${career}</h4>
+                            <p><strong>Description:</strong> ${info.description}</p>
+                            <p><strong>Details:</strong> ${info.details}</p>
+                            <p><strong>Requirements:</strong></p>
+                            <ul>
+                                ${info.requirements.map(req => `<li>${req}</li>`).join('')}
+                            </ul>
+                            <p><strong>Career Opportunities:</strong></p>
+                            <ul>
+                                ${info.opportunities.map(opp => `<li>${opp}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                }
+            }
+
+            modalBody.innerHTML = content;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Control functions
+        function resetZoom() {
+            svg.transition().duration(750).call(
+                zoom.transform,
+                d3.zoomIdentity
+            );
+        }
+
+        function expandAll() {
+            nodes.selectAll("circle")
+                .transition()
+                .duration(500)
+                .attr("r", d => {
+                    if (d.data.type === "root") return 45;
+                    if (d.data.type === "category") return 40;
+                    return 35;
+                });
+        }
+
+        function collapseAll() {
+            nodes.selectAll("circle")
+                .transition()
+                .duration(500)
+                .attr("r", d => {
+                    if (d.data.type === "root") return 40;
+                    if (d.data.type === "category") return 35;
+                    return 30;
+                });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById("modal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Add entrance animations
+        nodes.style("opacity", 0)
+            .transition()
+            .duration(1000)
+            .delay((d, i) => i * 100)
+            .style("opacity", 1);
+
+        links.style("opacity", 0)
+            .transition()
+            .duration(1000)
+            .delay(500)
+            .style("opacity", 1);
+  </script>
+</body>
+</html>

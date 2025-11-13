@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <!-- <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Inter%3Awght@400%3B500%3B700%3B900&family=Noto+Sans%3Awght@400%3B500%3B700%3B900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    /> -->
+     <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+    <style type="text/tailwindcss">
+      :root {
+        --border: #374151;
+         --card: #1f2937;
+        --primary-color: #1173d4;
+        --secondary-color: #f0f7ff;
+        --muted-foreground: #9ca3af;
+      }
+      .dark .dark\:bg-gray-900 {
+        background-color: #111827;
+      }
+      .dark .dark\:bg-gray-800 {
+        background-color: #1f2937;
+      }
+      .dark .dark\:text-gray-200 {
+        color: #e5e7eb;
+      }
+      .dark .dark\:text-gray-300 {
+        color: #d1d5db;
+      }
+      .dark .dark\:text-gray-400 {
+        color: #9ca3af;
+      }
+      .dark .dark\:border-gray-700 {
+        border-color: #374151;
+      }
+      .dark .dark\:hover\:bg-gray-700:hover {
+        background-color: #374151;
+      }
+      .dark .dark\:hover\:text-white:hover {
+        color: #ffffff;
+      }
+
+      /* Custom keyframe animations for added visual interest */
+      @keyframes fade-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slide-in-left {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes scale-up {
+        from {
+          transform: scale(0.95);
+          opacity: 0.5;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* Apply animations to elements */
+      .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+      }
+      .animate-slide-in-left {
+        animation: slide-in-left 0.7s ease-out forwards;
+      }
+      .animate-scale-up {
+        animation: scale-up 0.5s ease-out forwards;
+      }
+
+      /* Additional styling for card hover effects */
+      .card-hover-effect {
+        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out,
+          border-color 0.3s ease-out;
+      }
+      .card-hover-effect:hover {
+        transform: translateY(-8px);
+        @apply shadow-xl;
+        @apply shadow-gray-400/20 dark:shadow-blue-500/20;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900">
+    <div
+      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+      style="font-family: Inter, 'Noto Sans', sans-serif"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--border)] px-4 sm:px-10 py-3 bg-[var(--card)]"
+        >
+          <div class="flex items-center gap-10">
+            <div class="flex items-center gap-2 text-2xl font-bold text-white">
+              <div
+                class="p-2 bg-[var(--primary-color)] rounded-full text-white transform hover:rotate-90 transition-transform duration-300"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 12L12 20M12 12L12 4M12 12L20 12M12 12L4 12M12 12L18.364 18.364M12 12L5.63604 5.63604M12 12L18.364 5.63604M12 12L5.63604 18.364"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  ></path>
+                </svg>
+              </div>
+              <h2
+                class="text-[var(--card-foreground)] text-xl font-bold leading-tight tracking-[-0.015em]"
+              >
+                EduPath
+              </h2>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-400">
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="../landing_page_(homepage)_2/home.html"
+                >Home</a
+              >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="../aptitude_&_interest_quiz_page_2/test.html"
+                >Career Quiz</a
+              >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="http://localhost:5002"
+                >Colleges</a
+              >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="../course-to-career_path_mapping_2/carrier.html"
+                >Career Paths</a
+              >
+              <a
+                class="text-[var(--primary-color)] font-bold"
+                href="study_material.html"
+                >Resources</a
+              >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="http://localhost:5000/analytics"
+                >Analytics</a
+              >
+              <a
+                class="hover:text-[var(--primary-color)] transition-colors"
+                href="../user_profile_&_personalization_2/profile.html"
+                >Profile</a
+              >
+            </nav>
+
+
+            <!-- <div class="flex items-center gap-3 sm:gap-6">
+              <a
+                class="text-[var(--muted-foreground)] hover:text-[#4299f0] text-sm font-medium leading-normal"
+                href="/dashboard"
+                >Home</a
+              >
+              <a
+                class="text-[var(--muted-foreground)] hover:text-[#4299f0] text-sm font-medium leading-normal"
+                href="/quiz"
+                >Career Quiz</a
+              >
+              <a
+                class="text-[var(--muted-foreground)] hover:text-[#4299f0] text-sm font-medium leading-normal"
+                href="/colleges"
+                >Colleges</a
+              >
+              <a
+                class="text-[var(--muted-foreground)] hover:text-[#4299f0] text-sm font-medium leading-normal"
+                href="/career_paths"
+                >Career Paths</a
+              >
+              <a
+                class="text-[#4299f0] text-sm font-medium leading-normal"
+                href="/resources"
+                >Resources</a
+              >
+              <a
+                class="text-[var(--muted-foreground)] hover:text-[#4299f0] text-sm font-medium leading-normal"
+                href="/analytics"
+                >Analytics</a
+              >
+              <a
+                class="text-[var(--muted-foreground)] hover:text-[#4299f0] text-sm font-medium leading-normal"
+                href="/profile"
+                >Profile</a
+              > -->
+            </div>
+          </div>
+          <div class="flex flex-1 justify-end gap-4">
+            <div class="flex items-center gap-4">
+              <div class="relative hidden sm:block">
+                <span
+                  class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400"
+                  >search</span
+                >
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-full text-gray-900 bg-white dark:bg-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-700 h-10 placeholder:text-gray-500 dark:placeholder:text-gray-400 pl-10 pr-4 text-base font-normal leading-normal focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent transition-colors"
+                  placeholder="Search"
+                  value=""
+                />
+              </div>
+
+              <button
+                class="relative flex items-center justify-center size-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors"
+              >
+                <span class="material-symbols-outlined">notifications</span>
+                <div
+                  class="absolute top-2 right-2 size-2 bg-red-500 rounded-full animate-pulse"
+                ></div>
+              </button>
+
+              <div
+                class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYRS7EUg6fQVRhb_QjcsZfiIxJZHS3OmWiMXCFDhxzS3xTFfv_fhahW7DOyfCpjS9C9alEewJp8J0UzN1mwrJkn0Cfdcwj3uUSZ_wMdIVNsE7ojNS-uwRlWjwB9vS8oIrzb7nH_otfbO98CfckJSkpfzmZiG9yRA8dEE4tWYE0epNwc6VmDcpeB37tRFEjN97lxxko93nX9Q-tU4PEs_g-vFuHs2j02q7OIVG1Pt2JT6BNoDneOo9J_0pT-zKFXOHcCU17Ru5iDe3U');
+                "
+              ></div>
+            </div>
+          </div>
+        </header>
+        <main class="flex-1 px-4 sm:px-6 lg:px-8 py-12">
+          <div class="mx-auto max-w-7xl">
+            <div class="text-center mb-12 animate-fade-in-up">
+              <h1
+                class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight"
+                style="animation-delay: 0.2s"
+              >
+                Open Source Library
+              </h1>
+              <p
+                class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+                style="animation-delay: 0.4s"
+              >
+                Explore a curated collection of e-books, guides, and
+                skill-building materials to support your academic and career
+                journey.
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
+              <div
+                class="relative animate-slide-in-left"
+                style="animation-delay: 0.6s"
+              >
+                <button
+                  class="flex h-12 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 px-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <p
+                    class="text-gray-800 dark:text-gray-200 text-base font-medium"
+                  >
+                    Subject
+                  </p>
+                  <span
+                    class="material-symbols-outlined text-gray-600 dark:text-gray-400"
+                    >expand_more</span
+                  >
+                </button>
+              </div>
+              <div
+                class="relative animate-slide-in-left"
+                style="animation-delay: 0.7s"
+              >
+                <button
+                  class="flex h-12 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 px-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <p
+                    class="text-gray-800 dark:text-gray-200 text-base font-medium"
+                  >
+                    Career Goals
+                  </p>
+                  <span
+                    class="material-symbols-outlined text-gray-600 dark:text-gray-400"
+                    >expand_more</span
+                  >
+                </button>
+              </div>
+              <div
+                class="relative animate-slide-in-left"
+                style="animation-delay: 0.8s"
+              >
+                <button
+                  class="flex h-12 items-center justify-center gap-x-2 rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 px-6 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <p
+                    class="text-gray-800 dark:text-gray-200 text-base font-medium"
+                  >
+                    Format
+                  </p>
+                  <span
+                    class="material-symbols-outlined text-gray-600 dark:text-gray-400"
+                    >expand_more</span
+                  >
+                </button>
+              </div>
+            </div>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+            >
+              <div
+                class="flex flex-col gap-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm card-hover-effect group animate-fade-in-up"
+                style="animation-delay: 0.9s"
+              >
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwbZmanuIyFNQWYh9ivmt4X5IlhPocPTJ6XmS15DCRE9IHAs7cs1ZNHZiexdzsleT_KHkfnLa5D2J0SCyMmmEJDZXx6auRJUSVESgTkLh22XbDgZgOa-U9ITqUr3vMlJfq5SJAvmFhImOp2EYKaWKWUfcCGomBYHlHywdTxsbCemqHIFb1V2vMBACh6Yq2FcrLe5TujXMh2cwrl0H5uW24O3HhgIVB1ZQd0zXYf0eQDtQJq8sMdr8PBtVmbWF_E0FW_48Hng70eKCe');
+                  "
+                ></div>
+                <div class="flex-1">
+                  <h3
+                    class="text-gray-900 dark:text-white text-lg font-bold leading-tight mb-1 group-hover:text-[var(--primary-color)] transition-colors"
+                  >
+                    Introduction to Computer Science
+                  </h3>
+                  <p
+                    class="text-gray-600 dark:text-gray-300 text-sm font-normal"
+                  >
+                    Learn the basics of programming and algorithms.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm card-hover-effect group animate-fade-in-up"
+                style="animation-delay: 1s"
+              >
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBV6pHKLG0Uu9S3fSaXwaXQzB7n54ZBvzi_RLUrhmPrfWBUhj-LNI_p9IAILUq_S6KoCeeviiiHi6AiDRMC0punQpwjG0X4CsoFnkDFfuUaY3WoAgHN9-TfHDeUVX56mF3xiMixI31AQkvHG9gZxH_KiZJM53NAmUpW5BaG5Cr8gW4jq_6guRvQ61jgDRI12O98J1qBa2P5RGaMaUTGwsYooGd79NOzxCbXloPVm3Ag6EQx6dhsGUsmhr3YEYWsIpgiL1jfoMI4vRpG');
+                  "
+                ></div>
+                <div class="flex-1">
+                  <h3
+                    class="text-gray-900 dark:text-white text-lg font-bold leading-tight mb-1 group-hover:text-[var(--primary-color)] transition-colors"
+                  >
+                    The Ultimate Guide to College Admissions
+                  </h3>
+                  <p
+                    class="text-gray-600 dark:text-gray-300 text-sm font-normal"
+                  >
+                    A comprehensive guide to navigating the college application
+                    process.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm card-hover-effect group animate-fade-in-up"
+                style="animation-delay: 1.1s"
+              >
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuALszFegaXcuag0khHW0pg-8EujXJZYRhTgnSiHRf9jiNzBevs33IVb9VFLDB_zfdxmNwrUz9U13WhXUZ-PK7aypW3B9bTcuOdMWZLlZiI-1Wl4n9IpvPYMxM4H9QwVUrxCVnhmUSESZwQNeBMMufXVmOeW_wmmTG8D_pDOnYk4byL_MJf3nOr1j2eNEt46XVkL26AALARWW9W2w8NrC6k46XIhkri46m7e1WXhrNVPFGy1dIqlK5bb170IuxOm4hna_znISXvmaYF6');
+                  "
+                ></div>
+                <div class="flex-1">
+                  <h3
+                    class="text-gray-900 dark:text-white text-lg font-bold leading-tight mb-1 group-hover:text-[var(--primary-color)] transition-colors"
+                  >
+                    Mastering Data Analysis with Python
+                  </h3>
+                  <p
+                    class="text-gray-600 dark:text-gray-300 text-sm font-normal"
+                  >
+                    Hands-on projects to enhance your data analysis skills.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm card-hover-effect group animate-fade-in-up"
+                style="animation-delay: 1.2s"
+              >
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDVSftDMzz0rVFptQKQAZ2Pm5bA85uk1k262k2-aag5RRxO-_u_k9xKfSxUSclCQRoUy047saY_qnU355jpu4gXK6UoAJgxxllFHzsmk02DUMcVR1d9sXGwM9kinyhDOvwPnpeGCNCjJhORN0fycqY34t2pGI1Dnp8oLwoA7pY45qBOrmUg4nV2HtUQjE0FAV53jA9COvw6U4k2xzb6a2OupAp8ghaDiea14eZjJOKAmbsAFahhloBt61d3JMh_0ko5uYB-29R8oCOq');
+                  "
+                ></div>
+                <div class="flex-1">
+                  <h3
+                    class="text-gray-900 dark:text-white text-lg font-bold leading-tight mb-1 group-hover:text-[var(--primary-color)] transition-colors"
+                  >
+                    Career Paths in Environmental Science
+                  </h3>
+                  <p
+                    class="text-gray-600 dark:text-gray-300 text-sm font-normal"
+                  >
+                    Explore various career options in the field of environmental
+                    science.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm card-hover-effect group animate-fade-in-up"
+                style="animation-delay: 1.3s"
+              >
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-abgSwvxcHD3E77eEm5T6fciMb1gMQx0lHHy2dk-uLEEX8SWzmtO_GPygffW3H8A5i1epUTFMBOcVa6f9W1rtZUg50ECCw-1CakjXowcc-Sqt-YfK_66dWHtZAAD74DhAiq1VyNqtshH9yNx33YLE0uoMp8d3XgcGE7ubXheHfZAkCmM6-A8BLCtQjTttUgwjlUBVUuYOVTaK-qGqy4gZW561mFSNZuzXGiCRq1HGN9hNdWsJe-VHKyFxtVBaqxh0JQ7yA1pEUbdp');
+                  "
+                ></div>
+                <div class="flex-1">
+                  <h3
+                    class="text-gray-900 dark:text-white text-lg font-bold leading-tight mb-1 group-hover:text-[var(--primary-color)] transition-colors"
+                  >
+                    Creative Writing for Beginners
+                  </h3>
+                  <p
+                    class="text-gray-600 dark:text-gray-300 text-sm font-normal"
+                  >
+                    Develop your storytelling abilities with practical
+                    exercises.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-4 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-sm card-hover-effect group animate-fade-in-up"
+                style="animation-delay: 1.4s"
+              >
+                <div
+                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDFtsWkmsN13bWGQl_e2RzyktGjqjo-wnx4rqKQmJdOmn1pPf6MWSwKSRg9bxOrANgnW9gSLcD9cwOywXOFnX48pr9QL50149ShSOD5srSSyH-96KZLa80N0lijNFGGrj5dby8IB2vvVTXW81DroQU0CKaNuazwHIqj1zTcLGpLT46meSiYfYhUUFVDCMvZIweWb-1knYcZ5GwF7fDtrqKHw87Y3_0TTymsXg7IKoo_vAOUWia_1TRlqhNRuuUbp3jYLWG01y8AU51Pz');
+                  "
+                ></div>
+                <div class="flex-1">
+                  <h3
+                    class="text-gray-900 dark:text-white text-lg font-bold leading-tight mb-1 group-hover:text-[var(--primary-color)] transition-colors"
+                  >
+                    Financial Literacy for Young Adults
+                  </h3>
+                  <p
+                    class="text-gray-600 dark:text-gray-300 text-sm font-normal"
+                  >
+                    Essential financial concepts for young adults.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <nav class="flex items-center justify-center gap-2 p-4 mt-8">
+              <a
+                class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+              >
+                <span class="material-symbols-outlined">chevron_left</span>
+              </a>
+              <a
+                class="text-base font-bold flex size-10 items-center justify-center text-white rounded-full bg-[var(--primary-color)]"
+                href="#"
+                >1</a
+              >
+              <a
+                class="text-base font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+                >2</a
+              >
+              <a
+                class="text-base font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+                >3</a
+              >
+              <a
+                class="text-base font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+                >4</a
+              >
+              <a
+                class="text-base font-medium flex size-10 items-center justify-center text-gray-600 dark:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+                >5</a
+              >
+              <a
+                class="flex size-10 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors hover:scale-110"
+                href="#"
+              >
+                <span class="material-symbols-outlined">chevron_right</span>
+              </a>
+            </nav>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script>
+      const themeToggleDarkIcon = document.getElementById(
+        "theme-toggle-dark-icon"
+      );
+      const themeToggleLightIcon = document.getElementById(
+        "theme-toggle-light-icon"
+      );
+
+      // Immediately apply dark mode on page load
+      document.documentElement.classList.add("dark");
+      themeToggleDarkIcon.classList.remove("hidden");
+      themeToggleLightIcon.classList.add("hidden");
+
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      themeToggleBtn.addEventListener("click", function () {
+        // toggle icons inside button
+        themeToggleDarkIcon.classList.toggle("hidden");
+        themeToggleLightIcon.classList.toggle("hidden");
+        // if set via local storage previously
+        if (localStorage.getItem("color-theme")) {
+          if (localStorage.getItem("color-theme") === "dark") {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+          // if NOT set via local storage previously
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+{
+  "timestamp": "2025-09-12T17:35:02.653Z",
+  "top_careers": [
+    {
+      "domain": "Engineering",
+      "score": 9,
+      "careers": [
+        "Software Engineer",
+        "Mechanical Engineer",
+        "Civil Engineer",
+        "Data Scientist",
+        "AI/ML Engineer",
+        "Robotics Engineer"
+      ],
+      "competitive_exams": [
+        "JEE Main/Advanced",
+        "GATE",
+        "BITSAT",
+        "VITEEE",
+        "SRMJEEE",
+        "COMEDK UGET"
+      ],
+      "higher_studies": [
+        "B.Tech/B.E.",
+        "M.Tech",
+        "PhD in Engineering",
+        "MBA (Tech)",
+        "MS abroad"
+      ],
+      "pathways": [
+        {
+          "step": "Class 12 (PCM)",
+          "next": "Engineering Entrance Exams"
+        },
+        {
+          "step": "JEE/BITSAT Prep",
+          "next": "B.Tech Admission"
+        },
+        {
+          "step": "B.Tech Degree",
+          "next": "Specialization/Job"
+        },
+        {
+          "step": "Industry Experience",
+          "next": "Senior Roles/Entrepreneurship"
+        },
+        {
+          "step": "Leadership/Innovation",
+          "next": "CTO/Founder"
+        }
+      ]
+    },
+    {
+      "domain": "Medical",
+      "score": 9,
+      "careers": [
+        "Doctor (MBBS)",
+        "Surgeon",
+        "Dentist",
+        "Pharmacist",
+        "Physiotherapist",
+        "Medical Researcher"
+      ],
+      "competitive_exams": [
+        "NEET UG",
+        "NEET PG",
+        "AIIMS",
+        "JIPMER",
+        "NEET MDS",
+        "GPAT"
+      ],
+      "higher_studies": [
+        "MBBS",
+        "BDS",
+        "BAMS",
+        "BHMS",
+        "B.Pharm",
+        "MD/MS",
+        "DM/MCh"
+      ],
+      "pathways": [
+        {
+          "step": "Class 12 (PCB)",
+          "next": "NEET Preparation"
+        },
+        {
+          "step": "NEET Qualification",
+          "next": "Medical College"
+        },
+        {
+          "step": "MBBS/BDS",
+          "next": "Internship"
+        },
+        {
+          "step": "PG Entrance",
+          "next": "Specialization"
+        },
+        {
+          "step": "Practice/Research",
+          "next": "Senior Consultant"
+        }
+      ]
+    },
+    {
+      "domain": "Business",
+      "score": 9,
+      "careers": [
+        "Business Analyst",
+        "Marketing Manager",
+        "HR Manager",
+        "Operations Manager",
+        "Entrepreneur",
+        "Consultant"
+      ],
+      "competitive_exams": [
+        "CAT",
+        "XAT",
+        "GMAT",
+        "SNAP",
+        "NMAT",
+        "CMAT"
+      ],
+      "higher_studies": [
+        "BBA",
+        "B.Com",
+        "MBA",
+        "PGDM",
+        "Executive MBA",
+        "PhD Management"
+      ],
+      "pathways": [
+        {
+          "step": "Class 12 (Any Stream)",
+          "next": "Business Entrance Exams"
+        },
+        {
+          "step": "BBA/B.Com",
+          "next": "Work Experience"
+        },
+        {
+          "step": "MBA Preparation",
+          "next": "Top B-Schools"
+        },
+        {
+          "step": "MBA Degree",
+          "next": "Corporate Roles"
+        },
+        {
+          "step": "Senior Management",
+          "next": "C-Suite/Entrepreneurship"
+        }
+      ]
+    }
+  ]
+}

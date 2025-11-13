@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPath Tech Stack Analysis</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #34495e;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        h4 {
+            color: #27ae60;
+            margin-top: 20px;
+        }
+        .tech-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #e74c3c;
+        }
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .highlight {
+            background: #fff3cd;
+            padding: 10px;
+            border-left: 4px solid #ffc107;
+            margin: 10px 0;
+        }
+        ul, ol {
+            padding-left: 25px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 EduPath Project - Complete Tech Stack Analysis</h1>
+        
+        <div class="highlight">
+            <strong>Project Overview:</strong> EduPath is a comprehensive career guidance and education platform built with modern web technologies, AI integration, and extensive external API usage.
+        </div>
+
+        <h2>🏗️ Backend Architecture</h2>
+        
+        <div class="tech-section">
+            <h3>Core Framework & Language</h3>
+            <ul>
+                <li><strong>Flask</strong> - Python web framework (Primary application server)</li>
+                <li><strong>Python 3.7+</strong> - Main programming language</li>
+                <li><strong>Jinja2</strong> - Template engine (built-in with Flask)</li>
+            </ul>
+        </div>
+
+        <div class="tech-section">
+            <h3>Python Dependencies</h3>
+            <div class="code-block">
+requests>=2.28.0    # HTTP requests for API calls
+folium>=0.14.0      # Interactive map generation  
+geopy>=2.3.0        # Geocoding and location services
+flask-cors>=4.0.0   # Cross-Origin Resource Sharing
+sqlite3             # Database operations (built-in)
+hashlib             # Password hashing (built-in)
+datetime            # Date/time handling (built-in)
+json                # JSON data processing (built-in)
+re                  # Regular expressions (built-in)
+collections.Counter # Data counting utilities (built-in)
+            </div>
+        </div>
+
+        <div class="tech-section">
+            <h3>Flask Application Structure</h3>
+            <h4>Main Application Files:</h4>
+            <ul>
+                <li><code>app.py</code> - Primary Flask application (175 lines)</li>
+                <li><code>ai_chat.py</code> - Database operations and user management (364 lines)</li>
+                <li><code>SIH_01.py</code> - AI chat logic and external API integration (480 lines)</li>
+                <li><code>run_sih.py</code> - Chat message processing wrapper</li>
+                <li><code>college_locator.py</code> - College search engine (865 lines)</li>
+            </ul>
+
+            <h4>Flask Route Structure:</h4>
+            <div class="code-block">
+# Authentication Routes
+@app.route("/")                           # Landing page with session check
+@app.route("/register", methods=["GET", "POST"])  # User registration
+@app.route("/login", methods=["GET", "POST"])     # User authentication
+@app.route("/logout")                     # Session cleanup
+
+# User Management Routes  
+@app.route("/profile", methods=["GET", "POST"])   # Profile management
+@app.route("/dashboard")                  # User dashboard
+@app.route("/analytics")                  # User analytics
+
+# API Endpoints
+@app.route("/api/messages")               # Get chat history
+@app.route("/api/chat", methods=["POST"]) # AI chat processing
+@app.route("/api/save_preference", methods=["POST"]) # User preferences
+@app.route("/api/launch_cli", methods=["POST"])      # CLI interface
+            </div>
+        </div>
+
+        <h2>🗄️ Database Architecture</h2>
+
+        <div class="tech-section">
+            <h3>SQLite Database Schema (ai_chat.db)</h3>
+            
+            <h4>1. Users Table</h4>
+            <div class="code-block">
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    email TEXT UNIQUE,
+    password_hash TEXT,  -- SHA-256 hashed passwords
+    created_at TEXT      -- ISO format timestamps
+)
+            </div>
+
+            <h4>2. Chat History Table</h4>
+            <div class="code-block">
+CREATE TABLE chat_history (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    timestamp TEXT,
+    user_message TEXT,
+    ai_response TEXT,
+    user_id INTEGER      -- Added via ALTER TABLE for user scoping
+)
+            </div>
+
+            <h4>3. User Profile Table (Key-Value Store)</h4>
+            <div class="code-block">
+CREATE TABLE user_profile (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    key TEXT,            -- Fields: class, subjects, interests, career_goal, etc.
+    value TEXT,
+    timestamp TEXT,
+    user_id INTEGER      -- Added via ALTER TABLE for user scoping
+)
+            </div>
+
+            <h4>4. Career Recommendations Table</h4>
+            <div class="code-block">
+CREATE TABLE career_recommendations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    career_path TEXT,
+    recommendation_type TEXT,
+    details TEXT,
+    confidence_score INTEGER,
+    timestamp TEXT,
+    FOREIGN KEY (user_id) REFERENCES users (id)
+)
+            </div>
+
+            <h4>5. User Preferences Table</h4>
+            <div class="code-block">
+CREATE TABLE user_preferences (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    preference_type TEXT,
+    preference_value TEXT,
+    rating INTEGER,
+    timestamp TEXT,
+    FOREIGN KEY (user_id) REFERENCES users (id)
+)
+            </div>
+        </div>
+
+        <h2>🎨 Frontend Technologies</h2>
+
+        <div class="tech-section">
+            <h3>CSS Frameworks & Styling</h3>
+            <ul>
+                <li><strong>Tailwind CSS</strong> - Primary styling framework (via CDN)</li>
+                <li><strong>Bootstrap 5.3.3</strong> - Secondary UI framework for templates</li>
+                <li><strong>Bootstrap Icons 1.11.0</strong> - Icon library</li>
+                <li><strong>Material Symbols Outlined</strong> - Google's icon system</li>
+                <li><strong>Font Awesome</strong> - Additional icons</li>
+            </ul>
+
+            <h3>JavaScript Libraries & Components</h3>
+            <ul>
+                <li><strong>Vanilla JavaScript</strong> - Core frontend functionality</li>
+                <li><strong>Custom AI Chatbot Component</strong> - Reusable chat interface (343 lines)</li>
+                <li><strong>Leaflet.js</strong> - Interactive maps (dynamically loaded)</li>
+                <li><strong>College Search App</strong> - Advanced search with pagination</li>
+            </ul>
+
+            <h3>Fonts & Typography</h3>
+            <ul>
+                <li><strong>Google Fonts</strong> - Be Vietnam Pro, Noto Sans, Plus Jakarta Sans</li>
+                <li><strong>Custom CSS Variables</strong> - Consistent color schemes and theming</li>
+            </ul>
+        </div>
+
+        <h2>🔌 External API Integrations</h2>
+
+        <div class="tech-section">
+            <h3>Google Gemini AI API</h3>
+            <div class="code-block">
+API_KEY = "AIzaSyDqZqp-4LVf_OMu6qCPxDDmEon85S4hQWg"
+API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
+            </div>
+            
+            <h4>Usage Patterns:</h4>
+            <ul>
+                <li><strong>Career Guidance Chat</strong> - Context management with 800-character limit</li>
+                <li><strong>Confidence Scoring</strong> - AI evaluates user input informativeness (0-100 scale)</li>
+                <li><strong>Adaptive Responses</strong> - Two modes: "ask" (confidence <90%) vs "advise" (≥90%)</li>
+                <li><strong>Aptitude Test Generation</strong> - Dynamic question creation with 4 options</li>
+            </ul>
+
+            <h3>Google Maps API Suite</h3>
+            <div class="code-block">
+GOOGLE_MAPS_API_KEY = "AIzaSyAXK4aHLUS1236LLvHzWIUopKobvnxYRts"
+GEOCODE_URL = "https://maps.googleapis.com/maps/api/geocode/json"
+PLACES_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+            </div>
+
+            <h4>Implementation Features:</h4>
+            <ul>
+                <li><strong>Smart Location Detection</strong> - Regex patterns for "in/from/at [City]" extraction</li>
+                <li><strong>Coordinate Storage</strong> - Saves lat/lng in user profile</li>
+                <li><strong>Keyword Optimization</strong> - Different search terms for medical/engineering colleges</li>
+            </ul>
+
+            <h3>OpenStreetMap Overpass API</h3>
+            <div class="code-block">
+overpass_mirrors = [
+    "https://overpass.kumi.systems/api/interpreter",
+    "https://overpass.openstreetmap.ru/api/interpreter", 
+    "https://overpass.nchc.org.tw/api/interpreter",
+    "https://overpass-api.nextzen.org/api/interpreter",
+    "http://overpass-api.de/api/interpreter"
+]
+            </div>
+
+            <h4>Query Optimization:</h4>
+            <ul>
+                <li><strong>Fast Query First</strong> - Simple college/university search with 12-20s timeout</li>
+                <li><strong>Fallback Queries</strong> - Progressive complexity with larger radius</li>
+                <li><strong>Stream-Specific Filtering</strong> - PCB queries optimized for medical colleges</li>
+                <li><strong>Government Filter</strong> - Complex logic to identify government institutions</li>
+            </ul>
+
+            <h3>IP Geolocation Services</h3>
+            <div class="code-block">
+services = [
+    ('http://ip-api.com/json/', self._parse_ipapi_response),
+    ('http://ipinfo.io/json', self._parse_ipinfo_response), 
+    ('https://ipapi.co/json/', self._parse_ipapi_co_response)
+]
+            </div>
+        </div>
+
+        <h2>🔄 Application Workflow & Data Flow</h2>
+
+        <div class="tech-section">
+            <h3>User Journey Architecture</h3>
+            
+            <h4>1. Registration & Authentication Flow:</h4>
+            <div class="code-block">
+User Registration → Email/Password Validation → SHA-256 Hashing → 
+Database Storage → Session Creation → Profile Setup → Dashboard Redirect
+            </div>
+
+            <h4>2. Career Assessment Workflow:</h4>
+            <div class="code-block">
+Quiz Start → Gemini API Question Generation → User Response Collection → 
+Aptitude Scoring (Logic/Maths/Commerce/Arts) → Stream Recommendation → 
+Results Storage → Career Path Suggestions
+            </div>
+
+            <h4>3. College Discovery Process:</h4>
+            <div class="code-block">
+Location Input → Geocoding API → Coordinate Extraction → 
+Overpass API Query → Government Filter → Stream Filter → 
+Map Generation → Interactive Display → User Selection
+            </div>
+
+            <h4>4. AI Chat Interaction:</h4>
+            <div class="code-block">
+User Message → Context Retrieval → Confidence Scoring → 
+Profile Analysis → Gemini API Processing → Response Generation → 
+Database Storage → UI Update
+            </div>
+        </div>
+
+        <h2>🔒 Security Implementation</h2>
+
+        <div class="tech-section">
+            <h3>Authentication & Authorization</h3>
+            
+            <h4>Password Security:</h4>
+            <div class="code-block">
+def _hash_password(password: str) -> str:
+    return hashlib.sha256(password.encode("utf-8")).hexdigest()
+            </div>
+
+            <h4>Session Management:</h4>
+            <div class="code-block">
+def get_current_user_id():
+    return session.get("user_id")
+
+# Route protection
+if not user_id:
+    return redirect(url_for("login"))
+            </div>
+
+            <h3>Input Validation & Protection</h3>
+            <ul>
+                <li><strong>Form Data Sanitization</strong> - .strip(), .lower() for emails</li>
+                <li><strong>SQL Injection Prevention</strong> - Parameterized queries</li>
+                <li><strong>XSS Protection</strong> - HTML escaping in templates</li>
+                <li><strong>CORS Configuration</strong> - Flask-CORS for API access</li>
+            </ul>
+        </div>
+
+        <h2>📊 Performance Optimization</h2>
+
+        <div class="tech-section">
+            <h3>Database Optimization</h3>
+            <ul>
+                <li><strong>Indexing Strategy</strong> - Primary keys on all tables (auto-increment)</li>
+                <li><strong>Unique Constraints</strong> - Email uniqueness enforcement</li>
+                <li><strong>Foreign Key Relationships</strong> - Data integrity maintenance</li>
+                <li><strong>Efficient Queries</strong> - User-scoped data retrieval</li>
+            </ul>
+
+            <h3>Frontend Performance</h3>
+            <ul>
+                <li><strong>CDN Usage</strong> - Tailwind CSS, Bootstrap, Google Fonts</li>
+                <li><strong>Lazy Loading</strong> - Dynamic Leaflet.js loading</li>
+                <li><strong>Caching Strategies</strong> - Browser, session, and local storage</li>
+                <li><strong>Optimized Assets</strong> - Compressed images and minified CSS</li>
+            </ul>
+        </div>
+
+        <h2>🎯 Key Features & Components</h2>
+
+        <div class="tech-section">
+            <h3>Application Components</h3>
+            <ol>
+                <li><strong>Landing Page</strong> - Homepage with navigation and feature overview</li>
+                <li><strong>User Authentication</strong> - Complete login/registration system</li>
+                <li><strong>Career Assessment Quiz</strong> - AI-powered aptitude testing</li>
+                <li><strong>College Directory</strong> - Location-based government college search</li>
+                <li><strong>Career Path Mapping</strong> - Course-to-career guidance system</li>
+                <li><strong>Study Resources</strong> - Educational materials and resources</li>
+                <li><strong>User Profiles</strong> - Personalization and preference management</li>
+                <li><strong>AI Chat Assistant</strong> - Intelligent career guidance chatbot</li>
+                <li><strong>Analytics Dashboard</strong> - User progress and interaction tracking</li>
+            </ol>
+
+            <h3>Advanced Features</h3>
+            <ul>
+                <li><strong>Multi-theme Support</strong> - Dark/light mode with user preferences</li>
+                <li><strong>Responsive Design</strong> - Mobile-first approach with Tailwind CSS</li>
+                <li><strong>Interactive Maps</strong> - Folium and Leaflet.js integration</li>
+                <li><strong>Real-time Chat</strong> - AI-powered conversation system</li>
+                <li><strong>Location Services</strong> - GPS and IP-based location detection</li>
+                <li><strong>Stream-based Filtering</strong> - PCM, PCB, Arts, Commerce categorization</li>
+            </ul>
+        </div>
+
+        <h2>🔧 Development & Deployment</h2>
+
+        <div class="tech-section">
+            <h3>Environment Configuration</h3>
+            <div class="code-block">
+# Development Setup
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
+            </div>
+
+            <h3>Production Considerations</h3>
+            <ul>
+                <li><strong>Secret Key Management</strong> - Environment variable configuration needed</li>
+                <li><strong>Database Path Configuration</strong> - Absolute path setup required</li>
+                <li><strong>API Key Security</strong> - Environment variable storage recommended</li>
+                <li><strong>HTTPS Enforcement</strong> - SSL certificate implementation needed</li>
+            </ul>
+
+            <h3>Error Handling & Logging</h3>
+            <div class="code-block">
+try:
+    response = requests.post(API_URL, ...)
+    if response.status_code == 200:
+        # Process success
+    else:
+        return "Oops 😅 something went wrong, try again!"
+except Exception as e:
+    print(f"Error: {e}")
+    return fallback_response
+            </div>
+        </div>
+
+        <h2>📈 Architecture Summary</h2>
+
+        <div class="highlight">
+            <h3>Technology Stack Overview</h3>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Layer</th>
+                        <th>Technologies</th>
+                        <th>Purpose</th>
+                    </tr>
+                    <tr>
+                        <td>Frontend</td>
+                        <td>HTML5, Tailwind CSS, Bootstrap, JavaScript, Leaflet.js</td>
+                        <td>User Interface & Experience</td>
+                    </tr>
+                    <tr>
+                        <td>Backend</td>
+                        <td>Python, Flask, Jinja2</td>
+                        <td>Server Logic & API</td>
+                    </tr>
+                    <tr>
+                        <td>Database</td>
+                        <td>SQLite</td>
+                        <td>Data Storage & Management</td>
+                    </tr>
+                    <tr>
+                        <td>AI Services</td>
+                        <td>Google Gemini API</td>
+                        <td>Chat & Question Generation</td>
+                    </tr>
+                    <tr>
+                        <td>Location Services</td>
+                        <td>Google Maps API, Overpass API, IP Geolocation</td>
+                        <td>College Search & Mapping</td>
+                    </tr>
+                    <tr>
+                        <td>Security</td>
+                        <td>SHA-256, Flask Sessions, CORS</td>
+                        <td>Authentication & Protection</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>EduPath Tech Stack Analysis</strong> | Generated on: January 9, 2025</p>
+            <p>This document provides a comprehensive overview of all technologies, frameworks, and implementation details used in the EduPath career guidance platform.</p>
+        </div>
+    </div>
+</body>
+</html>

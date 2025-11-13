@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e76bfdb33e5529a2876cd301b92f3268 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div style="position: fixed; 
+                        bottom: 50px; left: 50px; width: 150px; height: 90px; 
+                        background-color: white; border:2px solid grey; z-index:9999; 
+                        font-size:14px; padding: 10px">
+            <p><b>Legend</b></p>
+            <p><i class="fa fa-user" style="color:blue"></i> Your Location</p>
+            <p><i class="fa fa-university" style="color:green"></i> University</p>
+            <p><i class="fa fa-graduation-cap" style="color:red"></i> College</p>
+            </div>
+            
+    
+            <div class="folium-map" id="map_e76bfdb33e5529a2876cd301b92f3268" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e76bfdb33e5529a2876cd301b92f3268 = L.map(
+                "map_e76bfdb33e5529a2876cd301b92f3268",
+                {
+                    center: [22.717, 75.8337],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ae008cbfcd3bcff7d05d856b4ed56d40 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ae008cbfcd3bcff7d05d856b4ed56d40.addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var marker_ccd4d342a51c6c6305f7de0945b6ced2 = L.marker(
+                [22.717, 75.8337],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_6f23d8530ac15b975356881f00cec646 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "user",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4c854527e7ceeaf3bcc85d313a00ad68 = L.popup({
+  "maxWidth": 250,
+});
+
+        
+            
+                var html_2fdf0fc1c3625f3e95da11c0f2841855 = $(`<div id="html_2fdf0fc1c3625f3e95da11c0f2841855" style="width: 100.0%; height: 100.0%;">             <div style="width: 200px;">                 <h4>📍 Your Location</h4>                 <p><strong>Location:</strong> Indore, Madhya Pradesh, India</p>                 <p><strong>Coordinates:</strong> 22.717000, 75.833700</p>                 <p><strong>Nearby Colleges:</strong> 13 found</p>             </div>             </div>`)[0];
+                popup_4c854527e7ceeaf3bcc85d313a00ad68.setContent(html_2fdf0fc1c3625f3e95da11c0f2841855);
+            
+        
+
+        marker_ccd4d342a51c6c6305f7de0945b6ced2.bindPopup(popup_4c854527e7ceeaf3bcc85d313a00ad68)
+        ;
+
+        
+    
+    
+            marker_ccd4d342a51c6c6305f7de0945b6ced2.bindTooltip(
+                `<div>
+                     📍 Your Location
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ccd4d342a51c6c6305f7de0945b6ced2.setIcon(icon_6f23d8530ac15b975356881f00cec646);
+            
+    
+            var circle_0c8e9b65f4c6ed1237b65856e9d12ad0 = L.circle(
+                [22.717, 75.8337],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10000, "stroke": true, "weight": 2}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+        var popup_14b0f1f8e756097883a224a739420530 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6c1bff92ccd90decfb6546f343e67366 = $(`<div id="html_6c1bff92ccd90decfb6546f343e67366" style="width: 100.0%; height: 100.0%;">10.0km Search Radius</div>`)[0];
+                popup_14b0f1f8e756097883a224a739420530.setContent(html_6c1bff92ccd90decfb6546f343e67366);
+            
+        
+
+        circle_0c8e9b65f4c6ed1237b65856e9d12ad0.bindPopup(popup_14b0f1f8e756097883a224a739420530)
+        ;
+
+        
+    
+    
+            var marker_b22fad80e05cf002a71ba08088414319 = L.marker(
+                [22.7969389, 75.8458923],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_28f8685e378642bacaf4b1ab7e25ad59 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c1c26fdc5d6679d9e96f93ecad386572 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3421f9b40b2a78300565c4c19daa0a9b = $(`<div id="html_3421f9b40b2a78300565c4c19daa0a9b" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>SAIMS Nursing College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 <p><strong>Address:</strong> SAIMS Campus,Ujjain Road</p></div></div>`)[0];
+                popup_c1c26fdc5d6679d9e96f93ecad386572.setContent(html_3421f9b40b2a78300565c4c19daa0a9b);
+            
+        
+
+        marker_b22fad80e05cf002a71ba08088414319.bindPopup(popup_c1c26fdc5d6679d9e96f93ecad386572)
+        ;
+
+        
+    
+    
+            marker_b22fad80e05cf002a71ba08088414319.bindTooltip(
+                `<div>
+                     1. SAIMS Nursing College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b22fad80e05cf002a71ba08088414319.setIcon(icon_28f8685e378642bacaf4b1ab7e25ad59);
+            
+    
+            var marker_209cd62f5bfdddfec26a8ab43c170564 = L.marker(
+                [22.7543241, 75.9023926],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_6e7c0eb4cfc1d1638b51b0d27d2fb4d0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c39a44f509490bdaa9d47ab91137c544 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_19754c620cadff54c5cb4be6ed818935 = $(`<div id="html_19754c620cadff54c5cb4be6ed818935" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Prestige Institute of Management And Research</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_c39a44f509490bdaa9d47ab91137c544.setContent(html_19754c620cadff54c5cb4be6ed818935);
+            
+        
+
+        marker_209cd62f5bfdddfec26a8ab43c170564.bindPopup(popup_c39a44f509490bdaa9d47ab91137c544)
+        ;
+
+        
+    
+    
+            marker_209cd62f5bfdddfec26a8ab43c170564.bindTooltip(
+                `<div>
+                     2. Prestige Institute of Management And Research
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_209cd62f5bfdddfec26a8ab43c170564.setIcon(icon_6e7c0eb4cfc1d1638b51b0d27d2fb4d0);
+            
+    
+            var marker_37afa8358e2dc5d314e93d88293c17c6 = L.marker(
+                [22.754446, 75.8855916],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_0bf5e8236ed52e9c538e451e8c9f841e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4db838e27adaffc9e60da73e4422e318 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_434673d58f1847f919c24e2e991c69c5 = $(`<div id="html_434673d58f1847f919c24e2e991c69c5" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Softvision College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_4db838e27adaffc9e60da73e4422e318.setContent(html_434673d58f1847f919c24e2e991c69c5);
+            
+        
+
+        marker_37afa8358e2dc5d314e93d88293c17c6.bindPopup(popup_4db838e27adaffc9e60da73e4422e318)
+        ;
+
+        
+    
+    
+            marker_37afa8358e2dc5d314e93d88293c17c6.bindTooltip(
+                `<div>
+                     3. Softvision College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_37afa8358e2dc5d314e93d88293c17c6.setIcon(icon_0bf5e8236ed52e9c538e451e8c9f841e);
+            
+    
+            var marker_a832f08da924ea2b605f407555a0b55f = L.marker(
+                [22.7559815, 75.8837811],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_503f7322d018c21c013744d614276535 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_100b5d5e8291323be842efb4b6e1fd1e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f2886705abc8550fd2dbb38b982c3a4d = $(`<div id="html_f2886705abc8550fd2dbb38b982c3a4d" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Kanyakubj Nursing College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_100b5d5e8291323be842efb4b6e1fd1e.setContent(html_f2886705abc8550fd2dbb38b982c3a4d);
+            
+        
+
+        marker_a832f08da924ea2b605f407555a0b55f.bindPopup(popup_100b5d5e8291323be842efb4b6e1fd1e)
+        ;
+
+        
+    
+    
+            marker_a832f08da924ea2b605f407555a0b55f.bindTooltip(
+                `<div>
+                     4. Kanyakubj Nursing College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a832f08da924ea2b605f407555a0b55f.setIcon(icon_503f7322d018c21c013744d614276535);
+            
+    
+            var marker_d31270161f655857dd3d00a7093e632e = L.marker(
+                [22.7606395, 75.8855809],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_b9f08eac6436e1ca0424707a8e82a725 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bfa85897d241e123a4f5b252232a2f3a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0918b7d32fd6bacf986c0bd292f4cc1e = $(`<div id="html_0918b7d32fd6bacf986c0bd292f4cc1e" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Prestige Institute of Engineering and Science</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_bfa85897d241e123a4f5b252232a2f3a.setContent(html_0918b7d32fd6bacf986c0bd292f4cc1e);
+            
+        
+
+        marker_d31270161f655857dd3d00a7093e632e.bindPopup(popup_bfa85897d241e123a4f5b252232a2f3a)
+        ;
+
+        
+    
+    
+            marker_d31270161f655857dd3d00a7093e632e.bindTooltip(
+                `<div>
+                     5. Prestige Institute of Engineering and Science
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d31270161f655857dd3d00a7093e632e.setIcon(icon_b9f08eac6436e1ca0424707a8e82a725);
+            
+    
+            var marker_c239d8db4afecf0d83a3d9f09faae590 = L.marker(
+                [22.7529045, 75.8814065],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_25219cc74eb0cfea4c394865120b63b1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b23822fdbe9e4681d73f947a5ae59855 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5b9c48ee61e8c4db0fe32125bdd77c48 = $(`<div id="html_5b9c48ee61e8c4db0fe32125bdd77c48" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>softvision college</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_b23822fdbe9e4681d73f947a5ae59855.setContent(html_5b9c48ee61e8c4db0fe32125bdd77c48);
+            
+        
+
+        marker_c239d8db4afecf0d83a3d9f09faae590.bindPopup(popup_b23822fdbe9e4681d73f947a5ae59855)
+        ;
+
+        
+    
+    
+            marker_c239d8db4afecf0d83a3d9f09faae590.bindTooltip(
+                `<div>
+                     6. softvision college
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c239d8db4afecf0d83a3d9f09faae590.setIcon(icon_25219cc74eb0cfea4c394865120b63b1);
+            
+    
+            var marker_3bbf8ca78672f915246c7db3318bf1b6 = L.marker(
+                [22.7142969, 75.8829716],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_aab26364d9e076b6bbcda264708cb082 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_efefbd453dccbbc64256c554f8023bae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b2fb8a0ebfe99ac8153932874c7cb26c = $(`<div id="html_b2fb8a0ebfe99ac8153932874c7cb26c" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>MGM Medical College</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 <p><strong>Address:</strong> A B Road</p></div></div>`)[0];
+                popup_efefbd453dccbbc64256c554f8023bae.setContent(html_b2fb8a0ebfe99ac8153932874c7cb26c);
+            
+        
+
+        marker_3bbf8ca78672f915246c7db3318bf1b6.bindPopup(popup_efefbd453dccbbc64256c554f8023bae)
+        ;
+
+        
+    
+    
+            marker_3bbf8ca78672f915246c7db3318bf1b6.bindTooltip(
+                `<div>
+                     7. MGM Medical College
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3bbf8ca78672f915246c7db3318bf1b6.setIcon(icon_aab26364d9e076b6bbcda264708cb082);
+            
+    
+            var marker_92fbdf65c686a99885c09183905cbccb = L.marker(
+                [22.7674875, 75.8870845],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_db988d262872baf77ffb2032a24db877 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_187100b7cf9b0066299d66ccc1008c4f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_823506b031af8cfdd66018099851990e = $(`<div id="html_823506b031af8cfdd66018099851990e" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Govt. Institute of Fine Arts</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_187100b7cf9b0066299d66ccc1008c4f.setContent(html_823506b031af8cfdd66018099851990e);
+            
+        
+
+        marker_92fbdf65c686a99885c09183905cbccb.bindPopup(popup_187100b7cf9b0066299d66ccc1008c4f)
+        ;
+
+        
+    
+    
+            marker_92fbdf65c686a99885c09183905cbccb.bindTooltip(
+                `<div>
+                     8. Govt. Institute of Fine Arts
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_92fbdf65c686a99885c09183905cbccb.setIcon(icon_db988d262872baf77ffb2032a24db877);
+            
+    
+            var marker_6b9a760b69599b32f9f87746d3cf2461 = L.marker(
+                [22.7659429, 75.9153482],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_f731ba73dcbc5cea1a1b44aa5a66024a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ed5405fd9cc8dd5f155ad87729df7dc1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b9b63c3f6da2e2fa353cd0092a3ab34f = $(`<div id="html_b9b63c3f6da2e2fa353cd0092a3ab34f" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Christian Eminent Academy</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_ed5405fd9cc8dd5f155ad87729df7dc1.setContent(html_b9b63c3f6da2e2fa353cd0092a3ab34f);
+            
+        
+
+        marker_6b9a760b69599b32f9f87746d3cf2461.bindPopup(popup_ed5405fd9cc8dd5f155ad87729df7dc1)
+        ;
+
+        
+    
+    
+            marker_6b9a760b69599b32f9f87746d3cf2461.bindTooltip(
+                `<div>
+                     9. Christian Eminent Academy
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6b9a760b69599b32f9f87746d3cf2461.setIcon(icon_f731ba73dcbc5cea1a1b44aa5a66024a);
+            
+    
+            var marker_7b3acdc4a10a0e878c20ba77be64d4d0 = L.marker(
+                [22.75435, 75.9023989],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_1a5b72a37ceb8731ea1c657d5a67fc0d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_29a3754a6e18d0cef36dfd1d5f504a26 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ceeffdb4fbf888ec0851e3eda075a8b1 = $(`<div id="html_ceeffdb4fbf888ec0851e3eda075a8b1" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Prestige Institute of Management and research</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 </div></div>`)[0];
+                popup_29a3754a6e18d0cef36dfd1d5f504a26.setContent(html_ceeffdb4fbf888ec0851e3eda075a8b1);
+            
+        
+
+        marker_7b3acdc4a10a0e878c20ba77be64d4d0.bindPopup(popup_29a3754a6e18d0cef36dfd1d5f504a26)
+        ;
+
+        
+    
+    
+            marker_7b3acdc4a10a0e878c20ba77be64d4d0.bindTooltip(
+                `<div>
+                     10. Prestige Institute of Management and research
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7b3acdc4a10a0e878c20ba77be64d4d0.setIcon(icon_1a5b72a37ceb8731ea1c657d5a67fc0d);
+            
+    
+            var marker_f1bf1d4db436fce3e14b2071e2853900 = L.marker(
+                [22.7536328, 75.7921739],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_21f7265c8baa44067a48c4753ea37c64 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4573059ad61cc3a3e46091bf03e5f61e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5475e8d52c0e2dd43adc34a1223a90f8 = $(`<div id="html_5475e8d52c0e2dd43adc34a1223a90f8" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Symboisis University of Applied Sciences</h4>                     <p><strong>Type:</strong> University</p>                     <p><strong>Operator:</strong> Unknown</p>                 <p><strong>Address:</strong> Super Corridor</p></div></div>`)[0];
+                popup_4573059ad61cc3a3e46091bf03e5f61e.setContent(html_5475e8d52c0e2dd43adc34a1223a90f8);
+            
+        
+
+        marker_f1bf1d4db436fce3e14b2071e2853900.bindPopup(popup_4573059ad61cc3a3e46091bf03e5f61e)
+        ;
+
+        
+    
+    
+            marker_f1bf1d4db436fce3e14b2071e2853900.bindTooltip(
+                `<div>
+                     11. Symboisis University of Applied Sciences
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f1bf1d4db436fce3e14b2071e2853900.setIcon(icon_21f7265c8baa44067a48c4753ea37c64);
+            
+    
+            var marker_6b00241cb51d1fb316b3614529c5df60 = L.marker(
+                [22.7531585, 75.7949312],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_7849d8cd1fe395d62d3c4c11603e2833 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d5cdc9ccab47efd52da32a8fe4e68ad1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4a044642ba2105b32fc6fc3691ddf0fc = $(`<div id="html_4a044642ba2105b32fc6fc3691ddf0fc" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Symboisis University of Applied Sciences</h4>                     <p><strong>Type:</strong> University</p>                     <p><strong>Operator:</strong> Unknown</p>                 <p><strong>Address:</strong> Super Corridor</p></div></div>`)[0];
+                popup_d5cdc9ccab47efd52da32a8fe4e68ad1.setContent(html_4a044642ba2105b32fc6fc3691ddf0fc);
+            
+        
+
+        marker_6b00241cb51d1fb316b3614529c5df60.bindPopup(popup_d5cdc9ccab47efd52da32a8fe4e68ad1)
+        ;
+
+        
+    
+    
+            marker_6b00241cb51d1fb316b3614529c5df60.bindTooltip(
+                `<div>
+                     12. Symboisis University of Applied Sciences
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6b00241cb51d1fb316b3614529c5df60.setIcon(icon_7849d8cd1fe395d62d3c4c11603e2833);
+            
+    
+            var marker_ce727bc1e1afb3240129179faa816cae = L.marker(
+                [22.736913, 75.790029],
+                {
+}
+            ).addTo(map_e76bfdb33e5529a2876cd301b92f3268);
+        
+    
+            var icon_d4837e714d61834513ff0ce57f3ddf35 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "graduation-cap",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_298ee2ac342807d63e1499bde53c8aed = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_46017756d13dc28ab19dfdbff1d2e68e = $(`<div id="html_46017756d13dc28ab19dfdbff1d2e68e" style="width: 100.0%; height: 100.0%;">                 <div style="width: 250px;">                     <h4>Modern Dental College And Research Center</h4>                     <p><strong>Type:</strong> College</p>                     <p><strong>Operator:</strong> Unknown</p>                 <p><strong>Address:</strong> Behind Sunshine Public School, Gandhi Nagar, Indore</p><p><strong>Phone:</strong> 07312882693</p><p><strong>Website:</strong> <a href='www.mdcrc.com' target='_blank'>Visit Website</a></p></div></div>`)[0];
+                popup_298ee2ac342807d63e1499bde53c8aed.setContent(html_46017756d13dc28ab19dfdbff1d2e68e);
+            
+        
+
+        marker_ce727bc1e1afb3240129179faa816cae.bindPopup(popup_298ee2ac342807d63e1499bde53c8aed)
+        ;
+
+        
+    
+    
+            marker_ce727bc1e1afb3240129179faa816cae.bindTooltip(
+                `<div>
+                     13. Modern Dental College And Research Center
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ce727bc1e1afb3240129179faa816cae.setIcon(icon_d4837e714d61834513ff0ce57f3ddf35);
+            
+</script>
+</html>

@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arts Career Paths - Interactive Flowchart</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .flowchart-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flowchart-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+        }
+
+        #flowchart {
+            width: 100%;
+            height: 800px;
+        }
+
+        .node {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .node circle {
+            fill: #fff;
+            stroke-width: 3px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            transition: all 0.3s ease;
+        }
+
+        .node.root circle {
+            fill: #667eea;
+            stroke: #5a67d8;
+        }
+
+        .node.category circle {
+            fill: #764ba2;
+            stroke: #6b46c1;
+        }
+
+        .node.subcategory circle {
+            fill: #f093fb;
+            stroke: #ec4899;
+        }
+
+        .node:hover circle {
+            transform: scale(1.1);
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+        }
+
+        .node.root:hover circle {
+            fill: #5a67d8;
+        }
+
+        .node.category:hover circle {
+            fill: #6b46c1;
+        }
+
+        .node.subcategory:hover circle {
+            fill: #ec4899;
+        }
+
+        .node.interested circle {
+            fill: #48bb78 !important;
+            stroke: #38a169 !important;
+            animation: pulse 2s infinite;
+        }
+
+        .node.not-interested circle {
+            fill: #e53e3e !important;
+            stroke: #c53030 !important;
+            opacity: 0.7;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(72, 187, 120, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(72, 187, 120, 0); }
+        }
+
+        .node text {
+            font-size: 12px;
+            font-weight: 600;
+            text-anchor: middle;
+            dominant-baseline: central;
+            fill: white;
+            pointer-events: none;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .node.root text {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .link {
+            fill: none;
+            stroke: #cbd5e0;
+            stroke-width: 2;
+            stroke-linecap: round;
+            shape-rendering: crispEdges;
+            transition: all 0.3s ease;
+        }
+
+        .link:hover {
+            stroke: #667eea;
+            stroke-width: 3;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0,0,0,0.9);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            max-width: 300px;
+            z-index: 1000;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .tooltip.show {
+            opacity: 1;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: #667eea;
+        }
+
+        .modal h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .modal h3 {
+            color: #764ba2;
+            margin: 20px 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        .modal ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .modal li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #e2e8f0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            #flowchart {
+                height: 600px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Arts / Humanities Career Pathways</h1>
+      <p>Explore your future in Social Sciences, Languages, Fine Arts, and Humanities</p>
+    </div>
+
+    <div class="flowchart-container">
+      <div class="controls">
+        <button class="btn" onclick="resetZoom()">Reset View</button>
+        <button class="btn" onclick="expandAll()">Expand All</button>
+        <button class="btn" onclick="collapseAll()">Collapse All</button>
+        <button class="btn" onclick="clearPreferences()">Clear Preferences</button>
+      </div>
+      
+      <div style="text-align: center; margin-bottom: 15px; color: #4a5568; font-size: 14px;">
+        <strong>Controls:</strong> Click = View Details | Shift+Click = Mark Interested (Green) | Right-click = Not Interested (Red)
+      </div>
+      
+      <svg id="flowchart"></svg>
+      
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-color" style="background: #667eea;"></div>
+          <span>Main Stream</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #764ba2;"></div>
+          <span>Career Categories</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #f093fb;"></div>
+          <span>Specific Careers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tooltip" id="tooltip"></div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    // Arts career data
+    const careerData = {
+      "Arts Stream": {
+        description: "Arts/Humanities stream - Wide opportunities in law, civil services, media, design, social sciences, and more",
+        details: "The Arts stream is versatile, covering subjects like History, Political Science, Sociology, Psychology, Literature, Fine Arts, and Languages."
+      },
+      "Law & Civil Services": {
+        description: "Legal and government administration careers",
+        details: "High-demand fields for Arts students with interest in governance, law, and public service.",
+        careers: {
+          "Law (BA LLB / CLAT)": {
+            description: "Undergraduate law degree",
+            details: "Duration: 5 years (integrated)",
+            requirements: ["CLAT/AILET/State law entrance", "Strong reasoning"],
+            opportunities: ["Lawyer", "Judge (after exams)", "Corporate Counsel"]
+          },
+          "Civil Services (UPSC/State PSC)": {
+            description: "Government administrative roles",
+            details: "Prestigious exams like UPSC CSE",
+            requirements: ["General knowledge", "Analytical skills", "Optional subjects from Arts"],
+            opportunities: ["IAS", "IPS", "IFS", "State Services"]
+          },
+          "Defense / SSC / Banking": {
+            description: "Other government jobs",
+            details: "SSC-CGL, Railways, IBPS etc.",
+            requirements: ["Competitive exam prep"],
+            opportunities: ["Govt Officer", "Bank PO", "SSC Clerk"]
+          }
+        }
+      },
+      "Media & Communication": {
+        description: "Creative and communication-based careers",
+        details: "Popular among Arts students with writing, communication, or media interest.",
+        careers: {
+          "Journalism & Mass Comm": {
+            description: "News, reporting, media production",
+            details: "BA Journalism/Mass Comm (3 years)",
+            requirements: ["Communication skills", "English proficiency"],
+            opportunities: ["Journalist", "News Anchor", "Media Manager"]
+          },
+          "Film & TV Studies": {
+            description: "Entertainment industry",
+            details: "Diplomas & Bachelors in Film/TV",
+            requirements: ["Creativity", "Storytelling"],
+            opportunities: ["Director", "Cinematographer", "Script Writer"]
+          },
+          "Advertising & PR": {
+            description: "Corporate communication",
+            details: "BA Advertising/PR (3 years)",
+            requirements: ["Marketing & communication"],
+            opportunities: ["PR Manager", "Advertising Executive"]
+          }
+        }
+      },
+      "Social Sciences & Humanities": {
+        description: "Core academic and research paths",
+        details: "Strong foundation for teaching, research, and analysis.",
+        careers: {
+          "BA (History/Political Science/Sociology)": {
+            description: "Core BA in humanities subjects",
+            details: "Duration: 3 years",
+            requirements: ["Class 12 Arts", "Research interest"],
+            opportunities: ["Researcher", "Lecturer", "NGO Worker"]
+          },
+          "Psychology": {
+            description: "Study of human behavior",
+            details: "BA/B.Sc Psychology (3 years)",
+            requirements: ["Interest in counseling", "Empathy"],
+            opportunities: ["Psychologist", "Counselor", "HR Specialist"]
+          },
+          "Languages & Literature": {
+            description: "Study of English/Other languages",
+            details: "BA in Literature/Linguistics",
+            requirements: ["Strong language skills"],
+            opportunities: ["Writer", "Translator", "Editor"]
+          }
+        }
+      },
+      "Fine Arts & Design": {
+        description: "Creative and design-oriented paths",
+        details: "For students with artistic skills and creativity.",
+        careers: {
+          "Fine Arts (BFA)": {
+            description: "Bachelor of Fine Arts",
+            details: "Duration: 3-4 years",
+            requirements: ["Art portfolio", "Entrance exams"],
+            opportunities: ["Artist", "Animator", "Illustrator"]
+          },
+          "Fashion Design": {
+            description: "Clothing & textile industry",
+            details: "NIFT/NID entrance exams",
+            requirements: ["Design creativity"],
+            opportunities: ["Fashion Designer", "Stylist", "Merchandiser"]
+          },
+          "Graphic Design": {
+            description: "Visual communication",
+            details: "B.Des/BFA Graphics",
+            requirements: ["Computer graphics skills"],
+            opportunities: ["Graphic Designer", "UI/UX Designer"]
+          }
+        }
+      },
+      "Education & Other Careers": {
+        description: "Alternative careers for Arts students",
+        details: "Includes teaching, hospitality, management, etc.",
+        careers: {
+          "Teaching": {
+            description: "Academic career",
+            details: "After BA + B.Ed/M.Ed",
+            requirements: ["Subject expertise"],
+            opportunities: ["School Teacher", "Professor"]
+          },
+          "Hotel Management": {
+            description: "Hospitality sector",
+            details: "BHM (3-4 years)",
+            requirements: ["Hospitality skills"],
+            opportunities: ["Hotel Manager", "Chef", "Event Manager"]
+          },
+          "Social Work (BSW/MSW)": {
+            description: "Community development",
+            details: "BSW (3 years) / MSW (2 years)",
+            requirements: ["Empathy", "Fieldwork"],
+            opportunities: ["NGO Worker", "Community Officer"]
+          }
+        }
+      }
+    };
+
+    // Hierarchy for D3
+    const hierarchyData = {
+      name: "Arts Stream",
+      type: "root",
+      children: [
+        {
+          name: "Law & Civil Services",
+          type: "category",
+          children: [
+            { name: "Law (BA LLB / CLAT)", type: "subcategory" },
+            { name: "Civil Services (UPSC/State PSC)", type: "subcategory" },
+            { name: "Defense / SSC / Banking", type: "subcategory" }
+          ]
+        },
+        {
+          name: "Media & Communication",
+          type: "category",
+          children: [
+            { name: "Journalism & Mass Comm", type: "subcategory" },
+            { name: "Film & TV Studies", type: "subcategory" },
+            { name: "Advertising & PR", type: "subcategory" }
+          ]
+        },
+        {
+          name: "Social Sciences & Humanities",
+          type: "category",
+          children: [
+            { name: "BA (History/Political Science/Sociology)", type: "subcategory" },
+            { name: "Psychology", type: "subcategory" },
+            { name: "Languages & Literature", type: "subcategory" }
+          ]
+        },
+        {
+          name: "Fine Arts & Design",
+          type: "category",
+          children: [
+            { name: "Fine Arts (BFA)", type: "subcategory" },
+            { name: "Fashion Design", type: "subcategory" },
+            { name: "Graphic Design", type: "subcategory" }
+          ]
+        },
+        {
+          name: "Education & Other Careers",
+          type: "category",
+          children: [
+            { name: "Teaching", type: "subcategory" },
+            { name: "Hotel Management", type: "subcategory" },
+            { name: "Social Work (BSW/MSW)", type: "subcategory" }
+          ]
+        }
+      ]
+    };
+
+        // D3.js setup
+        const width = 1200;
+        const height = 800;
+        const svg = d3.select("#flowchart")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Create zoom behavior
+        const zoom = d3.zoom()
+            .scaleExtent([0.5, 3])
+            .on("zoom", (event) => {
+                g.attr("transform", event.transform);
+            });
+
+        svg.call(zoom);
+
+        const g = svg.append("g");
+
+        // Create custom layout for straight vertical alignment
+        const root = d3.hierarchy(hierarchyData);
+        
+        // Set fixed positions for each level
+        const rootY = 80;
+        const categoryY = 250;
+        const subcategoryY = 420;
+        
+        // Position root node at center
+        root.x = 0;
+        root.y = rootY;
+        
+        // Get all leaf nodes (career options) and spread them out
+        const leafNodes = root.descendants().filter(d => d.depth === 2);
+        const minDistance = 120;
+        const totalWidth = leafNodes.length * minDistance;
+        const startX = -(totalWidth / 2) + (minDistance / 2);
+        
+        // Position all leaf nodes evenly
+        leafNodes.forEach((d, index) => {
+            d.x = startX + (index * minDistance);
+            d.y = subcategoryY;
+        });
+        
+        // Position category nodes evenly between root and leaves
+        const categoryNodes = root.descendants().filter(d => d.depth === 1);
+        const categorySpacing = totalWidth / categoryNodes.length;
+        const categoryStartX = -(totalWidth / 2) + (categorySpacing / 2);
+        
+        categoryNodes.forEach((categoryNode, index) => {
+            categoryNode.x = categoryStartX + (index * categorySpacing);
+            categoryNode.y = categoryY;
+        });
+
+        // Create straight links instead of curved
+        const links = g.selectAll(".link")
+            .data(root.links())
+            .enter().append("line")
+            .attr("class", "link")
+            .attr("x1", d => d.source.x + 100)
+            .attr("y1", d => d.source.y + 100)
+            .attr("x2", d => d.target.x + 100)
+            .attr("y2", d => d.target.y + 100);
+
+        // Create nodes
+        const nodes = g.selectAll(".node")
+            .data(root.descendants())
+            .enter().append("g")
+            .attr("class", d => `node ${d.data.type}`)
+            .attr("transform", d => `translate(${d.x + 100},${d.y + 100})`)
+            .on("mouseover", showTooltip)
+            .on("mouseout", hideTooltip)
+            .on("click", handleNodeClick)
+            .on("contextmenu", handleRightClick);
+
+        // Function to calculate text width
+        function getTextWidth(text, fontSize) {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            context.font = `${fontSize}px Segoe UI`;
+            return context.measureText(text).width;
+        }
+
+        // Function to wrap text in circles
+        function wrapText(text, maxWidth) {
+            const words = text.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                const word = words[i];
+                const width = getTextWidth(currentLine + " " + word, 12);
+                if (width < maxWidth * 0.7) { // Use 70% of available width for safety
+                    currentLine += " " + word;
+                } else {
+                    lines.push(currentLine);
+                    currentLine = word;
+                }
+            }
+            lines.push(currentLine);
+            
+            // Limit to maximum 3 lines to prevent overflow
+            if (lines.length > 3) {
+                lines.splice(2, lines.length - 2);
+                lines[2] = lines[2] + "...";
+            }
+            
+            return lines;
+        }
+
+        // Add circles to nodes with fixed sizing
+        nodes.append("circle")
+            .attr("r", d => {
+                if (d.data.type === "root") return 45;
+                if (d.data.type === "category") return 40;
+                return 35;
+            });
+
+        // Add text to nodes with proper wrapping
+        nodes.each(function(d) {
+            const node = d3.select(this);
+            const circle = node.select("circle");
+            const radius = parseFloat(circle.attr("r"));
+            const maxWidth = (radius - 18) * 1.3; // Much more conservative padding and width
+            const fontSize = d.data.type === "root" ? 11 : 9; // Much smaller font
+            
+            const lines = wrapText(d.data.name, maxWidth);
+            const lineHeight = fontSize + 2;
+            const totalHeight = lines.length * lineHeight;
+            const startY = -(totalHeight / 2) + (lineHeight / 2);
+
+            lines.forEach((line, i) => {
+                node.append("text")
+                    .attr("x", 0)
+                    .attr("y", startY + (i * lineHeight))
+                    .attr("text-anchor", "middle")
+                    .attr("dominant-baseline", "middle")
+                    .style("font-size", fontSize + "px")
+                    .style("font-weight", "600")
+                    .style("fill", "white")
+                    .style("text-shadow", "1px 1px 2px rgba(0,0,0,0.3)")
+                    .text(line);
+            });
+        });
+
+        // Job preference tracking
+        let jobPreferences = {};
+
+        // Node interaction functions
+        function handleNodeClick(event, d) {
+            event.preventDefault();
+            if (d.data.type === "subcategory") {
+                // Check if shift key is pressed for preference marking
+                if (event.shiftKey) {
+                    toggleInterest(d, true);
+                } else {
+                    // Single click shows modal
+                    showModal(event, d);
+                }
+            } else {
+                // For root and category nodes, always show modal
+                showModal(event, d);
+            }
+        }
+
+        function handleRightClick(event, d) {
+            event.preventDefault();
+            if (d.data.type === "subcategory") {
+                toggleInterest(d, false);
+            }
+        }
+
+        function toggleInterest(d, isInterested) {
+            const nodeName = d.data.name;
+            
+            // Find the correct node element by matching the data
+            const nodeElement = nodes.filter(nodeData => nodeData.data.name === nodeName);
+            
+            if (jobPreferences[nodeName] === (isInterested ? 'interested' : 'not-interested')) {
+                // Remove preference if clicking the same preference
+                delete jobPreferences[nodeName];
+                nodeElement.classed('interested', false).classed('not-interested', false);
+            } else {
+                // Set new preference
+                jobPreferences[nodeName] = isInterested ? 'interested' : 'not-interested';
+                nodeElement.classed('interested', isInterested).classed('not-interested', !isInterested);
+            }
+            
+            updatePreferenceSummary();
+        }
+
+        function updatePreferenceSummary() {
+            const interested = Object.keys(jobPreferences).filter(key => jobPreferences[key] === 'interested');
+            const notInterested = Object.keys(jobPreferences).filter(key => jobPreferences[key] === 'not-interested');
+            
+            console.log('Interested in:', interested);
+            console.log('Not interested in:', notInterested);
+        }
+
+        function clearPreferences() {
+            jobPreferences = {};
+            nodes.classed('interested', false).classed('not-interested', false);
+            updatePreferenceSummary();
+        }
+
+        // Tooltip functions
+        function showTooltip(event, d) {
+            const tooltip = d3.select("#tooltip");
+            const data = careerData[d.data.name];
+            let tooltipContent = `<strong>${d.data.name}</strong><br>`;
+            
+            if (data) {
+                tooltipContent += data.description;
+            }
+            
+            if (d.data.type === "subcategory") {
+                tooltipContent += `<br><br><em>Click: View details<br>Shift+Click: Mark as interested<br>Right-click: Mark as not interested</em>`;
+            } else {
+                tooltipContent += `<br><br><em>Click for more details</em>`;
+            }
+            
+            tooltip.html(tooltipContent)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 10) + "px")
+                .classed("show", true);
+        }
+
+        function hideTooltip() {
+            d3.select("#tooltip").classed("show", false);
+        }
+
+        // Modal functions
+        function showModal(event, d) {
+            const modal = document.getElementById("modal");
+            const modalBody = document.getElementById("modal-body");
+            const data = careerData[d.data.name];
+            
+            if (!data) return;
+
+            let content = `<h2>${d.data.name}</h2>`;
+            content += `<p><strong>Overview:</strong> ${data.description}</p>`;
+            content += `<p>${data.details}</p>`;
+
+            if (data.careers) {
+                content += `<h3>Career Options:</h3>`;
+                for (const [career, info] of Object.entries(data.careers)) {
+                    content += `
+                        <div style="margin-bottom: 20px; padding: 15px; background: #f7fafc; border-radius: 8px;">
+                            <h4 style="color: #667eea; margin-bottom: 8px;">${career}</h4>
+                            <p><strong>Description:</strong> ${info.description}</p>
+                            <p><strong>Details:</strong> ${info.details}</p>
+                            <p><strong>Requirements:</strong></p>
+                            <ul>
+                                ${info.requirements.map(req => `<li>${req}</li>`).join('')}
+                            </ul>
+                            <p><strong>Career Opportunities:</strong></p>
+                            <ul>
+                                ${info.opportunities.map(opp => `<li>${opp}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                }
+            }
+
+            modalBody.innerHTML = content;
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        // Control functions
+        function resetZoom() {
+            svg.transition().duration(750).call(
+                zoom.transform,
+                d3.zoomIdentity
+            );
+        }
+
+        function expandAll() {
+            nodes.selectAll("circle")
+                .transition()
+                .duration(500)
+                .attr("r", d => {
+                    if (d.data.type === "root") return 45;
+                    if (d.data.type === "category") return 40;
+                    return 35;
+                });
+        }
+
+        function collapseAll() {
+            nodes.selectAll("circle")
+                .transition()
+                .duration(500)
+                .attr("r", d => {
+                    if (d.data.type === "root") return 40;
+                    if (d.data.type === "category") return 35;
+                    return 30;
+                });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById("modal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Add entrance animations
+        nodes.style("opacity", 0)
+            .transition()
+            .duration(1000)
+            .delay((d, i) => i * 100)
+            .style("opacity", 1);
+
+        links.style("opacity", 0)
+            .transition()
+            .duration(1000)
+            .delay(500)
+            .style("opacity", 1);
+  </script>
+</body>
+</html>

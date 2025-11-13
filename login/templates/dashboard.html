@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Career Compass</title>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --card: #1f2937;
+        --border: #374151;
+        --primary-color: #4299f0;
+        --primary-50: #eff6ff;
+        --primary-100: #dbeafe;
+        --primary-200: #bfdbfe;
+        --primary-300: #93c5fd;
+        --primary-400: #60a5fa;
+        --primary-500: #3b82f6;
+        --primary-600: #2563eb;
+        --primary-700: #1d4ed8;
+        --primary-800: #1e40af;
+        --primary-900: #1e3a8a;
+      }
+    </style>
+</head>
+<body class="bg-primary-50 dark:bg-gray-900" style="font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif">
+    <div class="relative flex size-full min-h-screen flex-col group/design-root">
+        <div class="layout-container flex h-full grow flex-col">
+            <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--border)] px-4 sm:px-10 py-3 bg-[var(--card)]">
+                <div class="flex items-center gap-3">
+                    <div class="p-2 bg-[var(--primary-color)] rounded-full text-white transform hover:rotate-90 transition-transform duration-300">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12L12 20M12 12L12 4M12 12L20 12M12 12L4 12M12 12L18.364 18.364M12 12L5.63604 5.63604M12 12L18.364 5.63604M12 12L5.63604 18.364" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-white tracking-tight">Career Compass</h2>
+                </div>
+                <div class="flex flex-1 justify-between gap-4">
+                    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-400 px-6">
+                        <a class="{% if request.endpoint == 'dashboard' or request.endpoint == 'home_page' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('dashboard') }}">Dashboard</a>
+                        <a class="{% if request.endpoint == 'test' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('test') }}">Career Quiz</a>
+                        <a class="{% if request.endpoint == 'college' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('college') }}">Colleges</a>
+                        <a class="{% if request.endpoint == 'carrier' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('carrier') }}">Career Paths</a>
+                        <a class="{% if request.endpoint == 'study_material' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('study_material') }}">Resources</a>
+                        <a class="{% if request.endpoint == 'analytics' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('analytics') }}">Analytics</a>
+                        <!-- <a class="{% if request.endpoint == 'timeline' %}text-[#4299f0]{% else %}hover:text-[var(--primary-color)]{% endif %} transition-colors" href="{{ url_for('timeline') }}">Timeline</a> -->
+                    </nav>
+                </div>
+                <div class="flex items-center gap-4">
+                    <!-- Notification Component -->
+                    <button id="notificationBtn" class="relative flex items-center justify-center size-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-colors">
+                        <span class="material-symbols-outlined text-2xl">notifications</span>
+                        <!-- Notification Badge -->
+                        <span id="notificationBadge" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                    </button>
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style="background-image: url('https://www.gravatar.com/avatar/{{ user_email_md5 }}?d=identicon&s=80');"></div>
+                </div>
+            </header>
+            <main class="flex flex-1 justify-center py-8 px-6 sm:px-10">
+                <div class="w-full max-w-6xl space-y-6">
+                    <!-- User Profile Header -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-2">
+                            <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-4">
+                                        <img src="https://www.gravatar.com/avatar/{{ user_email_md5 }}?d=identicon&s=160" 
+                                             alt="Profile" class="w-20 h-20 rounded-full" />
+                                        <div>
+                                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">{{ user_name }}</h3>
+                                            <p class="text-slate-600 dark:text-slate-400 mb-2">
+                                                {% if profile.get('class') %}
+                                                    {{ profile.get('class') }} Student
+                                                    {% if profile.get('interests') %} • {{ profile.get('interests') }}{% endif %}
+                                                {% else %}
+                                                    Student
+                                                {% endif %}
+                                            </p>
+                                            {% if profile.get('subjects') %}
+                                                <div class="flex flex-wrap gap-2">
+                                                    {% for subject in profile.get('subjects').split(',') %}
+                                                        <span class="px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm rounded-full">{{ subject.strip() }}</span>
+                                                    {% endfor %}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="flex flex-col gap-3">
+                                        <a href="{{ url_for('profile') }}" class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium transition-colors">
+                                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+                                            </svg>
+                                            Edit Profile
+                                        </a>
+                                        <a href="{{ url_for('logout') }}" class="inline-flex items-center px-4 py-2 border border-red-600 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md text-sm font-medium transition-colors">
+                                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/>
+                                            </svg>
+                                            Logout
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Progress Section -->
+                        <div class="lg:col-span-1">
+                            <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm text-center h-full flex flex-col justify-center">
+                                <h6 class="text-slate-600 dark:text-slate-400 mb-4">Your Progress</h6>
+                                <div class="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
+                                    {{ profile.get('confidence', 0) }}%
+                                </div>
+                                <p class="text-sm text-slate-600 dark:text-slate-400">Profile Completion</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="lg:col-span-2">
+                            <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+                                <h5 class="text-lg font-semibold text-slate-900 dark:text-white mb-6 flex items-center">
+                                    <svg class="w-5 h-5 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Quick Actions
+                                </h5>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 cursor-pointer hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors" onclick="startCareerAssessment()">
+                                        <div class="text-center">
+                                            <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                            </svg>
+                                            <h6 class="font-medium text-slate-900 dark:text-white">Career Assessment</h6>
+                                            <p class="text-sm text-slate-600 dark:text-slate-400">Discover your strengths</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4 cursor-pointer hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors" onclick="exploreCourses()">
+                                        <div class="text-center">
+                                            <svg class="w-8 h-8 text-green-600 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+                                            </svg>
+                                            <h6 class="font-medium text-slate-900 dark:text-white">Explore Courses</h6>
+                                            <p class="text-sm text-slate-600 dark:text-slate-400">Course to career mapping</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-800 rounded-lg p-4 cursor-pointer hover:bg-cyan-100 dark:hover:bg-cyan-900/30 transition-colors" onclick="findColleges()">
+                                        <div class="text-center">
+                                            <svg class="w-8 h-8 text-cyan-600 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <h6 class="font-medium text-slate-900 dark:text-white">Find Colleges</h6>
+                                            <p class="text-sm text-slate-600 dark:text-slate-400">Colleges near you</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 cursor-pointer hover:bg-yellow-100 dark:hover:bg-yellow-900/30 transition-colors" onclick="startChat()">
+                                        <div class="text-center">
+                                            <svg class="w-8 h-8 text-yellow-600 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"/>
+                                            </svg>
+                                            <h6 class="font-medium text-slate-900 dark:text-white">Career Guidance Chat</h6>
+                                            <p class="text-sm text-slate-600 dark:text-slate-400">Get instant advice</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Live Notifications -->
+                        <div class="lg:col-span-1">
+                            <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+                                <h5 class="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+                                        </svg>
+                                        Live Notifications
+                                    </div>
+                                    <button id="refreshNotifications" class="text-blue-500 hover:text-blue-700 transition-colors" title="Refresh notifications">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </button>
+                                </h5>
+                                <div id="liveNotificationsContainer" class="space-y-3 max-h-64 overflow-y-auto">
+                                    <div class="text-center text-slate-500 dark:text-slate-400 py-4">
+                                        <div class="animate-spin w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full mx-auto mb-2"></div>
+                                        Loading notifications...
+                                    </div>
+                                </div>
+                                <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-600">
+                                    <button onclick="openFullNotifications()" class="w-full text-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 text-sm font-medium transition-colors">
+                                        View All Notifications
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Section -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm">
+                        <h5 class="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center">
+                            <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"/>
+                            </svg>
+                            Chat with Spark
+                        </h5>
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            <div class="lg:col-span-2">
+                                <div id="chat-messages" class="mb-4 max-h-80 overflow-auto border border-slate-300 dark:border-slate-600 rounded-lg p-4 bg-slate-50 dark:bg-slate-900">
+                                    {% if messages %}
+                                        {% for u,a in messages %}
+                                            <div class="mb-2"><strong class="text-blue-600">You:</strong> <span class="text-slate-700 dark:text-slate-300">{{ u }}</span></div>
+                                            <div class="mb-3"><strong class="text-green-600">Spark:</strong> <span class="text-slate-700 dark:text-slate-300" style="white-space: pre-line;">{{ a|replace('\n', '<br>')|safe }}</span></div>
+                                        {% endfor %}
+                                    {% else %}
+                                        <p class="text-slate-500 dark:text-slate-400 text-center">Start chatting with Spark to get personalized career guidance!</p>
+                                    {% endif %}
+                                </div>
+                                <form id="chat-form" class="flex gap-2">
+                                    <input id="chat-input" name="message" class="flex-1 px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Ask Spark about your career..." />
+                                    <button class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors" type="submit">Send</button>
+                                </form>
+                            </div>
+                            <div class="lg:col-span-1">
+                                <div class="text-center">
+                                    <svg class="w-16 h-16 text-blue-500 mx-auto mb-3" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                    </svg>
+                                    <h6 class="font-medium text-slate-900 dark:text-white">Spark AI Assistant</h6>
+                                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Your personalized career buddy</p>
+                                    <a href="{{ url_for('chat') }}" class="inline-flex items-center px-4 py-2 border border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-md text-sm font-medium transition-colors">Full Chat</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+<script>
+function startCareerAssessment() {
+    window.location.href = '{{ url_for("test") }}';
+}
+
+function exploreCourses() {
+    window.location.href = '{{ url_for("study_material") }}';
+}
+
+function findColleges() {
+    window.location.href = 'http://localhost:5000/college';
+}
+
+function startChat() {
+    document.getElementById('chat-input').focus();
+}
+
+// Chat functionality
+document.getElementById('chat-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const input = document.getElementById('chat-input');
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    // Add user message to chat
+    const chatMessages = document.getElementById('chat-messages');
+    chatMessages.innerHTML += `<div class="mb-2"><strong class="text-blue-600">You:</strong> <span class="text-slate-700 dark:text-slate-300">${message}</span></div>`;
+    chatMessages.innerHTML += `<div class="mb-3"><strong class="text-green-600">Spark:</strong> <span class="text-slate-500 dark:text-slate-400 italic">Thinking...</span></div>`;
+    
+    input.value = '';
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    try {
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: message })
+        });
+        
+        const data = await response.json();
+        
+        // Replace "Thinking..." with actual response
+        const lastMessage = chatMessages.lastElementChild;
+        // Convert line breaks to HTML breaks for proper formatting
+        const formattedResponse = data.response.replace(/\n/g, '<br>');
+        lastMessage.innerHTML = `<strong class="text-green-600">Spark:</strong> <span class="text-slate-700 dark:text-slate-300" style="white-space: pre-line;">${formattedResponse}</span>`;
+        
+    } catch (error) {
+        const lastMessage = chatMessages.lastElementChild;
+        lastMessage.innerHTML = `<strong class="text-green-600">Spark:</strong> <span class="text-slate-700 dark:text-slate-300">Sorry, I'm having trouble right now. Please try again.</span>`;
+    }
+    
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+});
+
+// Notification Panel
+const notificationPanelHTML = `
+    <div id="notificationPanel" class="fixed inset-y-0 right-0 w-full md:w-1/2 lg:w-1/3 bg-[var(--card)] shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto hidden">
+        <div class="flex h-full">
+            <!-- Filters Sidebar -->
+            <div class="w-1/4 bg-gray-800 p-4 border-r border-[var(--border)]">
+                <h3 class="text-lg font-bold mb-4 text-white">Filters</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-white bg-[var(--primary-color)] hover:bg-blue-600 transition-colors duration-200" data-filter="all">All</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200" data-filter="exams">Exams</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200" data-filter="courses">Courses</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200" data-filter="deadlines">Deadlines</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200" data-filter="urgent">Urgent</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Notifications Content -->
+            <div class="w-3/4 p-4 md:p-6 lg:p-8 bg-[var(--card)]">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-white">Notifications</h2>
+                    <button id="closeNotificationBtn" class="text-gray-400 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div id="notificationsContainer" class="space-y-4">
+                    <!-- Notifications will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+`;
+
+// Add notification panel to body
+document.body.insertAdjacentHTML('beforeend', notificationPanelHTML);
+
+// Notification system variables
+let notifications = [];
+let currentFilter = 'all';
+const API_BASE_URL = '/api';
+
+// DOM elements
+const notificationBtn = document.getElementById('notificationBtn');
+const notificationPanel = document.getElementById('notificationPanel');
+const closeNotificationBtn = document.getElementById('closeNotificationBtn');
+const notificationsContainer = document.getElementById('notificationsContainer');
+const notificationBadge = document.getElementById('notificationBadge');
+const filterBtns = document.querySelectorAll('.filter-btn');
+
+// Fetch notifications from API
+const fetchNotifications = async (filter = 'all') => {
+    try {
+        const url = `${API_BASE_URL}/notifications?category=${filter}`;
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        notifications = data.notifications;
+        
+        updateNotificationBadge();
+        renderNotifications(currentFilter);
+        
+    } catch (error) {
+        console.error('Error fetching notifications:', error);
+        showErrorMessage('Failed to fetch notifications.');
+    }
+};
+
+// Update notification badge count
+const updateNotificationBadge = () => {
+    const unreadCount = notifications.filter(n => !n.read).length;
+    const urgentCount = notifications.filter(n => n.priority === 'urgent').length;
+    
+    if (unreadCount > 0 || urgentCount > 0) {
+        notificationBadge.textContent = unreadCount;
+        notificationBadge.classList.remove('hidden');
+        if (urgentCount > 0) {
+            notificationBadge.classList.add('animate-pulse');
+        }
+    } else {
+        notificationBadge.classList.add('hidden');
+        notificationBadge.classList.remove('animate-pulse');
+    }
+};
+
+// Show error message
+const showErrorMessage = (message) => {
+    notificationsContainer.innerHTML = `
+        <div class="bg-red-900 border border-red-700 rounded-md p-4">
+            <div class="flex">
+                <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                </svg>
+                <div class="ml-3">
+                    <p class="text-sm text-red-200">${message}</p>
+                </div>
+            </div>
+        </div>
+    `;
+};
+
+// Render notifications
+const renderNotifications = (filter) => {
+    if (notifications.length === 0) {
+        notificationsContainer.innerHTML = '<p class="text-center text-gray-500">Loading notifications...</p>';
+        return;
+    }
+    
+    notificationsContainer.innerHTML = '';
+    let filteredNotifications = notifications;
+
+    // Apply filters
+    if (filter === 'exams') {
+        filteredNotifications = notifications.filter(n => n.category === 'exams');
+    } else if (filter === 'courses') {
+        filteredNotifications = notifications.filter(n => n.category === 'courses');
+    } else if (filter === 'deadlines') {
+        filteredNotifications = notifications.filter(n => n.category === 'deadlines');
+    } else if (filter === 'urgent') {
+        filteredNotifications = notifications.filter(n => n.priority === 'urgent');
+    }
+
+    if (filteredNotifications.length === 0) {
+        notificationsContainer.innerHTML = '<p class="text-center text-gray-500">No notifications found for this filter.</p>';
+        return;
+    }
+
+    filteredNotifications.forEach(notification => {
+        const readStatus = notification.read ? 'bg-gray-800 text-gray-400' : 'bg-gray-700 text-white';
+        const readDot = notification.read ? '' : '<span class="w-2 h-2 bg-[var(--primary-color)] rounded-full mr-2"></span>';
+        
+        // Priority indicators
+        let priorityBorder = '';
+        let priorityBadge = '';
+        if (notification.priority === 'urgent') {
+            priorityBorder = 'border-l-4 border-red-500';
+            priorityBadge = '<span class="bg-red-900 text-red-200 text-xs font-medium px-2 py-1 rounded-full">URGENT</span>';
+        } else if (notification.priority === 'high') {
+            priorityBorder = 'border-l-4 border-orange-500';
+            priorityBadge = '<span class="bg-orange-900 text-orange-200 text-xs font-medium px-2 py-1 rounded-full">HIGH</span>';
+        } else if (notification.priority === 'medium') {
+            priorityBorder = 'border-l-4 border-yellow-500';
+            priorityBadge = '<span class="bg-yellow-900 text-yellow-200 text-xs font-medium px-2 py-1 rounded-full">MEDIUM</span>';
+        } else {
+            priorityBorder = 'border-l-4 border-green-500';
+            priorityBadge = '<span class="bg-green-900 text-green-200 text-xs font-medium px-2 py-1 rounded-full">LOW</span>';
+        }
+        
+        // Category icons
+        let categoryIcon = '';
+        if (notification.category === 'exams') {
+            categoryIcon = '<svg class="w-4 h-4 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
+        } else if (notification.category === 'courses') {
+            categoryIcon = '<svg class="w-4 h-4 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/></svg>';
+        } else if (notification.category === 'deadlines') {
+            categoryIcon = '<svg class="w-4 h-4 mr-2 text-red-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>';
+        }
+
+        const notificationCard = `
+            <div class="notification-card p-4 rounded-md shadow-sm transition-transform duration-200 ease-in-out hover:shadow-lg hover:bg-gray-600 ${readStatus} ${priorityBorder}" data-read="${notification.read}">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center">
+                        ${readDot}
+                        ${categoryIcon}
+                        <h4 class="font-semibold text-lg">${notification.title}</h4>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        ${priorityBadge}
+                        <span class="text-xs text-gray-400">${notification.date}</span>
+                    </div>
+                </div>
+                <p class="text-sm line-clamp-2 ml-6">${notification.message}</p>
+            </div>
+        `;
+        notificationsContainer.innerHTML += notificationCard;
+    });
+};
+
+// Event listeners
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('filter-btn')) {
+        e.preventDefault();
+        const filter = e.target.dataset.filter;
+        
+        // Update active class
+        document.querySelectorAll('.filter-btn').forEach(b => {
+            b.classList.remove('bg-gray-200', 'text-gray-900');
+            b.classList.add('text-gray-600');
+        });
+        e.target.classList.add('bg-gray-200', 'text-gray-900');
+        e.target.classList.remove('text-gray-600');
+
+        currentFilter = filter;
+        renderNotifications(currentFilter);
+    }
+});
+
+// Toggle notification panel
+notificationBtn.addEventListener('click', () => {
+    notificationPanel.classList.remove('hidden');
+    setTimeout(() => {
+        notificationPanel.classList.remove('translate-x-full');
+    }, 10);
+    
+    // Fetch fresh data when opening
+    fetchNotifications(currentFilter);
+});
+
+// Close notification panel
+closeNotificationBtn.addEventListener('click', () => {
+    notificationPanel.classList.add('translate-x-full');
+    setTimeout(() => {
+        notificationPanel.classList.add('hidden');
+    }, 300);
+});
+
+// Initial load
+fetchNotifications(currentFilter);
+
+// Live Notifications for Dashboard
+const liveNotificationsContainer = document.getElementById('liveNotificationsContainer');
+const refreshNotificationsBtn = document.getElementById('refreshNotifications');
+
+// Fetch live notifications for dashboard
+const fetchLiveNotifications = async () => {
+    try {
+        const response = await fetch('/api/notifications?category=all');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        renderDashboardNotifications(data.notifications.slice(0, 3)); // Show only top 3
+        
+    } catch (error) {
+        console.error('Error fetching live notifications:', error);
+        liveNotificationsContainer.innerHTML = `
+            <div class="text-center text-red-500 dark:text-red-400 py-4">
+                <svg class="w-6 h-6 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+                Failed to load notifications
+            </div>
+        `;
+    }
+};
+
+// Render notifications for dashboard
+const renderDashboardNotifications = (notifications) => {
+    if (notifications.length === 0) {
+        liveNotificationsContainer.innerHTML = `
+            <div class="text-center text-slate-500 dark:text-slate-400 py-4">
+                <svg class="w-6 h-6 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+                </svg>
+                No new notifications
+            </div>
+        `;
+        return;
+    }
+    
+    liveNotificationsContainer.innerHTML = '';
+    
+    notifications.forEach(notification => {
+        // Priority colors
+        let priorityColor = '';
+        let bgColor = '';
+        let badgeColor = '';
+        
+        if (notification.priority === 'urgent') {
+            priorityColor = 'border-red-500';
+            bgColor = 'bg-red-50 dark:bg-red-900/20';
+            badgeColor = 'bg-red-500 text-white';
+        } else if (notification.priority === 'high') {
+            priorityColor = 'border-orange-500';
+            bgColor = 'bg-orange-50 dark:bg-orange-900/20';
+            badgeColor = 'bg-orange-500 text-white';
+        } else if (notification.priority === 'medium') {
+            priorityColor = 'border-yellow-500';
+            bgColor = 'bg-yellow-50 dark:bg-yellow-900/20';
+            badgeColor = 'bg-yellow-500 text-white';
+        } else {
+            priorityColor = 'border-blue-500';
+            bgColor = 'bg-blue-50 dark:bg-blue-900/20';
+            badgeColor = 'bg-blue-500 text-white';
+        }
+        
+        // Category icons
+        let categoryIcon = '';
+        if (notification.category === 'exams') {
+            categoryIcon = '<svg class="w-4 h-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
+        } else if (notification.category === 'courses') {
+            categoryIcon = '<svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z"/></svg>';
+        } else if (notification.category === 'deadlines') {
+            categoryIcon = '<svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>';
+        }
+        
+        const notificationCard = `
+            <div class="border-l-4 ${priorityColor} ${bgColor} p-3 rounded-r-lg transition-all hover:shadow-md">
+                <div class="flex justify-between items-start mb-1">
+                    <div class="flex items-center">
+                        ${categoryIcon}
+                        <h6 class="font-medium text-slate-900 dark:text-white text-sm ml-2 line-clamp-1">${notification.title}</h6>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        ${notification.priority === 'urgent' ? `<span class="${badgeColor} text-xs px-2 py-1 rounded-full font-medium">URGENT</span>` : ''}
+                        ${!notification.read ? '<span class="w-2 h-2 bg-blue-500 rounded-full"></span>' : ''}
+                    </div>
+                </div>
+                <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 ml-6">${notification.message}</p>
+                <div class="flex justify-between items-center mt-2 ml-6">
+                    <span class="text-xs text-slate-500 dark:text-slate-400">${notification.date}</span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400 capitalize">${notification.category}</span>
+                </div>
+            </div>
+        `;
+        
+        liveNotificationsContainer.innerHTML += notificationCard;
+    });
+};
+
+// Function to open full notifications panel
+function openFullNotifications() {
+    notificationPanel.classList.remove('hidden');
+    setTimeout(() => {
+        notificationPanel.classList.remove('translate-x-full');
+    }, 10);
+    
+    // Fetch fresh data when opening
+    fetchNotifications(currentFilter);
+}
+
+// Refresh notifications button
+refreshNotificationsBtn.addEventListener('click', () => {
+    // Add spinning animation
+    refreshNotificationsBtn.querySelector('svg').classList.add('animate-spin');
+    
+    fetchLiveNotifications().finally(() => {
+        // Remove spinning animation after 1 second
+        setTimeout(() => {
+            refreshNotificationsBtn.querySelector('svg').classList.remove('animate-spin');
+        }, 1000);
+    });
+});
+
+// Load live notifications on page load
+fetchLiveNotifications();
+
+// Auto-refresh every 5 minutes
+setInterval(fetchLiveNotifications, 5 * 60 * 1000);
+</script>
+</body>
+</html>

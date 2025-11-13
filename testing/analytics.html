@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Spark Career Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        /* Custom Dark Theme Styles */
+        body.bg-dark-theme {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .bg-dark-theme .card {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bg-dark-theme .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .bg-dark-theme .card-title {
+            color: #bb86fc;
+        }
+
+        .bg-dark-theme .text-primary {
+            color: #42a5f5 !important;
+        }
+
+        .bg-dark-theme .text-info {
+            color: #26c6da !important;
+        }
+
+        .bg-dark-theme .text-success {
+            color: #66bb6a !important;
+        }
+
+        .bg-dark-theme .text-warning {
+            color: #ffca28 !important;
+        }
+
+        .bg-dark-theme .text-danger {
+            color: #ef5350 !important;
+        }
+
+        .bg-dark-theme .text-muted {
+            color: #9e9e9e !important;
+        }
+        
+        .bg-dark-theme .progress-bar {
+            background-color: #66bb6a;
+            transition: width 1s ease-in-out; /* Add transition for animation */
+        }
+
+        .bg-dark-theme .btn-outline-primary {
+            color: #42a5f5;
+            border-color: #42a5f5;
+            transition: all 0.3s ease;
+        }
+
+        .bg-dark-theme .btn-outline-primary:hover {
+            background-color: #42a5f5;
+            color: #121212;
+        }
+
+        .bg-dark-theme .btn-primary {
+            background-color: #42a5f5;
+            border-color: #42a5f5;
+            transition: all 0.3s ease;
+        }
+
+        .bg-dark-theme .btn-primary:hover {
+            background-color: #1e88e5;
+            border-color: #1e88e5;
+        }
+
+        .bg-dark-theme .table-dark {
+            --bs-table-bg: #2a2a2a;
+            --bs-table-striped-bg: #3a3a3a;
+            --bs-table-hover-bg: #383838;
+            color: #e0e0e0;
+        }
+        
+        .bg-dark-theme .table-hover tbody tr:hover {
+            background-color: #383838;
+        }
+
+        .bg-dark-theme .badge {
+            font-weight: 500;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animated-fadeIn {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .animated-slideInLeft {
+            animation: slideInLeft 0.6s ease-out forwards;
+        }
+        
+        /* Staggered animation delays */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body class="bg-dark-theme">
+
+<div class="container my-4">
+    <div class="row mb-4 animated-fadeIn">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="mb-0">
+                    <i class="bi bi-graph-up text-primary me-2"></i>Your Career Analytics
+                </h2>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-outline-primary animated-slideInLeft">
+                    <i class="bi bi-arrow-left me-1"></i>Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-6 animated-fadeIn delay-1">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="bi bi-person-check text-success me-2"></i>Profile Completion
+                    </h5>
+                    <div class="progress mb-3" style="height: 20px;">
+                        <div class="progress-bar bg-success" role="progressbar" 
+                             style="width: {{ (analytics.profile_completion / 7 * 100) | round }}%">
+                            {{ (analytics.profile_completion / 7 * 100) | round }}%
+                        </div>
+                    </div>
+                    <p class="text-muted small mb-0">
+                        {{ analytics.profile_completion }} out of 7 profile fields completed
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 animated-fadeIn delay-2">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="bi bi-chat-dots text-info me-2"></i>Total Interactions
+                    </h5>
+                    <h3 class="text-primary mb-0 interactions-count">{{ analytics.total_interactions }}</h3>
+                    <p class="text-muted small mb-0">Chat sessions with Spark</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4 animated-fadeIn delay-3">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="bi bi-person-circle text-primary me-2"></i>Your Profile Summary
+                    </h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table table-borderless table-dark">
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-semibold">Class/Level:</td>
+                                        <td>{{ analytics.profile.get('class', 'Not specified') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">Subjects:</td>
+                                        <td>{{ analytics.profile.get('subjects', 'Not specified') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">Interests:</td>
+                                        <td>{{ analytics.profile.get('interests', 'Not specified') }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <table class="table table-borderless table-dark">
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-semibold">Career Goal:</td>
+                                        <td>{{ analytics.profile.get('career_goal', 'Not specified') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">Skills:</td>
+                                        <td>{{ analytics.profile.get('skills', 'Not specified') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-semibold">Location:</td>
+                                        <td>{{ analytics.profile.get('city', 'Not specified') }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4 animated-fadeIn delay-4">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="bi bi-lightbulb text-warning me-2"></i>Career Recommendations
+                    </h5>
+                    {% if analytics.recommendations %}
+                        <div class="row">
+                            {% for rec in analytics.recommendations %}
+                            <div class="col-md-6 mb-3 animated-fadeIn delay-{{ loop.index + 4 }}">
+                                <div class="card border border-warning">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-warning">{{ rec.career_path }}</h6>
+                                        <p class="card-text small">{{ rec.details[:100] }}...</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-secondary">{{ rec.type }}</span>
+                                            <small class="text-muted">{{ rec.timestamp[:10] }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="text-center py-4">
+                            <i class="bi bi-lightbulb text-muted" style="font-size: 3rem;"></i>
+                            <p class="text-muted mt-3">No career recommendations yet. Start chatting with Spark to get personalized suggestions!</p>
+                            <a href="{{ url_for('chat') }}" class="btn btn-primary">Start Chatting</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row animated-fadeIn delay-5">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="bi bi-heart text-danger me-2"></i>Your Preferences & Interactions
+                    </h5>
+                    {% if analytics.preferences %}
+                        <div class="table-responsive">
+                            <table class="table table-hover table-dark">
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Value</th>
+                                        <th>Rating</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for pref in analytics.preferences %}
+                                    <tr class="animated-fadeIn delay-{{ loop.index + 6 }}">
+                                        <td>
+                                            <span class="badge bg-primary">{{ pref.type }}</span>
+                                        </td>
+                                        <td>{{ pref.value }}</td>
+                                        <td>
+                                            {% if pref.rating > 0 %}
+                                                {% for i in range(pref.rating) %}
+                                                    <i class="bi bi-star-fill text-warning"></i>
+                                                {% endfor %}
+                                            {% else %}
+                                                <span class="text-muted">No rating</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ pref.timestamp[:10] }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="text-center py-4">
+                            <i class="bi bi-heart text-muted" style="font-size: 3rem;"></i>
+                            <p class="text-muted mt-3">No preferences tracked yet. Your interactions will be saved here for better recommendations!</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // A simple JavaScript function to animate the interaction count
+    document.addEventListener('DOMContentLoaded', () => {
+        const interactionsElement = document.querySelector('.interactions-count');
+        const endValue = parseInt(interactionsElement.textContent, 10);
+        let startValue = 0;
+        const duration = 2000; // 2 seconds
+        const startTime = performance.now();
+
+        function updateCount(currentTime) {
+            const elapsedTime = currentTime - startTime;
+            const progress = Math.min(elapsedTime / duration, 1);
+            const value = Math.floor(progress * endValue);
+            interactionsElement.textContent = value;
+            if (progress < 1) {
+                requestAnimationFrame(updateCount);
+            } else {
+                interactionsElement.textContent = endValue;
+            }
+        }
+        
+        requestAnimationFrame(updateCount);
+    });
+</script>
+</body>
+</html>

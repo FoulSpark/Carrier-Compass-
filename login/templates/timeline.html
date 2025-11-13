@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    /> -->
+     <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <title>Timeline - Career Compass</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --primary-color: #4299f0;
+        --secondary-color: #f0f6fe;
+        --text-primary: #18181b;
+        --text-secondary: #71717a;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      /* Dark Theme Styles */
+      body.dark {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+      .dark .bg-white {
+        background-color: #1e1e1e;
+      }
+      .dark .text-zinc-900 {
+        color: #e0e0e0;
+      }
+      .dark .text-zinc-500 {
+        color: #b0b0b0;
+      }
+      .dark .text-zinc-700 {
+        color: #c0c0c0;
+      }
+      .dark .hover\:bg-zinc-100:hover {
+        background-color: #2a2a2a;
+      }
+      .dark .shadow-sm {
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+      }
+      .dark .bg-blue-100 {
+        background-color: #1a365d;
+      }
+      .dark .text-blue-500 {
+        color: #63b3ed;
+      }
+      .dark .bg-green-100 {
+        background-color: #1c4532;
+      }
+      .dark .text-green-500 {
+        color: #68d391;
+      }
+      .dark .bg-yellow-100 {
+        background-color: #433800;
+      }
+      .dark .text-yellow-500 {
+        color: #f6e05e;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .animated-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      .animated-slide-in-left {
+        animation: slideInLeft 0.6s ease-out forwards;
+      }
+
+      .delay-100 {
+        animation-delay: 0.1s;
+      }
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+      .delay-400 {
+        animation-delay: 0.4s;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+      };
+    </script>
+  </head>
+  <body class="bg-[#f8fafc] dark">
+    <div
+      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+      style="font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif"
+    >
+      <div class="flex flex-1">
+        <aside
+          class="flex flex-col w-64 bg-white p-4 dark:bg-[#1e1e1e] animated-slide-in-left"
+        >
+          <div class="flex items-center gap-3 p-2">
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGk74rS1U9hJoJhe_UkffRxKuFQeGoOHDVxdUrkDvimMljpiC6Ud02yTgf8_hpqO0z1AqyaT_Z0vQ69sRshuLMjLQc41chsfZMN3HmwtM7TYQrkZ47UoEo-4oDAr23_ugUk6_yalQ-xl2hAuGnnMx5A7UR7F-T0giQji44Ae2ykz8rK3iR81eSKdMgaUiw9UxAy804UzR4nn_hjW_lXUHB2G_XaAH3yAwAOQ3PDjxi4AKT43F9Ndm1NOBNfMFH6GsPPQzXLtJH-IXO');
+              "
+            ></div>
+            <div class="flex flex-col">
+              <h1 class="text-zinc-900 text-base font-medium leading-normal dark:text-gray-200">
+                Hi, Sarah
+              </h1>
+              <p class="text-zinc-500 text-sm font-normal leading-normal dark:text-gray-400">
+                Student
+              </p>
+            </div>
+          </div>
+          <nav class="mt-8 flex flex-col gap-2">
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-lg bg-[var(--secondary-color)] text-[var(--primary-color)]"
+              href="#"
+            >
+              <span class="material-symbols-outlined">dashboard</span>
+              <span class="text-sm font-medium">Dashboard</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-700 hover:bg-zinc-100 dark:text-gray-300 dark:hover:bg-[#2a2a2a]"
+              href="../landing_page_(homepage)_2/home.html"
+            >
+              <span class="material-symbols-outlined">home</span>
+              <span class="text-sm font-medium">Home</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-700 hover:bg-zinc-100 dark:text-gray-300 dark:hover:bg-[#2a2a2a]"
+              href="../aptitude_&_interest_quiz_page_2/test.html"
+            >
+              <span class="material-symbols-outlined">quiz</span>
+              <span class="text-sm font-medium">Career Quiz</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-700 hover:bg-zinc-100 dark:text-gray-300 dark:hover:bg-[#2a2a2a]"
+              href="../course-to-career_path_mapping_2/carrier.html"
+            >
+              <span class="material-symbols-outlined">work</span>
+              <span class="text-sm font-medium">Career Paths</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-700 hover:bg-zinc-100 dark:text-gray-300 dark:hover:bg-[#2a2a2a]"
+              href="http://localhost:5002/college"
+            >
+              <span class="material-symbols-outlined">apartment</span>
+              <span class="text-sm font-medium">Colleges</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-700 hover:bg-zinc-100 dark:text-gray-300 dark:hover:bg-[#2a2a2a]"
+              href="../study_material_&_resources_2/study_material.html"
+            >
+              <span class="material-symbols-outlined">menu_book</span>
+              <span class="text-sm font-medium">Resources</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-700 hover:bg-zinc-100 dark:text-gray-300 dark:hover:bg-[#2a2a2a]"
+              href="../user_profile_&_personalization_2/profile.html"
+            >
+              <span class="material-symbols-outlined">person</span>
+              <span class="text-sm font-medium">Profile</span>
+            </a>
+            <a
+              class="flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-700 hover:bg-zinc-100 dark:text-gray-300 dark:hover:bg-[#2a2a2a]"
+              href="http://localhost:5000/analytics"
+            >
+              <span class="material-symbols-outlined">analytics</span>
+              <span class="text-sm font-medium">Analytics</span>
+            </a>
+          </nav>
+          <div
+            class="mt-auto flex flex-col gap-4 bg-gradient-to-br from-[var(--primary-color)] to-[#6ab1f3] rounded-2xl p-6 text-white"
+          >
+            <div
+              class="bg-white/20 rounded-full size-10 flex items-center justify-center"
+            >
+              <span class="material-symbols-outlined">auto_awesome</span>
+            </div>
+            <h3 class="text-lg font-semibold">Need Help?</h3>
+            <p class="text-sm">
+              Our team is here to help you with your career path.
+            </p>
+            <button
+              class="bg-white text-[var(--primary-color)] font-semibold rounded-lg py-2 px-4 text-sm mt-2"
+            >
+              Get Support
+            </button>
+          </div>
+        </aside>
+        <main class="flex-1 p-8 animated-fade-in">
+          <header class="flex justify-between items-center mb-8">
+            <h1 class="text-zinc-900 text-3xl font-bold dark:text-gray-200">
+              Dashboard
+            </h1>
+            <div class="flex items-center gap-4">
+              <button class="relative text-zinc-500 dark:text-gray-400">
+                <span class="material-symbols-outlined">notifications</span>
+                <span
+                  class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500"
+                ></span>
+              </button>
+              <button class="text-zinc-500 dark:text-gray-400">
+                <span class="material-symbols-outlined">settings</span>
+              </button>
+            </div>
+          </header>
+          <section>
+            <h2 class="text-zinc-900 text-xl font-bold mb-4 dark:text-gray-200">
+              Upcoming Deadlines
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div
+                class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-4 animated-fade-in"
+              >
+                <div class="flex-1">
+                  <p
+                    class="text-zinc-500 text-xs font-medium uppercase dark:text-gray-400"
+                  >
+                    Scholarship
+                  </p>
+                  <p
+                    class="text-zinc-900 text-base font-semibold mt-1 dark:text-gray-200"
+                  >
+                    Merit-Based Scholarship
+                  </p>
+                  <p class="text-zinc-500 text-sm mt-1 dark:text-gray-400">
+                    Deadline: July 15, 2024
+                  </p>
+                </div>
+                <div class="relative w-24 h-24">
+                  <div
+                    class="w-full h-full bg-center bg-no-repeat bg-cover rounded-lg"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD7ALvsUZXSzd6ajFQ7UH3JwwTlv3Ib2k0zFIwg01UV3IovxQNM9SdQtB_82vSJTc-1rkp1iydyK4xNYMsxp1aPuGWOv1TRFj79Y-jUd0WN8OHddoNIeYE1WE2y8hEtdeEXtMplpod2fvNmq5F8q_3fWEjptGsdkU1MCSRtM4WwWuIHAWu-C59znMButeE6RL-AoX9heOgpc4MKioK-jMret6jxusziq7uewCbX6AI9GqORKm_bzSlyfdx2y_XtSO2wfCJsDYFMZICP');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"
+                  ></div>
+                </div>
+              </div>
+              <div
+                class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-4 animated-fade-in delay-100"
+              >
+                <div class="flex-1">
+                  <p
+                    class="text-zinc-500 text-xs font-medium uppercase dark:text-gray-400"
+                  >
+                    Admission
+                  </p>
+                  <p
+                    class="text-zinc-900 text-base font-semibold mt-1 dark:text-gray-200"
+                  >
+                    University of Technology
+                  </p>
+                  <p class="text-zinc-500 text-sm mt-1 dark:text-gray-400">
+                    Deadline: August 30, 2024
+                  </p>
+                </div>
+                <div class="relative w-24 h-24">
+                  <div
+                    class="w-full h-full bg-center bg-no-repeat bg-cover rounded-lg"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC42AMYcia54EJl_fkZmAljA9o-7UnFu3tWwNqXufVeewLFC511NZP71nxpSxDtm3xf3GbHYmiKFag8STN0cWPBQ5-VcVmGSeSAyA-Cle8geVEj98xxi0IzXY_0gIe8EtzLeRnYSqIJatVFyEryCn3tewB0D6mwfJmJQKA0vofpailbCpmxzkJa7EHTH3T4PKw4KXuIsQLWf3_cab0-BHVUzgOO1sobxFnyiMq31uMppmAiKNIJ-Sq5CirSiXUtlTI7q4KnlHDHaYGE');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"
+                  ></div>
+                </div>
+              </div>
+              <div
+                class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-4 animated-fade-in delay-200"
+              >
+                <div class="flex-1">
+                  <p
+                    class="text-zinc-500 text-xs font-medium uppercase dark:text-gray-400"
+                  >
+                    Entrance Test
+                  </p>
+                  <p
+                    class="text-zinc-900 text-base font-semibold mt-1 dark:text-gray-200"
+                  >
+                    National Aptitude Test
+                  </p>
+                  <p class="text-zinc-500 text-sm mt-1 dark:text-gray-400">
+                    Date: September 10, 2024
+                  </p>
+                </div>
+                <div class="relative w-24 h-24">
+                  <div
+                    class="w-full h-full bg-center bg-no-repeat bg-cover rounded-lg"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQ3Ghi1FnXtU6bb-moE6_QE43igTuELiFMBMB8Mflf4nMyRv_IHOY9AcSucohZg2uK8iObz1hcTt82-1lj-Mj1VXlPqhahx0d23RC1v_TYeib92HA80V9vF7piTqXwBWShNgWvkqY-TmGDxcANTAX18T1fYlP-nCGMxeqATVrbkzp0UCgwtYQm3EM0DYsr6gWLDyTiuN1kzyeZ2-WrpuUhBW8pYQ4c0WyqN4L0H1PuWmdY382hMD_daETjfp5ZaLj3MBkCTYrHlQ6n');
+                    "
+                  ></div>
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+            <section class="lg:col-span-2 animated-fade-in delay-300">
+              <h2 class="text-zinc-900 text-xl font-bold mb-4 dark:text-gray-200">
+                Calendar
+              </h2>
+              <div class="bg-white p-4 rounded-xl shadow-sm dark:bg-[#1e1e1e]">
+                <div class="flex items-center justify-between mb-4">
+                  <button
+                    class="text-zinc-500 hover:text-zinc-800 dark:text-gray-400 dark:hover:text-gray-200"
+                  >
+                    <span class="material-symbols-outlined">chevron_left</span>
+                  </button>
+                  <p class="text-zinc-900 text-base font-bold dark:text-gray-200">
+                    June 2024
+                  </p>
+                  <button
+                    class="text-zinc-500 hover:text-zinc-800 dark:text-gray-400 dark:hover:text-gray-200"
+                  >
+                    <span class="material-symbols-outlined">chevron_right</span>
+                  </button>
+                </div>
+                <div class="grid grid-cols-7 gap-1 text-center text-sm">
+                  <p class="text-zinc-500 font-medium py-2 dark:text-gray-400">
+                    S
+                  </p>
+                  <p class="text-zinc-500 font-medium py-2 dark:text-gray-400">
+                    M
+                  </p>
+                  <p class="text-zinc-500 font-medium py-2 dark:text-gray-400">
+                    T
+                  </p>
+                  <p class="text-zinc-500 font-medium py-2 dark:text-gray-400">
+                    W
+                  </p>
+                  <p class="text-zinc-500 font-medium py-2 dark:text-gray-400">
+                    T
+                  </p>
+                  <p class="text-zinc-500 font-medium py-2 dark:text-gray-400">
+                    F
+                  </p>
+                  <p class="text-zinc-500 font-medium py-2 dark:text-gray-400">
+                    S
+                  </p>
+                  <div class="col-start-7 py-2"></div>
+                  <div class="py-2 text-zinc-400 dark:text-gray-500">26</div>
+                  <div class="py-2 text-zinc-400 dark:text-gray-500">27</div>
+                  <div class="py-2 text-zinc-400 dark:text-gray-500">28</div>
+                  <div class="py-2 text-zinc-400 dark:text-gray-500">29</div>
+                  <div class="py-2 text-zinc-400 dark:text-gray-500">30</div>
+                  <div class="py-2 text-zinc-400 dark:text-gray-500">31</div>
+                  <div class="py-2 dark:text-gray-300">1</div>
+                  <div class="py-2 dark:text-gray-300">2</div>
+                  <div class="py-2 dark:text-gray-300">3</div>
+                  <div class="py-2 dark:text-gray-300">4</div>
+                  <div class="py-2">
+                    <button
+                      class="flex items-center justify-center size-8 rounded-full bg-[var(--primary-color)] text-white mx-auto"
+                    >
+                      5
+                    </button>
+                  </div>
+                  <div class="py-2 dark:text-gray-300">6</div>
+                  <div class="py-2 dark:text-gray-300">7</div>
+                  <div class="py-2 dark:text-gray-300">8</div>
+                  <div class="py-2 dark:text-gray-300">9</div>
+                  <div class="py-2 dark:text-gray-300">10</div>
+                  <div class="py-2 dark:text-gray-300">11</div>
+                  <div class="py-2 dark:text-gray-300">12</div>
+                  <div class="py-2 dark:text-gray-300">13</div>
+                  <div class="py-2 dark:text-gray-300">14</div>
+                  <div class="py-2 relative">
+                    <span
+                      class="flex items-center justify-center size-8 rounded-full mx-auto dark:text-gray-300"
+                      >15</span
+                    >
+                    <span
+                      class="absolute bottom-1 left-1/2 -translate-x-1/2 block h-1 w-1 rounded-full bg-red-500"
+                    ></span>
+                  </div>
+                  <div class="py-2 dark:text-gray-300">16</div>
+                  <div class="py-2 dark:text-gray-300">17</div>
+                  <div class="py-2 dark:text-gray-300">18</div>
+                  <div class="py-2 dark:text-gray-300">19</div>
+                  <div class="py-2 dark:text-gray-300">20</div>
+                  <div class="py-2 dark:text-gray-300">21</div>
+                  <div class="py-2 dark:text-gray-300">22</div>
+                  <div class="py-2 dark:text-gray-300">23</div>
+                  <div class="py-2 dark:text-gray-300">24</div>
+                  <div class="py-2 dark:text-gray-300">25</div>
+                  <div class="py-2 dark:text-gray-300">26</div>
+                  <div class="py-2 dark:text-gray-300">27</div>
+                  <div class="py-2 dark:text-gray-300">28</div>
+                  <div class="py-2 dark:text-gray-300">29</div>
+                  <div class="py-2 dark:text-gray-300">30</div>
+                </div>
+              </div>
+            </section>
+            <section class="animated-fade-in delay-400">
+              <h2 class="text-zinc-900 text-xl font-bold mb-4 dark:text-gray-200">
+                Reminders
+              </h2>
+              <div class="space-y-4">
+                <div
+                  class="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm dark:bg-[#1e1e1e] animated-fade-in"
+                >
+                  <div
+                    class="flex items-center justify-center rounded-full bg-blue-100 text-blue-500 shrink-0 size-10 dark:bg-[#1a365d] dark:text-[#63b3ed]"
+                  >
+                    <span class="material-symbols-outlined text-xl"
+                      >school</span
+                    >
+                  </div>
+                  <div>
+                    <p class="text-zinc-900 text-sm font-semibold dark:text-gray-200">
+                      University of Technology
+                    </p>
+                    <p class="text-zinc-500 text-sm dark:text-gray-400">
+                      Submit your application
+                    </p>
+                    <p class="text-zinc-400 text-xs mt-1 dark:text-gray-500">
+                      Due: August 30, 2024
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm dark:bg-[#1e1e1e] animated-fade-in delay-100"
+                >
+                  <div
+                    class="flex items-center justify-center rounded-full bg-green-100 text-green-500 shrink-0 size-10 dark:bg-[#1c4532] dark:text-[#68d391]"
+                  >
+                    <span class="material-symbols-outlined text-xl"
+                      >edit_document</span
+                    >
+                  </div>
+                  <div>
+                    <p class="text-zinc-900 text-sm font-semibold dark:text-gray-200">
+                      National Aptitude Test
+                    </p>
+                    <p class="text-zinc-500 text-sm dark:text-gray-400">
+                      Prepare for the test
+                    </p>
+                    <p class="text-zinc-400 text-xs mt-1 dark:text-gray-500">
+                      Test Date: September 10, 2024
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm dark:bg-[#1e1e1e] animated-fade-in delay-200"
+                >
+                  <div
+                    class="flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 shrink-0 size-10 dark:bg-[#433800] dark:text-[#f6e05e]"
+                  >
+                    <span class="material-symbols-outlined text-xl">paid</span>
+                  </div>
+                  <div>
+                    <p class="text-zinc-900 text-sm font-semibold dark:text-gray-200">
+                      Merit-Based Scholarship
+                    </p>
+                    <p class="text-zinc-500 text-sm dark:text-gray-400">
+                      Application deadline approaching
+                    </p>
+                    <p class="text-zinc-400 text-xs mt-1 dark:text-gray-500">
+                      Due: July 15, 2024
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Be+Vietnam+Pro%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Dashborad - Career Compass</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #4299f0;
+      }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800" style='font-family: "Be Vietnam Pro", "Noto Sans", sans-serif;'>
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap px-10 py-4 bg-white shadow-sm">
+<div class="flex items-center gap-3 text-gray-900">
+<div class="p-2 bg-[var(--primary-color)] rounded-full text-white">
+<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 12L12 20M12 12L12 4M12 12L20 12M12 12L4 12M12 12L18.364 18.364M12 12L5.63604 5.63604M12 12L18.364 5.63604M12 12L5.63604 18.364" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Career Compass</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+<a class="hover:text-[var(--primary-color)] transition-colors" href="/">Home</a>
+<a class="hover:text-[var(--primary-color)] transition-colors" href="http://127.0.0.1:5001/api/question">Career Quiz</a>
+<a class="hover:text-[var(--primary-color)] transition-colors" href="http://127.0.0.1:5002/">Explore Colleges</a>
+<a class="hover:text-[var(--primary-color)] transition-colors" href="/dashboard">Dashboard</a>
+<!-- <a class="hover:text-[var(--primary-color)] transition-colors" href="/chat">AI Chat</a> -->
+</nav>
+<div class="flex items-center gap-2">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[var(--primary-color)] text-white text-sm font-bold leading-normal tracking-wide shadow-sm hover:bg-opacity-90 transition-all" onclick="location.href='/register'">
+<span class="truncate">Sign Up</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-100 text-gray-800 text-sm font-bold leading-normal tracking-wide hover:bg-gray-200 transition-all" onclick="location.href='/login'">
+<span class="truncate">Login</span>
+</button>
+</div>
+</header>
+<main class="flex-1">
+<section class="py-20 md:py-32">
+<div class="container mx-auto px-4">
+<div class="grid md:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-6 text-center md:text-left">
+<h1 class="text-4xl md:text-6xl font-black leading-tight tracking-tighter text-gray-900">
+                    Your Personalized Career &amp; Education Guide
+                  </h1>
+<p class="text-base md:text-lg text-gray-600">
+                    Unlock your potential with tailored career and education advice. Discover your ideal path, explore top colleges, and gain insights into various career options.
+                  </p>
+<div class="flex flex-wrap gap-4 justify-center md:justify-start mt-4">
+<button class="flex items-center gap-2 min-w-[84px] max-w-[480px] cursor-pointer justify-center overflow-hidden rounded-lg h-12 px-6 bg-[var(--primary-color)] text-white text-base font-bold shadow-lg hover:bg-opacity-90 transition-all transform hover:scale-105" onclick="location.href='http://127.0.0.1:5001/api/question'">
+<span class="material-symbols-outlined">quiz</span>
+<span class="truncate">Start Career Quiz</span>
+</button>
+<button class="flex items-center gap-2 min-w-[84px] max-w-[480px] cursor-pointer justify-center overflow-hidden rounded-lg h-12 px-6 bg-white text-gray-800 text-base font-bold shadow-md border border-gray-200 hover:bg-gray-100 transition-all transform hover:scale-105" onclick="location.href='http://127.0.0.1:5002/'">
+<span class="material-symbols-outlined">school</span>
+<span class="truncate">Explore Colleges</span>
+</button>
+<button class="flex items-center gap-2 min-w-[84px] max-w-[480px] cursor-pointer justify-center overflow-hidden rounded-lg h-12 px-6 bg-white text-gray-800 text-base font-bold shadow-md border border-gray-200 hover:bg-gray-100 transition-all transform hover:scale-105" onclick="location.href='/dashboard'">
+<span class="material-symbols-outlined">work</span>
+<span class="truncate">Check Career Paths</span>
+</button>
+<button class="flex items-center gap-2 min-w-[84px] max-w-[480px] cursor-pointer justify-center overflow-hidden rounded-lg h-12 px-6 bg-white text-gray-800 text-base font-bold shadow-md border border-gray-200 hover:bg-gray-100 transition-all transform hover:scale-105" onclick="location.href='/chat'">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="truncate">AI Study Assistant</span>
+</button>
+</div>
+</div>
+<div class="w-full h-auto">
+<img alt="Students exploring career and education paths" class="w-full h-full object-cover rounded-2xl shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6yvCEKlkO0RqN1_HAb60KwOIDZVoMSL-l8-6ri9_iZmTerMQ_IbTprGGgOfjpVCXo5qJ_VRzSB-8MvxPd1mZDCl6hkxiDZCXb2Hs9kh-7gHPCmDVbOGMOUimZ5PBZOKqs7sPgWA0n0zcoBO1rlGSWu5uL2-Lb6Qojn3DkVFNtF4UIOK03slrEfPO3vnJ0wPGTzivPkMR04HZUwiYr4meKxWip0FzGqteG1cOH1mKKM7vk1x-mvRz2glXMGbJDzhHSh6MZ_zXtropD"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-white py-10">
+<div class="container mx-auto px-4 text-center text-gray-500">
+<div class="flex flex-wrap items-center justify-center gap-6 mb-6">
+<a class="hover:text-[var(--primary-color)] transition-colors" href="/profile">Profile</a>
+<a class="hover:text-[var(--primary-color)] transition-colors" href="/analytics">Analytics</a>
+<a class="hover:text-[var(--primary-color)] transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-[var(--primary-color)] transition-colors" href="#">Terms of Service</a>
+</div>
+<p>© 2024 Carrier Compass. All rights reserved.</p>
+</div>
+</footer>
+</div>
+</div>
+
+</body></html>

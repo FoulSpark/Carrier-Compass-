@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - EduPath</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #f8fafc;
+            --accent: #10b981;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .chat-bubble {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .step-indicator {
+            transition: all 0.3s ease;
+        }
+        .step-active {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+        }
+        .step-completed {
+            background: #10b981;
+            color: white;
+        }
+    </style>
+</head>
+<body class="min-h-screen gradient-bg flex items-center justify-center p-4">
+    <!-- AI Chatbot -->
+    <div id="chatbot" class="fixed bottom-6 right-6 z-50">
+        <div id="chat-window" class="hidden mb-4 w-80 h-96 bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-4 text-white">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-sm">smart_toy</span>
+                        </div>
+                        <h3 class="font-semibold">Registration Assistant</h3>
+                    </div>
+                    <button onclick="toggleChat()" class="text-white/80 hover:text-white">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+            </div>
+            <div id="chat-messages" class="h-64 overflow-y-auto p-4 space-y-3">
+                <div class="chat-bubble">
+                    <div class="flex items-start space-x-2">
+                        <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-blue-600 text-xs">smart_toy</span>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
+                            <p class="text-sm text-gray-700">Hi! I'm here to help you create your account. I can assist with:</p>
+                            <ul class="text-xs text-gray-600 mt-2 space-y-1">
+                                <li>• Form validation</li>
+                                <li>• Career interest selection</li>
+                                <li>• Account setup tips</li>
+                                <li>• Next steps guidance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 border-t">
+                <div class="flex space-x-2">
+                    <input type="text" id="chat-input" placeholder="Ask me anything..." 
+                           class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button onclick="sendMessage()" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                        <span class="material-symbols-outlined text-sm">send</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button onclick="toggleChat()" class="w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-all floating">
+            <span class="material-symbols-outlined text-blue-500">chat</span>
+        </button>
+    </div>
+
+    <!-- Main Registration Container -->
+    <div class="w-full max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
+            <!-- Left Side - Branding & Info -->
+            <div class="text-white space-y-8">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-2xl">school</span>
+                        </div>
+                        <h1 class="text-3xl font-bold">EduPath</h1>
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-bold leading-tight">
+                        Start Your<br>
+                        <span class="text-yellow-300">Career Journey</span><br>
+                        Today
+                    </h2>
+                    <p class="text-xl text-white/80 leading-relaxed">
+                        Join thousands of students who have discovered their perfect career path with our AI-powered platform.
+                    </p>
+                </div>
+
+                <!-- Registration Steps -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold">Quick & Easy Setup</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                <span class="material-symbols-outlined text-white text-sm">check</span>
+                            </div>
+                            <span class="text-lg">Create your account (2 minutes)</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                <span class="material-symbols-outlined text-white text-sm">check</span>
+                            </div>
+                            <span class="text-lg">Take AI career assessment (5 minutes)</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                                <span class="material-symbols-outlined text-white text-sm">check</span>
+                            </div>
+                            <span class="text-lg">Get personalized recommendations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-2xl p-6">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-yellow-800">psychology</span>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">AI-Powered Matching</h3>
+                            <p class="text-sm text-white/70">Our AI analyzes your interests and suggests the best career paths</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="bg-white/10 rounded-lg p-3">
+                            <div class="font-semibold">Career Match</div>
+                            <div class="text-white/70">95% accuracy</div>
+                        </div>
+                        <div class="bg-white/10 rounded-lg p-3">
+                            <div class="font-semibold">College Fit</div>
+                            <div class="text-white/70">89% satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Registration Form -->
+            <div class="bg-white rounded-3xl shadow-2xl p-8 lg:p-12">
+                <!-- Progress Steps -->
+                <div class="flex items-center justify-center mb-8">
+                    <div class="flex items-center space-x-4">
+                        <div class="step-indicator step-active w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold">1</div>
+                        <div class="w-16 h-1 bg-gray-200 rounded"></div>
+                        <div class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200 text-gray-500">2</div>
+                        <div class="w-16 h-1 bg-gray-200 rounded"></div>
+                        <div class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold bg-gray-200 text-gray-500">3</div>
+                    </div>
+                </div>
+
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Create Your Account</h3>
+                    <p class="text-gray-600">Step 1: Basic Information</p>
+                </div>
+
+                <form class="space-y-6" onsubmit="handleRegistration(event)">
+                    <!-- Personal Information -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                            <input type="text" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                   placeholder="Enter first name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                            <input type="text" required 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                   placeholder="Enter last name">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">mail</span>
+                            <input type="email" required 
+                                   class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                   placeholder="Enter your email">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">phone</span>
+                            <input type="tel" required 
+                                   class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                   placeholder="Enter your phone number">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">lock</span>
+                            <input type="password" required id="password"
+                                   class="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                   placeholder="Create a strong password">
+                            <button type="button" onclick="togglePassword()" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                                <span class="material-symbols-outlined" id="password-icon">visibility</span>
+                            </button>
+                        </div>
+                        <div class="mt-2 text-xs text-gray-500">
+                            Password must be at least 8 characters with uppercase, lowercase, and numbers
+                        </div>
+                    </div>
+
+                    <!-- Career Interests -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Primary Career Interest</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                            <option value="">Select your primary interest</option>
+                            <option value="technology">Technology & Engineering</option>
+                            <option value="healthcare">Healthcare & Medicine</option>
+                            <option value="business">Business & Finance</option>
+                            <option value="arts">Arts & Design</option>
+                            <option value="education">Education & Teaching</option>
+                            <option value="science">Science & Research</option>
+                            <option value="law">Law & Legal</option>
+                            <option value="media">Media & Communication</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Education Level -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Current Education Level</label>
+                        <select class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                            <option value="">Select your education level</option>
+                            <option value="high-school">High School Student</option>
+                            <option value="undergraduate">Undergraduate Student</option>
+                            <option value="graduate">Graduate Student</option>
+                            <option value="professional">Working Professional</option>
+                            <option value="career-change">Career Changer</option>
+                        </select>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="flex items-start">
+                        <input type="checkbox" required class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-1">
+                        <label class="ml-3 text-sm text-gray-600">
+                            I agree to the <a href="#" class="text-blue-600 hover:text-blue-800">Terms of Service</a> and <a href="#" class="text-blue-600 hover:text-blue-800">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <div class="flex items-start">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-1">
+                        <label class="ml-3 text-sm text-gray-600">
+                            I want to receive career guidance emails and updates
+                        </label>
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg">
+                        Create Account & Continue
+                    </button>
+                </form>
+
+                <div class="mt-8 text-center">
+                    <p class="text-gray-600">
+                        Already have an account? 
+                        <a href="login.html" class="text-blue-600 hover:text-blue-800 font-semibold">Sign in here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Chatbot functionality
+        function toggleChat() {
+            const chatWindow = document.getElementById('chat-window');
+            chatWindow.classList.toggle('hidden');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            input.value = '';
+
+            // Simulate AI response
+            setTimeout(() => {
+                const response = getAIResponse(message);
+                addMessage(response, 'ai');
+            }, 1000);
+        }
+
+        function addMessage(message, sender) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-bubble';
+
+            if (sender === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="flex justify-end">
+                        <div class="bg-blue-500 text-white rounded-lg p-3 max-w-xs">
+                            <p class="text-sm">${message}</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="flex items-start space-x-2">
+                        <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                            <span class="material-symbols-outlined text-blue-600 text-xs">smart_toy</span>
+                        </div>
+                        <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
+                            <p class="text-sm text-gray-700">${message}</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function getAIResponse(message) {
+            const responses = {
+                'password': 'For a strong password, use at least 8 characters with a mix of uppercase, lowercase, numbers, and symbols. Avoid common words or personal information.',
+                'career': 'Great question! Think about what activities you enjoy most. Do you like problem-solving, helping people, creating things, or analyzing data? This will help guide your career interest selection.',
+                'email': 'Use a professional email address that you check regularly. This will be important for receiving career guidance and updates.',
+                'phone': 'Your phone number helps us send important notifications about deadlines and opportunities. We never share your personal information.',
+                'interest': 'Your career interest helps our AI recommend relevant colleges, courses, and career paths. You can always change this later in your profile.',
+                'education': 'Your current education level helps us provide age-appropriate guidance and recommendations.',
+                'help': 'I\'m here to help with your registration! I can assist with form validation, career interest selection, and explain any part of the signup process. What would you like to know?',
+                'default': 'I\'m here to help with your registration! Feel free to ask about any part of the signup process, career guidance, or how our platform works.'
+            };
+
+            const lowerMessage = message.toLowerCase();
+            for (const [key, response] of Object.entries(responses)) {
+                if (lowerMessage.includes(key)) {
+                    return response;
+                }
+            }
+            return responses.default;
+        }
+
+        // Password toggle
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const passwordIcon = document.getElementById('password-icon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordIcon.textContent = 'visibility_off';
+            } else {
+                passwordInput.type = 'password';
+                passwordIcon.textContent = 'visibility';
+            }
+        }
+
+        // Registration form handling
+        function handleRegistration(event) {
+            event.preventDefault();
+            
+            // Simulate registration process
+            const button = event.target.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Creating Account...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                // Redirect to career assessment
+                window.location.href = '../aptitude_&_interest_quiz_page_2/code.html';
+            }, 2000);
+        }
+
+        // Enter key for chat
+        document.getElementById('chat-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Form validation and real-time feedback
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('password');
+            const emailInput = document.querySelector('input[type="email"]');
+            
+            // Password strength indicator
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                const strength = getPasswordStrength(password);
+                // You could add visual feedback here
+            });
+            
+            // Email validation
+            emailInput.addEventListener('blur', function() {
+                const email = this.value;
+                if (email && !isValidEmail(email)) {
+                    this.style.borderColor = '#ef4444';
+                } else {
+                    this.style.borderColor = '#d1d5db';
+                }
+            });
+        });
+
+        function getPasswordStrength(password) {
+            let strength = 0;
+            if (password.length >= 8) strength++;
+            if (/[a-z]/.test(password)) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+            return strength;
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>

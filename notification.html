@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPath - Educational Notifications</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        .slide-in {
+            animation: slideIn 0.3s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans antialiased text-gray-800">
+
+<div class="relative min-h-screen">
+
+    <div class="p-4 flex justify-end">
+        <button id="toggleBtn" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+            <span class="ml-2">Notifications</span>
+        </button>
+    </div>
+
+    <div id="notificationPage" class="fixed inset-y-0 right-0 w-full md:w-1/2 lg:w-1/3 bg-white shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto hidden">
+        <div class="flex h-full">
+
+            <div class="w-1/4 bg-gray-100 p-4 border-r border-gray-200">
+                <h3 class="text-lg font-bold mb-4 text-gray-700">Filters</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-900 bg-gray-200 hover:bg-gray-300 transition-colors duration-200" data-filter="all">All</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-200 transition-colors duration-200" data-filter="exams">Exams</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-200 transition-colors duration-200" data-filter="courses">Courses</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-200 transition-colors duration-200" data-filter="deadlines">Deadlines</a>
+                    </li>
+                    <li>
+                        <a href="#" class="filter-btn block py-2 px-3 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-200 transition-colors duration-200" data-filter="urgent">Urgent</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w-3/4 p-4 md:p-6 lg:p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Notifications</h2>
+                    <button id="closeBtn" class="text-gray-500 hover:text-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div id="notificationsContainer" class="space-y-4">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Live data variables
+    let notifications = [];
+    let lastUpdated = null;
+    const API_BASE_URL = 'http://localhost:5000/api';
+
+    const notificationsContainer = document.getElementById('notificationsContainer');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const toggleBtn = document.getElementById('toggleBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const notificationPage = document.getElementById('notificationPage');
+
+    let currentFilter = 'all';
+    let autoRefreshInterval;
+
+    // Function to fetch notifications from API
+    const fetchNotifications = async (filter = 'all') => {
+        try {
+            const url = `${API_BASE_URL}/notifications?category=${filter}`;
+            const response = await fetch(url);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            notifications = data.notifications;
+            
+            renderNotifications(currentFilter);
+            
+        } catch (error) {
+            console.error('Error fetching notifications:', error);
+            showErrorMessage('Failed to fetch notifications.');
+        }
+    };
+    
+    
+    // Function to show error message
+    const showErrorMessage = (message) => {
+        notificationsContainer.innerHTML = `
+            <div class="bg-red-50 border border-red-200 rounded-md p-4">
+                <div class="flex">
+                    <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                    </svg>
+                    <div class="ml-3">
+                        <p class="text-sm text-red-800">${message}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    };
+
+    // Function to render notifications based on filter
+    const renderNotifications = (filter) => {
+        if (notifications.length === 0) {
+            notificationsContainer.innerHTML = '<p class="text-center text-gray-500">Loading notifications...</p>';
+            return;
+        }
+        
+        notificationsContainer.innerHTML = ''; // Clear existing notifications
+        let filteredNotifications = notifications;
+
+        if (filter === 'exams') {
+            filteredNotifications = notifications.filter(n => n.category === 'exams');
+        } else if (filter === 'courses') {
+            filteredNotifications = notifications.filter(n => n.category === 'courses');
+        } else if (filter === 'deadlines') {
+            filteredNotifications = notifications.filter(n => n.category === 'deadlines');
+        } else if (filter === 'urgent') {
+            filteredNotifications = notifications.filter(n => n.priority === 'urgent');
+        }
+
+        if (filteredNotifications.length === 0) {
+            notificationsContainer.innerHTML = '<p class="text-center text-gray-500">No notifications found for this filter.</p>';
+            return;
+        }
+
+        filteredNotifications.forEach(notification => {
+            const readStatus = notification.read ? 'bg-gray-100 text-gray-500' : 'bg-white text-gray-900';
+            const readDot = notification.read ? '' : '<span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>';
+            
+            // Priority indicators
+            let priorityBorder = '';
+            let priorityBadge = '';
+            if (notification.priority === 'urgent') {
+                priorityBorder = 'border-l-4 border-red-500';
+                priorityBadge = '<span class="bg-red-100 text-red-800 text-xs font-medium px-2 py-1 rounded-full">URGENT</span>';
+            } else if (notification.priority === 'high') {
+                priorityBorder = 'border-l-4 border-orange-500';
+                priorityBadge = '<span class="bg-orange-100 text-orange-800 text-xs font-medium px-2 py-1 rounded-full">HIGH</span>';
+            } else if (notification.priority === 'medium') {
+                priorityBorder = 'border-l-4 border-yellow-500';
+                priorityBadge = '<span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-1 rounded-full">MEDIUM</span>';
+            } else {
+                priorityBorder = 'border-l-4 border-green-500';
+                priorityBadge = '<span class="bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">LOW</span>';
+            }
+            
+            // Category icons
+            let categoryIcon = '';
+            if (notification.category === 'exams') {
+                categoryIcon = '<svg class="w-4 h-4 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>';
+            } else if (notification.category === 'courses') {
+                categoryIcon = '<svg class="w-4 h-4 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/></svg>';
+            } else if (notification.category === 'deadlines') {
+                categoryIcon = '<svg class="w-4 h-4 mr-2 text-red-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>';
+            }
+
+            const notificationCard = `
+                <div class="notification-card p-4 rounded-md shadow-sm transition-transform duration-200 ease-in-out hover:shadow-lg ${readStatus} ${priorityBorder}" data-read="${notification.read}">
+                    <div class="flex items-center justify-between mb-2">
+                        <div class="flex items-center">
+                            ${readDot}
+                            ${categoryIcon}
+                            <h4 class="font-semibold text-lg">${notification.title}</h4>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            ${priorityBadge}
+                            <span class="text-xs text-gray-400">${notification.date}</span>
+                        </div>
+                    </div>
+                    <p class="text-sm line-clamp-2 ml-6">${notification.message}</p>
+                </div>
+            `;
+            notificationsContainer.innerHTML += notificationCard;
+        });
+    };
+
+    // Function to start auto-refresh
+    const startAutoRefresh = () => {
+        // Refresh every 5 minutes
+        autoRefreshInterval = setInterval(() => {
+            fetchLiveNotifications(currentFilter);
+        }, 5 * 60 * 1000);
+    };
+    
+    // Function to stop auto-refresh
+    const stopAutoRefresh = () => {
+        if (autoRefreshInterval) {
+            clearInterval(autoRefreshInterval);
+            autoRefreshInterval = null;
+        }
+    };
+
+    // Event listener for filter buttons
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const filter = e.target.dataset.filter;
+            
+            // Update active class
+            filterBtns.forEach(b => b.classList.remove('bg-gray-200', 'text-gray-900'));
+            filterBtns.forEach(b => b.classList.add('text-gray-600'));
+            e.target.classList.add('bg-gray-200', 'text-gray-900');
+            e.target.classList.remove('text-gray-600');
+
+            currentFilter = filter;
+            renderNotifications(currentFilter);
+        });
+    });
+    
+
+    // Toggle button event listener
+    toggleBtn.addEventListener('click', () => {
+        notificationPage.classList.remove('hidden');
+        setTimeout(() => {
+            notificationPage.classList.remove('translate-x-full');
+            notificationPage.classList.add('slide-in');
+        }, 10);
+        
+        // Fetch fresh data when opening
+        fetchNotifications(currentFilter);
+    });
+
+    // Close button event listener
+    closeBtn.addEventListener('click', () => {
+        notificationPage.classList.remove('slide-in');
+        notificationPage.classList.add('translate-x-full');
+        setTimeout(() => {
+            notificationPage.classList.add('hidden');
+        }, 300);
+        
+    });
+    
+    // Initial load
+    fetchNotifications(currentFilter);
+</script>
+
+</body>
+</html>
