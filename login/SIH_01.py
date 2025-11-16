@@ -10,13 +10,13 @@ import os
 ai_chat.init_db()
 
 # API Keys (read from environment if provided)
-API_KEY = os.environ.get("GOOGLE_API_KEY", "AIzaSyA_6G4F-mayTXCIo1OKtrCLK9aX34un9oo")
+API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={API_KEY}"
 
-API_KEY2 = os.environ.get("GOOGLE_API_KEY2", "AIzaSyDe4uJLYc3PdWcHB2JMNm8eg4Mm7eM6djs")
+API_KEY2 = os.environ.get("GOOGLE_API_KEY2", "")
 API_URL2 = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={API_KEY2}"
 
-GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY", "AIzaSyAXK4aHLUS1236LLvHzWIUopKobvnxYRts")
+GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY", "")
 GEOCODE_URL = "https://maps.googleapis.com/maps/api/geocode/json"
 PLACES_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 
