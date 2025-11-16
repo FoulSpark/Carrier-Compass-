@@ -53,6 +53,4 @@ def run_cli():
 if __name__ == "__main__":
     run_cli()
 
-# AIzaSyDqZqp-4LVf_OMu6qCPxDDmEon85S4hQWg
-# AIzaSyAJetds1U5BdHhs-RJpqZREo4pjRHU2v_M
 
